@@ -56,11 +56,13 @@
     <span class="mf">11.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">CurrentBPUpdate</span><span class="o">.</span><span class="n">TcPOU</span>
     <span class="mf">12.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">CXDisplay</span><span class="o">.</span><span class="n">TcPOU</span>
     <span class="mf">13.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">Fast_Faults_Evaluate</span><span class="o">.</span><span class="n">TcPOU</span>
-    <span class="mf">14.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">FB_eVSimulator</span><span class="o">.</span><span class="n">TcPOU</span>
-    <span class="mf">15.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">MachineSimulation</span><span class="o">.</span><span class="n">TcPOU</span>
-    <span class="mf">16.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">MAIN</span><span class="o">.</span><span class="n">TcPOU</span>
-    <span class="mf">17.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">TcPOU</span>
-    <span class="mf">18.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">Testing</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">14.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">FB_BPControlDevice</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">15.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">FB_eVSimulator</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">16.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">FB_StopperWatcher</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">17.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">MachineSimulation</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">18.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">MAIN</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">19.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">TcPOU</span>
+    <span class="mf">20.</span><span class="p">)</span> <span class="n">ArbiterPLC</span><span class="o">/</span><span class="n">POUs</span><span class="o">/</span><span class="n">Testing</span><span class="o">.</span><span class="n">TcPOU</span>
 
 <span class="n">POUs</span><span class="p">:</span>
     <span class="mf">1.</span><span class="p">)</span> <span class="n">CXDisplay</span>
@@ -68,15 +70,17 @@
     <span class="mf">3.</span><span class="p">)</span> <span class="n">CheckRangeSigned</span>
     <span class="mf">4.</span><span class="p">)</span> <span class="n">CheckRangeUnsigned</span>
     <span class="mf">5.</span><span class="p">)</span> <span class="n">CurrentBPUpdate</span>
-    <span class="mf">6.</span><span class="p">)</span> <span class="n">FB_Hgvpu</span>
-    <span class="mf">7.</span><span class="p">)</span> <span class="n">FB_SXU</span>
-    <span class="mf">8.</span><span class="p">)</span> <span class="n">FB_UndulatorSegment</span>
-    <span class="mf">9.</span><span class="p">)</span> <span class="n">FB_eVSimulator</span>
-    <span class="mf">10.</span><span class="p">)</span> <span class="n">Fast_Faults_Evaluate</span>
-    <span class="mf">11.</span><span class="p">)</span> <span class="n">MAIN</span>
-    <span class="mf">12.</span><span class="p">)</span> <span class="n">MachineSimulation</span>
-    <span class="mf">13.</span><span class="p">)</span> <span class="n">PMPS_Arbiter</span>
-    <span class="mf">14.</span><span class="p">)</span> <span class="n">Testing</span>
+    <span class="mf">6.</span><span class="p">)</span> <span class="n">FB_BPControlDevice</span>
+    <span class="mf">7.</span><span class="p">)</span> <span class="n">FB_Hgvpu</span>
+    <span class="mf">8.</span><span class="p">)</span> <span class="n">FB_SXU</span>
+    <span class="mf">9.</span><span class="p">)</span> <span class="n">FB_StopperWatcher</span>
+    <span class="mf">10.</span><span class="p">)</span> <span class="n">FB_UndulatorSegment</span>
+    <span class="mf">11.</span><span class="p">)</span> <span class="n">FB_eVSimulator</span>
+    <span class="mf">12.</span><span class="p">)</span> <span class="n">Fast_Faults_Evaluate</span>
+    <span class="mf">13.</span><span class="p">)</span> <span class="n">MAIN</span>
+    <span class="mf">14.</span><span class="p">)</span> <span class="n">MachineSimulation</span>
+    <span class="mf">15.</span><span class="p">)</span> <span class="n">PMPS_Arbiter</span>
+    <span class="mf">16.</span><span class="p">)</span> <span class="n">Testing</span>
 
 <span class="n">GVLs</span><span class="p">:</span>
     <span class="mf">1.</span><span class="p">)</span> <span class="n">GVL</span>
@@ -90,20 +94,20 @@
    {attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX)Arbiter:01
     &#39;}
-	g_fbArbiter1	:	FB_Arbiter(25);
+    g_fbArbiter1	:	FB_Arbiter(25);
 
-	ReqBP	:	ST_BeamParams; //Currently the placeholder for the fully arbitrated BP set
-	
-	//Example implementation of the FFO
-    
+    ReqBP	:	ST_BeamParams; //Currently the placeholder for the fully arbitrated BP set
+
+    //Example implementation of the FFO
+
     {attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX)FFO:01
     &#39;}
-	{attribute &#39;TcLinkTo&#39; := &#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output&#39;}
-	g_FastFaultOutput1	:	FB_HardwareFFOutput;
-    
-	g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
-    
+    {attribute &#39;TcLinkTo&#39; := &#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output&#39;}
+    g_FastFaultOutput1	:	FB_HardwareFFOutput;
+
+    g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
+
     AttemptReset    :   BOOL; // For testing
 END_VAR
 </pre></div>
@@ -130,14 +134,14 @@ END_VAR
     <span class="n">fbFormat</span>   <span class="o">:</span> <span class="n">FB_FormatString</span><span class="p">;</span>
     <span class="n">bError</span>     <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
     <span class="n">nErrID</span>     <span class="o">:</span> <span class="n">UDINT</span><span class="p">;</span>
-    <span class="n">sOut</span>       <span class="o">:</span> <span class="n">T_MaxString</span><span class="p">;</span>   
+    <span class="n">sOut</span>       <span class="o">:</span> <span class="n">T_MaxString</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="p">(</span><span class="o">*</span>
 <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bExecute</span> <span class="n">S</span><span class="o">=</span> <span class="k">NOT</span> <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bBusy</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bError</span><span class="p">;</span>
 <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bExecute</span> <span class="n">R</span><span class="o">=</span> <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bBusy</span> <span class="k">OR</span> <span class="n">DisplayStats</span><span class="p">.</span><span class="n">bError</span><span class="p">;</span>
 
 <span class="n">DisplayStats</span><span class="p">.</span><span class="n">sLine1</span> <span class="o">:=</span> <span class="na">&#39;PMPS</span><span class="o">-</span><span class="n">ARBITER</span><span class="o">-</span><span class="n">K</span><span class="p">&#39;;</span>
-<span class="n">fbFormat</span><span class="p">(</span><span class="n">sFormat</span> <span class="o">:=</span> <span class="na">&#39;Fast</span> <span class="n">Faults</span><span class="o">:</span> <span class="o">%</span><span class="n">d</span><span class="p">&#39;,</span> <span class="n">arg1</span><span class="o">:=</span><span class="n">F_ULINT</span><span class="p">(</span><span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">AccumulatedFF</span><span class="p">),</span> <span class="n">sOut</span><span class="o">=&gt;</span><span class="n">DisplayStats</span><span class="p">.</span><span class="n">sLine2</span><span class="p">,</span> <span class="n">bError</span> <span class="o">=&gt;</span> <span class="n">bError</span><span class="p">,</span> <span class="n">nErrID</span> <span class="o">=&gt;</span> <span class="n">nErrID</span> <span class="p">);</span> 
+<span class="n">fbFormat</span><span class="p">(</span><span class="n">sFormat</span> <span class="o">:=</span> <span class="na">&#39;Fast</span> <span class="n">Faults</span><span class="o">:</span> <span class="o">%</span><span class="n">d</span><span class="p">&#39;,</span> <span class="n">arg1</span><span class="o">:=</span><span class="n">F_ULINT</span><span class="p">(</span><span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">AccumulatedFF</span><span class="p">),</span> <span class="n">sOut</span><span class="o">=&gt;</span><span class="n">DisplayStats</span><span class="p">.</span><span class="n">sLine2</span><span class="p">,</span> <span class="n">bError</span> <span class="o">=&gt;</span> <span class="n">bError</span><span class="p">,</span> <span class="n">nErrID</span> <span class="o">=&gt;</span> <span class="n">nErrID</span> <span class="p">);</span>
 
 <span class="n">DisplayStats</span><span class="p">(</span><span class="n">eMode</span><span class="o">:=</span><span class="n">E_CX2100_DisplayModesWr</span><span class="p">.</span><span class="n">eCX2100_WriteLines</span><span class="p">);</span>
 <span class="o">*</span><span class="p">)</span>
@@ -152,7 +156,7 @@ END_VAR
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>// Implicitly generated code : DO NOT EDIT
 FUNCTION CheckBounds : DINT
 VAR_INPUT
-	index, lower, upper: DINT;
+    index, lower, upper: DINT;
 END_VAR
 // User defined local variables
 VAR
@@ -180,7 +184,7 @@ ELSIF index &gt; upper THEN
                dintArg     := index);
 
 // Index OK
-ELSE 
+ELSE
     CheckBounds := index;
 END_IF
 {flow}
@@ -195,16 +199,16 @@ END_FUNCTION
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>// Implicitly generated code : DO NOT EDIT
 FUNCTION CheckRangeSigned : DINT
 VAR_INPUT
-	value, lower, upper: DINT;
+    value, lower, upper: DINT;
 END_VAR
 // Implicitly generated code : Only an Implementation suggestion
 
 IF (value &lt; lower) THEN
-	CheckRangeSigned := lower;
+    CheckRangeSigned := lower;
 ELSIF(value &gt; upper) THEN
-	CheckRangeSigned := upper;
+    CheckRangeSigned := upper;
 ELSE
-	CheckRangeSigned := value;
+    CheckRangeSigned := value;
 END_IF
 {flow}
 
@@ -218,16 +222,16 @@ END_FUNCTION
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>// Implicitly generated code : DO NOT EDIT
 FUNCTION CheckRangeUnsigned : UDINT
 VAR_INPUT
-	value, lower, upper: UDINT;
+    value, lower, upper: UDINT;
 END_VAR
 // Implicitly generated code : Only an Implementation suggestion
 {noflow}
 IF (value &lt; lower) THEN
-	CheckRangeUnsigned := lower;
+    CheckRangeUnsigned := lower;
 ELSIF(value &gt; upper) THEN
-	CheckRangeUnsigned := upper;
+    CheckRangeUnsigned := upper;
 ELSE
-	CheckRangeUnsigned := value;
+    CheckRangeUnsigned := value;
 END_IF
 {flow}
 
@@ -247,12 +251,58 @@ END_FUNCTION
 </pre></div>
 </div>
 </div>
+<div class="section" id="pou-fb-bpcontroldevice">
+<h2>POU: FB_BPControlDevice<a class="headerlink" href="#pou-fb-bpcontroldevice" title="Permalink to this headline">¶</a></h2>
+<p>File: ArbiterPLC/POUs/FB_BPControlDevice.TcPOU</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>(*
+Used to request a beam parameter set from EPICS.
+
+Technically just one of these is needed in the entire
+PMPS for a line.
+
+*)
+FUNCTION_BLOCK FB_BPControlDevice
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR_IN_OUT
+    Arbiter : FB_Arbiter;
+END_VAR
+VAR
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: ReqBP
+        io: o
+    &#39;}
+    EpicsReqBP : ST_BeamParams;
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: Apply
+        io: o
+    &#39;}
+    bApply : BOOL;
+
+    nControlDeviceID : DWORD;
+
+    rtApply : R_TRIG;
+
+END_VAR
+rtApply(CLK:=bApply);
+IF rtApply.Q THEN
+    Arbiter.RemoveRequest(nControlDeviceID);
+    Arbiter.AddRequest(nControlDeviceID, EpicsReqBP);
+    bApply := FALSE;
+END_IF
+
+END_FUNCTION_BLOCK
+</pre></div>
+</div>
+</div>
 <div class="section" id="pou-fb-hgvpu">
 <h2>POU: FB_Hgvpu<a class="headerlink" href="#pou-fb-hgvpu" title="Permalink to this headline">¶</a></h2>
 <p>File: ArbiterPLC/POUs/Accelerator/FB_Hgvpu.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>FUNCTION_BLOCK FB_Hgvpu
 VAR_INPUT
-	
+
 END_VAR
 
 VAR_OUTPUT
@@ -264,70 +314,70 @@ VAR
 
     {attribute &#39;pytmc&#39; := &#39;pv: 24; link: 2450:&#39;}
     fbSegment_24 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 25; link: 2550:&#39;}
     fbSegment_25 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 26; link: 2650:&#39;}
     fbSegment_26 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 27; link: 2750:&#39;}
     fbSegment_27 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 29; link: 2950:&#39;}
     fbSegment_29 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 30; link: 3050:&#39;}
     fbSegment_30 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 31; link: 3150:&#39;}
     fbSegment_31 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 32; link: 3250:&#39;}
     fbSegment_32 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 33; link: 3350:&#39;}
     fbSegment_33 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 34; link: 3450:&#39;}
     fbSegment_34 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 35; link: 3550:&#39;}
     fbSegment_35 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 36; link: 3650:&#39;}
     fbSegment_36 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 37; link: 3750:&#39;}
     fbSegment_37 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 38; link: 3850:&#39;}
     fbSegment_38 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 39; link: 3950:&#39;}
     fbSegment_39 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 40; link: 4050:&#39;}
     fbSegment_40 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 41; link: 4150:&#39;}
     fbSegment_41 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 42; link: 4250:&#39;}
     fbSegment_42 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 43; link: 4350:&#39;}
     fbSegment_43 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 44; link: 4450:&#39;}
     fbSegment_44 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 45; link: 4550:&#39;}
     fbSegment_45 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 46; link: 4650:&#39;}
     fbSegment_46 : FB_UndulatorSegment;
-    
+
     fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
     fbCurrentSegment : REFERENCE TO FB_UndulatorSegment;
 
@@ -372,8 +422,8 @@ END_IF
 
 FOR iIndex := iLowBound TO iHighBound DO
     IF fbSegment[iIndex] &lt;&gt; 0 THEN
-		fbCurrentSegment REF= fbSegment[iIndex]^;
-		fbCurrentSegment();
+        fbCurrentSegment REF= fbSegment[iIndex]^;
+        fbCurrentSegment();
     END_IF
 END_FOR
 
@@ -386,7 +436,7 @@ END_FUNCTION_BLOCK
 <p>File: ArbiterPLC/POUs/Accelerator/FB_SXU.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>FUNCTION_BLOCK FB_SXU
 VAR_INPUT
-	
+
 END_VAR
 
 VAR_OUTPUT
@@ -400,67 +450,67 @@ VAR
 
     {attribute &#39;pytmc&#39; := &#39;pv: 26; link: 2650:&#39;}
     fbSegment_26 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 27; link: 2750:&#39;}
     fbSegment_27 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 28; link: 2850:&#39;}
     fbSegment_28 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 29; link: 2950:&#39;}
     fbSegment_29 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 30; link: 3050:&#39;}
     fbSegment_30 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 31; link: 3150:&#39;}
     fbSegment_31 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 32; link: 3250:&#39;}
     fbSegment_32 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 33; link: 3350:&#39;}
     fbSegment_33 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 34; link: 3450:&#39;}
     fbSegment_34 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 36; link: 3650:&#39;}
     fbSegment_36 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 37; link: 3750:&#39;}
     fbSegment_37 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 38; link: 3850:&#39;}
     fbSegment_38 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 39; link: 3950:&#39;}
     fbSegment_39 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 40; link: 4050:&#39;}
     fbSegment_40 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 41; link: 4150:&#39;}
     fbSegment_41 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 42; link: 4250:&#39;}
     fbSegment_42 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 43; link: 4350:&#39;}
     fbSegment_43 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 44; link: 4450:&#39;}
     fbSegment_44 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 45; link: 4550:&#39;}
     fbSegment_45 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 46; link: 4650:&#39;}
     fbSegment_46 : FB_UndulatorSegment;
-    
+
     {attribute &#39;pytmc&#39; := &#39;pv: 47; link: 4750:&#39;}
     fbSegment_47 : FB_UndulatorSegment;
-    
+
 
 
     fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
@@ -506,12 +556,57 @@ END_IF
 
 FOR iIndex := iLowBound TO iHighBound DO
     IF fbSegment[iIndex] &lt;&gt; 0 THEN
-		fbCurrentSegment REF= fbSegment[iIndex]^;
-		fbCurrentSegment();
+        fbCurrentSegment REF= fbSegment[iIndex]^;
+        fbCurrentSegment();
     END_IF
 END_FOR
 
 END_FUNCTION_BLOCK
+</pre></div>
+</div>
+</div>
+<div class="section" id="pou-fb-stopperwatcher">
+<h2>POU: FB_StopperWatcher<a class="headerlink" href="#pou-fb-stopperwatcher" title="Permalink to this headline">¶</a></h2>
+<p>File: ArbiterPLC/POUs/FB_StopperWatcher.TcPOU</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Relays</span> <span class="n">stopper</span> <span class="n">state</span> <span class="k">and</span> <span class="n">sends</span> <span class="n">a</span> <span class="n">message</span> <span class="k">when</span> <span class="n">stopper</span> <span class="n">state</span> <span class="n">changes</span><span class="p">.</span>
+<span class="n">FUNCTION_BLOCK</span> <span class="n">FB_StopperWatcher</span>
+<span class="n">VAR_INPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+    <span class="n">i_StopperOutLS</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">i_StopperInLS</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">q_StopperOUT_Relay</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">q_StopperIN_Relay</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="o">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">eStopper</span> <span class="o">:</span> <span class="n">PMPS</span><span class="p">.</span><span class="n">L_Stopper</span><span class="p">;</span>
+    <span class="n">StopperName</span> <span class="o">:</span> <span class="kt">STRING</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Logging</span>
+    <span class="n">fbLogMsg</span> <span class="o">:</span> <span class="n">FB_LogMessage</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">eSubSystem</span> <span class="o">:=</span> <span class="n">E_Subsystem</span><span class="p">.</span><span class="n">MPS</span><span class="p">);</span>
+
+    <span class="n">rtIn</span> <span class="o">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
+    <span class="n">rtOut</span> <span class="o">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
+
+<span class="n">END_VAR</span>
+<span class="n">rtIn</span><span class="p">(</span><span class="n">CLK</span> <span class="o">:=</span> <span class="n">i_StopperInLS</span><span class="p">);</span>
+<span class="n">rtOut</span><span class="p">(</span><span class="n">CLK</span> <span class="o">:=</span> <span class="n">i_StopperOutLS</span><span class="p">);</span>
+
+<span class="k">IF</span> <span class="n">rtIn</span><span class="p">.</span><span class="n">Q</span> <span class="k">THEN</span>
+    <span class="n">fbLogMsg</span><span class="p">.</span><span class="n">sMsg</span> <span class="o">:=</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">StopperName</span><span class="p">,</span> <span class="p">&#39;</span> <span class="n">moved</span> <span class="k">IN</span><span class="p">&#39;);</span>
+    <span class="n">fbLogMsg</span><span class="p">();</span>
+<span class="k">ELSIF</span> <span class="n">rtOut</span><span class="p">.</span><span class="n">Q</span> <span class="k">THEN</span>
+    <span class="n">fbLogMsg</span><span class="p">.</span><span class="n">sMsg</span> <span class="o">:=</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">StopperName</span><span class="p">,</span> <span class="p">&#39;</span> <span class="n">moved</span> <span class="k">OUT</span><span class="p">&#39;);</span>
+    <span class="n">fbLogMsg</span><span class="p">();</span>
+<span class="n">END_IF</span>
+
+<span class="n">q_StopperOUT_Relay</span> <span class="o">:=</span> <span class="n">i_StopperOutLS</span><span class="p">;</span>
+<span class="n">q_StopperIN_Relay</span> <span class="o">:=</span> <span class="n">i_StopperInLS</span><span class="p">;</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
 </pre></div>
 </div>
 </div>
@@ -524,17 +619,17 @@ END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	{attribute &#39;pytmc&#39; := &#39;
-		pv: KDes
-		link: KDes
-	&#39;}
-	fbKDesired : FB_LREALFromEPICS;
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: KDes
+        link: KDes
+    &#39;}
+    fbKDesired : FB_LREALFromEPICS;
 
-	{attribute &#39;pytmc&#39; := &#39;
-		pv: KAct
-		link: KAct
-	&#39;}
-	fbKActual : FB_LREALFromEPICS;
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: KAct
+        link: KAct
+    &#39;}
+    fbKActual : FB_LREALFromEPICS;
 
 END_VAR
 fbKDesired();
@@ -554,25 +649,25 @@ Adds noise to the eV and changes eV position occasionally.
 *)
 FUNCTION_BLOCK FB_eVSimulator
 VAR_INPUT
-	NoiseLevel	:	REAL	:= 0; // eV Noise
-	ChangeTime : TIME := T#10S;
+    NoiseLevel	:	REAL	:= 0; // eV Noise
+    ChangeTime : TIME := T#10S;
 END_VAR
 VAR_OUTPUT
-	eV	:	REAL := 300;
+    eV	:	REAL := 300;
 END_VAR
 VAR
-	eVRange : REAL := 1600;
-	timer: TON;
-	eVRand	:	DRAND :=(Seed:=0);
-	NoiseRand : DRAND := (Seed:=0);
+    eVRange : REAL := 1600;
+    timer: TON;
+    eVRand	:	DRAND :=(Seed:=0);
+    NoiseRand : DRAND := (Seed:=0);
 END_VAR
 timer(in:=TRUE, PT:=ChangeTime);
 
 //Occasionally change eV
 IF timer.Q THEN
-	timer(in:=FALSE);
-	eVRand();
-	eV := LIMIT(0, eVRange*LREAL_TO_REAL(eVRand.Num), eVRange);
+    timer(in:=FALSE);
+    eVRand();
+    eV := LIMIT(0, eVRange*LREAL_TO_REAL(eVRand.Num), eVRange);
 END_IF
 
 // Noise generation
@@ -591,7 +686,7 @@ END_FUNCTION_BLOCK
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">Fast_Faults_Evaluate</span>
 <span class="n">VAR</span>
 <span class="n">END_VAR</span>
-<span class="n">g_FastFaultOutput1</span><span class="p">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">i_xVeto</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">.</span><span class="n">aStoppers</span><span class="p">[</span><span class="n">PMPS</span><span class="p">.</span><span class="n">L_Stopper</span><span class="p">.</span><span class="n">ST1</span><span class="p">]);</span>
+<span class="n">g_FastFaultOutput1</span><span class="p">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">i_xVeto</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">.</span><span class="n">aStoppers</span><span class="p">[</span><span class="n">PMPS</span><span class="p">.</span><span class="n">L_Stopper</span><span class="p">.</span><span class="n">ST1L0</span><span class="p">]);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -602,28 +697,33 @@ END_FUNCTION_BLOCK
 <p>File: ArbiterPLC/POUs/MAIN.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>PROGRAM MAIN
 VAR
-	Initialize	:	BOOL := TRUE;
-    
-	fbLogHandler : FB_LogHandler;
-	fbEcatDiag : FB_EcatDiagWrapper;
-(*
-	{attribute &#39;pytmc&#39; := &#39;
-		pv: Arbiter:Link:HGVPU
-		link: USEG:UNDH:
-	&#39;}
-	fbHgvpu : FB_Hgvpu;
-	
-	{attribute &#39;pytmc&#39; := &#39;
-		pv: Arbiter:Link:SXU
-		link: USEG:UNDS:
-	&#39;}
-	fbSxu : FB_SXU;
-*)	
+    Initialize	:	BOOL := TRUE;
+
+    fbLogHandler : FB_LogHandler;
+    fbEcatDiag : FB_EcatDiagWrapper;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: Arbiter:Link:HGVPU
+        link: USEG:UNDH:
+    &#39;}
+    fbHgvpu : FB_Hgvpu;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: Arbiter:Link:SXU
+        link: USEG:UNDS:
+    &#39;}
+    fbSxu : FB_SXU;
+
+    {attribute &#39;pytmc&#39; := &#39;
+    pv: @(PREFIX)BeamParamCntl
+    &#39;}
+    fbBPControl : FB_BPControlDevice(nID:=10);
+
 END_VAR
 //Arbiter PLC
 
 IF Initialize THEN
-	Initialize := FALSE;
+    Initialize := FALSE;
 END_IF
 
 // Ethercat Diagnostics
@@ -634,12 +734,18 @@ fbEcatDiag();
 // Might have a switch to change to simulation mode
 MachineSimulation();
 Testing();
-///////////////////////////////////////////////////	
+///////////////////////////////////////////////////
+
+fbHgvpu();
+fbSxu();
+
+// Dummy device for controling pmps beam parameters
+fbBPControl(Arbiter:=g_fbArbiter1);
 
 //Update current BP
 CurrentBPUpdate();
 
-// PMPS Functionality	
+// PMPS Functionality
 PMPS_Arbiter();
 
 
@@ -657,18 +763,18 @@ END_ACTION
 <p>File: ArbiterPLC/POUs/MachineSimulation.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">MachineSimulation</span>
 <span class="n">VAR</span>
-	<span class="n">fbMachine</span>	<span class="o">:</span>	<span class="n">FB_MachineSimulator</span><span class="p">;</span> <span class="o">//</span><span class="n">Simulates</span> <span class="n">attenuator</span> <span class="n">as</span> <span class="n">well</span>
-	<span class="n">fbeVSimulator</span> <span class="o">:</span> <span class="n">FB_eVSimulator</span> <span class="o">:=</span> <span class="p">(</span><span class="n">NoiseLevel</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">fbMachine</span>	<span class="o">:</span>	<span class="n">FB_MachineSimulator</span><span class="p">;</span> <span class="o">//</span><span class="n">Simulates</span> <span class="n">attenuator</span> <span class="n">as</span> <span class="n">well</span>
+    <span class="n">fbeVSimulator</span> <span class="o">:</span> <span class="n">FB_eVSimulator</span> <span class="o">:=</span> <span class="p">(</span><span class="n">NoiseLevel</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">reV</span> <span class="n">Simulator</span>
 <span class="n">fbeVSimulator</span><span class="p">();</span>
 
 <span class="o">//</span> <span class="n">Machine</span> <span class="n">simulator</span>
 <span class="n">fbMachine</span><span class="p">(</span>
-	<span class="n">i_stAssertedParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stRequestedBeamParameters</span><span class="p">,</span>
-	<span class="n">q_stMachineParams</span> <span class="o">=&gt;</span> <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
-	<span class="n">i_xFault</span>	<span class="o">:=</span> <span class="k">NOT</span> <span class="n">GVL</span><span class="p">.</span><span class="n">g_FastFaultOutput1</span><span class="p">.</span><span class="n">q_xFastFaultOut</span>
-	<span class="p">);</span>
+    <span class="n">i_stAssertedParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stRequestedBeamParameters</span><span class="p">,</span>
+    <span class="n">q_stMachineParams</span> <span class="o">=&gt;</span> <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
+    <span class="n">i_xFault</span>	<span class="o">:=</span> <span class="k">NOT</span> <span class="n">GVL</span><span class="p">.</span><span class="n">g_FastFaultOutput1</span><span class="p">.</span><span class="n">q_xFastFaultOut</span>
+    <span class="p">);</span>
 
 <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">.</span><span class="n">neVRange</span> <span class="o">:=</span> <span class="n">F_eVRangeCalculator</span><span class="p">(</span><span class="n">fbeVSimulator</span><span class="p">.</span><span class="n">eV</span><span class="p">,</span> <span class="n">PMPS_GVL</span><span class="p">.</span><span class="n">stCurrentBeamParameters</span><span class="p">.</span><span class="n">neVRange</span><span class="p">);</span>
 
@@ -681,54 +787,69 @@ END_ACTION
 <p>File: ArbiterPLC/POUs/PMPS_Arbiter.TcPOU</p>
 <div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span>PROGRAM PMPS_Arbiter
 VAR
-    
-	fbBPRequestor : FB_BPRequestor; // Updates global PMPS RequestedBeamParams
-    
-	fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
-	{attribute &#39;pytmc&#39; := &#39;
+
+    fbBPRequestor : FB_BPRequestor; // Updates global PMPS RequestedBeamParams
+
+    fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
+    {attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX)BeamClassOutputs
     &#39;}
-	fbMPSInterface	:	FB_BeamClassOutputs;
+    fbMPSInterface	:	FB_BeamClassOutputs;
     {attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX)CuRateOutputs
     &#39;}
     fbCuInterface	:	FB_CTLS_Outputs;
-	
-	(* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
-	The fb is called on each cycle and updates the arbiter with the current BP set requested 
-	from the subsystem PLC.*)
-	//&lt;TODO&gt; make this so it does input and output to the IF
+
+    // Stoppers
+
+    {attribute &#39;TcLinkTo&#39; := &#39;
+                .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
+                .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
+                .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
+                .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
+                                &#39;}
+    st1l0Watcher : FB_StopperWatcher(
+        PMPS.L_Stopper.ST1L0,
+        &#39;ST1L0&#39;);
+
+    (* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
+    The fb is called on each cycle and updates the arbiter with the current BP set requested
+    from the subsystem PLC.*)
+    //&lt;TODO&gt; make this so it does input and output to the IF
     (*{attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX):PLC1
     &#39;}*)
-	{attribute &#39;TcLinkTo&#39; := &#39;.i_RequestedBP:=TIIB[SubSysPLC1]^IO Inputs^RequestedBP; 
-                                .o_CurrentBP:=TIIB[SubSysPLC1]^IO Outputs^CurrentBP;
-                                .i_Connected:=TIIB[SubSysPLC1]^SYNC Inputs^External device not connected;
-                                .i_WcState:=TIIB[SubSysPLC1]^WcState^WcState;
-                                .i_TxPDOState:=TIIB[SubSysPLC1]^SYNC Inputs^TxPDO state;
+    {attribute &#39;TcLinkTo&#39; := &#39;.i_RequestedBP:=TIIB[plc-lfe-motion]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-lfe-motion]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-lfe-motion]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-lfe-motion]^WcState^WcState;
+                                .i_TxPDOState:=TIIB[plc-lfe-motion]^SYNC Inputs^TxPDO state;
                                 &#39;}
-	fbSubSys1_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
-    
-	(*{attribute &#39;pytmc&#39; := &#39;
+    lfe_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
+
+    (*{attribute &#39;pytmc&#39; := &#39;
     pv: @(PREFIX)SubSysIO:PLC2
     &#39;}*)
-	{attribute &#39;TcLinkTo&#39; := &#39;.i_RequestedBP:=TIIB[SubSysPLC2]^IO Inputs^RequestedBP;
-                                .i_xNewRequest:=TIIB[SubSysPLC2]^IO Inputs^xNewRequest; 
+    {attribute &#39;TcLinkTo&#39; := &#39;.i_RequestedBP:=TIIB[SubSysPLC2]^IO Inputs^RequestedBP;
+                                .i_xNewRequest:=TIIB[SubSysPLC2]^IO Inputs^xNewRequest;
                                 .o_CurrentBP:=TIIB[SubSysPLC2]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[SubSysPLC2]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[SubSysPLC2]^WcState^WcState;
                                 .i_TxPDOState:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO state;
                                 .i_TxPDOToggle:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO toggle;
                                 &#39;}
-	fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
-    
-    
-	
-END_VAR
-// Updating arbiter with subsystem requests.
-fbSubSys1_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
-fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+
+
+END_VAR
+// Watching stopper statuses
+st1l0Watcher();
+
+// Updating arbiter with subsystem requests.
+lfe_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+
+//fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
 // Example with attenuator peel-off
 //////////////////////////////////
@@ -745,12 +866,12 @@ fbCuInterface(BP := PMPS_GVL.stRequestedBeamParameters);
 
 // Keep an eye on the photon energy
 fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
-					i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
-					io_fbFFHWO:= GVL.g_FastFaultOutput1,
+                    i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
+                    io_fbFFHWO:= GVL.g_FastFaultOutput1,
                     i_xReset := GVL.AttemptReset);
 
 // Evaluate fast fault vetos
-g_FastFaultOutput1.EvaluateVetos();
+g_FastFaultOutput1.EvaluateOverrides();
 
 // Send fast fault logs
 g_FastFaultOutput1.ExecuteLogging();
@@ -766,14 +887,14 @@ END_PROGRAM
 VAR
     AttemptReset : TON := (PT:=T#1s);
     gAttemptReset : TON := (PT:=T#500ms);
-        
+
     testFF : FB_FastFault;
     cycle : INT;
 END_VAR
 // Trip a fast fault periodically
 testFF(io_fbFFHWO:= g_FastFaultOutput1);
-testFF.i_xOK := (cycle mod 1000) = 0;
-cycle := cycle + 1;
+//testFF.i_xOK := (cycle mod 1000) = 0;
+//cycle := cycle + 1;
 
 //Periodically try to reset the photon energy fault.
 AttemptReset(IN:=PMPS_Arbiter.fbPhotonEnergyWatcher.xPhotonEnergyWithinBounds, Q=&gt;GVL.AttemptReset);
@@ -787,27 +908,27 @@ END_PROGRAM
 <div class="section" id="symbols">
 <h2>Symbols<a class="headerlink" href="#symbols" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">TCPADS_MAXUDP_BUFFSIZE</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">4386112</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">16339632</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersionNumeric</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">16339776</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">RuntimeVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">16339568</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">RuntimeVersionNumeric</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">16339744</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">bFPUSupport</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16339704</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">bLittleEndian</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16339560</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">bSimulationMode</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16339696</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">nPackMode</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">16339728</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">Constants</span><span class="o">.</span><span class="n">nRegisterSize</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">16339712</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">16312176</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">CompilerVersionNumeric</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">16312320</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">RuntimeVersion</span> <span class="p">:</span> <span class="n">VERSION</span> <span class="p">(</span><span class="mi">16312112</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">RuntimeVersionNumeric</span> <span class="p">:</span> <span class="n">DWORD</span> <span class="p">(</span><span class="mi">16312288</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">bFPUSupport</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16312248</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">bLittleEndian</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16312104</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">bSimulationMode</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">16312240</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">nPackMode</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">16312272</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">Constants</span><span class="o">.</span><span class="n">nRegisterSize</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">16312256</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">DefaultGlobals</span><span class="o">.</span><span class="n">fTimeStamp</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="p">(</span><span class="mi">4096128</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">DefaultGlobals</span><span class="o">.</span><span class="n">stSys</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">ST_System</span> <span class="p">(</span><span class="mi">4096000</span> <span class="mi">88</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">8665320</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">ReqBP</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19763008</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_HardwareFFOutput</span> <span class="p">(</span><span class="mi">15878208</span> <span class="mi">461216</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">q_xFastFaultOut</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">15878288</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_Arbiter</span> <span class="p">(</span><span class="mi">19566144</span> <span class="mi">196864</span><span class="p">)</span>
-<span class="n">GVL</span><span class="o">.</span><span class="n">g_rTestingVelocity</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="p">(</span><span class="mi">16339456</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">8665512</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">ReqBP</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19443008</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_HardwareFFOutput</span> <span class="p">(</span><span class="mi">15850752</span> <span class="mi">461216</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">q_xFastFaultOut</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">15850840</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_Arbiter</span> <span class="p">(</span><span class="mi">15652672</span> <span class="mi">196864</span><span class="p">)</span>
+<span class="n">GVL</span><span class="o">.</span><span class="n">g_rTestingVelocity</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="p">(</span><span class="mi">16312000</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">GVL</span><span class="o">.</span><span class="n">nLangId_OnlineMonitoring</span> <span class="p">:</span> <span class="n">DINT</span> <span class="p">(</span><span class="mi">4388352</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nDivByZero</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">16339520</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nTooHigh</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">16339424</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nTooLow</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">15680096</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nDivByZero</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">16312064</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nTooHigh</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">16311968</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">GVL_CheckBounds</span><span class="o">.</span><span class="n">nTooLow</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">15652640</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">GVL_INTERNAL</span><span class="o">.</span><span class="n">UNINITIALIZED_CLASS_GUID</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">4388704</span> <span class="mi">128</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">TCPADS_MAXUDP_BUFFSIZE</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">4097024</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">GVL_Logger</span><span class="o">.</span><span class="n">cLogHost</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="p">(</span><span class="mi">4096192</span> <span class="mi">128</span><span class="p">)</span>
@@ -1205,40 +1326,41 @@ END_PROGRAM
 <span class="n">Global_Version</span><span class="o">.</span><span class="n">stLibVersion_Tc3_Module</span> <span class="p">:</span> <span class="n">ST_LibVersion</span> <span class="p">(</span><span class="mi">4182272</span> <span class="mi">288</span><span class="p">)</span>
 <span class="n">Global_Version</span><span class="o">.</span><span class="n">stLibVersion_TcUnit</span> <span class="p">:</span> <span class="n">ST_LibVersion</span> <span class="p">(</span><span class="mi">8623776</span> <span class="mi">288</span><span class="p">)</span>
 <span class="n">LCLS_General</span><span class="o">.</span><span class="n">DefaultGlobals</span><span class="o">.</span><span class="n">stSys</span><span class="o">.</span><span class="n">I_EcatMaster1</span> <span class="p">:</span> <span class="n">AMSNETID</span> <span class="p">(</span><span class="mi">4096040</span> <span class="mi">48</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">Initialize</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">8665312</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">FB_EcatDiagWrapper</span> <span class="p">(</span><span class="mi">14450752</span> <span class="mi">1095136</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">arrEcMasterNetId</span> <span class="p">:</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_AmsNetIdArr</span> <span class="p">(</span><span class="mi">15533328</span> <span class="mi">48</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterDevState</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533296</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterDeviceId</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533312</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterSlaveCount</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533280</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterSlaveCountCfg</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533568</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">wFrmXWcState</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">14451168</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">MAIN</span><span class="o">.</span><span class="n">fbLogHandler</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">FB_LogHandler</span> <span class="p">(</span><span class="mi">8665344</span> <span class="mi">5785408</span><span class="p">)</span>
-<span class="n">MachineSimulation</span><span class="o">.</span><span class="n">fbMachine</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_MachineSimulator</span> <span class="p">(</span><span class="mi">19470656</span> <span class="mi">3008</span><span class="p">)</span>
-<span class="n">MachineSimulation</span><span class="o">.</span><span class="n">fbeVSimulator</span> <span class="p">:</span> <span class="n">FB_eVSimulator</span> <span class="p">(</span><span class="mi">15551744</span> <span class="mi">9088</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbBPRequestor</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_BPRequestor</span> <span class="p">(</span><span class="mi">19473664</span> <span class="mi">2816</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbCuInterface</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_CTLS_Outputs</span> <span class="p">(</span><span class="mi">19506752</span> <span class="mi">1280</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbCuInterface</span><span class="o">.</span><span class="n">q_CLTS_ASSERTION_LINES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19508000</span> <span class="mi">24</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbMPSInterface</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_BeamClassOutputs</span> <span class="p">(</span><span class="mi">19505344</span> <span class="mi">1408</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbMPSInterface</span><span class="o">.</span><span class="n">q_BC_ASSERTION_LINES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">8</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19506640</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbPhotonEnergyWatcher</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_PhotonEnergyWatcher</span> <span class="p">(</span><span class="mi">19476480</span> <span class="mi">28864</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_ArbiterToSubSys_IO</span> <span class="p">(</span><span class="mi">19508032</span> <span class="mi">29056</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">i_Connected</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19511840</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">i_RequestedBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19508192</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19511856</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOToggle</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19511864</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">i_WcState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19511848</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys1_PMPS_IO</span><span class="o">.</span><span class="n">o_CurrentBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19510624</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_ArbiterToSubSys_IO</span> <span class="p">(</span><span class="mi">19537088</span> <span class="mi">29056</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">i_Connected</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19540896</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">i_RequestedBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19537248</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19540912</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOToggle</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19540920</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">i_WcState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19540904</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbSubSys2_PMPS_IO</span><span class="o">.</span><span class="n">o_CurrentBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19539680</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">Initialize</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">8665504</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbBPControl</span> <span class="p">:</span> <span class="n">FB_BPControlDevice</span> <span class="p">(</span><span class="mi">19310848</span> <span class="mi">1408</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">FB_EcatDiagWrapper</span> <span class="p">(</span><span class="mi">14450944</span> <span class="mi">1095136</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">arrEcMasterNetId</span> <span class="p">:</span> <span class="n">Tc2_System</span><span class="o">.</span><span class="n">T_AmsNetIdArr</span> <span class="p">(</span><span class="mi">15533520</span> <span class="mi">48</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterDevState</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533488</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterDeviceId</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533504</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterSlaveCount</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533472</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">nEcMasterSlaveCountCfg</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">15533760</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbEcatDiag</span><span class="o">.</span><span class="n">wFrmXWcState</span> <span class="p">:</span> <span class="n">WORD</span> <span class="p">(</span><span class="mi">14451360</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbHgvpu</span> <span class="p">:</span> <span class="n">FB_Hgvpu</span> <span class="p">(</span><span class="mi">19318400</span> <span class="mi">44608</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbLogHandler</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">FB_LogHandler</span> <span class="p">(</span><span class="mi">8665536</span> <span class="mi">5785408</span><span class="p">)</span>
+<span class="n">MAIN</span><span class="o">.</span><span class="n">fbSxu</span> <span class="p">:</span> <span class="n">FB_SXU</span> <span class="p">(</span><span class="mi">19363008</span> <span class="mi">42624</span><span class="p">)</span>
+<span class="n">MachineSimulation</span><span class="o">.</span><span class="n">fbMachine</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_MachineSimulator</span> <span class="p">(</span><span class="mi">19405632</span> <span class="mi">3008</span><span class="p">)</span>
+<span class="n">MachineSimulation</span><span class="o">.</span><span class="n">fbeVSimulator</span> <span class="p">:</span> <span class="n">FB_eVSimulator</span> <span class="p">(</span><span class="mi">15553344</span> <span class="mi">9088</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbBPRequestor</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_BPRequestor</span> <span class="p">(</span><span class="mi">19408640</span> <span class="mi">2816</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbCuInterface</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_CTLS_Outputs</span> <span class="p">(</span><span class="mi">19441728</span> <span class="mi">1280</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbCuInterface</span><span class="o">.</span><span class="n">q_CLTS_ASSERTION_LINES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19442976</span> <span class="mi">24</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbMPSInterface</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_BeamClassOutputs</span> <span class="p">(</span><span class="mi">4389120</span> <span class="mi">1408</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbMPSInterface</span><span class="o">.</span><span class="n">q_BC_ASSERTION_LINES</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">8</span><span class="p">]</span> <span class="n">OF</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">4390416</span> <span class="mi">64</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">fbPhotonEnergyWatcher</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_PhotonEnergyWatcher</span> <span class="p">(</span><span class="mi">19411456</span> <span class="mi">28864</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_ArbiterToSubSys_IO</span> <span class="p">(</span><span class="mi">19703808</span> <span class="mi">29056</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">i_Connected</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19707616</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">i_RequestedBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19703968</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19707632</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">i_TxPDOToggle</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19707640</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">i_WcState</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19707624</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">lfe_PMPS_IO</span><span class="o">.</span><span class="n">o_CurrentBP</span> <span class="p">:</span> <span class="n">ST_BeamParams_IO</span> <span class="p">(</span><span class="mi">19706400</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">st1l0Watcher</span> <span class="p">:</span> <span class="n">FB_StopperWatcher</span> <span class="p">(</span><span class="mi">19448192</span> <span class="mi">81760</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">st1l0Watcher</span><span class="o">.</span><span class="n">i_StopperInLS</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19448232</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">st1l0Watcher</span><span class="o">.</span><span class="n">i_StopperOutLS</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19448224</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">st1l0Watcher</span><span class="o">.</span><span class="n">q_StopperIN_Relay</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19448248</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">st1l0Watcher</span><span class="o">.</span><span class="n">q_StopperOUT_Relay</span> <span class="p">:</span> <span class="n">BOOL</span> <span class="p">(</span><span class="mi">19448240</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AUX_ATTENUATORS</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">4475120</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AccumulatedFF</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">3072032</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">DUMMY_AUX_ATT_ARRAY</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">16</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_PMPS_Attenuator</span> <span class="p">(</span><span class="mi">4475152</span> <span class="mi">512</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">DUMMY_AUX_ATT_ARRAY</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">16</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_PMPS_Attenuator</span> <span class="p">(</span><span class="mi">18432320</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">EXCLUDED_ASSERTION_ID</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">4472448</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">FAST_TEST_VELOCITY</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="p">(</span><span class="mi">4472576</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">MAX_APERTURES</span> <span class="p">:</span> <span class="n">UINT</span> <span class="p">(</span><span class="mi">4475136</span> <span class="mi">16</span><span class="p">)</span>
@@ -1249,50 +1371,58 @@ END_PROGRAM
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">SuccessfulPreemption</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">3072000</span> <span class="mi">32</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">VISIBLE_TEST_VELOCITY</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="p">(</span><span class="mi">4472512</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cnMaxStateArrayLen</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4475104</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19468224</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstSafeBeam</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19469440</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19308416</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstSafeBeam</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19309632</span> <span class="mi">1216</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">fbLog</span> <span class="p">:</span> <span class="n">LCLS_General</span><span class="o">.</span><span class="n">FB_LogMessage</span> <span class="p">(</span><span class="mi">4391552</span> <span class="mi">80896</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">g_areVBoundaries</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">15</span><span class="p">]</span> <span class="n">OF</span> <span class="n">REAL</span> <span class="p">(</span><span class="mi">4475712</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">g_cBoundaries</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">4475664</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19467008</span> <span class="mi">1216</span><span class="p">)</span>
-<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19465792</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">19298368</span> <span class="mi">1216</span><span class="p">)</span>
+<span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">ST_BeamParams</span> <span class="p">(</span><span class="mi">18431104</span> <span class="mi">1216</span><span class="p">)</span>
 <span class="n">ParameterList</span><span class="o">.</span><span class="n">cSourceNameSize</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="p">(</span><span class="mi">4388384</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TC_EVENTS</span><span class="o">.</span><span class="n">LCLSGeneralEventClass</span> <span class="p">:</span> <span class="n">ST_LCLSGeneralEventClass</span> <span class="p">(</span><span class="mi">16389856</span> <span class="mi">960</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">LCLSGeneralEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359776</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcGeneralAdsEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359264</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcRTimeEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359520</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcRouterEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359392</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcSystemEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359136</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">Win32EventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16359648</span> <span class="mi">128</span><span class="p">)</span>
-<span class="n">Testing</span><span class="o">.</span><span class="n">AttemptReset</span> <span class="p">:</span> <span class="n">Tc2_Standard</span><span class="o">.</span><span class="n">TON</span> <span class="p">(</span><span class="mi">15560832</span> <span class="mi">224</span><span class="p">)</span>
-<span class="n">Testing</span><span class="o">.</span><span class="n">cycle</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">8665328</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">Testing</span><span class="o">.</span><span class="n">gAttemptReset</span> <span class="p">:</span> <span class="n">Tc2_Standard</span><span class="o">.</span><span class="n">TON</span> <span class="p">(</span><span class="mi">15561056</span> <span class="mi">224</span><span class="p">)</span>
-<span class="n">Testing</span><span class="o">.</span><span class="n">testFF</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_FastFault</span> <span class="p">(</span><span class="mi">15561280</span> <span class="mi">25088</span><span class="p">)</span>
-<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">16339808</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_AppInfo</span> <span class="p">:</span> <span class="n">PlcAppSystemInfo</span> <span class="p">(</span><span class="mi">16340832</span> <span class="mi">2048</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">16342912</span> <span class="mi">2048</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_FFOTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16344960</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16345024</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_FFOTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16342880</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16344992</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__FFOTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">16345056</span> <span class="mi">704</span><span class="p">)</span>
-<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__PlcTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">16345760</span> <span class="mi">704</span><span class="p">)</span>
+<span class="n">TC_EVENTS</span><span class="o">.</span><span class="n">LCLSGeneralEventClass</span> <span class="p">:</span> <span class="n">ST_LCLSGeneralEventClass</span> <span class="p">(</span><span class="mi">16362400</span> <span class="mi">960</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">LCLSGeneralEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16332320</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcGeneralAdsEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16331808</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcRTimeEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16332064</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcRouterEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16331936</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">TcSystemEventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16331680</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">TC_EVENT_CLASSES</span><span class="o">.</span><span class="n">Win32EventClass</span> <span class="p">:</span> <span class="n">GUID</span> <span class="p">(</span><span class="mi">16332192</span> <span class="mi">128</span><span class="p">)</span>
+<span class="n">Testing</span><span class="o">.</span><span class="n">AttemptReset</span> <span class="p">:</span> <span class="n">Tc2_Standard</span><span class="o">.</span><span class="n">TON</span> <span class="p">(</span><span class="mi">15562432</span> <span class="mi">224</span><span class="p">)</span>
+<span class="n">Testing</span><span class="o">.</span><span class="n">cycle</span> <span class="p">:</span> <span class="n">INT</span> <span class="p">(</span><span class="mi">8665520</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">Testing</span><span class="o">.</span><span class="n">gAttemptReset</span> <span class="p">:</span> <span class="n">Tc2_Standard</span><span class="o">.</span><span class="n">TON</span> <span class="p">(</span><span class="mi">15562656</span> <span class="mi">224</span><span class="p">)</span>
+<span class="n">Testing</span><span class="o">.</span><span class="n">testFF</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">FB_FastFault</span> <span class="p">(</span><span class="mi">15562880</span> <span class="mi">25088</span><span class="p">)</span>
+<span class="n">TwinCAT_LicenseInfoVarList</span><span class="o">.</span><span class="n">_LicenseInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcLicenseInfo</span> <span class="p">(</span><span class="mi">16312352</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_AppInfo</span> <span class="p">:</span> <span class="n">PlcAppSystemInfo</span> <span class="p">(</span><span class="mi">16313376</span> <span class="mi">2048</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskInfo</span> <span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="n">OF</span> <span class="n">PlcTaskSystemInfo</span> <span class="p">(</span><span class="mi">16315456</span> <span class="mi">2048</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_FFOTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16317504</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16317568</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_FFOTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16315424</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">_TaskPouOid_PlcTask</span> <span class="p">:</span> <span class="n">OTCID</span> <span class="p">(</span><span class="mi">16317536</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__FFOTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">16317600</span> <span class="mi">704</span><span class="p">)</span>
+<span class="n">TwinCAT_SystemInfoVarList</span><span class="o">.</span><span class="n">__PlcTask</span> <span class="p">:</span> <span class="n">_Implicit_Task_Info</span> <span class="p">(</span><span class="mi">16318304</span> <span class="mi">704</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="boxes">
 <h2>Boxes<a class="headerlink" href="#boxes" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">1</span> <span class="p">(</span><span class="n">EK1200</span><span class="p">)</span>
-<span class="mf">2.</span><span class="p">)</span> <span class="n">PMPS_FFO</span>
-<span class="mf">3.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">3</span> <span class="p">(</span><span class="n">EK1122</span><span class="p">)</span>
-<span class="mf">4.</span><span class="p">)</span> <span class="n">CU1</span> <span class="p">(</span><span class="n">CU1128</span><span class="p">)</span>
-<span class="mf">6.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">6</span> <span class="p">(</span><span class="n">EK1110</span><span class="p">)</span>
-<span class="mf">7.</span><span class="p">)</span> <span class="n">PMPS_Premp</span>
-<span class="mf">10.</span><span class="p">)</span> <span class="n">CU2</span> <span class="p">(</span><span class="n">CU1128</span><span class="o">-</span><span class="n">B</span><span class="p">)</span>
-<span class="mf">11.</span><span class="p">)</span> <span class="n">CU3</span> <span class="p">(</span><span class="n">CU1128</span><span class="o">-</span><span class="n">C</span><span class="p">)</span>
-<span class="mf">18.</span><span class="p">)</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">vac</span>
-<span class="mf">19.</span><span class="p">)</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span>
-<span class="mf">20.</span><span class="p">)</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">5.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">12</span> <span class="p">(</span><span class="n">EK1200</span><span class="p">)</span>
+<span class="mf">8.</span><span class="p">)</span> <span class="n">FFO</span>
+<span class="mf">9.</span><span class="p">)</span> <span class="n">PMPS_Premp</span>
+<span class="mf">12.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">12</span> <span class="p">(</span><span class="n">EK1122</span><span class="p">)</span>
+<span class="mf">13.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">13</span> <span class="p">(</span><span class="n">EK1100</span><span class="p">)</span>
+<span class="mf">14.</span><span class="p">)</span> <span class="n">PPS_Stoppers</span>
+<span class="mf">15.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">15</span> <span class="p">(</span><span class="n">EL1008</span><span class="p">)</span>
+<span class="mf">16.</span><span class="p">)</span> <span class="n">MPS_Relay</span>
+<span class="mf">17.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">17</span> <span class="p">(</span><span class="n">EL2004</span><span class="p">)</span>
+<span class="mf">22.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">22</span> <span class="p">(</span><span class="n">EK1110</span><span class="p">)</span>
+<span class="mf">23.</span><span class="p">)</span> <span class="n">Box</span> <span class="mi">23</span> <span class="p">(</span><span class="n">CU1128</span><span class="p">)</span>
+<span class="mf">24.</span><span class="p">)</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span>
+<span class="mf">25.</span><span class="p">)</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span>
+<span class="mf">26.</span><span class="p">)</span> <span class="n">Box</span> <span class="mi">26</span> <span class="p">(</span><span class="n">EL6692</span><span class="p">)</span>
+<span class="mf">27.</span><span class="p">)</span> <span class="n">Box</span> <span class="mi">27</span> <span class="p">(</span><span class="n">EL6692</span><span class="p">)</span>
+<span class="mf">28.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">28</span> <span class="p">(</span><span class="n">CU1128</span><span class="o">-</span><span class="n">B</span><span class="p">)</span>
+<span class="mf">29.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">29</span> <span class="p">(</span><span class="n">CU1128</span><span class="o">-</span><span class="n">C</span><span class="p">)</span>
+<span class="mf">30.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">30</span> <span class="p">(</span><span class="n">EL9011</span><span class="p">)</span>
+<span class="mf">31.</span><span class="p">)</span> <span class="n">Term</span> <span class="mi">31</span> <span class="p">(</span><span class="n">EL9010</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1361,38 +1491,50 @@ END_PROGRAM
       <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)&#39;</span><span class="p">,</span> <span class="s1">&#39;Inputs^SlaveCount&#39;</span><span class="p">)</span>
 <span class="mf">30.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterSlaveCountCfg&#39;</span><span class="p">)</span>
       <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)&#39;</span><span class="p">,</span> <span class="s1">&#39;InfoData^CfgSlaveCount&#39;</span><span class="p">)</span>
-<span class="mf">31.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^MAIN.fbEcatDiag.wFrmXWcState&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)&#39;</span><span class="p">,</span> <span class="s1">&#39;Inputs^Frm1WcState&#39;</span><span class="p">)</span>
-<span class="mf">32.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;FFOTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 1^Output&#39;</span><span class="p">)</span>
-<span class="mf">33.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 9^Output&#39;</span><span class="p">)</span>
-<span class="mf">34.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[2]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 10^Output&#39;</span><span class="p">)</span>
-<span class="mf">35.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[3]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 11^Output&#39;</span><span class="p">)</span>
-<span class="mf">36.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[1]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 1^Output&#39;</span><span class="p">)</span>
-<span class="mf">37.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 2^Output&#39;</span><span class="p">)</span>
-<span class="mf">38.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 3^Output&#39;</span><span class="p">)</span>
-<span class="mf">39.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 4^Output&#39;</span><span class="p">)</span>
-<span class="mf">40.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 5^Output&#39;</span><span class="p">)</span>
-<span class="mf">41.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 6^Output&#39;</span><span class="p">)</span>
-<span class="mf">42.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 7^Output&#39;</span><span class="p">)</span>
-<span class="mf">43.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]&#39;</span><span class="p">)</span>
-      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 8^Output&#39;</span><span class="p">)</span>
+<span class="mf">31.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_Connected&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion&#39;</span><span class="p">,</span> <span class="s1">&#39;SYNC Inputs^External device not connected&#39;</span><span class="p">)</span>
+<span class="mf">32.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_RequestedBP&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion&#39;</span><span class="p">,</span> <span class="s1">&#39;IO Inputs^RequestedBP&#39;</span><span class="p">)</span>
+<span class="mf">33.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion&#39;</span><span class="p">,</span> <span class="s1">&#39;SYNC Inputs^TxPDO state&#39;</span><span class="p">)</span>
+<span class="mf">34.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion&#39;</span><span class="p">,</span> <span class="s1">&#39;IO Outputs^CurrentBP&#39;</span><span class="p">)</span>
+<span class="mf">35.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 9^Output&#39;</span><span class="p">)</span>
+<span class="mf">36.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[2]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 10^Output&#39;</span><span class="p">)</span>
+<span class="mf">37.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[3]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 11^Output&#39;</span><span class="p">)</span>
+<span class="mf">38.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[1]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 1^Output&#39;</span><span class="p">)</span>
+<span class="mf">39.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 2^Output&#39;</span><span class="p">)</span>
+<span class="mf">40.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 3^Output&#39;</span><span class="p">)</span>
+<span class="mf">41.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 4^Output&#39;</span><span class="p">)</span>
+<span class="mf">42.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 5^Output&#39;</span><span class="p">)</span>
+<span class="mf">43.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 6^Output&#39;</span><span class="p">)</span>
+<span class="mf">44.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 7^Output&#39;</span><span class="p">)</span>
+<span class="mf">45.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 8^Output&#39;</span><span class="p">)</span>
+<span class="mf">46.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^MPS_Relay&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 2^ST1L0_RELAY_IN&#39;</span><span class="p">)</span>
+<span class="mf">47.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^MPS_Relay&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 1^ST1L0_RELAY_OUT&#39;</span><span class="p">)</span>
+<span class="mf">48.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperInLS&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^PPS_Stoppers&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 1^ST1L0_PPS_IN&#39;</span><span class="p">)</span>
+<span class="mf">49.</span><span class="p">)</span> <span class="n">A</span> <span class="p">(</span><span class="s1">&#39;ArbiterPLC Instance&#39;</span><span class="p">,</span> <span class="s1">&#39;PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperOutLS&#39;</span><span class="p">)</span>
+      <span class="n">B</span> <span class="p">(</span><span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^PPS_Stoppers&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel 2^ST1L0_PPS_OUT&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="pragma-lint-results">
 <h2>Pragma lint results<a class="headerlink" href="#pragma-lint-results" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">pytmc</span><span class="o">.</span><span class="n">bin</span><span class="o">.</span><span class="n">pragmalint</span><span class="p">:</span><span class="n">Total</span> <span class="n">pragmas</span> <span class="n">found</span><span class="p">:</span> <span class="mi">57</span> <span class="n">Total</span> <span class="n">linter</span> <span class="n">errors</span><span class="p">:</span> <span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">pytmc</span><span class="o">.</span><span class="n">bin</span><span class="o">.</span><span class="n">pragmalint</span><span class="p">:</span><span class="n">Total</span> <span class="n">pragmas</span> <span class="n">found</span><span class="p">:</span> <span class="mi">61</span> <span class="n">Total</span> <span class="n">linter</span> <span class="n">errors</span><span class="p">:</span> <span class="mi">0</span>
 <span class="n">PLC</span> <span class="n">Project</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="n">ArbiterPLC</span>
 <span class="o">===========================</span>
 
@@ -1427,16 +1569,22 @@ END_PROGRAM
     <span class="o">-</span> <span class="n">FB_UndulatorSegment</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">2</span> <span class="n">pragmas</span>
 
 
+<span class="n">POUs</span><span class="o">/</span><span class="n">FB_BPControlDevice</span><span class="o">.</span><span class="n">TcPOU</span> <span class="p">(</span><span class="n">TcPlcObject</span><span class="p">)</span>
+<span class="o">-------------------------------------------</span>
+
+    <span class="o">-</span> <span class="n">FB_BPControlDevice</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">2</span> <span class="n">pragmas</span>
+
+
 <span class="n">POUs</span><span class="o">/</span><span class="n">MAIN</span><span class="o">.</span><span class="n">TcPOU</span> <span class="p">(</span><span class="n">TcPlcObject</span><span class="p">)</span>
 <span class="o">-----------------------------</span>
 
-    <span class="o">-</span> <span class="n">MAIN</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">2</span> <span class="n">pragmas</span>
+    <span class="o">-</span> <span class="n">MAIN</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">3</span> <span class="n">pragmas</span>
 
 
 <span class="n">POUs</span><span class="o">/</span><span class="n">PMPS_Arbiter</span><span class="o">.</span><span class="n">TcPOU</span> <span class="p">(</span><span class="n">TcPlcObject</span><span class="p">)</span>
 <span class="o">-------------------------------------</span>
 
-    <span class="o">-</span> <span class="n">PMPS_Arbiter</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">6</span> <span class="n">pragmas</span>
+    <span class="o">-</span> <span class="n">PMPS_Arbiter</span><span class="p">:</span> <span class="n">Declaration</span> <span class="o">-</span> <span class="mi">7</span> <span class="n">pragmas</span>
 </pre></div>
 </div>
 </div>
@@ -1469,8 +1617,10 @@ END_PROGRAM
 <li class="toctree-l2"><a class="reference internal" href="#pou-checkrangesigned">POU: CheckRangeSigned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-checkrangeunsigned">POU: CheckRangeUnsigned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-currentbpupdate">POU: CurrentBPUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-bpcontroldevice">POU: FB_BPControlDevice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-fb-hgvpu">POU: FB_Hgvpu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-fb-sxu">POU: FB_SXU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pou-fb-stopperwatcher">POU: FB_StopperWatcher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-fb-undulatorsegment">POU: FB_UndulatorSegment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-fb-evsimulator">POU: FB_eVSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pou-fast-faults-evaluate">POU: Fast_Faults_Evaluate</a></li>

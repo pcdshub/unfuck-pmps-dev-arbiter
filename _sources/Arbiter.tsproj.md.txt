@@ -22,11 +22,13 @@ PLC Project (1): ArbiterPLC
         11.) ArbiterPLC/POUs/CurrentBPUpdate.TcPOU
         12.) ArbiterPLC/POUs/CXDisplay.TcPOU
         13.) ArbiterPLC/POUs/Fast_Faults_Evaluate.TcPOU
-        14.) ArbiterPLC/POUs/FB_eVSimulator.TcPOU
-        15.) ArbiterPLC/POUs/MachineSimulation.TcPOU
-        16.) ArbiterPLC/POUs/MAIN.TcPOU
-        17.) ArbiterPLC/POUs/PMPS_Arbiter.TcPOU
-        18.) ArbiterPLC/POUs/Testing.TcPOU
+        14.) ArbiterPLC/POUs/FB_BPControlDevice.TcPOU
+        15.) ArbiterPLC/POUs/FB_eVSimulator.TcPOU
+        16.) ArbiterPLC/POUs/FB_StopperWatcher.TcPOU
+        17.) ArbiterPLC/POUs/MachineSimulation.TcPOU
+        18.) ArbiterPLC/POUs/MAIN.TcPOU
+        19.) ArbiterPLC/POUs/PMPS_Arbiter.TcPOU
+        20.) ArbiterPLC/POUs/Testing.TcPOU
 
     POUs:
         1.) CXDisplay
@@ -34,15 +36,17 @@ PLC Project (1): ArbiterPLC
         3.) CheckRangeSigned
         4.) CheckRangeUnsigned
         5.) CurrentBPUpdate
-        6.) FB_Hgvpu
-        7.) FB_SXU
-        8.) FB_UndulatorSegment
-        9.) FB_eVSimulator
-        10.) Fast_Faults_Evaluate
-        11.) MAIN
-        12.) MachineSimulation
-        13.) PMPS_Arbiter
-        14.) Testing
+        6.) FB_BPControlDevice
+        7.) FB_Hgvpu
+        8.) FB_SXU
+        9.) FB_StopperWatcher
+        10.) FB_UndulatorSegment
+        11.) FB_eVSimulator
+        12.) Fast_Faults_Evaluate
+        13.) MAIN
+        14.) MachineSimulation
+        15.) PMPS_Arbiter
+        16.) Testing
 
     GVLs:
         1.) GVL
@@ -58,20 +62,20 @@ VAR_GLOBAL
    {attribute 'pytmc' := '
     pv: @(PREFIX)Arbiter:01
     '}
-	g_fbArbiter1	:	FB_Arbiter(25);
+    g_fbArbiter1	:	FB_Arbiter(25);
 
-	ReqBP	:	ST_BeamParams; //Currently the placeholder for the fully arbitrated BP set
-	
-	//Example implementation of the FFO
-    
+    ReqBP	:	ST_BeamParams; //Currently the placeholder for the fully arbitrated BP set
+
+    //Example implementation of the FFO
+
     {attribute 'pytmc' := '
     pv: @(PREFIX)FFO:01
     '}
-	{attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
-	g_FastFaultOutput1	:	FB_HardwareFFOutput;
-    
-	g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
-    
+    {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
+    g_FastFaultOutput1	:	FB_HardwareFFOutput;
+
+    g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
+
     AttemptReset    :   BOOL; // For testing
 END_VAR
 ```
@@ -104,14 +108,14 @@ VAR
     fbFormat   : FB_FormatString;
     bError     : BOOL;
     nErrID     : UDINT;
-    sOut       : T_MaxString;   
+    sOut       : T_MaxString;
 END_VAR
 (*
 DisplayStats.bExecute S= NOT DisplayStats.bBusy AND NOT DisplayStats.bError;
 DisplayStats.bExecute R= DisplayStats.bBusy OR DisplayStats.bError;
 
 DisplayStats.sLine1 := 'PMPS-ARBITER-K';
-fbFormat(sFormat := 'Fast Faults: %d', arg1:=F_ULINT(PMPS_GVL.AccumulatedFF), sOut=>DisplayStats.sLine2, bError => bError, nErrID => nErrID ); 
+fbFormat(sFormat := 'Fast Faults: %d', arg1:=F_ULINT(PMPS_GVL.AccumulatedFF), sOut=>DisplayStats.sLine2, bError => bError, nErrID => nErrID );
 
 DisplayStats(eMode:=E_CX2100_DisplayModesWr.eCX2100_WriteLines);
 *)
@@ -129,7 +133,7 @@ File: ArbiterPLC/ImplicitChecks/CheckBounds.TcPOU
 // Implicitly generated code : DO NOT EDIT
 FUNCTION CheckBounds : DINT
 VAR_INPUT
-	index, lower, upper: DINT;
+    index, lower, upper: DINT;
 END_VAR
 // User defined local variables
 VAR
@@ -157,7 +161,7 @@ ELSIF index > upper THEN
                dintArg     := index);
 
 // Index OK
-ELSE 
+ELSE
     CheckBounds := index;
 END_IF
 {flow}
@@ -175,16 +179,16 @@ File: ArbiterPLC/ImplicitChecks/CheckRangeSigned.TcPOU
 // Implicitly generated code : DO NOT EDIT
 FUNCTION CheckRangeSigned : DINT
 VAR_INPUT
-	value, lower, upper: DINT;
+    value, lower, upper: DINT;
 END_VAR
 // Implicitly generated code : Only an Implementation suggestion
 
 IF (value < lower) THEN
-	CheckRangeSigned := lower;
+    CheckRangeSigned := lower;
 ELSIF(value > upper) THEN
-	CheckRangeSigned := upper;
+    CheckRangeSigned := upper;
 ELSE
-	CheckRangeSigned := value;
+    CheckRangeSigned := value;
 END_IF
 {flow}
 
@@ -201,16 +205,16 @@ File: ArbiterPLC/ImplicitChecks/CheckRangeUnsigned.TcPOU
 // Implicitly generated code : DO NOT EDIT
 FUNCTION CheckRangeUnsigned : UDINT
 VAR_INPUT
-	value, lower, upper: UDINT;
+    value, lower, upper: UDINT;
 END_VAR
 // Implicitly generated code : Only an Implementation suggestion
 {noflow}
 IF (value < lower) THEN
-	CheckRangeUnsigned := lower;
+    CheckRangeUnsigned := lower;
 ELSIF(value > upper) THEN
-	CheckRangeUnsigned := upper;
+    CheckRangeUnsigned := upper;
 ELSE
-	CheckRangeUnsigned := value;
+    CheckRangeUnsigned := value;
 END_IF
 {flow}
 
@@ -233,6 +237,55 @@ END_PROGRAM
 ```
 
 
+POU: FB_BPControlDevice
+-----------------------
+
+File: ArbiterPLC/POUs/FB_BPControlDevice.TcPOU
+
+```vhdl
+(*
+Used to request a beam parameter set from EPICS.
+
+Technically just one of these is needed in the entire
+PMPS for a line.
+
+*)
+FUNCTION_BLOCK FB_BPControlDevice
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR_IN_OUT
+    Arbiter : FB_Arbiter;
+END_VAR
+VAR
+    {attribute 'pytmc' := '
+        pv: ReqBP
+        io: o
+    '}
+    EpicsReqBP : ST_BeamParams;
+    {attribute 'pytmc' := '
+        pv: Apply
+        io: o
+    '}
+    bApply : BOOL;
+
+    nControlDeviceID : DWORD;
+
+    rtApply : R_TRIG;
+
+END_VAR
+rtApply(CLK:=bApply);
+IF rtApply.Q THEN
+    Arbiter.RemoveRequest(nControlDeviceID);
+    Arbiter.AddRequest(nControlDeviceID, EpicsReqBP);
+    bApply := FALSE;
+END_IF
+
+END_FUNCTION_BLOCK
+```
+
+
 POU: FB_Hgvpu
 -------------
 
@@ -241,7 +294,7 @@ File: ArbiterPLC/POUs/Accelerator/FB_Hgvpu.TcPOU
 ```vhdl
 FUNCTION_BLOCK FB_Hgvpu
 VAR_INPUT
-	
+
 END_VAR
 
 VAR_OUTPUT
@@ -253,70 +306,70 @@ VAR
 
     {attribute 'pytmc' := 'pv: 24; link: 2450:'}
     fbSegment_24 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 25; link: 2550:'}
     fbSegment_25 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 26; link: 2650:'}
     fbSegment_26 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 27; link: 2750:'}
     fbSegment_27 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 29; link: 2950:'}
     fbSegment_29 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 30; link: 3050:'}
     fbSegment_30 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 31; link: 3150:'}
     fbSegment_31 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 32; link: 3250:'}
     fbSegment_32 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 33; link: 3350:'}
     fbSegment_33 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 34; link: 3450:'}
     fbSegment_34 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 35; link: 3550:'}
     fbSegment_35 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 36; link: 3650:'}
     fbSegment_36 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 37; link: 3750:'}
     fbSegment_37 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 38; link: 3850:'}
     fbSegment_38 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 39; link: 3950:'}
     fbSegment_39 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 40; link: 4050:'}
     fbSegment_40 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 41; link: 4150:'}
     fbSegment_41 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 42; link: 4250:'}
     fbSegment_42 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 43; link: 4350:'}
     fbSegment_43 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 44; link: 4450:'}
     fbSegment_44 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 45; link: 4550:'}
     fbSegment_45 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 46; link: 4650:'}
     fbSegment_46 : FB_UndulatorSegment;
-    
+
     fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
     fbCurrentSegment : REFERENCE TO FB_UndulatorSegment;
 
@@ -361,8 +414,8 @@ END_IF
 
 FOR iIndex := iLowBound TO iHighBound DO
     IF fbSegment[iIndex] <> 0 THEN
-		fbCurrentSegment REF= fbSegment[iIndex]^;
-		fbCurrentSegment();
+        fbCurrentSegment REF= fbSegment[iIndex]^;
+        fbCurrentSegment();
     END_IF
 END_FOR
 
@@ -378,7 +431,7 @@ File: ArbiterPLC/POUs/Accelerator/FB_SXU.TcPOU
 ```vhdl
 FUNCTION_BLOCK FB_SXU
 VAR_INPUT
-	
+
 END_VAR
 
 VAR_OUTPUT
@@ -392,67 +445,67 @@ VAR
 
     {attribute 'pytmc' := 'pv: 26; link: 2650:'}
     fbSegment_26 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 27; link: 2750:'}
     fbSegment_27 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 28; link: 2850:'}
     fbSegment_28 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 29; link: 2950:'}
     fbSegment_29 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 30; link: 3050:'}
     fbSegment_30 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 31; link: 3150:'}
     fbSegment_31 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 32; link: 3250:'}
     fbSegment_32 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 33; link: 3350:'}
     fbSegment_33 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 34; link: 3450:'}
     fbSegment_34 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 36; link: 3650:'}
     fbSegment_36 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 37; link: 3750:'}
     fbSegment_37 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 38; link: 3850:'}
     fbSegment_38 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 39; link: 3950:'}
     fbSegment_39 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 40; link: 4050:'}
     fbSegment_40 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 41; link: 4150:'}
     fbSegment_41 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 42; link: 4250:'}
     fbSegment_42 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 43; link: 4350:'}
     fbSegment_43 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 44; link: 4450:'}
     fbSegment_44 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 45; link: 4550:'}
     fbSegment_45 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 46; link: 4650:'}
     fbSegment_46 : FB_UndulatorSegment;
-    
+
     {attribute 'pytmc' := 'pv: 47; link: 4750:'}
     fbSegment_47 : FB_UndulatorSegment;
-    
+
 
 
     fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
@@ -498,10 +551,58 @@ END_IF
 
 FOR iIndex := iLowBound TO iHighBound DO
     IF fbSegment[iIndex] <> 0 THEN
-		fbCurrentSegment REF= fbSegment[iIndex]^;
-		fbCurrentSegment();
+        fbCurrentSegment REF= fbSegment[iIndex]^;
+        fbCurrentSegment();
     END_IF
 END_FOR
+
+END_FUNCTION_BLOCK
+```
+
+
+POU: FB_StopperWatcher
+----------------------
+
+File: ArbiterPLC/POUs/FB_StopperWatcher.TcPOU
+
+```vhdl
+// Relays stopper state and sends a message when stopper state changes.
+FUNCTION_BLOCK FB_StopperWatcher
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    i_StopperOutLS AT %I* : BOOL;
+    i_StopperInLS AT %I* : BOOL;
+
+    q_StopperOUT_Relay AT %Q* : BOOL;
+    q_StopperIN_Relay AT %Q* : BOOL;
+
+    eStopper : PMPS.L_Stopper;
+    StopperName : STRING;
+
+    // Logging
+    fbLogMsg : FB_LogMessage := (
+        eSubSystem := E_Subsystem.MPS);
+
+    rtIn : R_TRIG;
+    rtOut : R_TRIG;
+
+END_VAR
+rtIn(CLK := i_StopperInLS);
+rtOut(CLK := i_StopperOutLS);
+
+IF rtIn.Q THEN
+    fbLogMsg.sMsg := CONCAT(StopperName, ' moved IN');
+    fbLogMsg();
+ELSIF rtOut.Q THEN
+    fbLogMsg.sMsg := CONCAT(StopperName, ' moved OUT');
+    fbLogMsg();
+END_IF
+
+q_StopperOUT_Relay := i_StopperOutLS;
+q_StopperIN_Relay := i_StopperInLS;
 
 END_FUNCTION_BLOCK
 ```
@@ -519,17 +620,17 @@ END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	{attribute 'pytmc' := '
-		pv: KDes
-		link: KDes
-	'}
-	fbKDesired : FB_LREALFromEPICS;
+    {attribute 'pytmc' := '
+        pv: KDes
+        link: KDes
+    '}
+    fbKDesired : FB_LREALFromEPICS;
 
-	{attribute 'pytmc' := '
-		pv: KAct
-		link: KAct
-	'}
-	fbKActual : FB_LREALFromEPICS;
+    {attribute 'pytmc' := '
+        pv: KAct
+        link: KAct
+    '}
+    fbKActual : FB_LREALFromEPICS;
 
 END_VAR
 fbKDesired();
@@ -552,25 +653,25 @@ Adds noise to the eV and changes eV position occasionally.
 *)
 FUNCTION_BLOCK FB_eVSimulator
 VAR_INPUT
-	NoiseLevel	:	REAL	:= 0; // eV Noise
-	ChangeTime : TIME := T#10S;
+    NoiseLevel	:	REAL	:= 0; // eV Noise
+    ChangeTime : TIME := T#10S;
 END_VAR
 VAR_OUTPUT
-	eV	:	REAL := 300;
+    eV	:	REAL := 300;
 END_VAR
 VAR
-	eVRange : REAL := 1600;
-	timer: TON;
-	eVRand	:	DRAND :=(Seed:=0);
-	NoiseRand : DRAND := (Seed:=0);
+    eVRange : REAL := 1600;
+    timer: TON;
+    eVRand	:	DRAND :=(Seed:=0);
+    NoiseRand : DRAND := (Seed:=0);
 END_VAR
 timer(in:=TRUE, PT:=ChangeTime);
 
 //Occasionally change eV
 IF timer.Q THEN
-	timer(in:=FALSE);
-	eVRand();
-	eV := LIMIT(0, eVRange*LREAL_TO_REAL(eVRand.Num), eVRange);
+    timer(in:=FALSE);
+    eVRand();
+    eV := LIMIT(0, eVRange*LREAL_TO_REAL(eVRand.Num), eVRange);
 END_IF
 
 // Noise generation
@@ -592,7 +693,7 @@ File: ArbiterPLC/POUs/Fast_Faults_Evaluate.TcPOU
 PROGRAM Fast_Faults_Evaluate
 VAR
 END_VAR
-g_FastFaultOutput1.EvaluateOutput(i_xVeto:=PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.L_Stopper.ST1]);
+g_FastFaultOutput1.EvaluateOutput(i_xVeto:=PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.L_Stopper.ST1L0]);
 
 END_PROGRAM
 ```
@@ -606,28 +707,33 @@ File: ArbiterPLC/POUs/MAIN.TcPOU
 ```vhdl
 PROGRAM MAIN
 VAR
-	Initialize	:	BOOL := TRUE;
-    
-	fbLogHandler : FB_LogHandler;
-	fbEcatDiag : FB_EcatDiagWrapper;
-(*
-	{attribute 'pytmc' := '
-		pv: Arbiter:Link:HGVPU
-		link: USEG:UNDH:
-	'}
-	fbHgvpu : FB_Hgvpu;
-	
-	{attribute 'pytmc' := '
-		pv: Arbiter:Link:SXU
-		link: USEG:UNDS:
-	'}
-	fbSxu : FB_SXU;
-*)	
+    Initialize	:	BOOL := TRUE;
+
+    fbLogHandler : FB_LogHandler;
+    fbEcatDiag : FB_EcatDiagWrapper;
+
+    {attribute 'pytmc' := '
+        pv: Arbiter:Link:HGVPU
+        link: USEG:UNDH:
+    '}
+    fbHgvpu : FB_Hgvpu;
+
+    {attribute 'pytmc' := '
+        pv: Arbiter:Link:SXU
+        link: USEG:UNDS:
+    '}
+    fbSxu : FB_SXU;
+
+    {attribute 'pytmc' := '
+    pv: @(PREFIX)BeamParamCntl
+    '}
+    fbBPControl : FB_BPControlDevice(nID:=10);
+
 END_VAR
 //Arbiter PLC
 
 IF Initialize THEN
-	Initialize := FALSE;
+    Initialize := FALSE;
 END_IF
 
 // Ethercat Diagnostics
@@ -638,12 +744,18 @@ fbEcatDiag();
 // Might have a switch to change to simulation mode
 MachineSimulation();
 Testing();
-///////////////////////////////////////////////////	
+///////////////////////////////////////////////////
+
+fbHgvpu();
+fbSxu();
+
+// Dummy device for controling pmps beam parameters
+fbBPControl(Arbiter:=g_fbArbiter1);
 
 //Update current BP
 CurrentBPUpdate();
 
-// PMPS Functionality	
+// PMPS Functionality
 PMPS_Arbiter();
 
 
@@ -664,18 +776,18 @@ File: ArbiterPLC/POUs/MachineSimulation.TcPOU
 ```vhdl
 PROGRAM MachineSimulation
 VAR
-	fbMachine	:	FB_MachineSimulator; //Simulates attenuator as well
-	fbeVSimulator : FB_eVSimulator := (NoiseLevel := 1);
+    fbMachine	:	FB_MachineSimulator; //Simulates attenuator as well
+    fbeVSimulator : FB_eVSimulator := (NoiseLevel := 1);
 END_VAR
 // reV Simulator
 fbeVSimulator();
 
 // Machine simulator
 fbMachine(
-	i_stAssertedParams := PMPS_GVL.stRequestedBeamParameters,
-	q_stMachineParams => PMPS_GVL.stCurrentBeamParameters,
-	i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut
-	);
+    i_stAssertedParams := PMPS_GVL.stRequestedBeamParameters,
+    q_stMachineParams => PMPS_GVL.stCurrentBeamParameters,
+    i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut
+    );
 
 PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
 
@@ -691,54 +803,69 @@ File: ArbiterPLC/POUs/PMPS_Arbiter.TcPOU
 ```vhdl
 PROGRAM PMPS_Arbiter
 VAR
-    
-	fbBPRequestor : FB_BPRequestor; // Updates global PMPS RequestedBeamParams
-    
-	fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
-	{attribute 'pytmc' := '
+
+    fbBPRequestor : FB_BPRequestor; // Updates global PMPS RequestedBeamParams
+
+    fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
+    {attribute 'pytmc' := '
     pv: @(PREFIX)BeamClassOutputs
     '}
-	fbMPSInterface	:	FB_BeamClassOutputs;
+    fbMPSInterface	:	FB_BeamClassOutputs;
     {attribute 'pytmc' := '
     pv: @(PREFIX)CuRateOutputs
     '}
     fbCuInterface	:	FB_CTLS_Outputs;
-	
-	(* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
-	The fb is called on each cycle and updates the arbiter with the current BP set requested 
-	from the subsystem PLC.*)
-	//<TODO> make this so it does input and output to the IF
+
+    // Stoppers
+
+    {attribute 'TcLinkTo' := '
+                .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
+                .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
+                .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
+                .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
+                                '}
+    st1l0Watcher : FB_StopperWatcher(
+        PMPS.L_Stopper.ST1L0,
+        'ST1L0');
+
+    (* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
+    The fb is called on each cycle and updates the arbiter with the current BP set requested
+    from the subsystem PLC.*)
+    //<TODO> make this so it does input and output to the IF
     (*{attribute 'pytmc' := '
     pv: @(PREFIX):PLC1
     '}*)
-	{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[SubSysPLC1]^IO Inputs^RequestedBP; 
-                                .o_CurrentBP:=TIIB[SubSysPLC1]^IO Outputs^CurrentBP;
-                                .i_Connected:=TIIB[SubSysPLC1]^SYNC Inputs^External device not connected;
-                                .i_WcState:=TIIB[SubSysPLC1]^WcState^WcState;
-                                .i_TxPDOState:=TIIB[SubSysPLC1]^SYNC Inputs^TxPDO state;
+    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-motion]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-lfe-motion]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-lfe-motion]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-lfe-motion]^WcState^WcState;
+                                .i_TxPDOState:=TIIB[plc-lfe-motion]^SYNC Inputs^TxPDO state;
                                 '}
-	fbSubSys1_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
-    
-	(*{attribute 'pytmc' := '
+    lfe_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
+
+    (*{attribute 'pytmc' := '
     pv: @(PREFIX)SubSysIO:PLC2
     '}*)
-	{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[SubSysPLC2]^IO Inputs^RequestedBP;
-                                .i_xNewRequest:=TIIB[SubSysPLC2]^IO Inputs^xNewRequest; 
+    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[SubSysPLC2]^IO Inputs^RequestedBP;
+                                .i_xNewRequest:=TIIB[SubSysPLC2]^IO Inputs^xNewRequest;
                                 .o_CurrentBP:=TIIB[SubSysPLC2]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[SubSysPLC2]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[SubSysPLC2]^WcState^WcState;
                                 .i_TxPDOState:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO state;
                                 .i_TxPDOToggle:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO toggle;
                                 '}
-	fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
-    
-    
-	
-END_VAR
-// Updating arbiter with subsystem requests.
-fbSubSys1_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
-fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+
+
+END_VAR
+// Watching stopper statuses
+st1l0Watcher();
+
+// Updating arbiter with subsystem requests.
+lfe_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+
+//fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
 // Example with attenuator peel-off
 //////////////////////////////////
@@ -755,12 +882,12 @@ fbCuInterface(BP := PMPS_GVL.stRequestedBeamParameters);
 
 // Keep an eye on the photon energy
 fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
-					i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
-					io_fbFFHWO:= GVL.g_FastFaultOutput1,
+                    i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
+                    io_fbFFHWO:= GVL.g_FastFaultOutput1,
                     i_xReset := GVL.AttemptReset);
 
 // Evaluate fast fault vetos
-g_FastFaultOutput1.EvaluateVetos();
+g_FastFaultOutput1.EvaluateOverrides();
 
 // Send fast fault logs
 g_FastFaultOutput1.ExecuteLogging();
@@ -779,14 +906,14 @@ PROGRAM Testing
 VAR
     AttemptReset : TON := (PT:=T#1s);
     gAttemptReset : TON := (PT:=T#500ms);
-        
+
     testFF : FB_FastFault;
     cycle : INT;
 END_VAR
 // Trip a fast fault periodically
 testFF(io_fbFFHWO:= g_FastFaultOutput1);
-testFF.i_xOK := (cycle mod 1000) = 0;
-cycle := cycle + 1;
+//testFF.i_xOK := (cycle mod 1000) = 0;
+//cycle := cycle + 1;
 
 //Periodically try to reset the photon energy fault.
 AttemptReset(IN:=PMPS_Arbiter.fbPhotonEnergyWatcher.xPhotonEnergyWithinBounds, Q=>GVL.AttemptReset);
@@ -801,27 +928,27 @@ Symbols
 -------
 
     .TCPADS_MAXUDP_BUFFSIZE : UDINT (4386112 32)
-    Constants.CompilerVersion : VERSION (16339632 64)
-    Constants.CompilerVersionNumeric : DWORD (16339776 32)
-    Constants.RuntimeVersion : VERSION (16339568 64)
-    Constants.RuntimeVersionNumeric : DWORD (16339744 32)
-    Constants.bFPUSupport : BOOL (16339704 8)
-    Constants.bLittleEndian : BOOL (16339560 8)
-    Constants.bSimulationMode : BOOL (16339696 8)
-    Constants.nPackMode : UINT (16339728 16)
-    Constants.nRegisterSize : WORD (16339712 16)
+    Constants.CompilerVersion : VERSION (16312176 64)
+    Constants.CompilerVersionNumeric : DWORD (16312320 32)
+    Constants.RuntimeVersion : VERSION (16312112 64)
+    Constants.RuntimeVersionNumeric : DWORD (16312288 32)
+    Constants.bFPUSupport : BOOL (16312248 8)
+    Constants.bLittleEndian : BOOL (16312104 8)
+    Constants.bSimulationMode : BOOL (16312240 8)
+    Constants.nPackMode : UINT (16312272 16)
+    Constants.nRegisterSize : WORD (16312256 16)
     DefaultGlobals.fTimeStamp : LREAL (4096128 64)
     DefaultGlobals.stSys : LCLS_General.ST_System (4096000 88)
-    GVL.AttemptReset : BOOL (8665320 8)
-    GVL.ReqBP : PMPS.ST_BeamParams (19763008 1216)
-    GVL.g_FastFaultOutput1 : PMPS.FB_HardwareFFOutput (15878208 461216)
-    GVL.g_FastFaultOutput1.q_xFastFaultOut : BOOL (15878288 8)
-    GVL.g_fbArbiter1 : PMPS.FB_Arbiter (19566144 196864)
-    GVL.g_rTestingVelocity : LREAL (16339456 64)
+    GVL.AttemptReset : BOOL (8665512 8)
+    GVL.ReqBP : PMPS.ST_BeamParams (19443008 1216)
+    GVL.g_FastFaultOutput1 : PMPS.FB_HardwareFFOutput (15850752 461216)
+    GVL.g_FastFaultOutput1.q_xFastFaultOut : BOOL (15850840 8)
+    GVL.g_fbArbiter1 : PMPS.FB_Arbiter (15652672 196864)
+    GVL.g_rTestingVelocity : LREAL (16312000 64)
     GVL.nLangId_OnlineMonitoring : DINT (4388352 32)
-    GVL_CheckBounds.nDivByZero : UDINT (16339520 32)
-    GVL_CheckBounds.nTooHigh : UDINT (16339424 32)
-    GVL_CheckBounds.nTooLow : UDINT (15680096 32)
+    GVL_CheckBounds.nDivByZero : UDINT (16312064 32)
+    GVL_CheckBounds.nTooHigh : UDINT (16311968 32)
+    GVL_CheckBounds.nTooLow : UDINT (15652640 32)
     GVL_INTERNAL.UNINITIALIZED_CLASS_GUID : GUID (4388704 128)
     GVL_Logger.TCPADS_MAXUDP_BUFFSIZE : UDINT (4097024 32)
     GVL_Logger.cLogHost : STRING(15) (4096192 128)
@@ -1219,40 +1346,41 @@ Symbols
     Global_Version.stLibVersion_Tc3_Module : ST_LibVersion (4182272 288)
     Global_Version.stLibVersion_TcUnit : ST_LibVersion (8623776 288)
     LCLS_General.DefaultGlobals.stSys.I_EcatMaster1 : AMSNETID (4096040 48)
-    MAIN.Initialize : BOOL (8665312 8)
-    MAIN.fbEcatDiag : LCLS_General.FB_EcatDiagWrapper (14450752 1095136)
-    MAIN.fbEcatDiag.arrEcMasterNetId : Tc2_System.T_AmsNetIdArr (15533328 48)
-    MAIN.fbEcatDiag.nEcMasterDevState : UINT (15533296 16)
-    MAIN.fbEcatDiag.nEcMasterDeviceId : UINT (15533312 16)
-    MAIN.fbEcatDiag.nEcMasterSlaveCount : UINT (15533280 16)
-    MAIN.fbEcatDiag.nEcMasterSlaveCountCfg : UINT (15533568 16)
-    MAIN.fbEcatDiag.wFrmXWcState : WORD (14451168 16)
-    MAIN.fbLogHandler : LCLS_General.FB_LogHandler (8665344 5785408)
-    MachineSimulation.fbMachine : PMPS.FB_MachineSimulator (19470656 3008)
-    MachineSimulation.fbeVSimulator : FB_eVSimulator (15551744 9088)
-    PMPS_Arbiter.fbBPRequestor : PMPS.FB_BPRequestor (19473664 2816)
-    PMPS_Arbiter.fbCuInterface : PMPS.FB_CTLS_Outputs (19506752 1280)
-    PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES : ARRAY[1..3] OF BOOL (19508000 24)
-    PMPS_Arbiter.fbMPSInterface : PMPS.FB_BeamClassOutputs (19505344 1408)
-    PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES : ARRAY[1..8] OF BOOL (19506640 64)
-    PMPS_Arbiter.fbPhotonEnergyWatcher : PMPS.FB_PhotonEnergyWatcher (19476480 28864)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO : PMPS.FB_ArbiterToSubSys_IO (19508032 29056)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.i_Connected : BOOL (19511840 8)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.i_RequestedBP : ST_BeamParams_IO (19508192 1216)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.i_TxPDOState : BOOL (19511856 8)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.i_TxPDOToggle : BOOL (19511864 8)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.i_WcState : BOOL (19511848 8)
-    PMPS_Arbiter.fbSubSys1_PMPS_IO.o_CurrentBP : ST_BeamParams_IO (19510624 1216)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO : PMPS.FB_ArbiterToSubSys_IO (19537088 29056)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.i_Connected : BOOL (19540896 8)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.i_RequestedBP : ST_BeamParams_IO (19537248 1216)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.i_TxPDOState : BOOL (19540912 8)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.i_TxPDOToggle : BOOL (19540920 8)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.i_WcState : BOOL (19540904 8)
-    PMPS_Arbiter.fbSubSys2_PMPS_IO.o_CurrentBP : ST_BeamParams_IO (19539680 1216)
+    MAIN.Initialize : BOOL (8665504 8)
+    MAIN.fbBPControl : FB_BPControlDevice (19310848 1408)
+    MAIN.fbEcatDiag : LCLS_General.FB_EcatDiagWrapper (14450944 1095136)
+    MAIN.fbEcatDiag.arrEcMasterNetId : Tc2_System.T_AmsNetIdArr (15533520 48)
+    MAIN.fbEcatDiag.nEcMasterDevState : UINT (15533488 16)
+    MAIN.fbEcatDiag.nEcMasterDeviceId : UINT (15533504 16)
+    MAIN.fbEcatDiag.nEcMasterSlaveCount : UINT (15533472 16)
+    MAIN.fbEcatDiag.nEcMasterSlaveCountCfg : UINT (15533760 16)
+    MAIN.fbEcatDiag.wFrmXWcState : WORD (14451360 16)
+    MAIN.fbHgvpu : FB_Hgvpu (19318400 44608)
+    MAIN.fbLogHandler : LCLS_General.FB_LogHandler (8665536 5785408)
+    MAIN.fbSxu : FB_SXU (19363008 42624)
+    MachineSimulation.fbMachine : PMPS.FB_MachineSimulator (19405632 3008)
+    MachineSimulation.fbeVSimulator : FB_eVSimulator (15553344 9088)
+    PMPS_Arbiter.fbBPRequestor : PMPS.FB_BPRequestor (19408640 2816)
+    PMPS_Arbiter.fbCuInterface : PMPS.FB_CTLS_Outputs (19441728 1280)
+    PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES : ARRAY[1..3] OF BOOL (19442976 24)
+    PMPS_Arbiter.fbMPSInterface : PMPS.FB_BeamClassOutputs (4389120 1408)
+    PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES : ARRAY[1..8] OF BOOL (4390416 64)
+    PMPS_Arbiter.fbPhotonEnergyWatcher : PMPS.FB_PhotonEnergyWatcher (19411456 28864)
+    PMPS_Arbiter.lfe_PMPS_IO : PMPS.FB_ArbiterToSubSys_IO (19703808 29056)
+    PMPS_Arbiter.lfe_PMPS_IO.i_Connected : BOOL (19707616 8)
+    PMPS_Arbiter.lfe_PMPS_IO.i_RequestedBP : ST_BeamParams_IO (19703968 1216)
+    PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState : BOOL (19707632 8)
+    PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOToggle : BOOL (19707640 8)
+    PMPS_Arbiter.lfe_PMPS_IO.i_WcState : BOOL (19707624 8)
+    PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP : ST_BeamParams_IO (19706400 1216)
+    PMPS_Arbiter.st1l0Watcher : FB_StopperWatcher (19448192 81760)
+    PMPS_Arbiter.st1l0Watcher.i_StopperInLS : BOOL (19448232 8)
+    PMPS_Arbiter.st1l0Watcher.i_StopperOutLS : BOOL (19448224 8)
+    PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay : BOOL (19448248 8)
+    PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay : BOOL (19448240 8)
     PMPS_GVL.AUX_ATTENUATORS : UINT (4475120 16)
     PMPS_GVL.AccumulatedFF : UDINT (3072032 32)
-    PMPS_GVL.DUMMY_AUX_ATT_ARRAY : ARRAY[1..16] OF PMPS.ST_PMPS_Attenuator (4475152 512)
+    PMPS_GVL.DUMMY_AUX_ATT_ARRAY : ARRAY[1..16] OF PMPS.ST_PMPS_Attenuator (18432320 512)
     PMPS_GVL.EXCLUDED_ASSERTION_ID : UDINT (4472448 32)
     PMPS_GVL.FAST_TEST_VELOCITY : LREAL (4472576 64)
     PMPS_GVL.MAX_APERTURES : UINT (4475136 16)
@@ -1263,49 +1391,57 @@ Symbols
     PMPS_GVL.SuccessfulPreemption : UDINT (3072000 32)
     PMPS_GVL.VISIBLE_TEST_VELOCITY : LREAL (4472512 64)
     PMPS_GVL.cnMaxStateArrayLen : INT (4475104 16)
-    PMPS_GVL.cstFullBeam : PMPS.ST_BeamParams (19468224 1216)
-    PMPS_GVL.cstSafeBeam : PMPS.ST_BeamParams (19469440 1216)
+    PMPS_GVL.cstFullBeam : PMPS.ST_BeamParams (19308416 1216)
+    PMPS_GVL.cstSafeBeam : PMPS.ST_BeamParams (19309632 1216)
     PMPS_GVL.fbLog : LCLS_General.FB_LogMessage (4391552 80896)
     PMPS_GVL.g_areVBoundaries : ARRAY[0..15] OF REAL (4475712 512)
     PMPS_GVL.g_cBoundaries : INT (4475664 16)
-    PMPS_GVL.stCurrentBeamParameters : PMPS.ST_BeamParams (19467008 1216)
-    PMPS_GVL.stRequestedBeamParameters : PMPS.ST_BeamParams (19465792 1216)
+    PMPS_GVL.stCurrentBeamParameters : PMPS.ST_BeamParams (19298368 1216)
+    PMPS_GVL.stRequestedBeamParameters : PMPS.ST_BeamParams (18431104 1216)
     ParameterList.cSourceNameSize : UDINT (4388384 32)
-    TC_EVENTS.LCLSGeneralEventClass : ST_LCLSGeneralEventClass (16389856 960)
-    TC_EVENT_CLASSES.LCLSGeneralEventClass : GUID (16359776 128)
-    TC_EVENT_CLASSES.TcGeneralAdsEventClass : GUID (16359264 128)
-    TC_EVENT_CLASSES.TcRTimeEventClass : GUID (16359520 128)
-    TC_EVENT_CLASSES.TcRouterEventClass : GUID (16359392 128)
-    TC_EVENT_CLASSES.TcSystemEventClass : GUID (16359136 128)
-    TC_EVENT_CLASSES.Win32EventClass : GUID (16359648 128)
-    Testing.AttemptReset : Tc2_Standard.TON (15560832 224)
-    Testing.cycle : INT (8665328 16)
-    Testing.gAttemptReset : Tc2_Standard.TON (15561056 224)
-    Testing.testFF : PMPS.FB_FastFault (15561280 25088)
-    TwinCAT_LicenseInfoVarList._LicenseInfo : ARRAY[1..1] OF PlcLicenseInfo (16339808 1024)
-    TwinCAT_SystemInfoVarList._AppInfo : PlcAppSystemInfo (16340832 2048)
-    TwinCAT_SystemInfoVarList._TaskInfo : ARRAY[1..2] OF PlcTaskSystemInfo (16342912 2048)
-    TwinCAT_SystemInfoVarList._TaskOid_FFOTask : OTCID (16344960 32)
-    TwinCAT_SystemInfoVarList._TaskOid_PlcTask : OTCID (16345024 32)
-    TwinCAT_SystemInfoVarList._TaskPouOid_FFOTask : OTCID (16342880 32)
-    TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask : OTCID (16344992 32)
-    TwinCAT_SystemInfoVarList.__FFOTask : _Implicit_Task_Info (16345056 704)
-    TwinCAT_SystemInfoVarList.__PlcTask : _Implicit_Task_Info (16345760 704)
+    TC_EVENTS.LCLSGeneralEventClass : ST_LCLSGeneralEventClass (16362400 960)
+    TC_EVENT_CLASSES.LCLSGeneralEventClass : GUID (16332320 128)
+    TC_EVENT_CLASSES.TcGeneralAdsEventClass : GUID (16331808 128)
+    TC_EVENT_CLASSES.TcRTimeEventClass : GUID (16332064 128)
+    TC_EVENT_CLASSES.TcRouterEventClass : GUID (16331936 128)
+    TC_EVENT_CLASSES.TcSystemEventClass : GUID (16331680 128)
+    TC_EVENT_CLASSES.Win32EventClass : GUID (16332192 128)
+    Testing.AttemptReset : Tc2_Standard.TON (15562432 224)
+    Testing.cycle : INT (8665520 16)
+    Testing.gAttemptReset : Tc2_Standard.TON (15562656 224)
+    Testing.testFF : PMPS.FB_FastFault (15562880 25088)
+    TwinCAT_LicenseInfoVarList._LicenseInfo : ARRAY[1..1] OF PlcLicenseInfo (16312352 1024)
+    TwinCAT_SystemInfoVarList._AppInfo : PlcAppSystemInfo (16313376 2048)
+    TwinCAT_SystemInfoVarList._TaskInfo : ARRAY[1..2] OF PlcTaskSystemInfo (16315456 2048)
+    TwinCAT_SystemInfoVarList._TaskOid_FFOTask : OTCID (16317504 32)
+    TwinCAT_SystemInfoVarList._TaskOid_PlcTask : OTCID (16317568 32)
+    TwinCAT_SystemInfoVarList._TaskPouOid_FFOTask : OTCID (16315424 32)
+    TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask : OTCID (16317536 32)
+    TwinCAT_SystemInfoVarList.__FFOTask : _Implicit_Task_Info (16317600 704)
+    TwinCAT_SystemInfoVarList.__PlcTask : _Implicit_Task_Info (16318304 704)
 
 Boxes
 -----
 
-    1.) Term 1 (EK1200)
-    2.) PMPS_FFO
-    3.) Term 3 (EK1122)
-    4.) CU1 (CU1128)
-    6.) Term 6 (EK1110)
-    7.) PMPS_Premp
-    10.) CU2 (CU1128-B)
-    11.) CU3 (CU1128-C)
-    18.) plc-lfe-vac
-    19.) plc-lfe-motion
-    20.) plc-lfe-optics
+    5.) Term 12 (EK1200)
+    8.) FFO
+    9.) PMPS_Premp
+    12.) Term 12 (EK1122)
+    13.) Term 13 (EK1100)
+    14.) PPS_Stoppers
+    15.) Term 15 (EL1008)
+    16.) MPS_Relay
+    17.) Term 17 (EL2004)
+    22.) Term 22 (EK1110)
+    23.) Box 23 (CU1128)
+    24.) plc-lfe-optics
+    25.) plc-lfe-motion
+    26.) Box 26 (EL6692)
+    27.) Box 27 (EL6692)
+    28.) Term 28 (CU1128-B)
+    29.) Term 29 (CU1128-C)
+    30.) Term 30 (EL9011)
+    31.) Term 31 (EL9010)
 NC axes
 -------
 
@@ -1372,37 +1508,49 @@ Links
           B ('TIID^Device 1 (EtherCAT)', 'Inputs^SlaveCount')
     30.) A ('ArbiterPLC Instance', 'PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterSlaveCountCfg')
           B ('TIID^Device 1 (EtherCAT)', 'InfoData^CfgSlaveCount')
-    31.) A ('ArbiterPLC Instance', 'PlcTask Inputs^MAIN.fbEcatDiag.wFrmXWcState')
-          B ('TIID^Device 1 (EtherCAT)', 'Inputs^Frm1WcState')
-    32.) A ('ArbiterPLC Instance', 'FFOTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO', 'Channel 1^Output')
-    33.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 9^Output')
-    34.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[2]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 10^Output')
-    35.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[3]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 11^Output')
-    36.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[1]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 1^Output')
-    37.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 2^Output')
-    38.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 3^Output')
-    39.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 4^Output')
-    40.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 5^Output')
-    41.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 6^Output')
-    42.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 7^Output')
-    43.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]')
-          B ('TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp', 'Channel 8^Output')
+    31.) A ('ArbiterPLC Instance', 'PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_Connected')
+          B ('TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion', 'SYNC Inputs^External device not connected')
+    32.) A ('ArbiterPLC Instance', 'PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_RequestedBP')
+          B ('TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion', 'IO Inputs^RequestedBP')
+    33.) A ('ArbiterPLC Instance', 'PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState')
+          B ('TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion', 'SYNC Inputs^TxPDO state')
+    34.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP')
+          B ('TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion', 'IO Outputs^CurrentBP')
+    35.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 9^Output')
+    36.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[2]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 10^Output')
+    37.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[3]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 11^Output')
+    38.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[1]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 1^Output')
+    39.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 2^Output')
+    40.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 3^Output')
+    41.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 4^Output')
+    42.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 5^Output')
+    43.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 6^Output')
+    44.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 7^Output')
+    45.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp', 'Channel 8^Output')
+    46.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^MPS_Relay', 'Channel 2^ST1L0_RELAY_IN')
+    47.) A ('ArbiterPLC Instance', 'PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^MPS_Relay', 'Channel 1^ST1L0_RELAY_OUT')
+    48.) A ('ArbiterPLC Instance', 'PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperInLS')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^PPS_Stoppers', 'Channel 1^ST1L0_PPS_IN')
+    49.) A ('ArbiterPLC Instance', 'PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperOutLS')
+          B ('TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^Term 12 (EK1122)^Term 13 (EK1100)^PPS_Stoppers', 'Channel 2^ST1L0_PPS_OUT')
 
 Pragma lint results
 -------------------
 ```
-INFO:pytmc.bin.pragmalint:Total pragmas found: 57 Total linter errors: 0
+INFO:pytmc.bin.pragmalint:Total pragmas found: 61 Total linter errors: 0
 PLC Project (1): ArbiterPLC
 ===========================
 
@@ -1437,15 +1585,21 @@ POUs/Accelerator/FB_UndulatorSegment.TcPOU (TcPlcObject)
     - FB_UndulatorSegment: Declaration - 2 pragmas
 
 
+POUs/FB_BPControlDevice.TcPOU (TcPlcObject)
+-------------------------------------------
+
+    - FB_BPControlDevice: Declaration - 2 pragmas
+
+
 POUs/MAIN.TcPOU (TcPlcObject)
 -----------------------------
 
-    - MAIN: Declaration - 2 pragmas
+    - MAIN: Declaration - 3 pragmas
 
 
 POUs/PMPS_Arbiter.TcPOU (TcPlcObject)
 -------------------------------------
 
-    - PMPS_Arbiter: Declaration - 6 pragmas
+    - PMPS_Arbiter: Declaration - 7 pragmas
 
 ```
