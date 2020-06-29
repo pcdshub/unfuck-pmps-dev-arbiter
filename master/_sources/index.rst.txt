@@ -1,5 +1,5 @@
-pmps-dev-arbiter
-----------------
+lcls-plc-lfe-arbiter
+--------------------
 
 .. toctree::
     :maxdepth: 2

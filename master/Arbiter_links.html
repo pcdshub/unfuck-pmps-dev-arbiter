@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Links &mdash; pcdshub/pmps-dev-arbiter  documentation</title>
+  <title>Links &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pcdshub/pmps-dev-arbiter
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pcdshub/lcls-plc-lfe-arbiter
           
 
           
@@ -115,7 +115,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pcdshub/pmps-dev-arbiter</a>
+          <a href="index.html">pcdshub/lcls-plc-lfe-arbiter</a>
         
       </nav>
 
@@ -183,94 +183,124 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
-<td><p>FFOTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO</p></td>
-<td><p>Channel 1^Output</p></td>
-</tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^MAIN.fbEcatDiag.arrEcMasterNetId</p></td>
 <td><p>TIID^Device 1 (EtherCAT)</p></td>
 <td><p>InfoData^AmsNetId</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterDevState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)</p></td>
 <td><p>Inputs^DevState</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterDeviceId</p></td>
 <td><p>TIID^Device 1 (EtherCAT)</p></td>
 <td><p>InfoData^DevId</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterSlaveCount</p></td>
 <td><p>TIID^Device 1 (EtherCAT)</p></td>
 <td><p>Inputs^SlaveCount</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^MAIN.fbEcatDiag.nEcMasterSlaveCountCfg</p></td>
 <td><p>TIID^Device 1 (EtherCAT)</p></td>
 <td><p>InfoData^CfgSlaveCount</p></td>
 </tr>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_Connected</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
+<td><p>SYNC Inputs^External device not connected</p></td>
+</tr>
 <tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
-<td><p>PlcTask Inputs^MAIN.fbEcatDiag.wFrmXWcState</p></td>
-<td><p>TIID^Device 1 (EtherCAT)</p></td>
-<td><p>Inputs^Frm1WcState</p></td>
+<td><p>PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_RequestedBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
+<td><p>IO Inputs^RequestedBP</p></td>
 </tr>
 <tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
+<td><p>SYNC Inputs^TxPDO state</p></td>
+</tr>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperInLS</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers</p></td>
+<td><p>Channel 1^ST1L0_PPS_IN</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^PMPS_Arbiter.st1l0Watcher.i_StopperOutLS</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers</p></td>
+<td><p>Channel 2^ST1L0_PPS_OUT</p></td>
+</tr>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 9^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[2]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 10^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[3]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 11^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[1]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 1^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 2^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 3^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 4^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 5^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 6^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 7^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 8^Output</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Outputs^PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
+<td><p>IO Outputs^CurrentBP</p></td>
+</tr>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay</p></td>
+<td><p>Channel 2^ST1L0_RELAY_IN</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Outputs^PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay</p></td>
+<td><p>Channel 1^ST1L0_RELAY_OUT</p></td>
 </tr>
 <tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_Connected</p></td>

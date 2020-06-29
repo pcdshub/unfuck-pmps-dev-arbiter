@@ -191,9 +191,81 @@ Fast_Faults_Evaluate
     PROGRAM Fast_Faults_Evaluate
     VAR
     END_VAR
-    g_FastFaultOutput1.EvaluateOutput(i_xVeto:=PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.L_Stopper.ST1]);
+    g_FastFaultOutput1.EvaluateOutput(i_xVeto:=PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.L_Stopper.ST1L0]);
 
     END_PROGRAM
+
+
+FB_BPControlDevice
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    (*
+    Used to request a beam parameter set from EPICS.
+
+    Technically just one of these is needed in the entire
+    PMPS for a line.
+
+    *)
+    FUNCTION_BLOCK FB_BPControlDevice
+    VAR_INPUT
+            (*  Requested pre-optic attenuation %  *)
+            {attribute 'pytmc' := 'pv: ReqBP:Attenuation
+                io: o
+                field: EGU %
+            '}
+            fAtt : REAL := 100;
+            (* Pulse-rate *)
+            {attribute 'pytmc' := 'pv: ReqBP:Rate
+                io: o
+                field: EGU Hz
+            '}
+            nRate : UDINT := 10;
+            (* Per pulse max energy (mJ) *)
+            {attribute 'pytmc' := 'pv: ReqBP:PulseEnergy
+                io: o
+                field: EGU mJ
+            '}
+            fPP_mJ : REAL := 20;
+            (* Photon energy ranges *)
+            {attribute 'pytmc' := 'pv: ReqBP:PhotonEnergyRanges
+                io: o
+                field: EGU eV'}
+            {attribute 'displaymode' := 'binary'}
+            neVRange : WORD := 65535;
+    END_VAR
+    VAR_OUTPUT
+    END_VAR
+    VAR_IN_OUT
+        Arbiter : FB_Arbiter;
+    END_VAR
+    VAR
+        EpicsReqBP : ST_BeamParams;
+        {attribute 'pytmc' := '
+            pv: ReqBP:Apply
+            io: o
+        '}
+        bApply : BOOL;
+
+        nControlDeviceID : DWORD;
+
+        rtApply : R_TRIG;
+
+    END_VAR
+    EpicsReqBP.fAtt := fAtt;
+    EpicsReqBP.neVRange := neVRange;
+    EpicsReqBP.nRate := nRate;
+    EpicsReqBP.fPP_mJ := fPP_mJ;
+
+    rtApply(CLK:=bApply);
+    IF rtApply.Q THEN
+        Arbiter.RemoveRequest(nControlDeviceID);
+        Arbiter.AddRequest(nControlDeviceID, EpicsReqBP);
+        bApply := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
 
 
 FB_eVSimulator
@@ -369,6 +441,58 @@ FB_Hgvpu
             fbCurrentSegment();
         END_IF
     END_FOR
+
+    END_FUNCTION_BLOCK
+
+
+FB_StopperWatcher
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Relays stopper state and sends a message when stopper state changes.
+    FUNCTION_BLOCK FB_StopperWatcher
+    VAR_INPUT
+    END_VAR
+    VAR_OUTPUT
+    END_VAR
+    VAR_IN_OUT
+        stCurrentBP : ST_BeamParams;
+    END_VAR
+    VAR
+        i_StopperOutLS AT %I* : BOOL;
+        i_StopperInLS AT %I* : BOOL;
+
+        q_StopperOUT_Relay AT %Q* : BOOL;
+        q_StopperIN_Relay AT %Q* : BOOL;
+
+        eStopper : PMPS.L_Stopper;
+        StopperName : STRING;
+
+        // Logging
+        fbLogMsg : FB_LogMessage := (
+            eSubSystem := E_Subsystem.MPS);
+
+        rtIn : R_TRIG;
+        rtOut : R_TRIG;
+
+    END_VAR
+    rtIn(CLK := i_StopperInLS);
+    rtOut(CLK := i_StopperOutLS);
+
+    IF rtIn.Q THEN
+        fbLogMsg.sMsg := CONCAT(StopperName, ' moved IN');
+        fbLogMsg();
+    ELSIF rtOut.Q THEN
+        fbLogMsg.sMsg := CONCAT(StopperName, ' moved OUT');
+        fbLogMsg();
+    END_IF
+
+    q_StopperOUT_Relay := i_StopperOutLS;
+    q_StopperIN_Relay := i_StopperInLS;
+
+    // Update current beam parameters
+    stCurrentBP.aStoppers[
 
     END_FUNCTION_BLOCK
 
@@ -574,7 +698,7 @@ MAIN
 
         fbLogHandler : FB_LogHandler;
         fbEcatDiag : FB_EcatDiagWrapper;
-    (*
+
         {attribute 'pytmc' := '
             pv: Arbiter:Link:HGVPU
             link: USEG:UNDH:
@@ -586,7 +710,12 @@ MAIN
             link: USEG:UNDS:
         '}
         fbSxu : FB_SXU;
-    *)
+
+        {attribute 'pytmc' := '
+        pv: @(PREFIX)BeamParamCntl
+        '}
+        fbBPControl : FB_BPControlDevice(nID:=10);
+
     END_VAR
     //Arbiter PLC
 
@@ -603,6 +732,12 @@ MAIN
     MachineSimulation();
     Testing();
     ///////////////////////////////////////////////////
+
+    fbHgvpu();
+    fbSxu();
+
+    // Dummy device for controling pmps beam parameters
+    fbBPControl(Arbiter:=g_fbArbiter1);
 
     //Update current BP
     CurrentBPUpdate();
@@ -639,6 +774,18 @@ PMPS_Arbiter
         '}
         fbCuInterface	:	FB_CTLS_Outputs;
 
+        // Stoppers
+
+        {attribute 'TcLinkTo' := '
+                    .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
+                    .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
+                    .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
+                    .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
+                                    '}
+        st1l0Watcher : FB_StopperWatcher(
+            PMPS.L_Stopper.ST1L0,
+            'ST1L0');
+
         (* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
         The fb is called on each cycle and updates the arbiter with the current BP set requested
         from the subsystem PLC.*)
@@ -646,13 +793,13 @@ PMPS_Arbiter
         (*{attribute 'pytmc' := '
         pv: @(PREFIX):PLC1
         '}*)
-        {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[SubSysPLC1]^IO Inputs^RequestedBP;
-                                    .o_CurrentBP:=TIIB[SubSysPLC1]^IO Outputs^CurrentBP;
-                                    .i_Connected:=TIIB[SubSysPLC1]^SYNC Inputs^External device not connected;
-                                    .i_WcState:=TIIB[SubSysPLC1]^WcState^WcState;
-                                    .i_TxPDOState:=TIIB[SubSysPLC1]^SYNC Inputs^TxPDO state;
+        {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-motion]^IO Inputs^RequestedBP;
+                                    .o_CurrentBP:=TIIB[plc-lfe-motion]^IO Outputs^CurrentBP;
+                                    .i_Connected:=TIIB[plc-lfe-motion]^SYNC Inputs^External device not connected;
+                                    .i_WcState:=TIIB[plc-lfe-motion]^WcState^WcState;
+                                    .i_TxPDOState:=TIIB[plc-lfe-motion]^SYNC Inputs^TxPDO state;
                                     '}
-        fbSubSys1_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
+        lfe_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
 
         (*{attribute 'pytmc' := '
         pv: @(PREFIX)SubSysIO:PLC2
@@ -665,15 +812,18 @@ PMPS_Arbiter
                                     .i_TxPDOState:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO state;
                                     .i_TxPDOToggle:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO toggle;
                                     '}
-        fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
+        //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
 
 
     END_VAR
-    // Updating arbiter with subsystem requests.
-    fbSubSys1_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    // Watching stopper statuses
+    st1l0Watcher();
 
-    fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    // Updating arbiter with subsystem requests.
+    lfe_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+
+    //fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
     // Example with attenuator peel-off
     //////////////////////////////////
@@ -695,7 +845,7 @@ PMPS_Arbiter
                         i_xReset := GVL.AttemptReset);
 
     // Evaluate fast fault vetos
-    g_FastFaultOutput1.EvaluateVetos();
+    g_FastFaultOutput1.EvaluateOverrides();
 
     // Send fast fault logs
     g_FastFaultOutput1.ExecuteLogging();
@@ -718,8 +868,8 @@ Testing
     END_VAR
     // Trip a fast fault periodically
     testFF(io_fbFFHWO:= g_FastFaultOutput1);
-    testFF.i_xOK := (cycle mod 1000) = 0;
-    cycle := cycle + 1;
+    //testFF.i_xOK := (cycle mod 1000) = 0;
+    //cycle := cycle + 1;
 
     //Periodically try to reset the photon energy fault.
     AttemptReset(IN:=PMPS_Arbiter.fbPhotonEnergyWatcher.xPhotonEnergyWithinBounds, Q=>GVL.AttemptReset);
