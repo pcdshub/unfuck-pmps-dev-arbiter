@@ -112,6 +112,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#fb-bpcontroldevice">FB_BPControlDevice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-evsimulator">FB_eVSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-hgvpu">FB_Hgvpu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-kstopper">FB_KStopper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-lstopper">FB_LStopper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-stopperwatcher">FB_StopperWatcher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-sxu">FB_SXU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-undulatorsegment">FB_UndulatorSegment</a></li>
@@ -206,12 +208,22 @@
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">FFO</span><span class="p">:</span><span class="mi">01</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[FFO]^Channel 1^Output&#39;</span><span class="p">}</span>
     <span class="n">g_FastFaultOutput1</span>      <span class="p">:</span>       <span class="n">FB_HardwareFFOutput</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+    <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">FFO</span><span class="p">:</span><span class="mi">02</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[FFO]^Channel 2^Output&#39;</span><span class="p">}</span>
+    <span class="n">g_FastFaultOutput2</span>      <span class="p">:</span>       <span class="n">FB_HardwareFFOutput</span><span class="p">;</span>
 
     <span class="n">g_rTestingVelocity</span>      <span class="p">:</span>       <span class="n">LREAL</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">VISIBLE_TEST_VELOCITY</span><span class="p">;</span>
 
     <span class="n">AttemptReset</span>    <span class="p">:</span>   <span class="n">BOOL</span><span class="p">;</span> <span class="o">//</span> <span class="n">For</span> <span class="n">testing</span>
+<span class="n">END_VAR</span>
+
+<span class="n">VAR_GLOBAL</span> <span class="n">CONSTANT</span>
+    <span class="n">MAX_FAST_FAULTS</span> <span class="p">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -320,6 +332,11 @@
 <h2>CurrentBPUpdate<a class="headerlink" href="#currentbpupdate" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">CurrentBPUpdate</span>
 <span class="n">VAR</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">MPS</span><span class="p">:</span><span class="n">KickerPermRate</span>
+            <span class="n">link</span><span class="p">:</span> <span class="n">IOC</span><span class="p">:</span><span class="n">BSY0</span><span class="p">:</span><span class="n">MP01</span><span class="p">:</span><span class="n">BYKIK_RATE</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">nBeamRate</span> <span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 
 
@@ -356,7 +373,8 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">Fast_Faults_Evaluate</span>
 <span class="n">VAR</span>
 <span class="n">END_VAR</span>
-<span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">i_xVeto</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">aStoppers</span><span class="p">[</span><span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="o">.</span><span class="n">ST1L0</span><span class="p">]);</span>
+<span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">bAutoReset</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+<span class="n">g_FastFaultOutput2</span><span class="o">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">bAutoReset</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -605,6 +623,40 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="fb-kstopper">
+<h2>FB_KStopper<a class="headerlink" href="#fb-kstopper" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_KStopper</span> <span class="n">EXTENDS</span> <span class="n">FB_StopperWatcher</span>
+<span class="n">VAR_INPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_IN_OUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+<span class="n">END_VAR</span>
+<span class="n">SUPER</span><span class="o">^</span><span class="p">(</span><span class="n">stCurrentBP</span><span class="o">:=</span><span class="n">SUPER</span><span class="o">^.</span><span class="n">stCurrentBP</span><span class="p">);</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fb-lstopper">
+<h2>FB_LStopper<a class="headerlink" href="#fb-lstopper" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_LStopper</span> <span class="n">EXTENDS</span> <span class="n">FB_StopperWatcher</span>
+<span class="n">VAR_INPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_IN_OUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+<span class="n">END_VAR</span>
+<span class="n">SUPER</span><span class="o">^</span><span class="p">(</span><span class="n">stCurrentBP</span><span class="o">:=</span><span class="n">SUPER</span><span class="o">^.</span><span class="n">stCurrentBP</span><span class="p">);</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="fb-stopperwatcher">
 <h2>FB_StopperWatcher<a class="headerlink" href="#fb-stopperwatcher" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Relays</span> <span class="n">stopper</span> <span class="n">state</span> <span class="ow">and</span> <span class="n">sends</span> <span class="n">a</span> <span class="n">message</span> <span class="n">when</span> <span class="n">stopper</span> <span class="n">state</span> <span class="n">changes</span><span class="o">.</span>
@@ -623,7 +675,7 @@
     <span class="n">q_StopperOUT_Relay</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
     <span class="n">q_StopperIN_Relay</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
-    <span class="n">eStopper</span> <span class="p">:</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="p">;</span>
+    <span class="n">Stopper</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
     <span class="n">StopperName</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">Logging</span>
@@ -649,7 +701,7 @@
 <span class="n">q_StopperIN_Relay</span> <span class="o">:=</span> <span class="n">i_StopperInLS</span><span class="p">;</span>
 
 <span class="o">//</span> <span class="n">Update</span> <span class="n">current</span> <span class="n">beam</span> <span class="n">parameters</span>
-<span class="n">stCurrentBP</span><span class="o">.</span><span class="n">aStoppers</span><span class="p">[</span>
+<span class="n">stCurrentBP</span><span class="o">.</span><span class="n">aStoppers</span><span class="p">[</span><span class="n">Stopper</span><span class="p">]</span> <span class="o">:=</span> <span class="n">i_StopperInLS</span><span class="p">;</span>
 
 <span class="n">END_FUNCTION_BLOCK</span>
 </pre></div>
@@ -829,8 +881,9 @@
 <span class="o">//</span> <span class="n">Machine</span> <span class="n">simulator</span>
 <span class="n">fbMachine</span><span class="p">(</span>
     <span class="n">i_stAssertedParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span><span class="p">,</span>
-    <span class="n">q_stMachineParams</span> <span class="o">=&gt;</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
-    <span class="n">i_xFault</span>        <span class="o">:=</span> <span class="n">NOT</span> <span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">q_xFastFaultOut</span>
+    <span class="n">iq_stMachineParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
+    <span class="n">i_xFault</span>        <span class="o">:=</span> <span class="n">NOT</span> <span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">q_xFastFaultOut</span><span class="p">,</span>
+    <span class="n">xEnableAtt</span> <span class="o">:=</span> <span class="n">TRUE</span>
     <span class="p">);</span>
 
 <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">neVRange</span> <span class="o">:=</span> <span class="n">F_eVRangeCalculator</span><span class="p">(</span><span class="n">fbeVSimulator</span><span class="o">.</span><span class="n">eV</span><span class="p">,</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">neVRange</span><span class="p">);</span>
@@ -879,7 +932,7 @@
 <span class="o">//</span> <span class="n">This</span> <span class="n">code</span> <span class="n">should</span> <span class="n">be</span> <span class="n">disabled</span> <span class="ow">or</span> <span class="n">removed</span> <span class="ow">in</span> <span class="n">deployment</span>
 <span class="o">//</span> <span class="n">Might</span> <span class="n">have</span> <span class="n">a</span> <span class="n">switch</span> <span class="n">to</span> <span class="n">change</span> <span class="n">to</span> <span class="n">simulation</span> <span class="n">mode</span>
 <span class="n">MachineSimulation</span><span class="p">();</span>
-<span class="n">Testing</span><span class="p">();</span>
+<span class="o">//</span><span class="n">Testing</span><span class="p">();</span>
 <span class="o">///////////////////////////////////////////////////</span>
 
 <span class="n">fbHgvpu</span><span class="p">();</span>
@@ -892,6 +945,7 @@
 <span class="n">CurrentBPUpdate</span><span class="p">();</span>
 
 <span class="o">//</span> <span class="n">PMPS</span> <span class="n">Functionality</span>
+<span class="n">CurrentBPUpdate</span><span class="p">();</span>
 <span class="n">PMPS_Arbiter</span><span class="p">();</span>
 
 
@@ -929,8 +983,8 @@
                 <span class="o">.</span><span class="n">q_StopperOUT_Relay</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">MPS_Relay</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">ST1L0_RELAY_OUT</span><span class="p">;</span>
                 <span class="o">.</span><span class="n">q_StopperIN_Relay</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">MPS_Relay</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">ST1L0_RELAY_IN</span><span class="p">;</span>
                                 <span class="s1">&#39;}</span>
-    <span class="n">st1l0Watcher</span> <span class="p">:</span> <span class="n">FB_StopperWatcher</span><span class="p">(</span>
-        <span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="o">.</span><span class="n">ST1L0</span><span class="p">,</span>
+    <span class="n">st1l0Watcher</span> <span class="p">:</span> <span class="n">FB_LStopper</span><span class="p">(</span>
+        <span class="n">PMPS</span><span class="o">.</span><span class="n">K_Stopper</span><span class="o">.</span><span class="n">ST1</span><span class="p">,</span>
         <span class="s1">&#39;ST1L0&#39;</span><span class="p">);</span>
 
     <span class="p">(</span><span class="o">*</span> <span class="n">Subsystem</span> <span class="n">requests</span> <span class="n">use</span> <span class="n">this</span> <span class="n">FB</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">pragma</span> <span class="n">link</span> <span class="n">to</span> <span class="k">pass</span> <span class="n">their</span> <span class="n">requests</span> <span class="n">to</span> <span class="n">the</span> <span class="n">arbiter</span><span class="o">.</span>
@@ -943,10 +997,35 @@
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.i_RequestedBP:=TIIB[plc-lfe-motion]^IO Inputs^RequestedBP;</span>
                                 <span class="o">.</span><span class="n">o_CurrentBP</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span><span class="p">]</span><span class="o">^</span><span class="n">IO</span> <span class="n">Outputs</span><span class="o">^</span><span class="n">CurrentBP</span><span class="p">;</span>
                                 <span class="o">.</span><span class="n">i_Connected</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">External</span> <span class="n">device</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">;</span>
-                                <span class="o">.</span><span class="n">i_WcState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span><span class="p">]</span><span class="o">^</span><span class="n">WcState</span><span class="o">^</span><span class="n">WcState</span><span class="p">;</span>
+                                <span class="o">.</span><span class="n">i_WcState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span><span class="p">]</span><span class="o">^</span><span class="n">WcState</span><span class="o">^</span><span class="n">WcStateIn</span><span class="p">;</span>
                                 <span class="o">.</span><span class="n">i_TxPDOState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">TxPDO</span> <span class="n">state</span><span class="p">;</span>
                                 <span class="s1">&#39;}</span>
-    <span class="n">lfe_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF0F);</span>
+    <span class="n">plc_lfe_motion_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF0F);</span>
+
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.i_RequestedBP:=TIIB[plc-lfe-optics]^IO Inputs^RequestedBP;</span>
+                                <span class="o">.</span><span class="n">o_CurrentBP</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span><span class="p">]</span><span class="o">^</span><span class="n">IO</span> <span class="n">Outputs</span><span class="o">^</span><span class="n">CurrentBP</span><span class="p">;</span>
+                                <span class="o">.</span><span class="n">i_Connected</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">External</span> <span class="n">device</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">;</span>
+                                <span class="o">.</span><span class="n">i_WcState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span><span class="p">]</span><span class="o">^</span><span class="n">WcState</span><span class="o">^</span><span class="n">WcStateIn</span><span class="p">;</span>
+                                <span class="o">.</span><span class="n">i_TxPDOState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">optics</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">TxPDO</span> <span class="n">state</span><span class="p">;</span>
+                                <span class="s1">&#39;}</span>
+    <span class="n">plc_lfe_optics_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF10);</span>
+
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.i_RequestedBP:=TIIB[plc-lfe-vacuum]^IO Inputs^RequestedBP;</span>
+                                                            <span class="o">.</span><span class="n">o_CurrentBP</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">vacuum</span><span class="p">]</span><span class="o">^</span><span class="n">IO</span> <span class="n">Outputs</span><span class="o">^</span><span class="n">CurrentBP</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_Connected</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">vacuum</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">External</span> <span class="n">device</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_WcState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">vacuum</span><span class="p">]</span><span class="o">^</span><span class="n">WcState</span><span class="o">^</span><span class="n">WcStateIn</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_TxPDOState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">vacuum</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">TxPDO</span> <span class="n">state</span><span class="p">;</span>
+                                                            <span class="s1">&#39;}</span>
+    <span class="n">plc_lfe_vac_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF11);</span>
+
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.i_RequestedBP:=TIIB[plc-lfe-gatt]^IO Inputs^RequestedBP;</span>
+                                                            <span class="o">.</span><span class="n">o_CurrentBP</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">gatt</span><span class="p">]</span><span class="o">^</span><span class="n">IO</span> <span class="n">Outputs</span><span class="o">^</span><span class="n">CurrentBP</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_Connected</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">gatt</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">External</span> <span class="n">device</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_WcState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">gatt</span><span class="p">]</span><span class="o">^</span><span class="n">WcState</span><span class="o">^</span><span class="n">WcStateIn</span><span class="p">;</span>
+                                                            <span class="o">.</span><span class="n">i_TxPDOState</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">gatt</span><span class="p">]</span><span class="o">^</span><span class="n">SYNC</span> <span class="n">Inputs</span><span class="o">^</span><span class="n">TxPDO</span> <span class="n">state</span><span class="p">;</span>
+                                                            <span class="s1">&#39;}</span>
+    <span class="n">plc_lfe_gatt_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF12);</span>
 
     <span class="p">(</span><span class="o">*</span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">SubSysIO</span><span class="p">:</span><span class="n">PLC2</span>
@@ -961,19 +1040,24 @@
                                 <span class="s1">&#39;}</span>
     <span class="o">//</span><span class="n">fbSubSys2_PMPS_IO</span> <span class="p">:</span> <span class="n">FB_ArbiterToSubSys_IO</span> <span class="o">:=</span> <span class="p">(</span><span class="n">RequestingSystemID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FF10);</span>
 
+<span class="p">(</span><span class="o">*</span> <span class="n">caget</span> <span class="n">IOC</span><span class="p">:</span><span class="n">BSY0</span><span class="p">:</span><span class="n">MP01</span><span class="p">:</span><span class="n">BYKIK_RATE</span>
+<span class="n">IOC</span><span class="p">:</span><span class="n">BSY0</span><span class="p">:</span><span class="n">MP01</span><span class="p">:</span><span class="n">BYKIK_RATE</span>       <span class="mi">10</span> <span class="n">Hz</span> <span class="o">*</span><span class="p">)</span>
 
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">KDes</span>
+        <span class="n">link</span><span class="p">:</span> <span class="n">KDes</span>
+    <span class="s1">&#39;}</span>
 
 <span class="n">END_VAR</span>
-<span class="o">//</span> <span class="n">Watching</span> <span class="n">stopper</span> <span class="n">statuses</span>
-<span class="n">st1l0Watcher</span><span class="p">();</span>
+<span class="o">//</span> <span class="n">Watching</span> <span class="ow">and</span> <span class="n">relaying</span> <span class="n">stopper</span> <span class="n">statuses</span>
+<span class="n">st1l0Watcher</span><span class="p">(</span><span class="n">stCurrentBP</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">Updating</span> <span class="n">arbiter</span> <span class="k">with</span> <span class="n">subsystem</span> <span class="n">requests</span><span class="o">.</span>
-<span class="n">lfe_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
+<span class="n">plc_lfe_motion_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
+<span class="n">plc_lfe_optics_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
+<span class="n">plc_lfe_vac_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
+<span class="n">plc_lfe_gatt_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
 
-<span class="o">//</span><span class="n">fbSubSys2_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
-
-<span class="o">//</span> <span class="n">Example</span> <span class="k">with</span> <span class="n">attenuator</span> <span class="n">peel</span><span class="o">-</span><span class="n">off</span>
-<span class="o">//////////////////////////////////</span>
 
 <span class="o">//</span> <span class="n">Beam</span> <span class="n">parameter</span> <span class="n">requestor</span>
 <span class="n">fbBPRequestor</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">q_ReqBP</span> <span class="o">=&gt;</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span><span class="p">);</span>

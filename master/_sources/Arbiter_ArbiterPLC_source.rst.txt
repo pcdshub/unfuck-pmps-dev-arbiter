@@ -26,12 +26,22 @@ GVL
         {attribute 'pytmc' := '
         pv: @(PREFIX)FFO:01
         '}
-        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
+        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[FFO]^Channel 1^Output'}
         g_FastFaultOutput1	:	FB_HardwareFFOutput;
+    	
+    	{attribute 'pytmc' := '
+        pv: @(PREFIX)FFO:02
+        '}
+        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[FFO]^Channel 2^Output'}
+        g_FastFaultOutput2	:	FB_HardwareFFOutput;
 
         g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
 
         AttemptReset    :   BOOL; // For testing
+    END_VAR
+
+    VAR_GLOBAL CONSTANT
+    	MAX_FAST_FAULTS : UINT := 100;
     END_VAR
 
 
@@ -151,6 +161,11 @@ CurrentBPUpdate
 
     PROGRAM CurrentBPUpdate
     VAR
+    	{attribute 'pytmc' := '
+    		pv: @(PREFIX)MPS:KickerPermRate
+    		link: IOC:BSY0:MP01:BYKIK_RATE
+    	'}
+    	nBeamRate : INT;
     END_VAR
 
 
@@ -191,7 +206,8 @@ Fast_Faults_Evaluate
     PROGRAM Fast_Faults_Evaluate
     VAR
     END_VAR
-    g_FastFaultOutput1.EvaluateOutput(i_xVeto:=PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.L_Stopper.ST1L0]);
+    g_FastFaultOutput1.EvaluateOutput(bAutoReset:=TRUE);
+    g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
 
     END_PROGRAM
 
@@ -445,6 +461,44 @@ FB_Hgvpu
     END_FUNCTION_BLOCK
 
 
+FB_KStopper
+^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_KStopper EXTENDS FB_StopperWatcher
+    VAR_INPUT
+    END_VAR
+    VAR_OUTPUT
+    END_VAR
+    VAR_IN_OUT
+    END_VAR
+    VAR
+    END_VAR
+    SUPER^(stCurrentBP:=SUPER^.stCurrentBP);
+
+    END_FUNCTION_BLOCK
+
+
+FB_LStopper
+^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_LStopper EXTENDS FB_StopperWatcher
+    VAR_INPUT
+    END_VAR
+    VAR_OUTPUT
+    END_VAR
+    VAR_IN_OUT
+    END_VAR
+    VAR
+    END_VAR
+    SUPER^(stCurrentBP:=SUPER^.stCurrentBP);
+
+    END_FUNCTION_BLOCK
+
+
 FB_StopperWatcher
 ^^^^^^^^^^^^^^^^^
 
@@ -457,7 +511,7 @@ FB_StopperWatcher
     VAR_OUTPUT
     END_VAR
     VAR_IN_OUT
-        stCurrentBP : ST_BeamParams;
+    	stCurrentBP : ST_BeamParams;
     END_VAR
     VAR
         i_StopperOutLS AT %I* : BOOL;
@@ -466,7 +520,7 @@ FB_StopperWatcher
         q_StopperOUT_Relay AT %Q* : BOOL;
         q_StopperIN_Relay AT %Q* : BOOL;
 
-        eStopper : PMPS.L_Stopper;
+        Stopper : UINT;
         StopperName : STRING;
 
         // Logging
@@ -492,7 +546,7 @@ FB_StopperWatcher
     q_StopperIN_Relay := i_StopperInLS;
 
     // Update current beam parameters
-    stCurrentBP.aStoppers[
+    stCurrentBP.aStoppers[Stopper] := i_StopperInLS;
 
     END_FUNCTION_BLOCK
 
@@ -678,8 +732,9 @@ MachineSimulation
     // Machine simulator
     fbMachine(
         i_stAssertedParams := PMPS_GVL.stRequestedBeamParameters,
-        q_stMachineParams => PMPS_GVL.stCurrentBeamParameters,
-        i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut
+        iq_stMachineParams := PMPS_GVL.stCurrentBeamParameters,
+        i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut,
+    	xEnableAtt := TRUE
         );
 
     PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
@@ -730,7 +785,7 @@ MAIN
     // This code should be disabled or removed in deployment
     // Might have a switch to change to simulation mode
     MachineSimulation();
-    Testing();
+    //Testing();
     ///////////////////////////////////////////////////
 
     fbHgvpu();
@@ -743,6 +798,7 @@ MAIN
     CurrentBPUpdate();
 
     // PMPS Functionality
+    CurrentBPUpdate();
     PMPS_Arbiter();
 
 
@@ -782,8 +838,8 @@ PMPS_Arbiter
                     .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
                     .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
                                     '}
-        st1l0Watcher : FB_StopperWatcher(
-            PMPS.L_Stopper.ST1L0,
+        st1l0Watcher : FB_LStopper(
+            PMPS.K_Stopper.ST1,
             'ST1L0');
 
         (* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
@@ -796,11 +852,36 @@ PMPS_Arbiter
         {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-motion]^IO Inputs^RequestedBP;
                                     .o_CurrentBP:=TIIB[plc-lfe-motion]^IO Outputs^CurrentBP;
                                     .i_Connected:=TIIB[plc-lfe-motion]^SYNC Inputs^External device not connected;
-                                    .i_WcState:=TIIB[plc-lfe-motion]^WcState^WcState;
+                                    .i_WcState:=TIIB[plc-lfe-motion]^WcState^WcStateIn;
                                     .i_TxPDOState:=TIIB[plc-lfe-motion]^SYNC Inputs^TxPDO state;
                                     '}
-        lfe_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
+        plc_lfe_motion_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
+    	
+    	    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-optics]^IO Inputs^RequestedBP;
+                                    .o_CurrentBP:=TIIB[plc-lfe-optics]^IO Outputs^CurrentBP;
+                                    .i_Connected:=TIIB[plc-lfe-optics]^SYNC Inputs^External device not connected;
+                                    .i_WcState:=TIIB[plc-lfe-optics]^WcState^WcStateIn;
+                                    .i_TxPDOState:=TIIB[plc-lfe-optics]^SYNC Inputs^TxPDO state;
+                                    '}
+        plc_lfe_optics_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
+    	
+    	{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-vacuum]^IO Inputs^RequestedBP;
+    								.o_CurrentBP:=TIIB[plc-lfe-vacuum]^IO Outputs^CurrentBP;
+    								.i_Connected:=TIIB[plc-lfe-vacuum]^SYNC Inputs^External device not connected;
+    								.i_WcState:=TIIB[plc-lfe-vacuum]^WcState^WcStateIn;
+    								.i_TxPDOState:=TIIB[plc-lfe-vacuum]^SYNC Inputs^TxPDO state;
+    								'}
+        plc_lfe_vac_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF11);
+    	
+    		{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-gatt]^IO Inputs^RequestedBP;
+    								.o_CurrentBP:=TIIB[plc-lfe-gatt]^IO Outputs^CurrentBP;
+    								.i_Connected:=TIIB[plc-lfe-gatt]^SYNC Inputs^External device not connected;
+    								.i_WcState:=TIIB[plc-lfe-gatt]^WcState^WcStateIn;
+    								.i_TxPDOState:=TIIB[plc-lfe-gatt]^SYNC Inputs^TxPDO state;
+    								'}
+        plc_lfe_gatt_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF12);
+    	
         (*{attribute 'pytmc' := '
         pv: @(PREFIX)SubSysIO:PLC2
         '}*)
@@ -814,19 +895,24 @@ PMPS_Arbiter
                                     '}
         //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
+    (* caget IOC:BSY0:MP01:BYKIK_RATE
+    IOC:BSY0:MP01:BYKIK_RATE       10 Hz *)
 
+        {attribute 'pytmc' := '
+            pv: KDes
+            link: KDes
+        '}
 
     END_VAR
-    // Watching stopper statuses
-    st1l0Watcher();
+    // Watching and relaying stopper statuses
+    st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
 
     // Updating arbiter with subsystem requests.
-    lfe_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    plc_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    plc_lfe_optics_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    plc_lfe_vac_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+    plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
-    //fbSubSys2_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
-
-    // Example with attenuator peel-off
-    //////////////////////////////////
 
     // Beam parameter requestor
     fbBPRequestor(Arbiter:=GVL.g_fbArbiter1, q_ReqBP => PMPS_GVL.stRequestedBeamParameters);
