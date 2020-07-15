@@ -108,7 +108,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#checkrangeunsigned">CheckRangeUnsigned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#currentbpupdate">CurrentBPUpdate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cxdisplay">CXDisplay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#f-calculatephotonenergy">F_CalculatePhotonEnergy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fast-faults-evaluate">Fast_Faults_Evaluate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-acceleratorlinks">FB_AcceleratorLinks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-bpcontroldevice">FB_BPControlDevice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-evsimulator">FB_eVSimulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-hgvpu">FB_Hgvpu</a></li>
@@ -368,6 +370,67 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="f-calculatephotonenergy">
+<h2>F_CalculatePhotonEnergy<a class="headerlink" href="#f-calculatephotonenergy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION</span> <span class="n">F_CalculatePhotonEnergy</span> <span class="p">:</span> <span class="n">LREAL</span>
+<span class="n">VAR_INPUT</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">Electron</span> <span class="n">energy</span> <span class="ow">in</span> <span class="n">GeV</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">fElectronEnergy_GeV</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">Undulator</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">mm</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">fUndulatorPeriod_mm</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">Unitless</span> <span class="n">undulator</span> <span class="n">K</span> <span class="n">parameter</span> <span class="o">/</span> <span class="n">strength</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">fUndulatorStrength</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+
+<span class="n">VAR</span>
+    <span class="n">fDenominator</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+
+<span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">GeV</span> <span class="p">[</span><span class="n">electron</span> <span class="n">rest</span> <span class="n">mass</span><span class="o">/</span><span class="n">energy</span><span class="p">]</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">m_e</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.0005109989461</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">Js</span> <span class="p">[</span><span class="n">Planck</span><span class="s1">&#39;s constant] *)</span>
+    <span class="n">h</span>       <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">6.62607004E-34</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">C</span> <span class="p">[</span><span class="n">electron</span> <span class="n">charge</span><span class="p">]</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">e</span>       <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">1.6021766208E-19</span><span class="p">;</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">speed</span> <span class="n">of</span> <span class="n">light</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">c</span>       <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">299792458</span><span class="p">;</span>
+
+<span class="n">END_VAR</span>
+<span class="p">(</span><span class="o">*</span>
+
+<span class="n">Reference</span> <span class="n">Python</span> <span class="n">implementation</span>
+
+<span class="k">def</span> <span class="nf">calculate_photon_energy</span><span class="p">(</span><span class="n">electron_energy</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculate photon energy, in eV.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    electron_energy : float</span>
+<span class="sd">        Electron energy in GeV</span>
+
+<span class="sd">    period : float</span>
+<span class="sd">        Undulator period, in mm</span>
+
+<span class="sd">    k : float</span>
+<span class="sd">        Undulator K parameter (strength), unitless</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">m_e</span> <span class="o">=</span> <span class="mf">0.0005109989461</span>  <span class="c1"># GeV [electron rest mass/energy]</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">6.62607004e-34</span>  <span class="c1"># Js [Planck&#39;s constant]</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="mf">1.6021766208e-19</span>  <span class="c1"># C [electron charge]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>  <span class="c1"># m/s, speed of light</span>
+    <span class="k">return</span> <span class="p">((</span><span class="mf">2.</span> <span class="o">*</span> <span class="p">(</span><span class="n">electron_energy</span> <span class="o">/</span> <span class="n">m_e</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span>
+            <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">period</span> <span class="o">*</span> <span class="mf">1e-3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">k</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)))</span>
+
+<span class="o">*</span><span class="p">)</span>
+<span class="n">fDenominator</span> <span class="o">:=</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">fUndulatorPeriod_mm</span> <span class="o">*</span> <span class="mf">1E-3</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">EXPT</span><span class="p">(</span><span class="n">fUndulatorStrength</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">));</span>
+<span class="n">F_CalculatePhotonEnergy</span> <span class="o">:=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">EXPT</span><span class="p">(</span><span class="n">fElectronEnergy_GeV</span> <span class="o">/</span> <span class="n">m_e</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">MAX</span><span class="p">(</span><span class="n">fDenominator</span><span class="p">,</span> <span class="mf">1.0E-10</span><span class="p">);</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="fast-faults-evaluate">
 <h2>Fast_Faults_Evaluate<a class="headerlink" href="#fast-faults-evaluate" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">Fast_Faults_Evaluate</span>
@@ -377,6 +440,43 @@
 <span class="n">g_FastFaultOutput2</span><span class="o">.</span><span class="n">EvaluateOutput</span><span class="p">(</span><span class="n">bAutoReset</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fb-acceleratorlinks">
+<h2>FB_AcceleratorLinks<a class="headerlink" href="#fb-acceleratorlinks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_AcceleratorLinks</span>
+<span class="n">VAR_INPUT</span>
+
+<span class="n">END_VAR</span>
+
+<span class="n">VAR_OUTPUT</span>
+<span class="n">END_VAR</span>
+
+
+<span class="n">VAR</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">ElectronEnergy</span><span class="p">:</span><span class="n">Hgvpu</span>
+        <span class="n">link</span><span class="p">:</span> <span class="n">BEND</span><span class="p">:</span><span class="n">DMPH</span><span class="p">:</span><span class="mi">400</span><span class="p">:</span><span class="n">BACT</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">GeV</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">3</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbHgvpuElectronEnergy</span> <span class="p">:</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">ElectronEnergy</span><span class="p">:</span><span class="n">SXU</span>
+        <span class="n">link</span><span class="p">:</span> <span class="n">BEND</span><span class="p">:</span><span class="n">DMPS</span><span class="p">:</span><span class="mi">400</span><span class="p">:</span><span class="n">BACT</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">GeV</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">3</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbSxuElectronEnergy</span> <span class="p">:</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
+
+<span class="n">END_VAR</span>
+<span class="n">fbHgvpuElectronEnergy</span><span class="p">();</span>
+<span class="n">fbSxuElectronEnergy</span><span class="p">();</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
 </pre></div>
 </div>
 </div>
@@ -494,7 +594,7 @@
 <h2>FB_Hgvpu<a class="headerlink" href="#fb-hgvpu" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_Hgvpu</span>
 <span class="n">VAR_INPUT</span>
-
+    <span class="n">fbElectronEnergy</span> <span class="p">:</span> <span class="n">REFERENCE</span> <span class="n">TO</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 
 <span class="n">VAR_OUTPUT</span>
@@ -580,8 +680,16 @@
 <span class="n">END_VAR</span>
 
 <span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: FirstSegment; io: i&#39;</span><span class="p">}</span>
     <span class="n">iLowBound</span>  <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">24</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: LastSegment; io: i&#39;</span><span class="p">}</span>
     <span class="n">iHighBound</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">46</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">Period</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">mm</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fPeriod_mm</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">26.0</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInitialized</span> <span class="n">THEN</span>
 
@@ -609,13 +717,21 @@
     <span class="n">fbSegment</span><span class="p">[</span><span class="mi">45</span><span class="p">]</span> <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">fbSegment_45</span><span class="p">);</span>
     <span class="n">fbSegment</span><span class="p">[</span><span class="mi">46</span><span class="p">]</span> <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">fbSegment_46</span><span class="p">);</span>
 
+
+    <span class="n">FOR</span> <span class="n">iIndex</span> <span class="o">:=</span> <span class="n">iLowBound</span> <span class="n">TO</span> <span class="n">iHighBound</span> <span class="n">DO</span>
+            <span class="n">IF</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="n">THEN</span>
+            <span class="n">fbCurrentSegment</span> <span class="n">REF</span><span class="o">=</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span><span class="o">^</span><span class="p">;</span>
+            <span class="n">fbCurrentSegment</span><span class="o">.</span><span class="n">fPeriod_mm</span> <span class="o">:=</span> <span class="n">fPeriod_mm</span><span class="p">;</span>
+        <span class="n">END_IF</span>
+    <span class="n">END_FOR</span>
+
     <span class="n">bInitialized</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
 <span class="n">FOR</span> <span class="n">iIndex</span> <span class="o">:=</span> <span class="n">iLowBound</span> <span class="n">TO</span> <span class="n">iHighBound</span> <span class="n">DO</span>
     <span class="n">IF</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="n">THEN</span>
         <span class="n">fbCurrentSegment</span> <span class="n">REF</span><span class="o">=</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span><span class="o">^</span><span class="p">;</span>
-        <span class="n">fbCurrentSegment</span><span class="p">();</span>
+        <span class="n">fbCurrentSegment</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbElectronEnergy</span><span class="p">);</span>
     <span class="n">END_IF</span>
 <span class="n">END_FOR</span>
 
@@ -711,7 +827,7 @@
 <h2>FB_SXU<a class="headerlink" href="#fb-sxu" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_SXU</span>
 <span class="n">VAR_INPUT</span>
-
+    <span class="n">fbElectronEnergy</span> <span class="p">:</span> <span class="n">REFERENCE</span> <span class="n">TO</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 
 <span class="n">VAR_OUTPUT</span>
@@ -798,8 +914,16 @@
 <span class="n">END_VAR</span>
 
 <span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: FirstSegment; io: i&#39;</span><span class="p">}</span>
     <span class="n">iLowBound</span>  <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">26</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: LastSegment; io: i&#39;</span><span class="p">}</span>
     <span class="n">iHighBound</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">47</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">Period</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">mm</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fPeriod_mm</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">39.0</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">IF</span> <span class="n">NOT</span> <span class="n">bInitialized</span> <span class="n">THEN</span>
 
@@ -826,13 +950,19 @@
     <span class="n">fbSegment</span><span class="p">[</span><span class="mi">46</span><span class="p">]</span> <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">fbSegment_46</span><span class="p">);</span>
     <span class="n">fbSegment</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span> <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">fbSegment_47</span><span class="p">);</span>
 
+    <span class="n">FOR</span> <span class="n">iIndex</span> <span class="o">:=</span> <span class="n">iLowBound</span> <span class="n">TO</span> <span class="n">iHighBound</span> <span class="n">DO</span>
+            <span class="n">IF</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="n">THEN</span>
+            <span class="n">fbCurrentSegment</span> <span class="n">REF</span><span class="o">=</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span><span class="o">^</span><span class="p">;</span>
+            <span class="n">fbCurrentSegment</span><span class="o">.</span><span class="n">fPeriod_mm</span> <span class="o">:=</span> <span class="n">fPeriod_mm</span><span class="p">;</span>
+        <span class="n">END_IF</span>
+    <span class="n">END_FOR</span>
     <span class="n">bInitialized</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
 <span class="n">FOR</span> <span class="n">iIndex</span> <span class="o">:=</span> <span class="n">iLowBound</span> <span class="n">TO</span> <span class="n">iHighBound</span> <span class="n">DO</span>
     <span class="n">IF</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span> <span class="n">THEN</span>
         <span class="n">fbCurrentSegment</span> <span class="n">REF</span><span class="o">=</span> <span class="n">fbSegment</span><span class="p">[</span><span class="n">iIndex</span><span class="p">]</span><span class="o">^</span><span class="p">;</span>
-        <span class="n">fbCurrentSegment</span><span class="p">();</span>
+        <span class="n">fbCurrentSegment</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbElectronEnergy</span><span class="p">);</span>
     <span class="n">END_IF</span>
 <span class="n">END_FOR</span>
 
@@ -844,9 +974,30 @@
 <h2>FB_UndulatorSegment<a class="headerlink" href="#fb-undulatorsegment" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_UndulatorSegment</span>
 <span class="n">VAR_INPUT</span>
+    <span class="p">(</span><span class="o">*</span> <span class="n">Undulator</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">millimeters</span><span class="p">,</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">by</span> <span class="n">subclasses</span> <span class="o">*</span><span class="p">)</span>
+    <span class="n">fPeriod_mm</span> <span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">1.0</span><span class="p">;</span>
+    <span class="n">fbElectronEnergy</span> <span class="p">:</span> <span class="n">REFERENCE</span> <span class="n">TO</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
 <span class="n">END_VAR</span>
+
 <span class="n">VAR_OUTPUT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">PhotonEnergyAct</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">DESC</span> <span class="n">Calculated</span> <span class="n">photon</span> <span class="n">energy</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">3</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">eV</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fPhotonEnergyAct</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">PhotonEnergyDes</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">DESC</span> <span class="n">Calculated</span> <span class="n">desired</span> <span class="n">photon</span> <span class="n">energy</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">PREC</span> <span class="mi">3</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">eV</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fPhotonEnergyDes</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
+
 <span class="n">VAR</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">KDes</span>
@@ -863,6 +1014,26 @@
 <span class="n">END_VAR</span>
 <span class="n">fbKDesired</span><span class="p">();</span>
 <span class="n">fbKActual</span><span class="p">();</span>
+
+<span class="n">IF</span> <span class="n">__ISVALIDREF</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="p">)</span> <span class="n">THEN</span>
+
+    <span class="n">IF</span> <span class="n">fbKActual</span><span class="o">.</span><span class="n">bValid</span> <span class="n">AND</span> <span class="n">fbElectronEnergy</span><span class="o">.</span><span class="n">bValid</span> <span class="n">THEN</span>
+        <span class="n">fPhotonEnergyAct</span> <span class="o">:=</span> <span class="n">F_CalculatePhotonEnergy</span><span class="p">(</span>
+            <span class="n">fElectronEnergy_GeV</span><span class="o">:=</span><span class="n">fbElectronEnergy</span><span class="o">.</span><span class="n">fValue</span><span class="p">,</span>
+            <span class="n">fUndulatorPeriod_mm</span><span class="o">:=</span><span class="n">fPeriod_mm</span><span class="p">,</span>
+            <span class="n">fUndulatorStrength</span><span class="o">:=</span><span class="n">fbKActual</span><span class="o">.</span><span class="n">fValue</span>
+        <span class="p">);</span>
+    <span class="n">END_IF</span>
+
+    <span class="n">IF</span> <span class="n">fbKDesired</span><span class="o">.</span><span class="n">bValid</span> <span class="n">AND</span> <span class="n">fbElectronEnergy</span><span class="o">.</span><span class="n">bValid</span> <span class="n">THEN</span>
+        <span class="n">fPhotonEnergyDes</span> <span class="o">:=</span> <span class="n">F_CalculatePhotonEnergy</span><span class="p">(</span>
+            <span class="n">fElectronEnergy_GeV</span><span class="o">:=</span><span class="n">fbElectronEnergy</span><span class="o">.</span><span class="n">fValue</span><span class="p">,</span>
+            <span class="n">fUndulatorPeriod_mm</span><span class="o">:=</span><span class="n">fPeriod_mm</span><span class="p">,</span>
+            <span class="n">fUndulatorStrength</span><span class="o">:=</span><span class="n">fbKDesired</span><span class="o">.</span><span class="n">fValue</span>
+        <span class="p">);</span>
+    <span class="n">END_IF</span>
+
+<span class="n">END_IF</span>
 
 <span class="n">END_FUNCTION_BLOCK</span>
 </pre></div>
@@ -902,16 +1073,21 @@
     <span class="n">fbEcatDiag</span> <span class="p">:</span> <span class="n">FB_EcatDiagWrapper</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">Arbiter</span><span class="p">:</span><span class="n">Link</span><span class="p">:</span><span class="n">HGVPU</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span><span class="p">:</span><span class="n">HGVPU</span>
         <span class="n">link</span><span class="p">:</span> <span class="n">USEG</span><span class="p">:</span><span class="n">UNDH</span><span class="p">:</span>
     <span class="s1">&#39;}</span>
     <span class="n">fbHgvpu</span> <span class="p">:</span> <span class="n">FB_Hgvpu</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">Arbiter</span><span class="p">:</span><span class="n">Link</span><span class="p">:</span><span class="n">SXU</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span><span class="p">:</span><span class="n">SXU</span>
         <span class="n">link</span><span class="p">:</span> <span class="n">USEG</span><span class="p">:</span><span class="n">UNDS</span><span class="p">:</span>
     <span class="s1">&#39;}</span>
     <span class="n">fbSxu</span> <span class="p">:</span> <span class="n">FB_SXU</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbAcceleratorLinks</span> <span class="p">:</span> <span class="n">FB_AcceleratorLinks</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">BeamParamCntl</span>
@@ -935,8 +1111,10 @@
 <span class="o">//</span><span class="n">Testing</span><span class="p">();</span>
 <span class="o">///////////////////////////////////////////////////</span>
 
-<span class="n">fbHgvpu</span><span class="p">();</span>
-<span class="n">fbSxu</span><span class="p">();</span>
+<span class="n">fbAcceleratorLinks</span><span class="p">();</span>
+
+<span class="n">fbHgvpu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbHgvpuElectronEnergy</span><span class="p">);</span>
+<span class="n">fbSxu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbSxuElectronEnergy</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">Dummy</span> <span class="n">device</span> <span class="k">for</span> <span class="n">controling</span> <span class="n">pmps</span> <span class="n">beam</span> <span class="n">parameters</span>
 <span class="n">fbBPControl</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">g_fbArbiter1</span><span class="p">);</span>
