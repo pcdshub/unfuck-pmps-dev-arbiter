@@ -1078,18 +1078,18 @@
         <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span><span class="p">:</span><span class="n">HGVPU</span>
         <span class="n">link</span><span class="p">:</span> <span class="n">USEG</span><span class="p">:</span><span class="n">UNDH</span><span class="p">:</span>
     <span class="s1">&#39;}</span>
-    <span class="n">fbHgvpu</span> <span class="p">:</span> <span class="n">FB_Hgvpu</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">fbHgvpu</span> <span class="p">:</span> <span class="n">FB_Hgvpu</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span><span class="p">:</span><span class="n">SXU</span>
         <span class="n">link</span><span class="p">:</span> <span class="n">USEG</span><span class="p">:</span><span class="n">UNDS</span><span class="p">:</span>
     <span class="s1">&#39;}</span>
-    <span class="n">fbSxu</span> <span class="p">:</span> <span class="n">FB_SXU</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">fbSxu</span> <span class="p">:</span> <span class="n">FB_SXU</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">Link</span>
     <span class="s1">&#39;}</span>
-    <span class="n">fbAcceleratorLinks</span> <span class="p">:</span> <span class="n">FB_AcceleratorLinks</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">fbAcceleratorLinks</span> <span class="p">:</span> <span class="n">FB_AcceleratorLinks</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">BeamParamCntl</span>
@@ -1113,10 +1113,10 @@
 <span class="o">//</span><span class="n">Testing</span><span class="p">();</span>
 <span class="o">///////////////////////////////////////////////////</span>
 
-<span class="n">fbAcceleratorLinks</span><span class="p">();</span>
+<span class="o">//</span><span class="n">fbAcceleratorLinks</span><span class="p">();</span>
 
-<span class="n">fbHgvpu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbHgvpuElectronEnergy</span><span class="p">);</span>
-<span class="n">fbSxu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbSxuElectronEnergy</span><span class="p">);</span>
+<span class="o">//</span><span class="n">fbHgvpu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbHgvpuElectronEnergy</span><span class="p">);</span>
+<span class="o">//</span><span class="n">fbSxu</span><span class="p">(</span><span class="n">fbElectronEnergy</span><span class="o">:=</span><span class="n">fbAcceleratorLinks</span><span class="o">.</span><span class="n">fbSxuElectronEnergy</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">Dummy</span> <span class="n">device</span> <span class="k">for</span> <span class="n">controling</span> <span class="n">pmps</span> <span class="n">beam</span> <span class="n">parameters</span>
 <span class="n">fbBPControl</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">g_fbArbiter1</span><span class="p">);</span>

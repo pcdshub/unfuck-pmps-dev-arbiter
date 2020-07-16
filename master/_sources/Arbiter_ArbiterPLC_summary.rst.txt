@@ -583,11 +583,6 @@ LCLS_General
 MAIN
 ^^^^
 
-.. raw:: html
-
-   <details>
-       <summary>12 Symbols</summary>
-
 .. csv-table::
     :header: Symbol, Type, Offset/Size
     :align: center
@@ -600,15 +595,8 @@ MAIN
         MAIN.fbEcatDiag.nEcMasterSlaveCount, UINT, 15533472 (16)
         MAIN.fbEcatDiag.nEcMasterSlaveCountCfg, UINT, 15533760 (16)
         MAIN.fbEcatDiag.wFrmXWcState, WORD, 14451360 (16)
-        MAIN.fbHgvpu, FB_Hgvpu, 15546112 (41728)
         MAIN.fbLogHandler, LCLS_General.FB_LogHandler, 8665984 (5784960)
-        MAIN.fbSxu, FB_SXU, 15587840 (39872)
         MAIN.Initialize, BOOL, 8634448 (8)
-
-.. raw:: html
-
-   </details>
-   <br />
 
 
 MachineSimulation

@@ -933,18 +933,18 @@ MAIN
             pv: @(PREFIX)Link:HGVPU
             link: USEG:UNDH:
         '}
-        fbHgvpu : FB_Hgvpu;
+        //fbHgvpu : FB_Hgvpu;
 
         {attribute 'pytmc' := '
             pv: @(PREFIX)Link:SXU
             link: USEG:UNDS:
         '}
-        fbSxu : FB_SXU;
+        //fbSxu : FB_SXU;
 
         {attribute 'pytmc' := '
             pv: @(PREFIX)Link
         '}
-        fbAcceleratorLinks : FB_AcceleratorLinks;
+        //fbAcceleratorLinks : FB_AcceleratorLinks;
 
         {attribute 'pytmc' := '
         pv: @(PREFIX)BeamParamCntl
@@ -968,10 +968,10 @@ MAIN
     //Testing();
     ///////////////////////////////////////////////////
 
-    fbAcceleratorLinks();
+    //fbAcceleratorLinks();
 
-    fbHgvpu(fbElectronEnergy:=fbAcceleratorLinks.fbHgvpuElectronEnergy);
-    fbSxu(fbElectronEnergy:=fbAcceleratorLinks.fbSxuElectronEnergy);
+    //fbHgvpu(fbElectronEnergy:=fbAcceleratorLinks.fbHgvpuElectronEnergy);
+    //fbSxu(fbElectronEnergy:=fbAcceleratorLinks.fbSxuElectronEnergy);
 
     // Dummy device for controling pmps beam parameters
     fbBPControl(Arbiter:=g_fbArbiter1);
