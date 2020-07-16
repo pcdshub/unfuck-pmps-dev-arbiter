@@ -28,15 +28,15 @@ FB_BPControlDevice
 
 
     * - $(PREFIX):ReqBP:Attenuation
-      - ao
-      - $(SYMBOL).fAtt
+      - longout
+      - $(SYMBOL).nTran
       - | field: EGU %
         | io: output
 
 
     * - $(PREFIX):ReqBP:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fAtt
+      - longin
+      - $(SYMBOL).nTran
       - | field: EGU %
         | io: output
 
@@ -3525,13 +3525,6 @@ PMPS.FB_Arbiter
       - | io: input
 
 
-    * - $(PREFIX):AP:Entry:000:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[0].fAtt
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX):AP:Entry:000:Cohort_RBV
       - longin
       - $(SYMBOL).fbBPAssertionPool.dataPool[0].nCohortInt
@@ -3565,17 +3558,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:000:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[0].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:000:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[0].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:001:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[1].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:001:Cohort_RBV
@@ -3611,17 +3604,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:001:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[1].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:001:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[1].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:002:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[2].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:002:Cohort_RBV
@@ -3657,17 +3650,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:002:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[2].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:002:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[2].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:003:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[3].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:003:Cohort_RBV
@@ -3703,17 +3696,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:003:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[3].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:003:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[3].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:004:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[4].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:004:Cohort_RBV
@@ -3749,17 +3742,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:004:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[4].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:004:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[4].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:005:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[5].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:005:Cohort_RBV
@@ -3795,17 +3788,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:005:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[5].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:005:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[5].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:006:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[6].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:006:Cohort_RBV
@@ -3841,17 +3834,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:006:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[6].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:006:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[6].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:007:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[7].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:007:Cohort_RBV
@@ -3887,17 +3880,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:007:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[7].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:007:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[7].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:008:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[8].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:008:Cohort_RBV
@@ -3933,17 +3926,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:008:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[8].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:008:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[8].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:009:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[9].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:009:Cohort_RBV
@@ -3979,17 +3972,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:009:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[9].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:009:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[9].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:010:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[10].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:010:Cohort_RBV
@@ -4025,17 +4018,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:010:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[10].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:010:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[10].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:011:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[11].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:011:Cohort_RBV
@@ -4071,17 +4064,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:011:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[11].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:011:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[11].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:012:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[12].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:012:Cohort_RBV
@@ -4117,17 +4110,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:012:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[12].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:012:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[12].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:013:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[13].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:013:Cohort_RBV
@@ -4163,17 +4156,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:013:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[13].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:013:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[13].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:014:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[14].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:014:Cohort_RBV
@@ -4209,17 +4202,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:014:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[14].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:014:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[14].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:015:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[15].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:015:Cohort_RBV
@@ -4255,17 +4248,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:015:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[15].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:015:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[15].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:016:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[16].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:016:Cohort_RBV
@@ -4301,17 +4294,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:016:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[16].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:016:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[16].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:017:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[17].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:017:Cohort_RBV
@@ -4347,17 +4340,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:017:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[17].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:017:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[17].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:018:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[18].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:018:Cohort_RBV
@@ -4393,17 +4386,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:018:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[18].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:018:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[18].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:019:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[19].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:019:Cohort_RBV
@@ -4439,17 +4432,17 @@ PMPS.FB_Arbiter
       - | io: input
 
 
+    * - $(PREFIX):AP:Entry:019:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[19].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):AP:Entry:019:Valid_RBV
       - bi
       - $(SYMBOL).fbBPAssertionPool.dataPool[19].xValid
       - | io: input
-
-
-    * - $(PREFIX):AP:Entry:020:Attenuation_RBV
-      - ai
-      - $(SYMBOL).fbBPAssertionPool.dataPool[20].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):AP:Entry:020:Cohort_RBV
@@ -4483,6 +4476,13 @@ PMPS.FB_Arbiter
       - waveform
       - $(SYMBOL).fbBPAssertionPool.dataPool[20].aStoppers
       - | io: input
+
+
+    * - $(PREFIX):AP:Entry:020:Transmission_RBV
+      - longin
+      - $(SYMBOL).fbBPAssertionPool.dataPool[20].nTran
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX):AP:Entry:020:Valid_RBV
@@ -4623,13 +4623,6 @@ PMPS.FB_Arbiter
       - | io: input
 
 
-    * - $(PREFIX):ArbitratedBP:Attenuation_RBV
-      - ai
-      - Arbitrated BP
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX):ArbitratedBP:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -4645,7 +4638,7 @@ PMPS.FB_Arbiter
 
     * - $(PREFIX):ArbitratedBP:PulseEnergy_RBV
       - ai
-      - Arbitrated BP
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4661,6 +4654,13 @@ PMPS.FB_Arbiter
       - waveform
       - Arbitrated BP
       - | io: input
+
+
+    * - $(PREFIX):ArbitratedBP:Transmission_RBV
+      - longin
+      - Arbitrated BP
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX):ArbitratedBP:Valid_RBV
@@ -4687,13 +4687,6 @@ PMPS.FB_ArbiterToSubSys_IO
       - Type
       - Description
       - Pragma
-    * - $(PREFIX):RequestedBP:FromSubSys:Attenuation_RBV
-      - ai
-      - $(SYMBOL).RequestedBP.fAtt
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX):RequestedBP:FromSubSys:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -4709,7 +4702,7 @@ PMPS.FB_ArbiterToSubSys_IO
 
     * - $(PREFIX):RequestedBP:FromSubSys:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).RequestedBP.fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4725,6 +4718,13 @@ PMPS.FB_ArbiterToSubSys_IO
       - waveform
       - $(SYMBOL).RequestedBP.aStoppers
       - | io: input
+
+
+    * - $(PREFIX):RequestedBP:FromSubSys:Transmission_RBV
+      - longin
+      - $(SYMBOL).RequestedBP.nTran
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX):RequestedBP:FromSubSys:Valid_RBV
@@ -4787,13 +4787,6 @@ PMPS.FB_BeamParamAssertionPool
       - Type
       - Description
       - Pragma
-    * - $(PREFIX):Entry:000:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[0].fAtt
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX):Entry:000:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -4809,7 +4802,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:000:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[0].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4827,17 +4820,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:000:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[0].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:000:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[0].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:001:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[1].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:001:Cohort_RBV
@@ -4855,7 +4848,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:001:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[1].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4873,17 +4866,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:001:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[1].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:001:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[1].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:002:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[2].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:002:Cohort_RBV
@@ -4901,7 +4894,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:002:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[2].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4919,17 +4912,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:002:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[2].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:002:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[2].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:003:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[3].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:003:Cohort_RBV
@@ -4947,7 +4940,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:003:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[3].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -4965,17 +4958,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:003:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[3].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:003:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[3].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:004:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[4].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:004:Cohort_RBV
@@ -4993,7 +4986,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:004:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[4].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5011,17 +5004,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:004:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[4].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:004:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[4].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:005:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[5].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:005:Cohort_RBV
@@ -5039,7 +5032,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:005:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[5].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5057,17 +5050,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:005:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[5].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:005:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[5].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:006:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[6].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:006:Cohort_RBV
@@ -5085,7 +5078,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:006:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[6].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5103,17 +5096,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:006:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[6].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:006:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[6].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:007:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[7].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:007:Cohort_RBV
@@ -5131,7 +5124,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:007:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[7].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5149,17 +5142,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:007:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[7].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:007:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[7].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:008:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[8].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:008:Cohort_RBV
@@ -5177,7 +5170,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:008:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[8].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5195,17 +5188,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:008:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[8].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:008:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[8].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:009:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[9].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:009:Cohort_RBV
@@ -5223,7 +5216,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:009:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[9].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5241,17 +5234,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:009:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[9].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:009:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[9].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:010:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[10].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:010:Cohort_RBV
@@ -5269,7 +5262,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:010:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[10].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5287,17 +5280,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:010:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[10].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:010:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[10].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:011:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[11].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:011:Cohort_RBV
@@ -5315,7 +5308,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:011:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[11].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5333,17 +5326,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:011:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[11].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:011:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[11].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:012:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[12].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:012:Cohort_RBV
@@ -5361,7 +5354,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:012:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[12].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5379,17 +5372,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:012:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[12].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:012:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[12].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:013:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[13].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:013:Cohort_RBV
@@ -5407,7 +5400,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:013:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[13].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5425,17 +5418,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:013:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[13].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:013:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[13].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:014:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[14].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:014:Cohort_RBV
@@ -5453,7 +5446,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:014:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[14].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5471,17 +5464,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:014:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[14].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:014:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[14].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:015:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[15].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:015:Cohort_RBV
@@ -5499,7 +5492,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:015:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[15].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5517,17 +5510,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:015:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[15].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:015:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[15].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:016:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[16].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:016:Cohort_RBV
@@ -5545,7 +5538,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:016:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[16].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5563,17 +5556,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:016:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[16].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:016:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[16].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:017:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[17].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:017:Cohort_RBV
@@ -5591,7 +5584,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:017:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[17].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5609,17 +5602,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:017:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[17].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:017:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[17].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:018:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[18].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:018:Cohort_RBV
@@ -5637,7 +5630,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:018:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[18].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5655,17 +5648,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:018:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[18].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:018:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[18].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:019:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[19].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:019:Cohort_RBV
@@ -5683,7 +5676,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:019:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[19].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5701,17 +5694,17 @@ PMPS.FB_BeamParamAssertionPool
       - | io: input
 
 
+    * - $(PREFIX):Entry:019:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[19].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX):Entry:019:Valid_RBV
       - bi
       - $(SYMBOL).dataPool[19].xValid
       - | io: input
-
-
-    * - $(PREFIX):Entry:020:Attenuation_RBV
-      - ai
-      - $(SYMBOL).dataPool[20].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX):Entry:020:Cohort_RBV
@@ -5729,7 +5722,7 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:020:PulseEnergy_RBV
       - ai
-      - $(SYMBOL).dataPool[20].fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -5745,6 +5738,13 @@ PMPS.FB_BeamParamAssertionPool
       - waveform
       - $(SYMBOL).dataPool[20].aStoppers
       - | io: input
+
+
+    * - $(PREFIX):Entry:020:Transmission_RBV
+      - longin
+      - $(SYMBOL).dataPool[20].nTran
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX):Entry:020:Valid_RBV
@@ -6035,6 +6035,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:001:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[1].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:001:Reset
       - bo
       - $(SYMBOL).astFF[1].Reset
@@ -6140,6 +6146,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:002:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[2].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:002:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[2].Ovrd.RemainingTime
       - | io: input
 
 
@@ -6251,6 +6263,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:003:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[3].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:003:Reset
       - bo
       - $(SYMBOL).astFF[3].Reset
@@ -6356,6 +6374,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:004:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[4].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:004:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[4].Ovrd.RemainingTime
       - | io: input
 
 
@@ -6467,6 +6491,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:005:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[5].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:005:Reset
       - bo
       - $(SYMBOL).astFF[5].Reset
@@ -6572,6 +6602,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:006:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[6].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:006:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[6].Ovrd.RemainingTime
       - | io: input
 
 
@@ -6683,6 +6719,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:007:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[7].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:007:Reset
       - bo
       - $(SYMBOL).astFF[7].Reset
@@ -6788,6 +6830,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:008:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[8].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:008:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[8].Ovrd.RemainingTime
       - | io: input
 
 
@@ -6899,6 +6947,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:009:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[9].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:009:Reset
       - bo
       - $(SYMBOL).astFF[9].Reset
@@ -7004,6 +7058,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:010:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[10].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:010:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[10].Ovrd.RemainingTime
       - | io: input
 
 
@@ -7115,6 +7175,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:011:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[11].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:011:Reset
       - bo
       - $(SYMBOL).astFF[11].Reset
@@ -7220,6 +7286,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:012:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[12].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:012:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[12].Ovrd.RemainingTime
       - | io: input
 
 
@@ -7331,6 +7403,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:013:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[13].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:013:Reset
       - bo
       - $(SYMBOL).astFF[13].Reset
@@ -7436,6 +7514,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:014:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[14].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:014:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[14].Ovrd.RemainingTime
       - | io: input
 
 
@@ -7547,6 +7631,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:015:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[15].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:015:Reset
       - bo
       - $(SYMBOL).astFF[15].Reset
@@ -7652,6 +7742,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:016:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[16].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:016:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[16].Ovrd.RemainingTime
       - | io: input
 
 
@@ -7763,6 +7859,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:017:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[17].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:017:Reset
       - bo
       - $(SYMBOL).astFF[17].Reset
@@ -7868,6 +7970,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:018:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[18].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:018:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[18].Ovrd.RemainingTime
       - | io: input
 
 
@@ -7979,6 +8087,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:019:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[19].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:019:Reset
       - bo
       - $(SYMBOL).astFF[19].Reset
@@ -8084,6 +8198,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:020:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[20].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:020:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[20].Ovrd.RemainingTime
       - | io: input
 
 
@@ -8195,6 +8315,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:021:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[21].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:021:Reset
       - bo
       - $(SYMBOL).astFF[21].Reset
@@ -8300,6 +8426,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:022:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[22].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:022:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[22].Ovrd.RemainingTime
       - | io: input
 
 
@@ -8411,6 +8543,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:023:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[23].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:023:Reset
       - bo
       - $(SYMBOL).astFF[23].Reset
@@ -8516,6 +8654,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:024:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[24].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:024:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[24].Ovrd.RemainingTime
       - | io: input
 
 
@@ -8627,6 +8771,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:025:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[25].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:025:Reset
       - bo
       - $(SYMBOL).astFF[25].Reset
@@ -8732,6 +8882,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:026:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[26].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:026:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[26].Ovrd.RemainingTime
       - | io: input
 
 
@@ -8843,6 +8999,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:027:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[27].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:027:Reset
       - bo
       - $(SYMBOL).astFF[27].Reset
@@ -8948,6 +9110,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:028:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[28].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:028:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[28].Ovrd.RemainingTime
       - | io: input
 
 
@@ -9059,6 +9227,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:029:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[29].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:029:Reset
       - bo
       - $(SYMBOL).astFF[29].Reset
@@ -9164,6 +9338,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:030:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[30].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:030:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[30].Ovrd.RemainingTime
       - | io: input
 
 
@@ -9275,6 +9455,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:031:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[31].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:031:Reset
       - bo
       - $(SYMBOL).astFF[31].Reset
@@ -9380,6 +9566,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:032:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[32].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:032:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[32].Ovrd.RemainingTime
       - | io: input
 
 
@@ -9491,6 +9683,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:033:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[33].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:033:Reset
       - bo
       - $(SYMBOL).astFF[33].Reset
@@ -9596,6 +9794,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:034:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[34].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:034:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[34].Ovrd.RemainingTime
       - | io: input
 
 
@@ -9707,6 +9911,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:035:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[35].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:035:Reset
       - bo
       - $(SYMBOL).astFF[35].Reset
@@ -9812,6 +10022,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:036:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[36].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:036:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[36].Ovrd.RemainingTime
       - | io: input
 
 
@@ -9923,6 +10139,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:037:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[37].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:037:Reset
       - bo
       - $(SYMBOL).astFF[37].Reset
@@ -10028,6 +10250,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:038:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[38].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:038:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[38].Ovrd.RemainingTime
       - | io: input
 
 
@@ -10139,6 +10367,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:039:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[39].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:039:Reset
       - bo
       - $(SYMBOL).astFF[39].Reset
@@ -10244,6 +10478,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:040:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[40].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:040:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[40].Ovrd.RemainingTime
       - | io: input
 
 
@@ -10355,6 +10595,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:041:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[41].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:041:Reset
       - bo
       - $(SYMBOL).astFF[41].Reset
@@ -10460,6 +10706,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:042:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[42].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:042:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[42].Ovrd.RemainingTime
       - | io: input
 
 
@@ -10571,6 +10823,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:043:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[43].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:043:Reset
       - bo
       - $(SYMBOL).astFF[43].Reset
@@ -10676,6 +10934,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:044:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[44].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:044:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[44].Ovrd.RemainingTime
       - | io: input
 
 
@@ -10787,6 +11051,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:045:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[45].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:045:Reset
       - bo
       - $(SYMBOL).astFF[45].Reset
@@ -10892,6 +11162,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:046:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[46].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:046:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[46].Ovrd.RemainingTime
       - | io: input
 
 
@@ -11003,6 +11279,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:047:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[47].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:047:Reset
       - bo
       - $(SYMBOL).astFF[47].Reset
@@ -11108,6 +11390,12 @@ PMPS.FB_HardwareFFOutput
     * - $(PREFIX):FF:048:Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).astFF[48].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):FF:048:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[48].Ovrd.RemainingTime
       - | io: input
 
 
@@ -11219,6 +11507,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:049:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[49].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:049:Reset
       - bo
       - $(SYMBOL).astFF[49].Reset
@@ -11327,6 +11621,12 @@ PMPS.FB_HardwareFFOutput
       - | io: input
 
 
+    * - $(PREFIX):FF:050:Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).astFF[50].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX):FF:050:Reset
       - bo
       - $(SYMBOL).astFF[50].Reset
@@ -11357,7 +11657,35 @@ PMPS.FB_HardwareFFOutput
       - | io: output
 
 
-    
+  
+PMPS.FB_PhotonEnergyWatcher
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):eVResidual
+      - longout
+      - Portions of beam eV not permitted
+      - | archive: 1s monitor
+        | field: EGU eV-bitmask
+        | io: output
+
+
+    * - $(PREFIX):eVResidual_RBV
+      - longin
+      - Portions of beam eV not permitted
+      - | archive: 1s monitor
+        | field: EGU eV-bitmask
+        | io: output
+
+
+  
 PMPS.ST_BeamParams
 ^^^^^^^^^^^^^^^^^^
 
@@ -11369,13 +11697,6 @@ PMPS.ST_BeamParams
       - Type
       - Description
       - Pragma
-    * - $(PREFIX):Attenuation_RBV
-      - ai
-      - $(SYMBOL).fAtt
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX):Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -11391,7 +11712,7 @@ PMPS.ST_BeamParams
 
     * - $(PREFIX):PulseEnergy_RBV
       - ai
-      - $(SYMBOL).fPP_mJ
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -11407,6 +11728,13 @@ PMPS.ST_BeamParams
       - waveform
       - $(SYMBOL).aStoppers
       - | io: input
+
+
+    * - $(PREFIX):Transmission_RBV
+      - longin
+      - $(SYMBOL).nTran
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX):Valid_RBV
@@ -11520,6 +11848,12 @@ PMPS.ST_FF
     * - $(PREFIX):Ovrd:ElapsedTime_RBV
       - longin
       - $(SYMBOL).Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX):Ovrd:RemainingTime_RBV
+      - longin
+      - $(SYMBOL).Ovrd.RemainingTime
       - | io: input
 
 
@@ -11643,6 +11977,12 @@ PMPS.ST_FFOverride
       - | io: input
 
 
+    * - $(PREFIX):RemainingTime_RBV
+      - longin
+      - $(SYMBOL).RemainingTime
+      - | io: input
+
+
  
 PMPS.ST_PMPS_Aperture
 ^^^^^^^^^^^^^^^^^^^^^
@@ -11706,8 +12046,8 @@ ST_BeamParams_IO
       - Description
       - Pragma
     * - $(PREFIX):Attenuation_RBV
-      - ai
-      - $(SYMBOL).fAtt
+      - longin
+      - $(SYMBOL).nTran
       - | io: input
 
 
@@ -11887,7 +12227,7 @@ ST_PMPS_Aperture_IO
         | io: input
 
 
-                                                          
+                                                           
 Database Records
 ----------------
 
@@ -11909,13 +12249,6 @@ Database Records
       - bi
       - True if this arbiter
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[0].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:000:Cohort_RBV
@@ -11951,17 +12284,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:000:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[0].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:000:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[0].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:001:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[1].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:001:Cohort_RBV
@@ -11997,17 +12330,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:001:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[1].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:001:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[1].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:002:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[2].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:002:Cohort_RBV
@@ -12043,17 +12376,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:002:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[2].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:002:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[2].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:003:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[3].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:003:Cohort_RBV
@@ -12089,17 +12422,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:003:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[3].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:003:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[3].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:004:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[4].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:004:Cohort_RBV
@@ -12135,17 +12468,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:004:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[4].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:004:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[4].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:005:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[5].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:005:Cohort_RBV
@@ -12181,17 +12514,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:005:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[5].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:005:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[5].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:006:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[6].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:006:Cohort_RBV
@@ -12227,17 +12560,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:006:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[6].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:006:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[6].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:007:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[7].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:007:Cohort_RBV
@@ -12273,17 +12606,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:007:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[7].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:007:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[7].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:008:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[8].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:008:Cohort_RBV
@@ -12319,17 +12652,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:008:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[8].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:008:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[8].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:009:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[9].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:009:Cohort_RBV
@@ -12365,17 +12698,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:009:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[9].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:009:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[9].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:010:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[10].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:010:Cohort_RBV
@@ -12411,17 +12744,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:010:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[10].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:010:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[10].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:011:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[11].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:011:Cohort_RBV
@@ -12457,17 +12790,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:011:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[11].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:011:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[11].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:012:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[12].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:012:Cohort_RBV
@@ -12503,17 +12836,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:012:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[12].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:012:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[12].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:013:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[13].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:013:Cohort_RBV
@@ -12549,17 +12882,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:013:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[13].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:013:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[13].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:014:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[14].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:014:Cohort_RBV
@@ -12595,17 +12928,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:014:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[14].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:014:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[14].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:015:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[15].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:015:Cohort_RBV
@@ -12641,17 +12974,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:015:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[15].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:015:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[15].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:016:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[16].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:016:Cohort_RBV
@@ -12687,17 +13020,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:016:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[16].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:016:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[16].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:017:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[17].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:017:Cohort_RBV
@@ -12733,17 +13066,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:017:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[17].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:017:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[17].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:018:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[18].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:018:Cohort_RBV
@@ -12779,17 +13112,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:018:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[18].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:018:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[18].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:019:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[19].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:019:Cohort_RBV
@@ -12825,17 +13158,17 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)Arbiter:01:AP:Entry:019:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[19].nTran
+      - | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)Arbiter:01:AP:Entry:019:Valid_RBV
       - bi
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[19].xValid
       - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:020:Attenuation_RBV
-      - ai
-      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[20].fAtt
-      - | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:020:Cohort_RBV
@@ -12869,6 +13202,13 @@ Database Records
       - waveform
       - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[20].aStoppers
       - | io: input
+
+
+    * - $(PREFIX)Arbiter:01:AP:Entry:020:Transmission_RBV
+      - longin
+      - GVL.g_fbArbiter1.fbBPAssertionPool.dataPool[20].nTran
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX)Arbiter:01:AP:Entry:020:Valid_RBV
@@ -13009,13 +13349,6 @@ Database Records
       - | io: input
 
 
-    * - $(PREFIX)Arbiter:01:ArbitratedBP:Attenuation_RBV
-      - ai
-      - Arbitrated BP
-      - | field: EGU %
-        | io: input
-
-
     * - $(PREFIX)Arbiter:01:ArbitratedBP:Cohort_RBV
       - longin
       - GVL.g_fbArbiter1.q_stBeamParams.nCohortInt
@@ -13031,7 +13364,7 @@ Database Records
 
     * - $(PREFIX)Arbiter:01:ArbitratedBP:PulseEnergy_RBV
       - ai
-      - Arbitrated BP
+      - This beam parameter is non-op for now.
       - | field: EGU mJ
         | io: input
 
@@ -13047,6 +13380,13 @@ Database Records
       - waveform
       - GVL.g_fbArbiter1.q_stBeamParams.aStoppers
       - | io: input
+
+
+    * - $(PREFIX)Arbiter:01:ArbitratedBP:Transmission_RBV
+      - longin
+      - Arbitrated BP
+      - | field: EGU %
+        | io: input
 
 
     * - $(PREFIX)Arbiter:01:ArbitratedBP:Valid_RBV
@@ -13080,15 +13420,15 @@ Database Records
 
 
     * - $(PREFIX)BeamParamCntl:ReqBP:Attenuation
-      - ao
-      - MAIN.fbBPControl.fAtt
+      - longout
+      - MAIN.fbBPControl.nTran
       - | field: EGU %
         | io: output
 
 
     * - $(PREFIX)BeamParamCntl:ReqBP:Attenuation_RBV
-      - ai
-      - MAIN.fbBPControl.fAtt
+      - longin
+      - MAIN.fbBPControl.nTran
       - | field: EGU %
         | io: output
 
@@ -13141,14 +13481,6 @@ Database Records
       - | io: input
 
 
-    * - $(PREFIX)CurrentBP:Attenuation_RBV
-      - ai
-      - PMPS_GVL.stCurrentBeamParameters.fAtt
-      - | archive: 1s monitor
-        | field: EGU %
-        | io: input
-
-
     * - $(PREFIX)CurrentBP:Cohort_RBV
       - longin
       - PMPS_GVL.stCurrentBeamParameters.nCohortInt
@@ -13166,7 +13498,7 @@ Database Records
 
     * - $(PREFIX)CurrentBP:PulseEnergy_RBV
       - ai
-      - PMPS_GVL.stCurrentBeamParameters.fPP_mJ
+      - This beam parameter is non-op for now.
       - | archive: 1s monitor
         | field: EGU mJ
         | io: input
@@ -13187,6 +13519,14 @@ Database Records
         | io: input
 
 
+    * - $(PREFIX)CurrentBP:Transmission_RBV
+      - longin
+      - PMPS_GVL.stCurrentBeamParameters.nTran
+      - | archive: 1s monitor
+        | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)CurrentBP:Valid_RBV
       - bi
       - PMPS_GVL.stCurrentBeamParameters.xValid
@@ -13198,7 +13538,7 @@ Database Records
       - waveform
       - eV Range constants
       - | archive: 1s monitor
-        | field: EGU keV
+        | field: EGU eV
         | io: output
 
 
@@ -13206,7 +13546,7 @@ Database Records
       - waveform
       - eV Range constants
       - | archive: 1s monitor
-        | field: EGU keV
+        | field: EGU eV
         | io: output
 
 
@@ -13336,6 +13676,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:001:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[1].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:001:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[1].Reset
@@ -13441,6 +13787,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:002:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[2].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:002:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[2].Ovrd.RemainingTime
       - | io: input
 
 
@@ -13552,6 +13904,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:003:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[3].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:003:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[3].Reset
@@ -13657,6 +14015,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:004:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[4].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:004:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[4].Ovrd.RemainingTime
       - | io: input
 
 
@@ -13768,6 +14132,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:005:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[5].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:005:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[5].Reset
@@ -13873,6 +14243,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:006:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[6].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:006:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[6].Ovrd.RemainingTime
       - | io: input
 
 
@@ -13984,6 +14360,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:007:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[7].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:007:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[7].Reset
@@ -14089,6 +14471,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:008:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[8].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:008:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[8].Ovrd.RemainingTime
       - | io: input
 
 
@@ -14200,6 +14588,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:009:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[9].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:009:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[9].Reset
@@ -14305,6 +14699,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:010:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[10].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:010:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[10].Ovrd.RemainingTime
       - | io: input
 
 
@@ -14416,6 +14816,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:011:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[11].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:011:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[11].Reset
@@ -14521,6 +14927,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:012:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[12].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:012:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[12].Ovrd.RemainingTime
       - | io: input
 
 
@@ -14632,6 +15044,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:013:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[13].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:013:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[13].Reset
@@ -14737,6 +15155,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:014:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[14].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:014:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[14].Ovrd.RemainingTime
       - | io: input
 
 
@@ -14848,6 +15272,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:015:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[15].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:015:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[15].Reset
@@ -14953,6 +15383,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:016:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[16].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:016:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[16].Ovrd.RemainingTime
       - | io: input
 
 
@@ -15064,6 +15500,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:017:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[17].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:017:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[17].Reset
@@ -15169,6 +15611,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:018:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[18].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:018:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[18].Ovrd.RemainingTime
       - | io: input
 
 
@@ -15280,6 +15728,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:019:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[19].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:019:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[19].Reset
@@ -15385,6 +15839,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:020:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[20].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:020:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[20].Ovrd.RemainingTime
       - | io: input
 
 
@@ -15496,6 +15956,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:021:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[21].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:021:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[21].Reset
@@ -15601,6 +16067,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:022:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[22].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:022:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[22].Ovrd.RemainingTime
       - | io: input
 
 
@@ -15712,6 +16184,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:023:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[23].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:023:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[23].Reset
@@ -15817,6 +16295,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:024:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[24].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:024:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[24].Ovrd.RemainingTime
       - | io: input
 
 
@@ -15928,6 +16412,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:025:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[25].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:025:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[25].Reset
@@ -16033,6 +16523,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:026:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[26].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:026:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[26].Ovrd.RemainingTime
       - | io: input
 
 
@@ -16144,6 +16640,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:027:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[27].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:027:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[27].Reset
@@ -16249,6 +16751,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:028:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[28].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:028:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[28].Ovrd.RemainingTime
       - | io: input
 
 
@@ -16360,6 +16868,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:029:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[29].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:029:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[29].Reset
@@ -16465,6 +16979,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:030:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[30].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:030:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[30].Ovrd.RemainingTime
       - | io: input
 
 
@@ -16576,6 +17096,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:031:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[31].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:031:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[31].Reset
@@ -16681,6 +17207,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:032:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[32].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:032:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[32].Ovrd.RemainingTime
       - | io: input
 
 
@@ -16792,6 +17324,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:033:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[33].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:033:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[33].Reset
@@ -16897,6 +17435,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:034:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[34].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:034:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[34].Ovrd.RemainingTime
       - | io: input
 
 
@@ -17008,6 +17552,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:035:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[35].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:035:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[35].Reset
@@ -17113,6 +17663,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:036:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[36].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:036:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[36].Ovrd.RemainingTime
       - | io: input
 
 
@@ -17224,6 +17780,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:037:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[37].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:037:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[37].Reset
@@ -17329,6 +17891,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:038:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[38].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:038:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[38].Ovrd.RemainingTime
       - | io: input
 
 
@@ -17440,6 +18008,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:039:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[39].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:039:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[39].Reset
@@ -17545,6 +18119,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:040:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[40].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:040:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[40].Ovrd.RemainingTime
       - | io: input
 
 
@@ -17656,6 +18236,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:041:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[41].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:041:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[41].Reset
@@ -17761,6 +18347,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:042:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[42].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:042:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[42].Ovrd.RemainingTime
       - | io: input
 
 
@@ -17872,6 +18464,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:043:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[43].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:043:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[43].Reset
@@ -17977,6 +18575,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:044:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[44].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:044:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[44].Ovrd.RemainingTime
       - | io: input
 
 
@@ -18088,6 +18692,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:045:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[45].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:045:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[45].Reset
@@ -18193,6 +18803,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:046:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[46].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:046:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[46].Ovrd.RemainingTime
       - | io: input
 
 
@@ -18304,6 +18920,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:047:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[47].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:047:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[47].Reset
@@ -18409,6 +19031,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:048:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[48].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:048:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[48].Ovrd.RemainingTime
       - | io: input
 
 
@@ -18520,6 +19148,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:01:FF:049:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[49].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:01:FF:049:Reset
       - bo
       - GVL.g_FastFaultOutput1.astFF[49].Reset
@@ -18625,6 +19259,12 @@ Database Records
     * - $(PREFIX)FFO:01:FF:050:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput1.astFF[50].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:01:FF:050:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput1.astFF[50].Ovrd.RemainingTime
       - | io: input
 
 
@@ -18784,6 +19424,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:001:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[1].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:001:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[1].Reset
@@ -18889,6 +19535,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:002:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[2].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:002:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[2].Ovrd.RemainingTime
       - | io: input
 
 
@@ -19000,6 +19652,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:003:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[3].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:003:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[3].Reset
@@ -19105,6 +19763,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:004:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[4].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:004:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[4].Ovrd.RemainingTime
       - | io: input
 
 
@@ -19216,6 +19880,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:005:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[5].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:005:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[5].Reset
@@ -19321,6 +19991,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:006:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[6].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:006:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[6].Ovrd.RemainingTime
       - | io: input
 
 
@@ -19432,6 +20108,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:007:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[7].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:007:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[7].Reset
@@ -19537,6 +20219,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:008:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[8].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:008:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[8].Ovrd.RemainingTime
       - | io: input
 
 
@@ -19648,6 +20336,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:009:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[9].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:009:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[9].Reset
@@ -19753,6 +20447,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:010:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[10].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:010:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[10].Ovrd.RemainingTime
       - | io: input
 
 
@@ -19864,6 +20564,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:011:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[11].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:011:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[11].Reset
@@ -19969,6 +20675,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:012:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[12].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:012:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[12].Ovrd.RemainingTime
       - | io: input
 
 
@@ -20080,6 +20792,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:013:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[13].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:013:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[13].Reset
@@ -20185,6 +20903,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:014:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[14].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:014:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[14].Ovrd.RemainingTime
       - | io: input
 
 
@@ -20296,6 +21020,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:015:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[15].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:015:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[15].Reset
@@ -20401,6 +21131,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:016:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[16].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:016:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[16].Ovrd.RemainingTime
       - | io: input
 
 
@@ -20512,6 +21248,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:017:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[17].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:017:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[17].Reset
@@ -20617,6 +21359,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:018:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[18].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:018:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[18].Ovrd.RemainingTime
       - | io: input
 
 
@@ -20728,6 +21476,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:019:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[19].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:019:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[19].Reset
@@ -20833,6 +21587,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:020:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[20].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:020:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[20].Ovrd.RemainingTime
       - | io: input
 
 
@@ -20944,6 +21704,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:021:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[21].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:021:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[21].Reset
@@ -21049,6 +21815,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:022:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[22].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:022:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[22].Ovrd.RemainingTime
       - | io: input
 
 
@@ -21160,6 +21932,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:023:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[23].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:023:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[23].Reset
@@ -21265,6 +22043,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:024:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[24].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:024:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[24].Ovrd.RemainingTime
       - | io: input
 
 
@@ -21376,6 +22160,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:025:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[25].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:025:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[25].Reset
@@ -21481,6 +22271,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:026:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[26].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:026:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[26].Ovrd.RemainingTime
       - | io: input
 
 
@@ -21592,6 +22388,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:027:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[27].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:027:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[27].Reset
@@ -21697,6 +22499,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:028:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[28].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:028:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[28].Ovrd.RemainingTime
       - | io: input
 
 
@@ -21808,6 +22616,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:029:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[29].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:029:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[29].Reset
@@ -21913,6 +22727,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:030:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[30].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:030:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[30].Ovrd.RemainingTime
       - | io: input
 
 
@@ -22024,6 +22844,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:031:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[31].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:031:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[31].Reset
@@ -22129,6 +22955,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:032:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[32].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:032:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[32].Ovrd.RemainingTime
       - | io: input
 
 
@@ -22240,6 +23072,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:033:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[33].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:033:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[33].Reset
@@ -22345,6 +23183,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:034:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[34].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:034:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[34].Ovrd.RemainingTime
       - | io: input
 
 
@@ -22456,6 +23300,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:035:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[35].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:035:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[35].Reset
@@ -22561,6 +23411,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:036:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[36].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:036:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[36].Ovrd.RemainingTime
       - | io: input
 
 
@@ -22672,6 +23528,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:037:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[37].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:037:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[37].Reset
@@ -22777,6 +23639,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:038:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[38].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:038:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[38].Ovrd.RemainingTime
       - | io: input
 
 
@@ -22888,6 +23756,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:039:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[39].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:039:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[39].Reset
@@ -22993,6 +23867,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:040:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[40].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:040:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[40].Ovrd.RemainingTime
       - | io: input
 
 
@@ -23104,6 +23984,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:041:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[41].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:041:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[41].Reset
@@ -23209,6 +24095,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:042:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[42].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:042:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[42].Ovrd.RemainingTime
       - | io: input
 
 
@@ -23320,6 +24212,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:043:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[43].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:043:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[43].Reset
@@ -23425,6 +24323,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:044:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[44].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:044:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[44].Ovrd.RemainingTime
       - | io: input
 
 
@@ -23536,6 +24440,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:045:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[45].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:045:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[45].Reset
@@ -23641,6 +24551,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:046:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[46].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:046:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[46].Ovrd.RemainingTime
       - | io: input
 
 
@@ -23752,6 +24668,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:047:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[47].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:047:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[47].Reset
@@ -23857,6 +24779,12 @@ Database Records
     * - $(PREFIX)FFO:02:FF:048:Ovrd:ElapsedTime_RBV
       - longin
       - GVL.g_FastFaultOutput2.astFF[48].Ovrd.ElapsedTime
+      - | io: input
+
+
+    * - $(PREFIX)FFO:02:FF:048:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[48].Ovrd.RemainingTime
       - | io: input
 
 
@@ -23968,6 +24896,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:049:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[49].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:049:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[49].Reset
@@ -24076,6 +25010,12 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)FFO:02:FF:050:Ovrd:RemainingTime_RBV
+      - longin
+      - GVL.g_FastFaultOutput2.astFF[50].Ovrd.RemainingTime
+      - | io: input
+
+
     * - $(PREFIX)FFO:02:FF:050:Reset
       - bo
       - GVL.g_FastFaultOutput2.astFF[50].Reset
@@ -24106,14 +25046,6 @@ Database Records
       - | io: output
 
 
-    * - $(PREFIX)FullBeamCnst:Attenuation_RBV
-      - ai
-      - Full beam constant
-      - | archive: 1s monitor
-        | field: EGU %
-        | io: input
-
-
     * - $(PREFIX)FullBeamCnst:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -24131,7 +25063,7 @@ Database Records
 
     * - $(PREFIX)FullBeamCnst:PulseEnergy_RBV
       - ai
-      - Full beam constant
+      - This beam parameter is non-op for now.
       - | archive: 1s monitor
         | field: EGU mJ
         | io: input
@@ -24149,6 +25081,14 @@ Database Records
       - waveform
       - Full beam constant
       - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)FullBeamCnst:Transmission_RBV
+      - longin
+      - Full beam constant
+      - | archive: 1s monitor
+        | field: EGU %
         | io: input
 
 
@@ -24183,14 +25123,6 @@ Database Records
       - CurrentBPUpdate.nBeamRate; Linked to PV: ['IOC:BSY0:MP01:BYKIK_RATE']
       - | io: output
         | link: ['IOC:BSY0:MP01:BYKIK_RATE']
-
-
-    * - $(PREFIX)RequestedBP:Attenuation_RBV
-      - ai
-      - PMPS_GVL.stRequestedBeamParameters.fAtt
-      - | archive: 1s monitor
-        | field: EGU %
-        | io: input
 
 
     * - $(PREFIX)RequestedBP:Cohort_RBV
@@ -24231,18 +25163,18 @@ Database Records
         | io: input
 
 
+    * - $(PREFIX)RequestedBP:Transmission_RBV
+      - longin
+      - PMPS_GVL.stRequestedBeamParameters.nTran
+      - | archive: 1s monitor
+        | field: EGU %
+        | io: input
+
+
     * - $(PREFIX)RequestedBP:Valid_RBV
       - bi
       - PMPS_GVL.stRequestedBeamParameters.xValid
       - | archive: 1s monitor
-        | io: input
-
-
-    * - $(PREFIX)SafeBeamCnst:Attenuation_RBV
-      - ai
-      - Safe beam constant
-      - | archive: 1s monitor
-        | field: EGU %
         | io: input
 
 
@@ -24263,7 +25195,7 @@ Database Records
 
     * - $(PREFIX)SafeBeamCnst:PulseEnergy_RBV
       - ai
-      - Safe beam constant
+      - This beam parameter is non-op for now.
       - | archive: 1s monitor
         | field: EGU mJ
         | io: input
@@ -24281,6 +25213,14 @@ Database Records
       - waveform
       - Safe beam constant
       - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)SafeBeamCnst:Transmission_RBV
+      - longin
+      - Safe beam constant
+      - | archive: 1s monitor
+        | field: EGU %
         | io: input
 
 

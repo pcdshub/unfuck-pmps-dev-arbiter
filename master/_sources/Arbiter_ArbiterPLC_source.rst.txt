@@ -333,7 +333,7 @@ FB_BPControlDevice
                 io: o
                 field: EGU %
             '}
-            fAtt : REAL := 100;
+            nTran : UINT := 100;
             (* Pulse-rate *)
             {attribute 'pytmc' := 'pv: ReqBP:Rate
                 io: o
@@ -371,7 +371,7 @@ FB_BPControlDevice
         rtApply : R_TRIG;
 
     END_VAR
-    EpicsReqBP.fAtt := fAtt;
+    EpicsReqBP.nTran := nTran;
     EpicsReqBP.neVRange := neVRange;
     EpicsReqBP.nRate := nRate;
     EpicsReqBP.fPP_mJ := fPP_mJ;
@@ -907,7 +907,9 @@ MachineSimulation
         i_stAssertedParams := PMPS_GVL.stRequestedBeamParameters,
         iq_stMachineParams := PMPS_GVL.stCurrentBeamParameters,
         i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut,
-    	xEnableAtt := TRUE
+    	xEnableAtt := TRUE,
+    	xEnableRate := TRUE,
+    	xEnablePE := TRUE
         );
 
     PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
@@ -1093,6 +1095,8 @@ PMPS_Arbiter
     plc_lfe_vac_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
     plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
+    //Overriding the preemptive requests from the optics systems until they are valid
+    GVL.g_fbArbiter1.RemoveRequest(nReqId:=plc_lfe_optics_PMPS_IO.RequestingSystemID);
 
     // Beam parameter requestor
     fbBPRequestor(Arbiter:=GVL.g_fbArbiter1, q_ReqBP => PMPS_GVL.stRequestedBeamParameters);

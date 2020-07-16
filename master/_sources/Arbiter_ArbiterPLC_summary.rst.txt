@@ -49,8 +49,8 @@ Constants
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        Constants.CompilerVersion, VERSION, 16995168 (64)
-        Constants.RuntimeVersion, VERSION, 16995104 (64)
+        Constants.CompilerVersion, VERSION, 17007744 (64)
+        Constants.RuntimeVersion, VERSION, 17007680 (64)
 
 
 CurrentBPUpdate
@@ -60,7 +60,7 @@ CurrentBPUpdate
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        CurrentBPUpdate.nBeamRate, INT, 15545904 (16)
+        CurrentBPUpdate.nBeamRate, INT, 8665952 (16)
 
 
 DefaultGlobals
@@ -82,14 +82,14 @@ GVL
     :align: center
 
         GVL.AttemptReset, BOOL, 8634456 (8)
-        GVL.g_FastFaultOutput1, PMPS.FB_HardwareFFOutput, 20434816 (462784)
-        GVL.g_FastFaultOutput1.q_xFastFaultOut, BOOL, 20434872 (8)
-        GVL.g_FastFaultOutput2, PMPS.FB_HardwareFFOutput, 20897600 (462784)
-        GVL.g_FastFaultOutput2.q_xFastFaultOut, BOOL, 20897656 (8)
-        GVL.g_fbArbiter1, PMPS.FB_Arbiter, 15874560 (196864)
-        GVL.g_rTestingVelocity, LREAL, 16995008 (64)
+        GVL.g_FastFaultOutput1, PMPS.FB_HardwareFFOutput, 16078336 (464608)
+        GVL.g_FastFaultOutput1.q_xFastFaultOut, BOOL, 16078392 (8)
+        GVL.g_FastFaultOutput2, PMPS.FB_HardwareFFOutput, 16542944 (464608)
+        GVL.g_FastFaultOutput2.q_xFastFaultOut, BOOL, 16543000 (8)
+        GVL.g_fbArbiter1, PMPS.FB_Arbiter, 15880256 (196864)
+        GVL.g_rTestingVelocity, LREAL, 17007552 (64)
         GVL.nLangId_OnlineMonitoring, DINT, 4388320 (32)
-        GVL.ReqBP, PMPS.ST_BeamParams, 16071424 (1216)
+        GVL.ReqBP, PMPS.ST_BeamParams, 16077120 (1216)
 
 
 GVL_CheckBounds
@@ -99,9 +99,9 @@ GVL_CheckBounds
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        GVL_CheckBounds.nDivByZero, UDINT, 16995072 (32)
-        GVL_CheckBounds.nTooHigh, UDINT, 15874528 (32)
-        GVL_CheckBounds.nTooLow, UDINT, 15634912 (32)
+        GVL_CheckBounds.nDivByZero, UDINT, 17007648 (32)
+        GVL_CheckBounds.nTooHigh, UDINT, 17007616 (32)
+        GVL_CheckBounds.nTooLow, UDINT, 15546080 (32)
 
 
 GVL_INTERNAL
@@ -592,17 +592,17 @@ MAIN
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        MAIN.fbBPControl, FB_BPControlDevice, 15627520 (1536)
-        MAIN.fbEcatDiag, LCLS_General.FB_EcatDiagWrapper, 14450752 (1095136)
-        MAIN.fbEcatDiag.arrEcMasterNetId, Tc2_System.T_AmsNetIdArr, 15533328 (48)
-        MAIN.fbEcatDiag.nEcMasterDeviceId, UINT, 15533312 (16)
-        MAIN.fbEcatDiag.nEcMasterDevState, UINT, 15533296 (16)
-        MAIN.fbEcatDiag.nEcMasterSlaveCount, UINT, 15533280 (16)
-        MAIN.fbEcatDiag.nEcMasterSlaveCountCfg, UINT, 15533568 (16)
-        MAIN.fbEcatDiag.wFrmXWcState, WORD, 14451168 (16)
-        MAIN.fbHgvpu, FB_Hgvpu, 15545920 (41728)
-        MAIN.fbLogHandler, LCLS_General.FB_LogHandler, 8665792 (5784960)
-        MAIN.fbSxu, FB_SXU, 15587648 (39872)
+        MAIN.fbBPControl, FB_BPControlDevice, 15627712 (1536)
+        MAIN.fbEcatDiag, LCLS_General.FB_EcatDiagWrapper, 14450944 (1095136)
+        MAIN.fbEcatDiag.arrEcMasterNetId, Tc2_System.T_AmsNetIdArr, 15533520 (48)
+        MAIN.fbEcatDiag.nEcMasterDeviceId, UINT, 15533504 (16)
+        MAIN.fbEcatDiag.nEcMasterDevState, UINT, 15533488 (16)
+        MAIN.fbEcatDiag.nEcMasterSlaveCount, UINT, 15533472 (16)
+        MAIN.fbEcatDiag.nEcMasterSlaveCountCfg, UINT, 15533760 (16)
+        MAIN.fbEcatDiag.wFrmXWcState, WORD, 14451360 (16)
+        MAIN.fbHgvpu, FB_Hgvpu, 15546112 (41728)
+        MAIN.fbLogHandler, LCLS_General.FB_LogHandler, 8665984 (5784960)
+        MAIN.fbSxu, FB_SXU, 15587840 (39872)
         MAIN.Initialize, BOOL, 8634448 (8)
 
 .. raw:: html
@@ -618,8 +618,8 @@ MachineSimulation
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        MachineSimulation.fbeVSimulator, FB_eVSimulator, 15634944 (9088)
-        MachineSimulation.fbMachine, PMPS.FB_MachineSimulator, 17199360 (1824)
+        MachineSimulation.fbeVSimulator, FB_eVSimulator, 15633920 (9088)
+        MachineSimulation.fbMachine, PMPS.FB_MachineSimulator, 15632096 (1824)
 
 
 PMPS_Arbiter
@@ -634,45 +634,45 @@ PMPS_Arbiter
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        PMPS_Arbiter.fbBPRequestor, PMPS.FB_BPRequestor, 15670528 (2816)
-        PMPS_Arbiter.fbCuInterface, PMPS.FB_CTLS_Outputs, 15703584 (1312)
-        PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES, ARRAY[1..3] OF BOOL, 15704848 (24)
-        PMPS_Arbiter.fbMPSInterface, PMPS.FB_BeamClassOutputs, 15702208 (1376)
-        PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES, ARRAY[1..8] OF BOOL, 15703520 (64)
-        PMPS_Arbiter.fbPhotonEnergyWatcher, PMPS.FB_PhotonEnergyWatcher, 20162112 (29504)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 15786688 (29696)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_Connected, BOOL, 15791136 (8)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 15787488 (1216)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOState, BOOL, 15791152 (8)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOToggle, BOOL, 15791160 (8)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_WcState, BOOL, 15791144 (8)
-        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 15789920 (1216)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 20345728 (29696)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_Connected, BOOL, 20350176 (8)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 20346528 (1216)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState, BOOL, 20350192 (8)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOToggle, BOOL, 20350200 (8)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState, BOOL, 20350184 (8)
-        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 20348960 (1216)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 20375424 (29696)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected, BOOL, 20379872 (8)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 20376224 (1216)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOState, BOOL, 20379888 (8)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOToggle, BOOL, 20379896 (8)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_WcState, BOOL, 20379880 (8)
-        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 20378656 (1216)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 20405120 (29696)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_Connected, BOOL, 20409568 (8)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 20405920 (1216)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOState, BOOL, 20409584 (8)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOToggle, BOOL, 20409592 (8)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_WcState, BOOL, 20409576 (8)
-        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 20408352 (1216)
-        PMPS_Arbiter.st1l0Watcher, FB_LStopper, 15704896 (81792)
-        PMPS_Arbiter.st1l0Watcher.i_StopperInLS, BOOL, 15704968 (8)
-        PMPS_Arbiter.st1l0Watcher.i_StopperOutLS, BOOL, 15704960 (8)
-        PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay, BOOL, 15704984 (8)
-        PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay, BOOL, 15704976 (8)
+        PMPS_Arbiter.fbBPRequestor, PMPS.FB_BPRequestor, 15643968 (2816)
+        PMPS_Arbiter.fbCuInterface, PMPS.FB_CTLS_Outputs, 15677696 (1312)
+        PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES, ARRAY[1..3] OF BOOL, 15678960 (24)
+        PMPS_Arbiter.fbMPSInterface, PMPS.FB_BeamClassOutputs, 15676320 (1376)
+        PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES, ARRAY[1..8] OF BOOL, 15677632 (64)
+        PMPS_Arbiter.fbPhotonEnergyWatcher, PMPS.FB_PhotonEnergyWatcher, 15646784 (29536)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 15849888 (29696)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_Connected, BOOL, 15854336 (8)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 15850688 (1216)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOState, BOOL, 15854352 (8)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOToggle, BOOL, 15854360 (8)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_WcState, BOOL, 15854344 (8)
+        PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 15853120 (1216)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 15760800 (29696)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_Connected, BOOL, 15765248 (8)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 15761600 (1216)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState, BOOL, 15765264 (8)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOToggle, BOOL, 15765272 (8)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState, BOOL, 15765256 (8)
+        PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 15764032 (1216)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 15790496 (29696)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected, BOOL, 15794944 (8)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 15791296 (1216)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOState, BOOL, 15794960 (8)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOToggle, BOOL, 15794968 (8)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_WcState, BOOL, 15794952 (8)
+        PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 15793728 (1216)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO, PMPS.FB_ArbiterToSubSys_IO, 15820192 (29696)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_Connected, BOOL, 15824640 (8)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_RequestedBP, ST_BeamParams_IO, 15820992 (1216)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOState, BOOL, 15824656 (8)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOToggle, BOOL, 15824664 (8)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_WcState, BOOL, 15824648 (8)
+        PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP, ST_BeamParams_IO, 15823424 (1216)
+        PMPS_Arbiter.st1l0Watcher, FB_LStopper, 15679008 (81792)
+        PMPS_Arbiter.st1l0Watcher.i_StopperInLS, BOOL, 15679080 (8)
+        PMPS_Arbiter.st1l0Watcher.i_StopperOutLS, BOOL, 15679072 (8)
+        PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay, BOOL, 15679096 (8)
+        PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay, BOOL, 15679088 (8)
 
 .. raw:: html
 
@@ -715,7 +715,7 @@ TC_EVENTS
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENTS.LCLSGeneralEventClass, ST_LCLSGeneralEventClass, 17045280 (960)
+        TC_EVENTS.LCLSGeneralEventClass, ST_LCLSGeneralEventClass, 17057856 (960)
 
 
 TC_EVENT_CLASSES
@@ -725,12 +725,12 @@ TC_EVENT_CLASSES
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 17015200 (128)
-        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 17014688 (128)
-        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 17014816 (128)
-        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 17014944 (128)
-        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 17014560 (128)
-        TC_EVENT_CLASSES.Win32EventClass, GUID, 17015072 (128)
+        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 17027776 (128)
+        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 17027264 (128)
+        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 17027392 (128)
+        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 17027520 (128)
+        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 17027136 (128)
+        TC_EVENT_CLASSES.Win32EventClass, GUID, 17027648 (128)
 
 
 TwinCAT_LicenseInfoVarList
@@ -740,7 +740,7 @@ TwinCAT_LicenseInfoVarList
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TwinCAT_LicenseInfoVarList._LicenseInfo, ARRAY[1..1] OF PlcLicenseInfo, 16995232 (1024)
+        TwinCAT_LicenseInfoVarList._LicenseInfo, ARRAY[1..1] OF PlcLicenseInfo, 17007808 (1024)
 
 
 TwinCAT_SystemInfoVarList
@@ -750,13 +750,13 @@ TwinCAT_SystemInfoVarList
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TwinCAT_SystemInfoVarList.__FFOTask, _Implicit_Task_Info, 17000480 (704)
-        TwinCAT_SystemInfoVarList.__PlcTask, _Implicit_Task_Info, 17001184 (704)
-        TwinCAT_SystemInfoVarList._AppInfo, PlcAppSystemInfo, 16996256 (2048)
-        TwinCAT_SystemInfoVarList._TaskInfo, ARRAY[1..2] OF PlcTaskSystemInfo, 16998336 (2048)
-        TwinCAT_SystemInfoVarList._TaskOid_FFOTask, OTCID, 17000384 (32)
-        TwinCAT_SystemInfoVarList._TaskOid_PlcTask, OTCID, 17000448 (32)
-        TwinCAT_SystemInfoVarList._TaskPouOid_FFOTask, OTCID, 16998304 (32)
-        TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask, OTCID, 17000416 (32)
+        TwinCAT_SystemInfoVarList.__FFOTask, _Implicit_Task_Info, 17013056 (704)
+        TwinCAT_SystemInfoVarList.__PlcTask, _Implicit_Task_Info, 17013760 (704)
+        TwinCAT_SystemInfoVarList._AppInfo, PlcAppSystemInfo, 17008832 (2048)
+        TwinCAT_SystemInfoVarList._TaskInfo, ARRAY[1..2] OF PlcTaskSystemInfo, 17010880 (2048)
+        TwinCAT_SystemInfoVarList._TaskOid_FFOTask, OTCID, 17012960 (32)
+        TwinCAT_SystemInfoVarList._TaskOid_PlcTask, OTCID, 17013024 (32)
+        TwinCAT_SystemInfoVarList._TaskPouOid_FFOTask, OTCID, 17012928 (32)
+        TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask, OTCID, 17012992 (32)
 
 
