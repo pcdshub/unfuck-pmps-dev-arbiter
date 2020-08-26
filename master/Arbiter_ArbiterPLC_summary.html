@@ -221,7 +221,7 @@
 </div>
 <div class="section" id="pragmas">
 <span id="arbiterplc-pragmas"></span><h1>Pragmas<a class="headerlink" href="#pragmas" title="Permalink to this headline">¶</a></h1>
-<p>Total pragmas found: 83
+<p>Total pragmas found: 19
 Total linter errors: 0</p>
 </div>
 <div class="section" id="symbols">
@@ -262,11 +262,11 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>Constants.CompilerVersion</p></td>
 <td><p>VERSION</p></td>
-<td><p>17007744 (64)</p></td>
+<td><p>16981632 (64)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constants.RuntimeVersion</p></td>
 <td><p>VERSION</p></td>
-<td><p>17007680 (64)</p></td>
+<td><p>16981568 (64)</p></td>
 </tr>
 </tbody>
 </table>
@@ -286,9 +286,33 @@ Total linter errors: 0</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>CurrentBPUpdate.nBeamRate</p></td>
-<td><p>INT</p></td>
-<td><p>8665952 (16)</p></td>
+<tr class="row-even"><td><p>CurrentBPUpdate.fbEPICSLRate</p></td>
+<td><p>PMPS.FB_LRateFromEPICS</p></td>
+<td><p>15614528 (1088)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CurrentBPUpdate.fbLPhotonEnergy</p></td>
+<td><p>PMPS.FB_LPhotonEnergy</p></td>
+<td><p>20062464 (54208)</p></td>
+</tr>
+<tr class="row-even"><td><p>CurrentBPUpdate.st1l0Watcher</p></td>
+<td><p>PMPS.FB_LStopper</p></td>
+<td><p>15615616 (81792)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CurrentBPUpdate.st1l0Watcher.i_StopperInLS</p></td>
+<td><p>BOOL</p></td>
+<td><p>15615688 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>CurrentBPUpdate.st1l0Watcher.i_StopperOutLS</p></td>
+<td><p>BOOL</p></td>
+<td><p>15615680 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CurrentBPUpdate.st1l0Watcher.q_StopperIN_Relay</p></td>
+<td><p>BOOL</p></td>
+<td><p>15615704 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>CurrentBPUpdate.st1l0Watcher.q_StopperOUT_Relay</p></td>
+<td><p>BOOL</p></td>
+<td><p>15615696 (8)</p></td>
 </tr>
 </tbody>
 </table>
@@ -340,27 +364,27 @@ Total linter errors: 0</p>
 </tr>
 <tr class="row-odd"><td><p>GVL.g_FastFaultOutput1</p></td>
 <td><p>PMPS.FB_HardwareFFOutput</p></td>
-<td><p>16078336 (464608)</p></td>
+<td><p>16052288 (464608)</p></td>
 </tr>
 <tr class="row-even"><td><p>GVL.g_FastFaultOutput1.q_xFastFaultOut</p></td>
 <td><p>BOOL</p></td>
-<td><p>16078392 (8)</p></td>
+<td><p>16052344 (8)</p></td>
 </tr>
 <tr class="row-odd"><td><p>GVL.g_FastFaultOutput2</p></td>
 <td><p>PMPS.FB_HardwareFFOutput</p></td>
-<td><p>16542944 (464608)</p></td>
+<td><p>16516896 (464608)</p></td>
 </tr>
 <tr class="row-even"><td><p>GVL.g_FastFaultOutput2.q_xFastFaultOut</p></td>
 <td><p>BOOL</p></td>
-<td><p>16543000 (8)</p></td>
+<td><p>16516952 (8)</p></td>
 </tr>
 <tr class="row-odd"><td><p>GVL.g_fbArbiter1</p></td>
 <td><p>PMPS.FB_Arbiter</p></td>
-<td><p>15880256 (196864)</p></td>
+<td><p>15854208 (196864)</p></td>
 </tr>
 <tr class="row-even"><td><p>GVL.g_rTestingVelocity</p></td>
 <td><p>LREAL</p></td>
-<td><p>17007552 (64)</p></td>
+<td><p>16981504 (64)</p></td>
 </tr>
 <tr class="row-odd"><td><p>GVL.nLangId_OnlineMonitoring</p></td>
 <td><p>DINT</p></td>
@@ -368,7 +392,7 @@ Total linter errors: 0</p>
 </tr>
 <tr class="row-even"><td><p>GVL.ReqBP</p></td>
 <td><p>PMPS.ST_BeamParams</p></td>
-<td><p>16077120 (1216)</p></td>
+<td><p>16051072 (1216)</p></td>
 </tr>
 </tbody>
 </table>
@@ -390,15 +414,15 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>GVL_CheckBounds.nDivByZero</p></td>
 <td><p>UDINT</p></td>
-<td><p>17007648 (32)</p></td>
+<td><p>15698144 (32)</p></td>
 </tr>
 <tr class="row-odd"><td><p>GVL_CheckBounds.nTooHigh</p></td>
 <td><p>UDINT</p></td>
-<td><p>17007616 (32)</p></td>
+<td><p>15560288 (32)</p></td>
 </tr>
 <tr class="row-even"><td><p>GVL_CheckBounds.nTooLow</p></td>
 <td><p>UDINT</p></td>
-<td><p>15546080 (32)</p></td>
+<td><p>15549920 (32)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2140,43 +2164,39 @@ Total linter errors: 0</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>MAIN.fbBPControl</p></td>
-<td><p>FB_BPControlDevice</p></td>
-<td><p>15627712 (1536)</p></td>
-</tr>
-<tr class="row-odd"><td><p>MAIN.fbEcatDiag</p></td>
+<tr class="row-even"><td><p>MAIN.fbEcatDiag</p></td>
 <td><p>LCLS_General.FB_EcatDiagWrapper</p></td>
-<td><p>14450944 (1095136)</p></td>
+<td><p>14450112 (1095136)</p></td>
 </tr>
-<tr class="row-even"><td><p>MAIN.fbEcatDiag.arrEcMasterNetId</p></td>
+<tr class="row-odd"><td><p>MAIN.fbEcatDiag.arrEcMasterNetId</p></td>
 <td><p>Tc2_System.T_AmsNetIdArr</p></td>
-<td><p>15533520 (48)</p></td>
+<td><p>15532688 (48)</p></td>
 </tr>
-<tr class="row-odd"><td><p>MAIN.fbEcatDiag.nEcMasterDeviceId</p></td>
+<tr class="row-even"><td><p>MAIN.fbEcatDiag.nEcMasterDeviceId</p></td>
 <td><p>UINT</p></td>
-<td><p>15533504 (16)</p></td>
+<td><p>15532672 (16)</p></td>
 </tr>
-<tr class="row-even"><td><p>MAIN.fbEcatDiag.nEcMasterDevState</p></td>
+<tr class="row-odd"><td><p>MAIN.fbEcatDiag.nEcMasterDevState</p></td>
 <td><p>UINT</p></td>
-<td><p>15533488 (16)</p></td>
+<td><p>15532656 (16)</p></td>
 </tr>
-<tr class="row-odd"><td><p>MAIN.fbEcatDiag.nEcMasterSlaveCount</p></td>
+<tr class="row-even"><td><p>MAIN.fbEcatDiag.nEcMasterSlaveCount</p></td>
 <td><p>UINT</p></td>
-<td><p>15533472 (16)</p></td>
+<td><p>15532640 (16)</p></td>
 </tr>
-<tr class="row-even"><td><p>MAIN.fbEcatDiag.nEcMasterSlaveCountCfg</p></td>
+<tr class="row-odd"><td><p>MAIN.fbEcatDiag.nEcMasterSlaveCountCfg</p></td>
 <td><p>UINT</p></td>
-<td><p>15533760 (16)</p></td>
+<td><p>15532928 (16)</p></td>
 </tr>
-<tr class="row-odd"><td><p>MAIN.fbEcatDiag.wFrmXWcState</p></td>
+<tr class="row-even"><td><p>MAIN.fbEcatDiag.wFrmXWcState</p></td>
 <td><p>WORD</p></td>
-<td><p>14451360 (16)</p></td>
+<td><p>14450528 (16)</p></td>
 </tr>
-<tr class="row-even"><td><p>MAIN.fbLogHandler</p></td>
+<tr class="row-odd"><td><p>MAIN.fbLogHandler</p></td>
 <td><p>LCLS_General.FB_LogHandler</p></td>
-<td><p>8665984 (5784960)</p></td>
+<td><p>8665152 (5784960)</p></td>
 </tr>
-<tr class="row-odd"><td><p>MAIN.Initialize</p></td>
+<tr class="row-even"><td><p>MAIN.Initialize</p></td>
 <td><p>BOOL</p></td>
 <td><p>8634448 (8)</p></td>
 </tr>
@@ -2199,12 +2219,12 @@ Total linter errors: 0</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>MachineSimulation.fbeVSimulator</p></td>
-<td><p>FB_eVSimulator</p></td>
-<td><p>15633920 (9088)</p></td>
+<td><p>PMPS.FB_eVSimulator</p></td>
+<td><p>15549952 (9088)</p></td>
 </tr>
 <tr class="row-odd"><td><p>MachineSimulation.fbMachine</p></td>
 <td><p>PMPS.FB_MachineSimulator</p></td>
-<td><p>15632096 (1824)</p></td>
+<td><p>15548096 (1824)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2212,7 +2232,7 @@ Total linter errors: 0</p>
 <div class="section" id="pmps-arbiter">
 <h2>PMPS_Arbiter<a class="headerlink" href="#pmps-arbiter" title="Permalink to this headline">¶</a></h2>
 <details>
-    <summary>39 Symbols</summary><table class="docutils align-center">
+    <summary>35 Symbols</summary><table class="docutils align-center">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -2225,161 +2245,145 @@ Total linter errors: 0</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>PMPS_Arbiter.fbBPRequestor</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.fbBPControl</p></td>
+<td><p>PMPS.FB_BPControlDevice</p></td>
+<td><p>15733216 (1536)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PMPS_Arbiter.fbBPRequestor</p></td>
 <td><p>PMPS.FB_BPRequestor</p></td>
-<td><p>15643968 (2816)</p></td>
+<td><p>15698176 (2816)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.fbCuInterface</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.fbCuInterface</p></td>
 <td><p>PMPS.FB_CTLS_Outputs</p></td>
-<td><p>15677696 (1312)</p></td>
+<td><p>15731904 (1312)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES</p></td>
 <td><p>ARRAY[1..3] OF BOOL</p></td>
-<td><p>15678960 (24)</p></td>
+<td><p>15733168 (24)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.fbMPSInterface</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.fbMPSInterface</p></td>
 <td><p>PMPS.FB_BeamClassOutputs</p></td>
-<td><p>15676320 (1376)</p></td>
+<td><p>15730528 (1376)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES</p></td>
 <td><p>ARRAY[1..8] OF BOOL</p></td>
-<td><p>15677632 (64)</p></td>
+<td><p>15731840 (64)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.fbPhotonEnergyWatcher</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.fbPhotonEnergyWatcher</p></td>
 <td><p>PMPS.FB_PhotonEnergyWatcher</p></td>
-<td><p>15646784 (29536)</p></td>
+<td><p>15700992 (29536)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO</p></td>
 <td><p>PMPS.FB_ArbiterToSubSys_IO</p></td>
-<td><p>15849888 (29696)</p></td>
+<td><p>15823840 (29696)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_Connected</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_Connected</p></td>
 <td><p>BOOL</p></td>
-<td><p>15854336 (8)</p></td>
+<td><p>15828288 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15850688 (1216)</p></td>
+<td><p>15824640 (1216)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOState</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15854352 (8)</p></td>
+<td><p>15828304 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOToggle</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOToggle</p></td>
 <td><p>BOOL</p></td>
-<td><p>15854360 (8)</p></td>
+<td><p>15828312 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_WcState</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_WcState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15854344 (8)</p></td>
+<td><p>15828296 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15853120 (1216)</p></td>
+<td><p>15827072 (1216)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO</p></td>
 <td><p>PMPS.FB_ArbiterToSubSys_IO</p></td>
-<td><p>15760800 (29696)</p></td>
+<td><p>15734752 (29696)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_Connected</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_Connected</p></td>
 <td><p>BOOL</p></td>
-<td><p>15765248 (8)</p></td>
+<td><p>15739200 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15761600 (1216)</p></td>
+<td><p>15735552 (1216)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15765264 (8)</p></td>
+<td><p>15739216 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOToggle</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOToggle</p></td>
 <td><p>BOOL</p></td>
-<td><p>15765272 (8)</p></td>
+<td><p>15739224 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15765256 (8)</p></td>
+<td><p>15739208 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15764032 (1216)</p></td>
+<td><p>15737984 (1216)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO</p></td>
 <td><p>PMPS.FB_ArbiterToSubSys_IO</p></td>
-<td><p>15790496 (29696)</p></td>
+<td><p>15764448 (29696)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected</p></td>
 <td><p>BOOL</p></td>
-<td><p>15794944 (8)</p></td>
+<td><p>15768896 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15791296 (1216)</p></td>
+<td><p>15765248 (1216)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOState</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15794960 (8)</p></td>
+<td><p>15768912 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOToggle</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOToggle</p></td>
 <td><p>BOOL</p></td>
-<td><p>15794968 (8)</p></td>
+<td><p>15768920 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_WcState</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_WcState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15794952 (8)</p></td>
+<td><p>15768904 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15793728 (1216)</p></td>
+<td><p>15767680 (1216)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO</p></td>
 <td><p>PMPS.FB_ArbiterToSubSys_IO</p></td>
-<td><p>15820192 (29696)</p></td>
+<td><p>15794144 (29696)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_Connected</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_Connected</p></td>
 <td><p>BOOL</p></td>
-<td><p>15824640 (8)</p></td>
+<td><p>15798592 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_RequestedBP</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_RequestedBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15820992 (1216)</p></td>
+<td><p>15794944 (1216)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOState</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15824656 (8)</p></td>
+<td><p>15798608 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOToggle</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_TxPDOToggle</p></td>
 <td><p>BOOL</p></td>
-<td><p>15824664 (8)</p></td>
+<td><p>15798616 (8)</p></td>
 </tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_WcState</p></td>
+<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_WcState</p></td>
 <td><p>BOOL</p></td>
-<td><p>15824648 (8)</p></td>
+<td><p>15798600 (8)</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP</p></td>
+<tr class="row-even"><td><p>PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP</p></td>
 <td><p>ST_BeamParams_IO</p></td>
-<td><p>15823424 (1216)</p></td>
-</tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.st1l0Watcher</p></td>
-<td><p>FB_LStopper</p></td>
-<td><p>15679008 (81792)</p></td>
-</tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.st1l0Watcher.i_StopperInLS</p></td>
-<td><p>BOOL</p></td>
-<td><p>15679080 (8)</p></td>
-</tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.st1l0Watcher.i_StopperOutLS</p></td>
-<td><p>BOOL</p></td>
-<td><p>15679072 (8)</p></td>
-</tr>
-<tr class="row-odd"><td><p>PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay</p></td>
-<td><p>BOOL</p></td>
-<td><p>15679096 (8)</p></td>
-</tr>
-<tr class="row-even"><td><p>PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay</p></td>
-<td><p>BOOL</p></td>
-<td><p>15679088 (8)</p></td>
+<td><p>15797376 (1216)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2478,7 +2482,7 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>TC_EVENTS.LCLSGeneralEventClass</p></td>
 <td><p>ST_LCLSGeneralEventClass</p></td>
-<td><p>17057856 (960)</p></td>
+<td><p>17031744 (960)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2500,27 +2504,27 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>TC_EVENT_CLASSES.LCLSGeneralEventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027776 (128)</p></td>
+<td><p>17001664 (128)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TC_EVENT_CLASSES.TcGeneralAdsEventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027264 (128)</p></td>
+<td><p>17001152 (128)</p></td>
 </tr>
 <tr class="row-even"><td><p>TC_EVENT_CLASSES.TcRouterEventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027392 (128)</p></td>
+<td><p>17001280 (128)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TC_EVENT_CLASSES.TcRTimeEventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027520 (128)</p></td>
+<td><p>17001408 (128)</p></td>
 </tr>
 <tr class="row-even"><td><p>TC_EVENT_CLASSES.TcSystemEventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027136 (128)</p></td>
+<td><p>17001024 (128)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TC_EVENT_CLASSES.Win32EventClass</p></td>
 <td><p>GUID</p></td>
-<td><p>17027648 (128)</p></td>
+<td><p>17001536 (128)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2542,7 +2546,7 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>TwinCAT_LicenseInfoVarList._LicenseInfo</p></td>
 <td><p>ARRAY[1..1] OF PlcLicenseInfo</p></td>
-<td><p>17007808 (1024)</p></td>
+<td><p>16981696 (1024)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2564,35 +2568,35 @@ Total linter errors: 0</p>
 <tbody>
 <tr class="row-even"><td><p>TwinCAT_SystemInfoVarList.__FFOTask</p></td>
 <td><p>_Implicit_Task_Info</p></td>
-<td><p>17013056 (704)</p></td>
+<td><p>16986944 (704)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList.__PlcTask</p></td>
 <td><p>_Implicit_Task_Info</p></td>
-<td><p>17013760 (704)</p></td>
+<td><p>16987648 (704)</p></td>
 </tr>
 <tr class="row-even"><td><p>TwinCAT_SystemInfoVarList._AppInfo</p></td>
 <td><p>PlcAppSystemInfo</p></td>
-<td><p>17008832 (2048)</p></td>
+<td><p>16982720 (2048)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList._TaskInfo</p></td>
 <td><p>ARRAY[1..2] OF PlcTaskSystemInfo</p></td>
-<td><p>17010880 (2048)</p></td>
+<td><p>16984768 (2048)</p></td>
 </tr>
 <tr class="row-even"><td><p>TwinCAT_SystemInfoVarList._TaskOid_FFOTask</p></td>
 <td><p>OTCID</p></td>
-<td><p>17012960 (32)</p></td>
+<td><p>16986848 (32)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList._TaskOid_PlcTask</p></td>
 <td><p>OTCID</p></td>
-<td><p>17013024 (32)</p></td>
+<td><p>16986912 (32)</p></td>
 </tr>
 <tr class="row-even"><td><p>TwinCAT_SystemInfoVarList._TaskPouOid_FFOTask</p></td>
 <td><p>OTCID</p></td>
-<td><p>17012928 (32)</p></td>
+<td><p>16986816 (32)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</p></td>
 <td><p>OTCID</p></td>
-<td><p>17012992 (32)</p></td>
+<td><p>16986880 (32)</p></td>
 </tr>
 </tbody>
 </table>

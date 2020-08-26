@@ -161,13 +161,36 @@ CurrentBPUpdate
 
     PROGRAM CurrentBPUpdate
     VAR
+        {attribute 'pytmc' := '
+            pv: @(PREFIX)PE
+        '}
+    	fbLPhotonEnergy : FB_LPhotonEnergy;
+    	
     	{attribute 'pytmc' := '
-    		pv: @(PREFIX)MPS:KickerPermRate
-    		link: IOC:BSY0:MP01:BYKIK_RATE
-    	'}
-    	nBeamRate : INT;
-    END_VAR
+            pv: @(PREFIX)
+        '}
+    	fbEPICSLRate : FB_LRateFromEPICS;
 
+    	// Stoppers
+
+        {attribute 'TcLinkTo' := '
+                    .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
+                    .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
+                    .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
+                    .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
+    	'}
+        st1l0Watcher : FB_LStopper(
+            PMPS.K_Stopper.ST1,
+            'ST1L0');
+    END_VAR
+    // Acquiring photon energy
+    fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
+
+    // Acquiring L-line rate
+    fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters);
+
+    // Watching and relaying stopper statuses
+    st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
 
     END_PROGRAM
 
@@ -198,69 +221,6 @@ CXDisplay
     END_PROGRAM
 
 
-F_CalculatePhotonEnergy
-^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    FUNCTION F_CalculatePhotonEnergy : LREAL
-    VAR_INPUT
-        (* Electron energy in GeV *)
-        fElectronEnergy_GeV : LREAL;
-        (* Undulator period in mm *)
-        fUndulatorPeriod_mm : LREAL;
-        (* Unitless undulator K parameter / strength *)
-        fUndulatorStrength : LREAL;
-    END_VAR
-
-    VAR
-        fDenominator: LREAL;
-    END_VAR
-
-    VAR CONSTANT
-        (* GeV [electron rest mass/energy] *)
-        m_e : LREAL := 0.0005109989461;
-        (* Js [Planck's constant] *)
-        h 	: LREAL := 6.62607004E-34;
-        (* C [electron charge] *)
-        e 	: LREAL := 1.6021766208E-19;
-        (* m/s, speed of light *)
-        c 	: LREAL := 299792458;
-
-    END_VAR
-    (*
-
-    Reference Python implementation
-
-    def calculate_photon_energy(electron_energy, period, k):
-        '''
-        Calculate photon energy, in eV.
-
-        Parameters
-        ----------
-        electron_energy : float
-            Electron energy in GeV
-
-        period : float
-            Undulator period, in mm
-
-        k : float
-            Undulator K parameter (strength), unitless
-        '''
-        m_e = 0.0005109989461  # GeV [electron rest mass/energy]
-        h = 6.62607004e-34  # Js [Planck's constant]
-        e = 1.6021766208e-19  # C [electron charge]
-        c = 299792458  # m/s, speed of light
-        return ((2. * (electron_energy / m_e) ** 2 * h * c) /
-                (e * period * 1e-3 * (1 + k ** 2 / 2.)))
-
-    *)
-    fDenominator := (e * fUndulatorPeriod_mm * 1E-3 * (1.0 + EXPT(fUndulatorStrength, 2.0) / 2.0));
-    F_CalculatePhotonEnergy := (2.0 * EXPT(fElectronEnergy_GeV / m_e, 2.0) * h * c) / MAX(fDenominator, 1.0E-10);
-
-    END_FUNCTION
-
-
 Fast_Faults_Evaluate
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -273,620 +233,6 @@ Fast_Faults_Evaluate
     g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
 
     END_PROGRAM
-
-
-FB_AcceleratorLinks
-^^^^^^^^^^^^^^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_AcceleratorLinks
-    VAR_INPUT
-
-    END_VAR
-
-    VAR_OUTPUT
-    END_VAR
-
-
-    VAR
-
-        {attribute 'pytmc' := '
-            pv: ElectronEnergy:Hgvpu
-            link: BEND:DMPH:400:BACT
-            field: EGU GeV
-            field: PREC 3
-        '}
-        fbHgvpuElectronEnergy : FB_LREALFromEPICS;
-
-        {attribute 'pytmc' := '
-            pv: ElectronEnergy:SXU
-            link: BEND:DMPS:400:BACT
-            field: EGU GeV
-            field: PREC 3
-        '}
-        fbSxuElectronEnergy : FB_LREALFromEPICS;
-
-    END_VAR
-    fbHgvpuElectronEnergy();
-    fbSxuElectronEnergy();
-
-    END_FUNCTION_BLOCK
-
-
-FB_BPControlDevice
-^^^^^^^^^^^^^^^^^^
-
-::
-
-    (*
-    Used to request a beam parameter set from EPICS.
-
-    Technically just one of these is needed in the entire
-    PMPS for a line.
-
-    *)
-    FUNCTION_BLOCK FB_BPControlDevice
-    VAR_INPUT
-            (*  Requested pre-optic attenuation %  *)
-            {attribute 'pytmc' := 'pv: ReqBP:Attenuation
-                io: o
-                field: EGU %
-            '}
-            nTran : UINT := 100;
-            (* Pulse-rate *)
-            {attribute 'pytmc' := 'pv: ReqBP:Rate
-                io: o
-                field: EGU Hz
-            '}
-            nRate : UDINT := 10;
-            (* Per pulse max energy (mJ) *)
-            {attribute 'pytmc' := 'pv: ReqBP:PulseEnergy
-                io: o
-                field: EGU mJ
-            '}
-            fPP_mJ : REAL := 20;
-            (* Photon energy ranges *)
-            {attribute 'pytmc' := 'pv: ReqBP:PhotonEnergyRanges
-                io: o
-                field: EGU eV'}
-            {attribute 'displaymode' := 'binary'}
-            neVRange : WORD := 65535;
-    END_VAR
-    VAR_OUTPUT
-    END_VAR
-    VAR_IN_OUT
-        Arbiter : FB_Arbiter;
-    END_VAR
-    VAR
-        EpicsReqBP : ST_BeamParams;
-        {attribute 'pytmc' := '
-            pv: ReqBP:Apply
-            io: o
-        '}
-        bApply : BOOL;
-
-        nControlDeviceID : DWORD;
-
-        rtApply : R_TRIG;
-
-    END_VAR
-    EpicsReqBP.nTran := nTran;
-    EpicsReqBP.neVRange := neVRange;
-    EpicsReqBP.nRate := nRate;
-    EpicsReqBP.fPP_mJ := fPP_mJ;
-
-    rtApply(CLK:=bApply);
-    IF rtApply.Q THEN
-        Arbiter.RemoveRequest(nControlDeviceID);
-        Arbiter.AddRequest(nControlDeviceID, EpicsReqBP);
-        bApply := FALSE;
-    END_IF
-
-    END_FUNCTION_BLOCK
-
-
-FB_eVSimulator
-^^^^^^^^^^^^^^
-
-::
-
-    (* eV Simulator
-    A. Wallace 2019-8-30
-
-    Adds noise to the eV and changes eV position occasionally.
-    *)
-    FUNCTION_BLOCK FB_eVSimulator
-    VAR_INPUT
-        NoiseLevel	:	REAL	:= 0; // eV Noise
-        ChangeTime : TIME := T#10S;
-    END_VAR
-    VAR_OUTPUT
-        eV	:	REAL := 300;
-    END_VAR
-    VAR
-        eVRange : REAL := 1600;
-        timer: TON;
-        eVRand	:	DRAND :=(Seed:=0);
-        NoiseRand : DRAND := (Seed:=0);
-    END_VAR
-    timer(in:=TRUE, PT:=ChangeTime);
-
-    //Occasionally change eV
-    IF timer.Q THEN
-        timer(in:=FALSE);
-        eVRand();
-        eV := LIMIT(0, eVRange*LREAL_TO_REAL(eVRand.Num), eVRange);
-    END_IF
-
-    // Noise generation
-    NoiseRand();
-    eV := eV + NoiseLevel*LREAL_TO_REAL(NoiseRand.Num);
-    NoiseRand();
-    eV := LIMIT(0, ev - NoiseLevel*LREAL_TO_REAL(NoiseRand.Num), eVRange);
-
-    END_FUNCTION_BLOCK
-
-
-FB_Hgvpu
-^^^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_Hgvpu
-    VAR_INPUT
-        fbElectronEnergy : REFERENCE TO FB_LREALFromEPICS;
-    END_VAR
-
-    VAR_OUTPUT
-    END_VAR
-
-
-    VAR
-        // From lcls-srv01: grep -e KDes  /u1/lcls/epics/ioc/data/ioc-undh-uc*/iocInfo/IOC.pvlist |sort
-
-        {attribute 'pytmc' := 'pv: 24; link: 2450:'}
-        fbSegment_24 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 25; link: 2550:'}
-        fbSegment_25 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 26; link: 2650:'}
-        fbSegment_26 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 27; link: 2750:'}
-        fbSegment_27 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 29; link: 2950:'}
-        fbSegment_29 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 30; link: 3050:'}
-        fbSegment_30 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 31; link: 3150:'}
-        fbSegment_31 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 32; link: 3250:'}
-        fbSegment_32 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 33; link: 3350:'}
-        fbSegment_33 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 34; link: 3450:'}
-        fbSegment_34 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 35; link: 3550:'}
-        fbSegment_35 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 36; link: 3650:'}
-        fbSegment_36 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 37; link: 3750:'}
-        fbSegment_37 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 38; link: 3850:'}
-        fbSegment_38 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 39; link: 3950:'}
-        fbSegment_39 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 40; link: 4050:'}
-        fbSegment_40 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 41; link: 4150:'}
-        fbSegment_41 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 42; link: 4250:'}
-        fbSegment_42 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 43; link: 4350:'}
-        fbSegment_43 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 44; link: 4450:'}
-        fbSegment_44 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 45; link: 4550:'}
-        fbSegment_45 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 46; link: 4650:'}
-        fbSegment_46 : FB_UndulatorSegment;
-
-        fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
-        fbCurrentSegment : REFERENCE TO FB_UndulatorSegment;
-
-        iIndex : UDINT;
-
-        bInitialized : BOOL := FALSE;
-
-    END_VAR
-
-    VAR CONSTANT
-        {attribute 'pytmc' := 'pv: FirstSegment; io: i'}
-        iLowBound  : UDINT := 24;
-        {attribute 'pytmc' := 'pv: LastSegment; io: i'}
-        iHighBound : UDINT := 46;
-        {attribute 'pytmc' := '
-            pv: Period
-            io: i
-            field: EGU mm
-        '}
-        fPeriod_mm : LREAL := 26.0;
-    END_VAR
-    IF NOT bInitialized THEN
-
-        fbSegment[24] := ADR(fbSegment_24);
-        fbSegment[25] := ADR(fbSegment_25);
-        fbSegment[26] := ADR(fbSegment_26);
-        fbSegment[27] := ADR(fbSegment_27);
-        fbSegment[28] := 0;
-        fbSegment[29] := ADR(fbSegment_29);
-        fbSegment[30] := ADR(fbSegment_30);
-        fbSegment[31] := ADR(fbSegment_31);
-        fbSegment[32] := ADR(fbSegment_32);
-        fbSegment[33] := ADR(fbSegment_33);
-        fbSegment[34] := ADR(fbSegment_34);
-        fbSegment[35] := ADR(fbSegment_35);
-        fbSegment[36] := ADR(fbSegment_36);
-        fbSegment[37] := ADR(fbSegment_37);
-        fbSegment[38] := ADR(fbSegment_38);
-        fbSegment[39] := ADR(fbSegment_39);
-        fbSegment[40] := ADR(fbSegment_40);
-        fbSegment[41] := ADR(fbSegment_41);
-        fbSegment[42] := ADR(fbSegment_42);
-        fbSegment[43] := ADR(fbSegment_43);
-        fbSegment[44] := ADR(fbSegment_44);
-        fbSegment[45] := ADR(fbSegment_45);
-        fbSegment[46] := ADR(fbSegment_46);
-
-
-        FOR iIndex := iLowBound TO iHighBound DO
-                IF fbSegment[iIndex] <> 0 THEN
-                fbCurrentSegment REF= fbSegment[iIndex]^;
-                fbCurrentSegment.fPeriod_mm := fPeriod_mm;
-            END_IF
-        END_FOR
-
-        bInitialized := TRUE;
-    END_IF
-
-    FOR iIndex := iLowBound TO iHighBound DO
-        IF fbSegment[iIndex] <> 0 THEN
-            fbCurrentSegment REF= fbSegment[iIndex]^;
-            fbCurrentSegment(fbElectronEnergy:=fbElectronEnergy);
-        END_IF
-    END_FOR
-
-    END_FUNCTION_BLOCK
-
-
-FB_KStopper
-^^^^^^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_KStopper EXTENDS FB_StopperWatcher
-    VAR_INPUT
-    END_VAR
-    VAR_OUTPUT
-    END_VAR
-    VAR_IN_OUT
-    END_VAR
-    VAR
-    END_VAR
-    SUPER^(stCurrentBP:=SUPER^.stCurrentBP);
-
-    END_FUNCTION_BLOCK
-
-
-FB_LStopper
-^^^^^^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_LStopper EXTENDS FB_StopperWatcher
-    VAR_INPUT
-    END_VAR
-    VAR_OUTPUT
-    END_VAR
-    VAR_IN_OUT
-    END_VAR
-    VAR
-    END_VAR
-    SUPER^(stCurrentBP:=SUPER^.stCurrentBP);
-
-    END_FUNCTION_BLOCK
-
-
-FB_StopperWatcher
-^^^^^^^^^^^^^^^^^
-
-::
-
-    // Relays stopper state and sends a message when stopper state changes.
-    FUNCTION_BLOCK FB_StopperWatcher
-    VAR_INPUT
-    END_VAR
-    VAR_OUTPUT
-    END_VAR
-    VAR_IN_OUT
-    	stCurrentBP : ST_BeamParams;
-    END_VAR
-    VAR
-        i_StopperOutLS AT %I* : BOOL;
-        i_StopperInLS AT %I* : BOOL;
-
-        q_StopperOUT_Relay AT %Q* : BOOL;
-        q_StopperIN_Relay AT %Q* : BOOL;
-
-        Stopper : UINT;
-        StopperName : STRING;
-
-        // Logging
-        fbLogMsg : FB_LogMessage := (
-            eSubSystem := E_Subsystem.MPS);
-
-        rtIn : R_TRIG;
-        rtOut : R_TRIG;
-
-    END_VAR
-    rtIn(CLK := i_StopperInLS);
-    rtOut(CLK := i_StopperOutLS);
-
-    IF rtIn.Q THEN
-        fbLogMsg.sMsg := CONCAT(StopperName, ' moved IN');
-        fbLogMsg();
-    ELSIF rtOut.Q THEN
-        fbLogMsg.sMsg := CONCAT(StopperName, ' moved OUT');
-        fbLogMsg();
-    END_IF
-
-    q_StopperOUT_Relay := i_StopperOutLS;
-    q_StopperIN_Relay := i_StopperInLS;
-
-    // Update current beam parameters
-    stCurrentBP.aStoppers[Stopper] := i_StopperInLS;
-
-    END_FUNCTION_BLOCK
-
-
-FB_SXU
-^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_SXU
-    VAR_INPUT
-        fbElectronEnergy : REFERENCE TO FB_LREALFromEPICS;
-    END_VAR
-
-    VAR_OUTPUT
-    END_VAR
-
-
-
-    VAR
-        // From lcls-srv01: grep -e KDes  /u1/lcls/epics/ioc/data/sioc-unds-uc*/iocInfo/IOC.pvlist |sort
-
-
-        {attribute 'pytmc' := 'pv: 26; link: 2650:'}
-        fbSegment_26 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 27; link: 2750:'}
-        fbSegment_27 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 28; link: 2850:'}
-        fbSegment_28 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 29; link: 2950:'}
-        fbSegment_29 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 30; link: 3050:'}
-        fbSegment_30 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 31; link: 3150:'}
-        fbSegment_31 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 32; link: 3250:'}
-        fbSegment_32 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 33; link: 3350:'}
-        fbSegment_33 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 34; link: 3450:'}
-        fbSegment_34 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 36; link: 3650:'}
-        fbSegment_36 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 37; link: 3750:'}
-        fbSegment_37 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 38; link: 3850:'}
-        fbSegment_38 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 39; link: 3950:'}
-        fbSegment_39 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 40; link: 4050:'}
-        fbSegment_40 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 41; link: 4150:'}
-        fbSegment_41 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 42; link: 4250:'}
-        fbSegment_42 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 43; link: 4350:'}
-        fbSegment_43 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 44; link: 4450:'}
-        fbSegment_44 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 45; link: 4550:'}
-        fbSegment_45 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 46; link: 4650:'}
-        fbSegment_46 : FB_UndulatorSegment;
-
-        {attribute 'pytmc' := 'pv: 47; link: 4750:'}
-        fbSegment_47 : FB_UndulatorSegment;
-
-
-
-        fbSegment : ARRAY [iLowBound..iHighBound] OF POINTER TO FB_UndulatorSegment;
-        fbCurrentSegment : REFERENCE TO FB_UndulatorSegment;
-
-        iIndex : UDINT;
-
-        bInitialized : BOOL := FALSE;
-
-    END_VAR
-
-    VAR CONSTANT
-        {attribute 'pytmc' := 'pv: FirstSegment; io: i'}
-        iLowBound  : UDINT := 26;
-        {attribute 'pytmc' := 'pv: LastSegment; io: i'}
-        iHighBound : UDINT := 47;
-        {attribute 'pytmc' := '
-            pv: Period
-            io: i
-            field: EGU mm
-        '}
-        fPeriod_mm : LREAL := 39.0;
-    END_VAR
-    IF NOT bInitialized THEN
-
-        fbSegment[26] := ADR(fbSegment_26);
-        fbSegment[27] := ADR(fbSegment_27);
-        fbSegment[28] := ADR(fbSegment_28);
-        fbSegment[29] := ADR(fbSegment_29);
-        fbSegment[30] := ADR(fbSegment_30);
-        fbSegment[31] := ADR(fbSegment_31);
-        fbSegment[32] := ADR(fbSegment_32);
-        fbSegment[33] := ADR(fbSegment_33);
-        fbSegment[34] := ADR(fbSegment_34);
-        fbSegment[35] := 0;
-        fbSegment[36] := ADR(fbSegment_36);
-        fbSegment[37] := ADR(fbSegment_37);
-        fbSegment[38] := ADR(fbSegment_38);
-        fbSegment[39] := ADR(fbSegment_39);
-        fbSegment[40] := ADR(fbSegment_40);
-        fbSegment[41] := ADR(fbSegment_41);
-        fbSegment[42] := ADR(fbSegment_42);
-        fbSegment[43] := ADR(fbSegment_43);
-        fbSegment[44] := ADR(fbSegment_44);
-        fbSegment[45] := ADR(fbSegment_45);
-        fbSegment[46] := ADR(fbSegment_46);
-        fbSegment[47] := ADR(fbSegment_47);
-
-        FOR iIndex := iLowBound TO iHighBound DO
-                IF fbSegment[iIndex] <> 0 THEN
-                fbCurrentSegment REF= fbSegment[iIndex]^;
-                fbCurrentSegment.fPeriod_mm := fPeriod_mm;
-            END_IF
-        END_FOR
-        bInitialized := TRUE;
-    END_IF
-
-    FOR iIndex := iLowBound TO iHighBound DO
-        IF fbSegment[iIndex] <> 0 THEN
-            fbCurrentSegment REF= fbSegment[iIndex]^;
-            fbCurrentSegment(fbElectronEnergy:=fbElectronEnergy);
-        END_IF
-    END_FOR
-
-    END_FUNCTION_BLOCK
-
-
-FB_UndulatorSegment
-^^^^^^^^^^^^^^^^^^^
-
-::
-
-    FUNCTION_BLOCK FB_UndulatorSegment
-    VAR_INPUT
-        (* Undulator period in millimeters, to be set by subclasses *)
-        fPeriod_mm : LREAL := 1.0;
-        fbElectronEnergy : REFERENCE TO FB_LREALFromEPICS;
-    END_VAR
-
-    VAR_OUTPUT
-        {attribute 'pytmc' := '
-            pv: PhotonEnergyAct
-            field: DESC Calculated photon energy
-            field: PREC 3
-            field: EGU eV
-        '}
-        fPhotonEnergyAct : LREAL;
-
-        {attribute 'pytmc' := '
-            pv: PhotonEnergyDes
-            field: DESC Calculated desired photon energy
-            field: PREC 3
-            field: EGU eV
-        '}
-        fPhotonEnergyDes : LREAL;
-
-    END_VAR
-
-    VAR
-        {attribute 'pytmc' := '
-            pv: KDes
-            link: KDes
-        '}
-        fbKDesired : FB_LREALFromEPICS;
-
-        {attribute 'pytmc' := '
-            pv: KAct
-            link: KAct
-        '}
-        fbKActual : FB_LREALFromEPICS;
-
-    END_VAR
-    fbKDesired();
-    fbKActual();
-
-    IF __ISVALIDREF(fbElectronEnergy) THEN
-
-        IF fbKActual.bValid AND fbElectronEnergy.bValid THEN
-            fPhotonEnergyAct := F_CalculatePhotonEnergy(
-                fElectronEnergy_GeV:=fbElectronEnergy.fValue,
-                fUndulatorPeriod_mm:=fPeriod_mm,
-                fUndulatorStrength:=fbKActual.fValue
-            );
-        END_IF
-
-        IF fbKDesired.bValid AND fbElectronEnergy.bValid THEN
-            fPhotonEnergyDes := F_CalculatePhotonEnergy(
-                fElectronEnergy_GeV:=fbElectronEnergy.fValue,
-                fUndulatorPeriod_mm:=fPeriod_mm,
-                fUndulatorStrength:=fbKDesired.fValue
-            );
-        END_IF
-
-    END_IF
-
-    END_FUNCTION_BLOCK
 
 
 MachineSimulation
@@ -912,7 +258,8 @@ MachineSimulation
     	xEnablePE := TRUE
         );
 
-    PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
+    //PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
+    PMPS_GVL.stCurrentBeamParameters.neVRange := 0;
 
     END_PROGRAM
 
@@ -928,28 +275,6 @@ MAIN
 
         fbLogHandler : FB_LogHandler;
         fbEcatDiag : FB_EcatDiagWrapper;
-
-        {attribute 'pytmc' := '
-            pv: @(PREFIX)Link:HGVPU
-            link: USEG:UNDH:
-        '}
-        //fbHgvpu : FB_Hgvpu;
-
-        {attribute 'pytmc' := '
-            pv: @(PREFIX)Link:SXU
-            link: USEG:UNDS:
-        '}
-        //fbSxu : FB_SXU;
-
-        {attribute 'pytmc' := '
-            pv: @(PREFIX)Link
-        '}
-        //fbAcceleratorLinks : FB_AcceleratorLinks;
-
-        {attribute 'pytmc' := '
-        pv: @(PREFIX)BeamParamCntl
-        '}
-        fbBPControl : FB_BPControlDevice(nID:=10);
 
     END_VAR
     //Arbiter PLC
@@ -967,17 +292,6 @@ MAIN
     MachineSimulation();
     //Testing();
     ///////////////////////////////////////////////////
-
-    //fbAcceleratorLinks();
-
-    //fbHgvpu(fbElectronEnergy:=fbAcceleratorLinks.fbHgvpuElectronEnergy);
-    //fbSxu(fbElectronEnergy:=fbAcceleratorLinks.fbSxuElectronEnergy);
-
-    // Dummy device for controling pmps beam parameters
-    fbBPControl(Arbiter:=g_fbArbiter1);
-
-    //Update current BP
-    CurrentBPUpdate();
 
     // PMPS Functionality
     CurrentBPUpdate();
@@ -1012,17 +326,10 @@ PMPS_Arbiter
         '}
         fbCuInterface	:	FB_CTLS_Outputs;
 
-        // Stoppers
-
-        {attribute 'TcLinkTo' := '
-                    .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
-                    .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
-                    .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
-                    .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
-                                    '}
-        st1l0Watcher : FB_LStopper(
-            PMPS.K_Stopper.ST1,
-            'ST1L0');
+    	{attribute 'pytmc' := '
+        	pv: @(PREFIX)BeamParamCntl
+        '}
+        fbBPControl : FB_BPControlDevice(nID:=10);
 
         (* Subsystem requests use this FB and a pragma link to pass their requests to the arbiter.
         The fb is called on each cycle and updates the arbiter with the current BP set requested
@@ -1077,17 +384,15 @@ PMPS_Arbiter
                                     '}
         //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
-    (* caget IOC:BSY0:MP01:BYKIK_RATE
-    IOC:BSY0:MP01:BYKIK_RATE       10 Hz *)
 
-        {attribute 'pytmc' := '
-            pv: KDes
-            link: KDes
-        '}
+
+
 
     END_VAR
-    // Watching and relaying stopper statuses
-    st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
+    ////////////////////////////////////////////////////////////
+
+    // Dummy device for controling pmps beam parameters
+    fbBPControl(Arbiter:=g_fbArbiter1);
 
     // Updating arbiter with subsystem requests.
     plc_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
