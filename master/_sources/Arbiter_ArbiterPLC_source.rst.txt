@@ -27,13 +27,13 @@ GVL
         pv: @(PREFIX)FFO:01
         '}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[FFO]^Channel 1^Output'}
-        g_FastFaultOutput1	:	FB_HardwareFFOutput;
+        g_FastFaultOutput1	:	FB_HardwareFFOutput := (bAutoReset := TRUE);
     	
     	{attribute 'pytmc' := '
         pv: @(PREFIX)FFO:02
         '}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[FFO]^Channel 2^Output'}
-        g_FastFaultOutput2	:	FB_HardwareFFOutput;
+        g_FastFaultOutput2	:	FB_HardwareFFOutput := (bAutoReset := TRUE);
 
         g_rTestingVelocity	:	LREAL := PMPS_GVL.VISIBLE_TEST_VELOCITY;
 
@@ -229,8 +229,8 @@ Fast_Faults_Evaluate
     PROGRAM Fast_Faults_Evaluate
     VAR
     END_VAR
-    g_FastFaultOutput1.EvaluateOutput(bAutoReset:=TRUE);
-    g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
+    //g_FastFaultOutput1.EvaluateOutput(bAutoReset:=TRUE);
+    //g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
 
     END_PROGRAM
 
@@ -254,12 +254,12 @@ MachineSimulation
         iq_stMachineParams := PMPS_GVL.stCurrentBeamParameters,
         i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut,
     	xEnableAtt := TRUE,
-    	xEnableRate := TRUE,
+    	xEnableRate := FALSE,
     	xEnablePE := TRUE
         );
 
     //PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
-    PMPS_GVL.stCurrentBeamParameters.neVRange := 0;
+    //PMPS_GVL.stCurrentBeamParameters.neVRange := 0;
 
     END_PROGRAM
 
@@ -286,17 +286,18 @@ MAIN
     // Ethercat Diagnostics
     fbEcatDiag();
 
+
+
+    // PMPS Functionality
+    CurrentBPUpdate();
+    PMPS_Arbiter();
+
     ///////////////////////////////////////////////////
     // This code should be disabled or removed in deployment
     // Might have a switch to change to simulation mode
     MachineSimulation();
     //Testing();
     ///////////////////////////////////////////////////
-
-    // PMPS Functionality
-    CurrentBPUpdate();
-    PMPS_Arbiter();
-
 
     fbLogHandler();
 
@@ -315,7 +316,9 @@ PMPS_Arbiter
     VAR
 
         fbBPRequestor : FB_BPRequestor; // Updates global PMPS RequestedBeamParams
-
+        {attribute 'pytmc' := '
+        pv: @(PREFIX)PhotonEnergyWatcher
+        '}
         fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
         {attribute 'pytmc' := '
         pv: @(PREFIX)BeamClassOutputs
@@ -386,7 +389,7 @@ PMPS_Arbiter
 
 
 
-
+    	fbSetPE	:	PE_Ranges;
 
     END_VAR
     ////////////////////////////////////////////////////////////
@@ -401,7 +404,7 @@ PMPS_Arbiter
     plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
 
     //Overriding the preemptive requests from the optics systems until they are valid
-    GVL.g_fbArbiter1.RemoveRequest(nReqId:=plc_lfe_optics_PMPS_IO.RequestingSystemID);
+    //GVL.g_fbArbiter1.RemoveRequest(nReqId:=plc_lfe_optics_PMPS_IO.RequestingSystemID);
 
     // Beam parameter requestor
     fbBPRequestor(Arbiter:=GVL.g_fbArbiter1, q_ReqBP => PMPS_GVL.stRequestedBeamParameters);
@@ -419,11 +422,9 @@ PMPS_Arbiter
                         io_fbFFHWO:= GVL.g_FastFaultOutput1,
                         i_xReset := GVL.AttemptReset);
 
-    // Evaluate fast fault vetos
-    g_FastFaultOutput1.EvaluateOverrides();
-
-    // Send fast fault logs
-    g_FastFaultOutput1.ExecuteLogging();
+    // FF
+    g_FastFaultOutput1.Execute();
+    g_FastFaultOutput2.Execute();
 
     END_PROGRAM
 
