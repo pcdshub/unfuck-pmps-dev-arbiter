@@ -975,64 +975,6 @@ PMPS.FB_Arbiter
       - | io: input
 
 
-    * - $(PREFIX):AP:Entry:000:Cohort_RBV
-      - longin
-      - Cohort inc on each arb cycle
-      - | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:ID_RBV
-      - longin
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:Live_RBV
-      - bi
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:PhotonEnergyRanges_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU eV
-        | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | field: EGU mJ
-        | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:Rate_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU Hz
-        | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:ST_RBV
-      - waveform
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:Transmission_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU %
-        | io: input
-
-
-    * - $(PREFIX):AP:Entry:000:Valid_RBV
-      - bi
-      - Assertion Pool
-      - | io: input
-
-
     * - $(PREFIX):AP:Entry:001:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -2363,64 +2305,6 @@ PMPS.FB_BeamParamAssertionPool
       - Type
       - Description
       - Pragma
-    * - $(PREFIX):Entry:000:Cohort_RBV
-      - longin
-      - Cohort inc on each arb cycle
-      - | io: input
-
-
-    * - $(PREFIX):Entry:000:ID_RBV
-      - longin
-      - $(SYMBOL).dataPool[0].nId
-      - | io: input
-
-
-    * - $(PREFIX):Entry:000:Live_RBV
-      - bi
-      - $(SYMBOL).dataPool[0].LiveInTable
-      - | io: input
-
-
-    * - $(PREFIX):Entry:000:PhotonEnergyRanges_RBV
-      - longin
-      - $(SYMBOL).dataPool[0].neVRange
-      - | field: EGU eV
-        | io: input
-
-
-    * - $(PREFIX):Entry:000:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | field: EGU mJ
-        | io: input
-
-
-    * - $(PREFIX):Entry:000:Rate_RBV
-      - longin
-      - $(SYMBOL).dataPool[0].nRate
-      - | field: EGU Hz
-        | io: input
-
-
-    * - $(PREFIX):Entry:000:ST_RBV
-      - waveform
-      - $(SYMBOL).dataPool[0].aStoppers
-      - | io: input
-
-
-    * - $(PREFIX):Entry:000:Transmission_RBV
-      - longin
-      - $(SYMBOL).dataPool[0].nTran
-      - | field: EGU %
-        | io: input
-
-
-    * - $(PREFIX):Entry:000:Valid_RBV
-      - bi
-      - $(SYMBOL).dataPool[0].xValid
-      - | io: input
-
-
     * - $(PREFIX):Entry:001:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -2429,19 +2313,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:001:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[1].nId
+      - $(SYMBOL).epicsDataPool[1].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:001:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[1].LiveInTable
+      - $(SYMBOL).epicsDataPool[1].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:001:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[1].neVRange
+      - $(SYMBOL).epicsDataPool[1].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2455,27 +2339,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:001:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[1].nRate
+      - $(SYMBOL).epicsDataPool[1].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:001:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[1].aStoppers
+      - $(SYMBOL).epicsDataPool[1].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:001:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[1].nTran
+      - $(SYMBOL).epicsDataPool[1].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:001:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[1].xValid
+      - $(SYMBOL).epicsDataPool[1].xValid
       - | io: input
 
 
@@ -2487,19 +2371,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:002:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[2].nId
+      - $(SYMBOL).epicsDataPool[2].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:002:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[2].LiveInTable
+      - $(SYMBOL).epicsDataPool[2].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:002:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[2].neVRange
+      - $(SYMBOL).epicsDataPool[2].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2513,27 +2397,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:002:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[2].nRate
+      - $(SYMBOL).epicsDataPool[2].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:002:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[2].aStoppers
+      - $(SYMBOL).epicsDataPool[2].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:002:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[2].nTran
+      - $(SYMBOL).epicsDataPool[2].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:002:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[2].xValid
+      - $(SYMBOL).epicsDataPool[2].xValid
       - | io: input
 
 
@@ -2545,19 +2429,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:003:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[3].nId
+      - $(SYMBOL).epicsDataPool[3].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:003:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[3].LiveInTable
+      - $(SYMBOL).epicsDataPool[3].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:003:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[3].neVRange
+      - $(SYMBOL).epicsDataPool[3].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2571,27 +2455,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:003:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[3].nRate
+      - $(SYMBOL).epicsDataPool[3].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:003:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[3].aStoppers
+      - $(SYMBOL).epicsDataPool[3].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:003:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[3].nTran
+      - $(SYMBOL).epicsDataPool[3].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:003:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[3].xValid
+      - $(SYMBOL).epicsDataPool[3].xValid
       - | io: input
 
 
@@ -2603,19 +2487,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:004:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[4].nId
+      - $(SYMBOL).epicsDataPool[4].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:004:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[4].LiveInTable
+      - $(SYMBOL).epicsDataPool[4].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:004:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[4].neVRange
+      - $(SYMBOL).epicsDataPool[4].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2629,27 +2513,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:004:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[4].nRate
+      - $(SYMBOL).epicsDataPool[4].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:004:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[4].aStoppers
+      - $(SYMBOL).epicsDataPool[4].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:004:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[4].nTran
+      - $(SYMBOL).epicsDataPool[4].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:004:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[4].xValid
+      - $(SYMBOL).epicsDataPool[4].xValid
       - | io: input
 
 
@@ -2661,19 +2545,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:005:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[5].nId
+      - $(SYMBOL).epicsDataPool[5].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:005:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[5].LiveInTable
+      - $(SYMBOL).epicsDataPool[5].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:005:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[5].neVRange
+      - $(SYMBOL).epicsDataPool[5].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2687,27 +2571,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:005:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[5].nRate
+      - $(SYMBOL).epicsDataPool[5].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:005:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[5].aStoppers
+      - $(SYMBOL).epicsDataPool[5].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:005:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[5].nTran
+      - $(SYMBOL).epicsDataPool[5].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:005:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[5].xValid
+      - $(SYMBOL).epicsDataPool[5].xValid
       - | io: input
 
 
@@ -2719,19 +2603,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:006:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[6].nId
+      - $(SYMBOL).epicsDataPool[6].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:006:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[6].LiveInTable
+      - $(SYMBOL).epicsDataPool[6].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:006:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[6].neVRange
+      - $(SYMBOL).epicsDataPool[6].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2745,27 +2629,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:006:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[6].nRate
+      - $(SYMBOL).epicsDataPool[6].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:006:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[6].aStoppers
+      - $(SYMBOL).epicsDataPool[6].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:006:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[6].nTran
+      - $(SYMBOL).epicsDataPool[6].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:006:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[6].xValid
+      - $(SYMBOL).epicsDataPool[6].xValid
       - | io: input
 
 
@@ -2777,19 +2661,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:007:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[7].nId
+      - $(SYMBOL).epicsDataPool[7].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:007:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[7].LiveInTable
+      - $(SYMBOL).epicsDataPool[7].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:007:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[7].neVRange
+      - $(SYMBOL).epicsDataPool[7].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2803,27 +2687,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:007:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[7].nRate
+      - $(SYMBOL).epicsDataPool[7].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:007:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[7].aStoppers
+      - $(SYMBOL).epicsDataPool[7].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:007:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[7].nTran
+      - $(SYMBOL).epicsDataPool[7].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:007:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[7].xValid
+      - $(SYMBOL).epicsDataPool[7].xValid
       - | io: input
 
 
@@ -2835,19 +2719,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:008:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[8].nId
+      - $(SYMBOL).epicsDataPool[8].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:008:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[8].LiveInTable
+      - $(SYMBOL).epicsDataPool[8].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:008:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[8].neVRange
+      - $(SYMBOL).epicsDataPool[8].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2861,27 +2745,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:008:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[8].nRate
+      - $(SYMBOL).epicsDataPool[8].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:008:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[8].aStoppers
+      - $(SYMBOL).epicsDataPool[8].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:008:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[8].nTran
+      - $(SYMBOL).epicsDataPool[8].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:008:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[8].xValid
+      - $(SYMBOL).epicsDataPool[8].xValid
       - | io: input
 
 
@@ -2893,19 +2777,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:009:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[9].nId
+      - $(SYMBOL).epicsDataPool[9].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:009:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[9].LiveInTable
+      - $(SYMBOL).epicsDataPool[9].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:009:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[9].neVRange
+      - $(SYMBOL).epicsDataPool[9].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2919,27 +2803,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:009:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[9].nRate
+      - $(SYMBOL).epicsDataPool[9].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:009:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[9].aStoppers
+      - $(SYMBOL).epicsDataPool[9].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:009:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[9].nTran
+      - $(SYMBOL).epicsDataPool[9].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:009:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[9].xValid
+      - $(SYMBOL).epicsDataPool[9].xValid
       - | io: input
 
 
@@ -2951,19 +2835,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:010:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[10].nId
+      - $(SYMBOL).epicsDataPool[10].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:010:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[10].LiveInTable
+      - $(SYMBOL).epicsDataPool[10].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:010:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[10].neVRange
+      - $(SYMBOL).epicsDataPool[10].neVRange
       - | field: EGU eV
         | io: input
 
@@ -2977,27 +2861,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:010:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[10].nRate
+      - $(SYMBOL).epicsDataPool[10].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:010:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[10].aStoppers
+      - $(SYMBOL).epicsDataPool[10].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:010:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[10].nTran
+      - $(SYMBOL).epicsDataPool[10].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:010:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[10].xValid
+      - $(SYMBOL).epicsDataPool[10].xValid
       - | io: input
 
 
@@ -3009,19 +2893,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:011:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[11].nId
+      - $(SYMBOL).epicsDataPool[11].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:011:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[11].LiveInTable
+      - $(SYMBOL).epicsDataPool[11].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:011:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[11].neVRange
+      - $(SYMBOL).epicsDataPool[11].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3035,27 +2919,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:011:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[11].nRate
+      - $(SYMBOL).epicsDataPool[11].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:011:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[11].aStoppers
+      - $(SYMBOL).epicsDataPool[11].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:011:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[11].nTran
+      - $(SYMBOL).epicsDataPool[11].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:011:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[11].xValid
+      - $(SYMBOL).epicsDataPool[11].xValid
       - | io: input
 
 
@@ -3067,19 +2951,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:012:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[12].nId
+      - $(SYMBOL).epicsDataPool[12].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:012:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[12].LiveInTable
+      - $(SYMBOL).epicsDataPool[12].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:012:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[12].neVRange
+      - $(SYMBOL).epicsDataPool[12].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3093,27 +2977,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:012:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[12].nRate
+      - $(SYMBOL).epicsDataPool[12].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:012:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[12].aStoppers
+      - $(SYMBOL).epicsDataPool[12].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:012:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[12].nTran
+      - $(SYMBOL).epicsDataPool[12].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:012:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[12].xValid
+      - $(SYMBOL).epicsDataPool[12].xValid
       - | io: input
 
 
@@ -3125,19 +3009,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:013:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[13].nId
+      - $(SYMBOL).epicsDataPool[13].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:013:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[13].LiveInTable
+      - $(SYMBOL).epicsDataPool[13].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:013:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[13].neVRange
+      - $(SYMBOL).epicsDataPool[13].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3151,27 +3035,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:013:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[13].nRate
+      - $(SYMBOL).epicsDataPool[13].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:013:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[13].aStoppers
+      - $(SYMBOL).epicsDataPool[13].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:013:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[13].nTran
+      - $(SYMBOL).epicsDataPool[13].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:013:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[13].xValid
+      - $(SYMBOL).epicsDataPool[13].xValid
       - | io: input
 
 
@@ -3183,19 +3067,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:014:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[14].nId
+      - $(SYMBOL).epicsDataPool[14].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:014:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[14].LiveInTable
+      - $(SYMBOL).epicsDataPool[14].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:014:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[14].neVRange
+      - $(SYMBOL).epicsDataPool[14].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3209,27 +3093,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:014:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[14].nRate
+      - $(SYMBOL).epicsDataPool[14].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:014:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[14].aStoppers
+      - $(SYMBOL).epicsDataPool[14].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:014:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[14].nTran
+      - $(SYMBOL).epicsDataPool[14].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:014:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[14].xValid
+      - $(SYMBOL).epicsDataPool[14].xValid
       - | io: input
 
 
@@ -3241,19 +3125,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:015:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[15].nId
+      - $(SYMBOL).epicsDataPool[15].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:015:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[15].LiveInTable
+      - $(SYMBOL).epicsDataPool[15].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:015:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[15].neVRange
+      - $(SYMBOL).epicsDataPool[15].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3267,27 +3151,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:015:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[15].nRate
+      - $(SYMBOL).epicsDataPool[15].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:015:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[15].aStoppers
+      - $(SYMBOL).epicsDataPool[15].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:015:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[15].nTran
+      - $(SYMBOL).epicsDataPool[15].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:015:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[15].xValid
+      - $(SYMBOL).epicsDataPool[15].xValid
       - | io: input
 
 
@@ -3299,19 +3183,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:016:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[16].nId
+      - $(SYMBOL).epicsDataPool[16].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:016:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[16].LiveInTable
+      - $(SYMBOL).epicsDataPool[16].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:016:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[16].neVRange
+      - $(SYMBOL).epicsDataPool[16].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3325,27 +3209,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:016:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[16].nRate
+      - $(SYMBOL).epicsDataPool[16].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:016:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[16].aStoppers
+      - $(SYMBOL).epicsDataPool[16].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:016:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[16].nTran
+      - $(SYMBOL).epicsDataPool[16].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:016:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[16].xValid
+      - $(SYMBOL).epicsDataPool[16].xValid
       - | io: input
 
 
@@ -3357,19 +3241,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:017:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[17].nId
+      - $(SYMBOL).epicsDataPool[17].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:017:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[17].LiveInTable
+      - $(SYMBOL).epicsDataPool[17].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:017:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[17].neVRange
+      - $(SYMBOL).epicsDataPool[17].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3383,27 +3267,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:017:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[17].nRate
+      - $(SYMBOL).epicsDataPool[17].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:017:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[17].aStoppers
+      - $(SYMBOL).epicsDataPool[17].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:017:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[17].nTran
+      - $(SYMBOL).epicsDataPool[17].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:017:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[17].xValid
+      - $(SYMBOL).epicsDataPool[17].xValid
       - | io: input
 
 
@@ -3415,19 +3299,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:018:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[18].nId
+      - $(SYMBOL).epicsDataPool[18].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:018:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[18].LiveInTable
+      - $(SYMBOL).epicsDataPool[18].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:018:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[18].neVRange
+      - $(SYMBOL).epicsDataPool[18].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3441,27 +3325,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:018:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[18].nRate
+      - $(SYMBOL).epicsDataPool[18].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:018:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[18].aStoppers
+      - $(SYMBOL).epicsDataPool[18].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:018:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[18].nTran
+      - $(SYMBOL).epicsDataPool[18].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:018:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[18].xValid
+      - $(SYMBOL).epicsDataPool[18].xValid
       - | io: input
 
 
@@ -3473,19 +3357,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:019:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[19].nId
+      - $(SYMBOL).epicsDataPool[19].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:019:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[19].LiveInTable
+      - $(SYMBOL).epicsDataPool[19].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:019:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[19].neVRange
+      - $(SYMBOL).epicsDataPool[19].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3499,27 +3383,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:019:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[19].nRate
+      - $(SYMBOL).epicsDataPool[19].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:019:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[19].aStoppers
+      - $(SYMBOL).epicsDataPool[19].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:019:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[19].nTran
+      - $(SYMBOL).epicsDataPool[19].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:019:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[19].xValid
+      - $(SYMBOL).epicsDataPool[19].xValid
       - | io: input
 
 
@@ -3531,19 +3415,19 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:020:ID_RBV
       - longin
-      - $(SYMBOL).dataPool[20].nId
+      - $(SYMBOL).epicsDataPool[20].nId
       - | io: input
 
 
     * - $(PREFIX):Entry:020:Live_RBV
       - bi
-      - $(SYMBOL).dataPool[20].LiveInTable
+      - $(SYMBOL).epicsDataPool[20].LiveInTable
       - | io: input
 
 
     * - $(PREFIX):Entry:020:PhotonEnergyRanges_RBV
       - longin
-      - $(SYMBOL).dataPool[20].neVRange
+      - $(SYMBOL).epicsDataPool[20].neVRange
       - | field: EGU eV
         | io: input
 
@@ -3557,27 +3441,27 @@ PMPS.FB_BeamParamAssertionPool
 
     * - $(PREFIX):Entry:020:Rate_RBV
       - longin
-      - $(SYMBOL).dataPool[20].nRate
+      - $(SYMBOL).epicsDataPool[20].nRate
       - | field: EGU Hz
         | io: input
 
 
     * - $(PREFIX):Entry:020:ST_RBV
       - waveform
-      - $(SYMBOL).dataPool[20].aStoppers
+      - $(SYMBOL).epicsDataPool[20].aStoppers
       - | io: input
 
 
     * - $(PREFIX):Entry:020:Transmission_RBV
       - longin
-      - $(SYMBOL).dataPool[20].nTran
+      - $(SYMBOL).epicsDataPool[20].nTran
       - | field: EGU %
         | io: input
 
 
     * - $(PREFIX):Entry:020:Valid_RBV
       - bi
-      - $(SYMBOL).dataPool[20].xValid
+      - $(SYMBOL).epicsDataPool[20].xValid
       - | io: input
 
 
@@ -9508,6 +9392,20 @@ PMPS.FB_Hgvpu
         | link: [None, '2450:', 'KAct', '']
 
 
+    * - $(PREFIX):24:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '2450:', None]
+      - | io: input
+        | link: [None, '2450:', None]
+
+
+    * - $(PREFIX):24:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '2450:', None]
+      - | io: input
+        | link: [None, '2450:', None]
+
+
     * - $(PREFIX):24:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2450:', 'KDes', '']
@@ -9534,6 +9432,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2450:', 'KDes', '']
       - | io: output
         | link: [None, '2450:', 'KDes', '']
+
+
+    * - $(PREFIX):24:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '2450:', None]
+      - | io: input
+        | link: [None, '2450:', None]
+
+
+    * - $(PREFIX):24:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '2450:', None]
+      - | io: input
+        | link: [None, '2450:', None]
 
 
     * - $(PREFIX):25:Active_RBV
@@ -9607,6 +9519,20 @@ PMPS.FB_Hgvpu
         | link: [None, '2550:', 'KAct', '']
 
 
+    * - $(PREFIX):25:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '2550:', None]
+      - | io: input
+        | link: [None, '2550:', None]
+
+
+    * - $(PREFIX):25:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '2550:', None]
+      - | io: input
+        | link: [None, '2550:', None]
+
+
     * - $(PREFIX):25:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2550:', 'KDes', '']
@@ -9633,6 +9559,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2550:', 'KDes', '']
       - | io: output
         | link: [None, '2550:', 'KDes', '']
+
+
+    * - $(PREFIX):25:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '2550:', None]
+      - | io: input
+        | link: [None, '2550:', None]
+
+
+    * - $(PREFIX):25:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '2550:', None]
+      - | io: input
+        | link: [None, '2550:', None]
 
 
     * - $(PREFIX):26:Active_RBV
@@ -9706,6 +9646,20 @@ PMPS.FB_Hgvpu
         | link: [None, '2650:', 'KAct', '']
 
 
+    * - $(PREFIX):26:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '2650:', None]
+      - | io: input
+        | link: [None, '2650:', None]
+
+
+    * - $(PREFIX):26:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '2650:', None]
+      - | io: input
+        | link: [None, '2650:', None]
+
+
     * - $(PREFIX):26:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2650:', 'KDes', '']
@@ -9732,6 +9686,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2650:', 'KDes', '']
       - | io: output
         | link: [None, '2650:', 'KDes', '']
+
+
+    * - $(PREFIX):26:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '2650:', None]
+      - | io: input
+        | link: [None, '2650:', None]
+
+
+    * - $(PREFIX):26:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '2650:', None]
+      - | io: input
+        | link: [None, '2650:', None]
 
 
     * - $(PREFIX):27:Active_RBV
@@ -9805,6 +9773,20 @@ PMPS.FB_Hgvpu
         | link: [None, '2750:', 'KAct', '']
 
 
+    * - $(PREFIX):27:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '2750:', None]
+      - | io: input
+        | link: [None, '2750:', None]
+
+
+    * - $(PREFIX):27:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '2750:', None]
+      - | io: input
+        | link: [None, '2750:', None]
+
+
     * - $(PREFIX):27:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2750:', 'KDes', '']
@@ -9831,6 +9813,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2750:', 'KDes', '']
       - | io: output
         | link: [None, '2750:', 'KDes', '']
+
+
+    * - $(PREFIX):27:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '2750:', None]
+      - | io: input
+        | link: [None, '2750:', None]
+
+
+    * - $(PREFIX):27:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '2750:', None]
+      - | io: input
+        | link: [None, '2750:', None]
 
 
     * - $(PREFIX):29:Active_RBV
@@ -9904,6 +9900,20 @@ PMPS.FB_Hgvpu
         | link: [None, '2950:', 'KAct', '']
 
 
+    * - $(PREFIX):29:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '2950:', None]
+      - | io: input
+        | link: [None, '2950:', None]
+
+
+    * - $(PREFIX):29:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '2950:', None]
+      - | io: input
+        | link: [None, '2950:', None]
+
+
     * - $(PREFIX):29:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2950:', 'KDes', '']
@@ -9930,6 +9940,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '2950:', 'KDes', '']
       - | io: output
         | link: [None, '2950:', 'KDes', '']
+
+
+    * - $(PREFIX):29:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '2950:', None]
+      - | io: input
+        | link: [None, '2950:', None]
+
+
+    * - $(PREFIX):29:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '2950:', None]
+      - | io: input
+        | link: [None, '2950:', None]
 
 
     * - $(PREFIX):30:Active_RBV
@@ -10003,6 +10027,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3050:', 'KAct', '']
 
 
+    * - $(PREFIX):30:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3050:', None]
+      - | io: input
+        | link: [None, '3050:', None]
+
+
+    * - $(PREFIX):30:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3050:', None]
+      - | io: input
+        | link: [None, '3050:', None]
+
+
     * - $(PREFIX):30:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3050:', 'KDes', '']
@@ -10029,6 +10067,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3050:', 'KDes', '']
       - | io: output
         | link: [None, '3050:', 'KDes', '']
+
+
+    * - $(PREFIX):30:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3050:', None]
+      - | io: input
+        | link: [None, '3050:', None]
+
+
+    * - $(PREFIX):30:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3050:', None]
+      - | io: input
+        | link: [None, '3050:', None]
 
 
     * - $(PREFIX):31:Active_RBV
@@ -10102,6 +10154,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3150:', 'KAct', '']
 
 
+    * - $(PREFIX):31:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3150:', None]
+      - | io: input
+        | link: [None, '3150:', None]
+
+
+    * - $(PREFIX):31:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3150:', None]
+      - | io: input
+        | link: [None, '3150:', None]
+
+
     * - $(PREFIX):31:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3150:', 'KDes', '']
@@ -10128,6 +10194,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3150:', 'KDes', '']
       - | io: output
         | link: [None, '3150:', 'KDes', '']
+
+
+    * - $(PREFIX):31:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3150:', None]
+      - | io: input
+        | link: [None, '3150:', None]
+
+
+    * - $(PREFIX):31:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3150:', None]
+      - | io: input
+        | link: [None, '3150:', None]
 
 
     * - $(PREFIX):32:Active_RBV
@@ -10201,6 +10281,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3250:', 'KAct', '']
 
 
+    * - $(PREFIX):32:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3250:', None]
+      - | io: input
+        | link: [None, '3250:', None]
+
+
+    * - $(PREFIX):32:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3250:', None]
+      - | io: input
+        | link: [None, '3250:', None]
+
+
     * - $(PREFIX):32:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3250:', 'KDes', '']
@@ -10227,6 +10321,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3250:', 'KDes', '']
       - | io: output
         | link: [None, '3250:', 'KDes', '']
+
+
+    * - $(PREFIX):32:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3250:', None]
+      - | io: input
+        | link: [None, '3250:', None]
+
+
+    * - $(PREFIX):32:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3250:', None]
+      - | io: input
+        | link: [None, '3250:', None]
 
 
     * - $(PREFIX):33:Active_RBV
@@ -10300,6 +10408,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3350:', 'KAct', '']
 
 
+    * - $(PREFIX):33:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3350:', None]
+      - | io: input
+        | link: [None, '3350:', None]
+
+
+    * - $(PREFIX):33:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3350:', None]
+      - | io: input
+        | link: [None, '3350:', None]
+
+
     * - $(PREFIX):33:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3350:', 'KDes', '']
@@ -10326,6 +10448,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3350:', 'KDes', '']
       - | io: output
         | link: [None, '3350:', 'KDes', '']
+
+
+    * - $(PREFIX):33:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3350:', None]
+      - | io: input
+        | link: [None, '3350:', None]
+
+
+    * - $(PREFIX):33:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3350:', None]
+      - | io: input
+        | link: [None, '3350:', None]
 
 
     * - $(PREFIX):34:Active_RBV
@@ -10399,6 +10535,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3450:', 'KAct', '']
 
 
+    * - $(PREFIX):34:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3450:', None]
+      - | io: input
+        | link: [None, '3450:', None]
+
+
+    * - $(PREFIX):34:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3450:', None]
+      - | io: input
+        | link: [None, '3450:', None]
+
+
     * - $(PREFIX):34:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3450:', 'KDes', '']
@@ -10425,6 +10575,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3450:', 'KDes', '']
       - | io: output
         | link: [None, '3450:', 'KDes', '']
+
+
+    * - $(PREFIX):34:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3450:', None]
+      - | io: input
+        | link: [None, '3450:', None]
+
+
+    * - $(PREFIX):34:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3450:', None]
+      - | io: input
+        | link: [None, '3450:', None]
 
 
     * - $(PREFIX):35:Active_RBV
@@ -10498,6 +10662,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3550:', 'KAct', '']
 
 
+    * - $(PREFIX):35:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3550:', None]
+      - | io: input
+        | link: [None, '3550:', None]
+
+
+    * - $(PREFIX):35:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3550:', None]
+      - | io: input
+        | link: [None, '3550:', None]
+
+
     * - $(PREFIX):35:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3550:', 'KDes', '']
@@ -10524,6 +10702,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3550:', 'KDes', '']
       - | io: output
         | link: [None, '3550:', 'KDes', '']
+
+
+    * - $(PREFIX):35:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3550:', None]
+      - | io: input
+        | link: [None, '3550:', None]
+
+
+    * - $(PREFIX):35:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3550:', None]
+      - | io: input
+        | link: [None, '3550:', None]
 
 
     * - $(PREFIX):36:Active_RBV
@@ -10597,6 +10789,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3650:', 'KAct', '']
 
 
+    * - $(PREFIX):36:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3650:', None]
+      - | io: input
+        | link: [None, '3650:', None]
+
+
+    * - $(PREFIX):36:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3650:', None]
+      - | io: input
+        | link: [None, '3650:', None]
+
+
     * - $(PREFIX):36:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3650:', 'KDes', '']
@@ -10623,6 +10829,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3650:', 'KDes', '']
       - | io: output
         | link: [None, '3650:', 'KDes', '']
+
+
+    * - $(PREFIX):36:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3650:', None]
+      - | io: input
+        | link: [None, '3650:', None]
+
+
+    * - $(PREFIX):36:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3650:', None]
+      - | io: input
+        | link: [None, '3650:', None]
 
 
     * - $(PREFIX):37:Active_RBV
@@ -10696,6 +10916,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3750:', 'KAct', '']
 
 
+    * - $(PREFIX):37:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3750:', None]
+      - | io: input
+        | link: [None, '3750:', None]
+
+
+    * - $(PREFIX):37:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3750:', None]
+      - | io: input
+        | link: [None, '3750:', None]
+
+
     * - $(PREFIX):37:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3750:', 'KDes', '']
@@ -10722,6 +10956,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3750:', 'KDes', '']
       - | io: output
         | link: [None, '3750:', 'KDes', '']
+
+
+    * - $(PREFIX):37:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3750:', None]
+      - | io: input
+        | link: [None, '3750:', None]
+
+
+    * - $(PREFIX):37:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3750:', None]
+      - | io: input
+        | link: [None, '3750:', None]
 
 
     * - $(PREFIX):38:Active_RBV
@@ -10795,6 +11043,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3850:', 'KAct', '']
 
 
+    * - $(PREFIX):38:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3850:', None]
+      - | io: input
+        | link: [None, '3850:', None]
+
+
+    * - $(PREFIX):38:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3850:', None]
+      - | io: input
+        | link: [None, '3850:', None]
+
+
     * - $(PREFIX):38:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3850:', 'KDes', '']
@@ -10821,6 +11083,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3850:', 'KDes', '']
       - | io: output
         | link: [None, '3850:', 'KDes', '']
+
+
+    * - $(PREFIX):38:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3850:', None]
+      - | io: input
+        | link: [None, '3850:', None]
+
+
+    * - $(PREFIX):38:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3850:', None]
+      - | io: input
+        | link: [None, '3850:', None]
 
 
     * - $(PREFIX):39:Active_RBV
@@ -10894,6 +11170,20 @@ PMPS.FB_Hgvpu
         | link: [None, '3950:', 'KAct', '']
 
 
+    * - $(PREFIX):39:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '3950:', None]
+      - | io: input
+        | link: [None, '3950:', None]
+
+
+    * - $(PREFIX):39:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '3950:', None]
+      - | io: input
+        | link: [None, '3950:', None]
+
+
     * - $(PREFIX):39:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3950:', 'KDes', '']
@@ -10920,6 +11210,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '3950:', 'KDes', '']
       - | io: output
         | link: [None, '3950:', 'KDes', '']
+
+
+    * - $(PREFIX):39:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '3950:', None]
+      - | io: input
+        | link: [None, '3950:', None]
+
+
+    * - $(PREFIX):39:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '3950:', None]
+      - | io: input
+        | link: [None, '3950:', None]
 
 
     * - $(PREFIX):40:Active_RBV
@@ -10993,6 +11297,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4050:', 'KAct', '']
 
 
+    * - $(PREFIX):40:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4050:', None]
+      - | io: input
+        | link: [None, '4050:', None]
+
+
+    * - $(PREFIX):40:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4050:', None]
+      - | io: input
+        | link: [None, '4050:', None]
+
+
     * - $(PREFIX):40:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4050:', 'KDes', '']
@@ -11019,6 +11337,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4050:', 'KDes', '']
       - | io: output
         | link: [None, '4050:', 'KDes', '']
+
+
+    * - $(PREFIX):40:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4050:', None]
+      - | io: input
+        | link: [None, '4050:', None]
+
+
+    * - $(PREFIX):40:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4050:', None]
+      - | io: input
+        | link: [None, '4050:', None]
 
 
     * - $(PREFIX):41:Active_RBV
@@ -11092,6 +11424,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4150:', 'KAct', '']
 
 
+    * - $(PREFIX):41:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4150:', None]
+      - | io: input
+        | link: [None, '4150:', None]
+
+
+    * - $(PREFIX):41:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4150:', None]
+      - | io: input
+        | link: [None, '4150:', None]
+
+
     * - $(PREFIX):41:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4150:', 'KDes', '']
@@ -11118,6 +11464,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4150:', 'KDes', '']
       - | io: output
         | link: [None, '4150:', 'KDes', '']
+
+
+    * - $(PREFIX):41:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4150:', None]
+      - | io: input
+        | link: [None, '4150:', None]
+
+
+    * - $(PREFIX):41:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4150:', None]
+      - | io: input
+        | link: [None, '4150:', None]
 
 
     * - $(PREFIX):42:Active_RBV
@@ -11191,6 +11551,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4250:', 'KAct', '']
 
 
+    * - $(PREFIX):42:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4250:', None]
+      - | io: input
+        | link: [None, '4250:', None]
+
+
+    * - $(PREFIX):42:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4250:', None]
+      - | io: input
+        | link: [None, '4250:', None]
+
+
     * - $(PREFIX):42:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4250:', 'KDes', '']
@@ -11217,6 +11591,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4250:', 'KDes', '']
       - | io: output
         | link: [None, '4250:', 'KDes', '']
+
+
+    * - $(PREFIX):42:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4250:', None]
+      - | io: input
+        | link: [None, '4250:', None]
+
+
+    * - $(PREFIX):42:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4250:', None]
+      - | io: input
+        | link: [None, '4250:', None]
 
 
     * - $(PREFIX):43:Active_RBV
@@ -11290,6 +11678,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4350:', 'KAct', '']
 
 
+    * - $(PREFIX):43:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4350:', None]
+      - | io: input
+        | link: [None, '4350:', None]
+
+
+    * - $(PREFIX):43:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4350:', None]
+      - | io: input
+        | link: [None, '4350:', None]
+
+
     * - $(PREFIX):43:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4350:', 'KDes', '']
@@ -11316,6 +11718,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4350:', 'KDes', '']
       - | io: output
         | link: [None, '4350:', 'KDes', '']
+
+
+    * - $(PREFIX):43:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4350:', None]
+      - | io: input
+        | link: [None, '4350:', None]
+
+
+    * - $(PREFIX):43:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4350:', None]
+      - | io: input
+        | link: [None, '4350:', None]
 
 
     * - $(PREFIX):44:Active_RBV
@@ -11389,6 +11805,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4450:', 'KAct', '']
 
 
+    * - $(PREFIX):44:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4450:', None]
+      - | io: input
+        | link: [None, '4450:', None]
+
+
+    * - $(PREFIX):44:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4450:', None]
+      - | io: input
+        | link: [None, '4450:', None]
+
+
     * - $(PREFIX):44:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4450:', 'KDes', '']
@@ -11415,6 +11845,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4450:', 'KDes', '']
       - | io: output
         | link: [None, '4450:', 'KDes', '']
+
+
+    * - $(PREFIX):44:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4450:', None]
+      - | io: input
+        | link: [None, '4450:', None]
+
+
+    * - $(PREFIX):44:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4450:', None]
+      - | io: input
+        | link: [None, '4450:', None]
 
 
     * - $(PREFIX):45:Active_RBV
@@ -11488,6 +11932,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4550:', 'KAct', '']
 
 
+    * - $(PREFIX):45:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4550:', None]
+      - | io: input
+        | link: [None, '4550:', None]
+
+
+    * - $(PREFIX):45:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4550:', None]
+      - | io: input
+        | link: [None, '4550:', None]
+
+
     * - $(PREFIX):45:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4550:', 'KDes', '']
@@ -11514,6 +11972,20 @@ PMPS.FB_Hgvpu
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4550:', 'KDes', '']
       - | io: output
         | link: [None, '4550:', 'KDes', '']
+
+
+    * - $(PREFIX):45:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4550:', None]
+      - | io: input
+        | link: [None, '4550:', None]
+
+
+    * - $(PREFIX):45:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4550:', None]
+      - | io: input
+        | link: [None, '4550:', None]
 
 
     * - $(PREFIX):46:Active_RBV
@@ -11587,6 +12059,20 @@ PMPS.FB_Hgvpu
         | link: [None, '4650:', 'KAct', '']
 
 
+    * - $(PREFIX):46:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, '4650:', None]
+      - | io: input
+        | link: [None, '4650:', None]
+
+
+    * - $(PREFIX):46:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, '4650:', None]
+      - | io: input
+        | link: [None, '4650:', None]
+
+
     * - $(PREFIX):46:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, '4650:', 'KDes', '']
@@ -11615,11 +12101,56 @@ PMPS.FB_Hgvpu
         | link: [None, '4650:', 'KDes', '']
 
 
+    * - $(PREFIX):46:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, '4650:', None]
+      - | io: input
+        | link: [None, '4650:', None]
+
+
+    * - $(PREFIX):46:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, '4650:', None]
+      - | io: input
+        | link: [None, '4650:', None]
+
+
     * - $(PREFIX):CurrentPhotonEnergy_RBV
       - ai
       - Calculated current photon energy
       - | field: EGU eV
         | field: PREC 3
+        | io: input
+
+
+    * - $(PREFIX):FirstSegment_RBV
+      - longin
+      - $(SYMBOL).iLowBound_LUnd
+      - | io: input
+
+
+    * - $(PREFIX):HiK_RBV
+      - ai
+      - $(SYMBOL).fHiK_LUnd
+      - | io: input
+
+
+    * - $(PREFIX):LastSegment_RBV
+      - longin
+      - $(SYMBOL).iHighBound_LUnd
+      - | io: input
+
+
+    * - $(PREFIX):LowK_RBV
+      - ai
+      - $(SYMBOL).fLowK_LUnd
+      - | io: input
+
+
+    * - $(PREFIX):Period_RBV
+      - ai
+      - $(SYMBOL).fPeriod_mm_LUnd
+      - | field: EGU mm
         | io: input
 
 
@@ -11649,6 +12180,19 @@ PMPS.FB_LPhotonEnergy
       - Type
       - Description
       - Pragma
+    * - $(PREFIX):EEnergy_RBV
+      - ai
+      - Electron Energy
+      - | field: EGU GeV
+        | io: input
+
+
+    * - $(PREFIX):EEnergyValid_RBV
+      - bi
+      - Electron Energy Valid
+      - | io: input
+
+
     * - $(PREFIX):eEnrg:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'BEND:DMPH:400:BACT', '']
@@ -11752,6 +12296,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2450:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:24:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
+    * - $(PREFIX):UND:24:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
     * - $(PREFIX):UND:24:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
@@ -11778,6 +12336,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:24:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
+    * - $(PREFIX):UND:24:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
 
 
     * - $(PREFIX):UND:25:Active_RBV
@@ -11851,6 +12423,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2550:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:25:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
+    * - $(PREFIX):UND:25:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
     * - $(PREFIX):UND:25:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
@@ -11877,6 +12463,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:25:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
+    * - $(PREFIX):UND:25:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
 
 
     * - $(PREFIX):UND:26:Active_RBV
@@ -11950,6 +12550,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2650:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:26:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
+    * - $(PREFIX):UND:26:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
     * - $(PREFIX):UND:26:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
@@ -11976,6 +12590,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:26:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
+    * - $(PREFIX):UND:26:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
 
 
     * - $(PREFIX):UND:27:Active_RBV
@@ -12049,6 +12677,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2750:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:27:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
+    * - $(PREFIX):UND:27:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
     * - $(PREFIX):UND:27:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
@@ -12075,6 +12717,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:27:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
+    * - $(PREFIX):UND:27:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
 
 
     * - $(PREFIX):UND:29:Active_RBV
@@ -12148,6 +12804,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2950:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:29:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
+    * - $(PREFIX):UND:29:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
     * - $(PREFIX):UND:29:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
@@ -12174,6 +12844,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:29:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
+    * - $(PREFIX):UND:29:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
 
 
     * - $(PREFIX):UND:30:Active_RBV
@@ -12247,6 +12931,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3050:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:30:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
+    * - $(PREFIX):UND:30:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
     * - $(PREFIX):UND:30:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
@@ -12273,6 +12971,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:30:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
+    * - $(PREFIX):UND:30:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
 
 
     * - $(PREFIX):UND:31:Active_RBV
@@ -12346,6 +13058,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3150:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:31:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
+    * - $(PREFIX):UND:31:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
     * - $(PREFIX):UND:31:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
@@ -12372,6 +13098,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:31:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
+    * - $(PREFIX):UND:31:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
 
 
     * - $(PREFIX):UND:32:Active_RBV
@@ -12445,6 +13185,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3250:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:32:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
+    * - $(PREFIX):UND:32:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
     * - $(PREFIX):UND:32:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
@@ -12471,6 +13225,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:32:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
+    * - $(PREFIX):UND:32:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
 
 
     * - $(PREFIX):UND:33:Active_RBV
@@ -12544,6 +13312,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3350:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:33:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
+    * - $(PREFIX):UND:33:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
     * - $(PREFIX):UND:33:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
@@ -12570,6 +13352,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:33:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
+    * - $(PREFIX):UND:33:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
 
 
     * - $(PREFIX):UND:34:Active_RBV
@@ -12643,6 +13439,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3450:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:34:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
+    * - $(PREFIX):UND:34:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
     * - $(PREFIX):UND:34:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
@@ -12669,6 +13479,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:34:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
+    * - $(PREFIX):UND:34:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
 
 
     * - $(PREFIX):UND:35:Active_RBV
@@ -12742,6 +13566,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3550:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:35:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
+    * - $(PREFIX):UND:35:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
     * - $(PREFIX):UND:35:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
@@ -12768,6 +13606,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:35:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
+    * - $(PREFIX):UND:35:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
 
 
     * - $(PREFIX):UND:36:Active_RBV
@@ -12841,6 +13693,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3650:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:36:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
+    * - $(PREFIX):UND:36:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
     * - $(PREFIX):UND:36:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
@@ -12867,6 +13733,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:36:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
+    * - $(PREFIX):UND:36:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
 
 
     * - $(PREFIX):UND:37:Active_RBV
@@ -12940,6 +13820,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3750:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:37:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
+    * - $(PREFIX):UND:37:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
     * - $(PREFIX):UND:37:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
@@ -12966,6 +13860,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:37:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
+    * - $(PREFIX):UND:37:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
 
 
     * - $(PREFIX):UND:38:Active_RBV
@@ -13039,6 +13947,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3850:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:38:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
+    * - $(PREFIX):UND:38:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
     * - $(PREFIX):UND:38:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
@@ -13065,6 +13987,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:38:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
+    * - $(PREFIX):UND:38:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
 
 
     * - $(PREFIX):UND:39:Active_RBV
@@ -13138,6 +14074,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3950:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:39:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
+    * - $(PREFIX):UND:39:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
     * - $(PREFIX):UND:39:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
@@ -13164,6 +14114,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:39:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
+    * - $(PREFIX):UND:39:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
 
 
     * - $(PREFIX):UND:40:Active_RBV
@@ -13237,6 +14201,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4050:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:40:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
+    * - $(PREFIX):UND:40:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
     * - $(PREFIX):UND:40:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
@@ -13263,6 +14241,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:40:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
+    * - $(PREFIX):UND:40:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
 
 
     * - $(PREFIX):UND:41:Active_RBV
@@ -13336,6 +14328,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4150:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:41:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
+    * - $(PREFIX):UND:41:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
     * - $(PREFIX):UND:41:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
@@ -13362,6 +14368,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:41:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
+    * - $(PREFIX):UND:41:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
 
 
     * - $(PREFIX):UND:42:Active_RBV
@@ -13435,6 +14455,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4250:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:42:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
+    * - $(PREFIX):UND:42:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
     * - $(PREFIX):UND:42:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
@@ -13461,6 +14495,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:42:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
+    * - $(PREFIX):UND:42:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
 
 
     * - $(PREFIX):UND:43:Active_RBV
@@ -13534,6 +14582,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4350:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:43:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
+    * - $(PREFIX):UND:43:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
     * - $(PREFIX):UND:43:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
@@ -13560,6 +14622,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:43:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
+    * - $(PREFIX):UND:43:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
 
 
     * - $(PREFIX):UND:44:Active_RBV
@@ -13633,6 +14709,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4450:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:44:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
+    * - $(PREFIX):UND:44:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
     * - $(PREFIX):UND:44:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
@@ -13659,6 +14749,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:44:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
+    * - $(PREFIX):UND:44:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
 
 
     * - $(PREFIX):UND:45:Active_RBV
@@ -13732,6 +14836,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4550:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:45:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
+    * - $(PREFIX):UND:45:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
     * - $(PREFIX):UND:45:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
@@ -13758,6 +14876,20 @@ PMPS.FB_LPhotonEnergy
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
+
+
+    * - $(PREFIX):UND:45:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
+    * - $(PREFIX):UND:45:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
 
 
     * - $(PREFIX):UND:46:Active_RBV
@@ -13831,6 +14963,20 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4650:', 'KAct', '']
 
 
+    * - $(PREFIX):UND:46:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX):UND:46:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
     * - $(PREFIX):UND:46:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4650:', 'KDes', '']
@@ -13859,11 +15005,61 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4650:', 'KDes', '']
 
 
+    * - $(PREFIX):UND:46:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX):UND:46:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
     * - $(PREFIX):UND:CurrentPhotonEnergy_RBV
       - ai
       - Calculated current photon energy; Linked to PV: [None, 'USEG:UNDH:', None]
       - | field: EGU eV
         | field: PREC 3
+        | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX):UND:FirstSegment_RBV
+      - longin
+      - $(SYMBOL).fbHgvpu.iLowBound_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX):UND:HiK_RBV
+      - ai
+      - $(SYMBOL).fbHgvpu.fHiK_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX):UND:LastSegment_RBV
+      - longin
+      - $(SYMBOL).fbHgvpu.iHighBound_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX):UND:LowK_RBV
+      - ai
+      - $(SYMBOL).fbHgvpu.fLowK_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX):UND:Period_RBV
+      - ai
+      - $(SYMBOL).fbHgvpu.fPeriod_mm_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | field: EGU mm
         | io: input
         | link: [None, 'USEG:UNDH:', None]
 
@@ -14026,6 +15222,18 @@ PMPS.FB_UndulatorSegment
         | link: [None, 'KAct', '']
 
 
+    * - $(PREFIX):KAct_RBV
+      - ai
+      - Current K
+      - | io: input
+
+
+    * - $(PREFIX):KActValid_RBV
+      - bi
+      - Current K Readback Valid
+      - | io: input
+
+
     * - $(PREFIX):KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'KDes', '']
@@ -14052,6 +15260,18 @@ PMPS.FB_UndulatorSegment
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'KDes', '']
       - | io: output
         | link: [None, 'KDes', '']
+
+
+    * - $(PREFIX):KDes_RBV
+      - ai
+      - Target K
+      - | io: input
+
+
+    * - $(PREFIX):KDesValid_RBV
+      - bi
+      - Target K Readback Valid
+      - | io: input
 
 
     
@@ -14719,64 +15939,6 @@ Database Records
     * - $(PREFIX)Arbiter:01:ActiveInArbitration_RBV
       - bi
       - True if this arbiter
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Cohort_RBV
-      - longin
-      - Cohort inc on each arb cycle
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:ID_RBV
-      - longin
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Live_RBV
-      - bi
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:PhotonEnergyRanges_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU eV
-        | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:PulseEnergy_RBV
-      - ai
-      - This beam parameter is non-op for now.
-      - | field: EGU mJ
-        | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Rate_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU Hz
-        | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:ST_RBV
-      - waveform
-      - Assertion Pool
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Transmission_RBV
-      - longin
-      - Assertion Pool
-      - | field: EGU %
-        | io: input
-
-
-    * - $(PREFIX)Arbiter:01:AP:Entry:000:Valid_RBV
-      - bi
-      - Assertion Pool
       - | io: input
 
 
@@ -27698,30 +28860,6 @@ Database Records
         | io: input
 
 
-    * - $(PREFIX)L:UND:FirstSegment_RBV
-      - longin
-      - PMPS_GVL.iLowBound_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:HiK_RBV
-      - ai
-      - PMPS_GVL.fHiK_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:LastSegment_RBV
-      - longin
-      - PMPS_GVL.iHighBound_LUnd
-      - | io: input
-
-
-    * - $(PREFIX)L:UND:LowK_RBV
-      - ai
-      - PMPS_GVL.fLowK_LUnd
-      - | io: input
-
-
     * - $(PREFIX)LCLSGeneral:GlobalLogTrickleTrip_RBV
       - bi
       - Tripped by overall log count
@@ -27756,6 +28894,19 @@ Database Records
       - longin
       - The log host UDP port
       - | io: output
+
+
+    * - $(PREFIX)PE:EEnergy_RBV
+      - ai
+      - Electron Energy
+      - | field: EGU GeV
+        | io: input
+
+
+    * - $(PREFIX)PE:EEnergyValid_RBV
+      - bi
+      - Electron Energy Valid
+      - | io: input
 
 
     * - $(PREFIX)PE:eEnrg:EPICSLink
@@ -27861,6 +29012,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2450:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:24:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
+    * - $(PREFIX)PE:UND:24:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
     * - $(PREFIX)PE:UND:24:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
@@ -27887,6 +29052,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2450:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:24:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
+    * - $(PREFIX)PE:UND:24:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
 
 
     * - $(PREFIX)PE:UND:25:Active_RBV
@@ -27960,6 +29139,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2550:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:25:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
+    * - $(PREFIX)PE:UND:25:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
     * - $(PREFIX)PE:UND:25:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
@@ -27986,6 +29179,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2550:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:25:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
+    * - $(PREFIX)PE:UND:25:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
 
 
     * - $(PREFIX)PE:UND:26:Active_RBV
@@ -28059,6 +29266,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2650:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:26:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
+    * - $(PREFIX)PE:UND:26:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
     * - $(PREFIX)PE:UND:26:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
@@ -28085,6 +29306,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2650:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:26:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
+    * - $(PREFIX)PE:UND:26:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
 
 
     * - $(PREFIX)PE:UND:27:Active_RBV
@@ -28158,6 +29393,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2750:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:27:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
+    * - $(PREFIX)PE:UND:27:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
     * - $(PREFIX)PE:UND:27:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
@@ -28184,6 +29433,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2750:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:27:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
+    * - $(PREFIX)PE:UND:27:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
 
 
     * - $(PREFIX)PE:UND:29:Active_RBV
@@ -28257,6 +29520,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2950:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:29:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
+    * - $(PREFIX)PE:UND:29:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
     * - $(PREFIX)PE:UND:29:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
@@ -28283,6 +29560,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '2950:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:29:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
+    * - $(PREFIX)PE:UND:29:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
 
 
     * - $(PREFIX)PE:UND:30:Active_RBV
@@ -28356,6 +29647,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3050:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:30:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
+    * - $(PREFIX)PE:UND:30:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
     * - $(PREFIX)PE:UND:30:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
@@ -28382,6 +29687,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3050:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:30:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
+    * - $(PREFIX)PE:UND:30:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
 
 
     * - $(PREFIX)PE:UND:31:Active_RBV
@@ -28455,6 +29774,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3150:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:31:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
+    * - $(PREFIX)PE:UND:31:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
     * - $(PREFIX)PE:UND:31:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
@@ -28481,6 +29814,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3150:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:31:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
+    * - $(PREFIX)PE:UND:31:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
 
 
     * - $(PREFIX)PE:UND:32:Active_RBV
@@ -28554,6 +29901,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3250:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:32:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
+    * - $(PREFIX)PE:UND:32:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
     * - $(PREFIX)PE:UND:32:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
@@ -28580,6 +29941,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3250:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:32:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
+    * - $(PREFIX)PE:UND:32:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
 
 
     * - $(PREFIX)PE:UND:33:Active_RBV
@@ -28653,6 +30028,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3350:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:33:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
+    * - $(PREFIX)PE:UND:33:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
     * - $(PREFIX)PE:UND:33:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
@@ -28679,6 +30068,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3350:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:33:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
+    * - $(PREFIX)PE:UND:33:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
 
 
     * - $(PREFIX)PE:UND:34:Active_RBV
@@ -28752,6 +30155,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3450:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:34:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
+    * - $(PREFIX)PE:UND:34:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
     * - $(PREFIX)PE:UND:34:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
@@ -28778,6 +30195,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3450:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:34:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
+    * - $(PREFIX)PE:UND:34:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
 
 
     * - $(PREFIX)PE:UND:35:Active_RBV
@@ -28851,6 +30282,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3550:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:35:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
+    * - $(PREFIX)PE:UND:35:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
     * - $(PREFIX)PE:UND:35:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
@@ -28877,6 +30322,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3550:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:35:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
+    * - $(PREFIX)PE:UND:35:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
 
 
     * - $(PREFIX)PE:UND:36:Active_RBV
@@ -28950,6 +30409,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3650:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:36:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
+    * - $(PREFIX)PE:UND:36:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
     * - $(PREFIX)PE:UND:36:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
@@ -28976,6 +30449,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3650:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:36:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
+    * - $(PREFIX)PE:UND:36:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
 
 
     * - $(PREFIX)PE:UND:37:Active_RBV
@@ -29049,6 +30536,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3750:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:37:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
+    * - $(PREFIX)PE:UND:37:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
     * - $(PREFIX)PE:UND:37:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
@@ -29075,6 +30576,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3750:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:37:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
+    * - $(PREFIX)PE:UND:37:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
 
 
     * - $(PREFIX)PE:UND:38:Active_RBV
@@ -29148,6 +30663,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3850:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:38:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
+    * - $(PREFIX)PE:UND:38:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
     * - $(PREFIX)PE:UND:38:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
@@ -29174,6 +30703,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3850:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:38:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
+    * - $(PREFIX)PE:UND:38:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
 
 
     * - $(PREFIX)PE:UND:39:Active_RBV
@@ -29247,6 +30790,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3950:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:39:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
+    * - $(PREFIX)PE:UND:39:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
     * - $(PREFIX)PE:UND:39:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
@@ -29273,6 +30830,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '3950:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:39:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
+    * - $(PREFIX)PE:UND:39:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
 
 
     * - $(PREFIX)PE:UND:40:Active_RBV
@@ -29346,6 +30917,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4050:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:40:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
+    * - $(PREFIX)PE:UND:40:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
     * - $(PREFIX)PE:UND:40:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
@@ -29372,6 +30957,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4050:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:40:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
+    * - $(PREFIX)PE:UND:40:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
 
 
     * - $(PREFIX)PE:UND:41:Active_RBV
@@ -29445,6 +31044,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4150:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:41:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
+    * - $(PREFIX)PE:UND:41:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
     * - $(PREFIX)PE:UND:41:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
@@ -29471,6 +31084,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4150:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:41:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
+    * - $(PREFIX)PE:UND:41:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
 
 
     * - $(PREFIX)PE:UND:42:Active_RBV
@@ -29544,6 +31171,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4250:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:42:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
+    * - $(PREFIX)PE:UND:42:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
     * - $(PREFIX)PE:UND:42:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
@@ -29570,6 +31211,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4250:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:42:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
+    * - $(PREFIX)PE:UND:42:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
 
 
     * - $(PREFIX)PE:UND:43:Active_RBV
@@ -29643,6 +31298,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4350:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:43:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
+    * - $(PREFIX)PE:UND:43:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
     * - $(PREFIX)PE:UND:43:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
@@ -29669,6 +31338,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4350:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:43:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
+    * - $(PREFIX)PE:UND:43:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
 
 
     * - $(PREFIX)PE:UND:44:Active_RBV
@@ -29742,6 +31425,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4450:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:44:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
+    * - $(PREFIX)PE:UND:44:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
     * - $(PREFIX)PE:UND:44:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
@@ -29768,6 +31465,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4450:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:44:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
+    * - $(PREFIX)PE:UND:44:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
 
 
     * - $(PREFIX)PE:UND:45:Active_RBV
@@ -29841,6 +31552,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4550:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:45:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
+    * - $(PREFIX)PE:UND:45:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
     * - $(PREFIX)PE:UND:45:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
@@ -29867,6 +31592,20 @@ Database Records
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
       - | io: output
         | link: [None, 'USEG:UNDH:', '4550:', 'KDes', '']
+
+
+    * - $(PREFIX)PE:UND:45:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
+    * - $(PREFIX)PE:UND:45:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
 
 
     * - $(PREFIX)PE:UND:46:Active_RBV
@@ -29940,6 +31679,20 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4650:', 'KAct', '']
 
 
+    * - $(PREFIX)PE:UND:46:KAct_RBV
+      - ai
+      - Current K; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX)PE:UND:46:KActValid_RBV
+      - bi
+      - Current K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
     * - $(PREFIX)PE:UND:46:KDes:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'USEG:UNDH:', '4650:', 'KDes', '']
@@ -29968,11 +31721,61 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4650:', 'KDes', '']
 
 
+    * - $(PREFIX)PE:UND:46:KDes_RBV
+      - ai
+      - Target K; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX)PE:UND:46:KDesValid_RBV
+      - bi
+      - Target K Readback Valid; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
     * - $(PREFIX)PE:UND:CurrentPhotonEnergy_RBV
       - ai
       - Calculated current photon energy; Linked to PV: [None, 'USEG:UNDH:', None]
       - | field: EGU eV
         | field: PREC 3
+        | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:FirstSegment_RBV
+      - longin
+      - CurrentBPUpdate.fbLPhotonEnergy.fbHgvpu.iLowBound_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:HiK_RBV
+      - ai
+      - CurrentBPUpdate.fbLPhotonEnergy.fbHgvpu.fHiK_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:LastSegment_RBV
+      - longin
+      - CurrentBPUpdate.fbLPhotonEnergy.fbHgvpu.iHighBound_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:LowK_RBV
+      - ai
+      - CurrentBPUpdate.fbLPhotonEnergy.fbHgvpu.fLowK_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:Period_RBV
+      - ai
+      - CurrentBPUpdate.fbLPhotonEnergy.fbHgvpu.fPeriod_mm_LUnd; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | field: EGU mm
         | io: input
         | link: [None, 'USEG:UNDH:', None]
 
@@ -30111,13 +31914,6 @@ Database Records
       - longin
       - PMPS_GVL.SuccessfulPreemption
       - | io: input
-
-
-    * - Period_RBV
-      - ai
-      - PMPS_GVL.fPeriod_mm_LUnd
-      - | field: EGU mm
-        | io: input
 
 
 
