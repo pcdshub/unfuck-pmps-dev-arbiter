@@ -9328,6 +9328,13 @@ PMPS.FB_Hgvpu
         | link: [None, '2450:', None]
 
 
+    * - $(PREFIX):24:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '2450:', None]
+      - | io: input
+        | link: [None, '2450:', None]
+
+
     * - $(PREFIX):24:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '2450:', None]
@@ -9451,6 +9458,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):25:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '2550:', None]
+      - | io: input
+        | link: [None, '2550:', None]
+
+
+    * - $(PREFIX):25:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '2550:', None]
       - | io: input
         | link: [None, '2550:', None]
 
@@ -9582,6 +9596,13 @@ PMPS.FB_Hgvpu
         | link: [None, '2650:', None]
 
 
+    * - $(PREFIX):26:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '2650:', None]
+      - | io: input
+        | link: [None, '2650:', None]
+
+
     * - $(PREFIX):26:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '2650:', None]
@@ -9705,6 +9726,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):27:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '2750:', None]
+      - | io: input
+        | link: [None, '2750:', None]
+
+
+    * - $(PREFIX):27:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '2750:', None]
       - | io: input
         | link: [None, '2750:', None]
 
@@ -9836,6 +9864,13 @@ PMPS.FB_Hgvpu
         | link: [None, '2950:', None]
 
 
+    * - $(PREFIX):29:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '2950:', None]
+      - | io: input
+        | link: [None, '2950:', None]
+
+
     * - $(PREFIX):29:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '2950:', None]
@@ -9959,6 +9994,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):30:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '3050:', None]
+      - | io: input
+        | link: [None, '3050:', None]
+
+
+    * - $(PREFIX):30:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3050:', None]
       - | io: input
         | link: [None, '3050:', None]
 
@@ -10090,6 +10132,13 @@ PMPS.FB_Hgvpu
         | link: [None, '3150:', None]
 
 
+    * - $(PREFIX):31:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3150:', None]
+      - | io: input
+        | link: [None, '3150:', None]
+
+
     * - $(PREFIX):31:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '3150:', None]
@@ -10213,6 +10262,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):32:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '3250:', None]
+      - | io: input
+        | link: [None, '3250:', None]
+
+
+    * - $(PREFIX):32:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3250:', None]
       - | io: input
         | link: [None, '3250:', None]
 
@@ -10344,6 +10400,13 @@ PMPS.FB_Hgvpu
         | link: [None, '3350:', None]
 
 
+    * - $(PREFIX):33:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3350:', None]
+      - | io: input
+        | link: [None, '3350:', None]
+
+
     * - $(PREFIX):33:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '3350:', None]
@@ -10467,6 +10530,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):34:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '3450:', None]
+      - | io: input
+        | link: [None, '3450:', None]
+
+
+    * - $(PREFIX):34:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3450:', None]
       - | io: input
         | link: [None, '3450:', None]
 
@@ -10598,6 +10668,13 @@ PMPS.FB_Hgvpu
         | link: [None, '3550:', None]
 
 
+    * - $(PREFIX):35:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3550:', None]
+      - | io: input
+        | link: [None, '3550:', None]
+
+
     * - $(PREFIX):35:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '3550:', None]
@@ -10721,6 +10798,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):36:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '3650:', None]
+      - | io: input
+        | link: [None, '3650:', None]
+
+
+    * - $(PREFIX):36:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3650:', None]
       - | io: input
         | link: [None, '3650:', None]
 
@@ -10852,6 +10936,13 @@ PMPS.FB_Hgvpu
         | link: [None, '3750:', None]
 
 
+    * - $(PREFIX):37:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3750:', None]
+      - | io: input
+        | link: [None, '3750:', None]
+
+
     * - $(PREFIX):37:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '3750:', None]
@@ -10975,6 +11066,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):38:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '3850:', None]
+      - | io: input
+        | link: [None, '3850:', None]
+
+
+    * - $(PREFIX):38:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3850:', None]
       - | io: input
         | link: [None, '3850:', None]
 
@@ -11106,6 +11204,13 @@ PMPS.FB_Hgvpu
         | link: [None, '3950:', None]
 
 
+    * - $(PREFIX):39:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '3950:', None]
+      - | io: input
+        | link: [None, '3950:', None]
+
+
     * - $(PREFIX):39:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '3950:', None]
@@ -11229,6 +11334,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):40:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '4050:', None]
+      - | io: input
+        | link: [None, '4050:', None]
+
+
+    * - $(PREFIX):40:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4050:', None]
       - | io: input
         | link: [None, '4050:', None]
 
@@ -11360,6 +11472,13 @@ PMPS.FB_Hgvpu
         | link: [None, '4150:', None]
 
 
+    * - $(PREFIX):41:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4150:', None]
+      - | io: input
+        | link: [None, '4150:', None]
+
+
     * - $(PREFIX):41:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '4150:', None]
@@ -11483,6 +11602,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):42:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '4250:', None]
+      - | io: input
+        | link: [None, '4250:', None]
+
+
+    * - $(PREFIX):42:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4250:', None]
       - | io: input
         | link: [None, '4250:', None]
 
@@ -11614,6 +11740,13 @@ PMPS.FB_Hgvpu
         | link: [None, '4350:', None]
 
 
+    * - $(PREFIX):43:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4350:', None]
+      - | io: input
+        | link: [None, '4350:', None]
+
+
     * - $(PREFIX):43:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '4350:', None]
@@ -11737,6 +11870,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):44:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '4450:', None]
+      - | io: input
+        | link: [None, '4450:', None]
+
+
+    * - $(PREFIX):44:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4450:', None]
       - | io: input
         | link: [None, '4450:', None]
 
@@ -11868,6 +12008,13 @@ PMPS.FB_Hgvpu
         | link: [None, '4550:', None]
 
 
+    * - $(PREFIX):45:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4550:', None]
+      - | io: input
+        | link: [None, '4550:', None]
+
+
     * - $(PREFIX):45:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, '4550:', None]
@@ -11991,6 +12138,13 @@ PMPS.FB_Hgvpu
     * - $(PREFIX):46:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, '4650:', None]
+      - | io: input
+        | link: [None, '4650:', None]
+
+
+    * - $(PREFIX):46:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, '4650:', None]
       - | io: input
         | link: [None, '4650:', None]
 
@@ -12168,6 +12322,12 @@ PMPS.FB_Hgvpu
         | io: input
 
 
+    * - $(PREFIX):TargetSeedUndulatorNumber_RBV
+      - longin
+      - Seed undulator number for target K
+      - | io: input
+
+
  
 PMPS.FB_LPhotonEnergy
 ^^^^^^^^^^^^^^^^^^^^^
@@ -12228,6 +12388,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:24:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
+    * - $(PREFIX):UND:24:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '2450:', None]
 
@@ -12359,6 +12526,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2550:', None]
 
 
+    * - $(PREFIX):UND:25:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
     * - $(PREFIX):UND:25:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
@@ -12482,6 +12656,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:26:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
+    * - $(PREFIX):UND:26:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '2650:', None]
 
@@ -12613,6 +12794,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '2750:', None]
 
 
+    * - $(PREFIX):UND:27:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
     * - $(PREFIX):UND:27:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
@@ -12736,6 +12924,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:29:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
+    * - $(PREFIX):UND:29:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '2950:', None]
 
@@ -12867,6 +13062,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3050:', None]
 
 
+    * - $(PREFIX):UND:30:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
     * - $(PREFIX):UND:30:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
@@ -12990,6 +13192,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:31:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
+    * - $(PREFIX):UND:31:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3150:', None]
 
@@ -13121,6 +13330,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3250:', None]
 
 
+    * - $(PREFIX):UND:32:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
     * - $(PREFIX):UND:32:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
@@ -13244,6 +13460,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:33:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
+    * - $(PREFIX):UND:33:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3350:', None]
 
@@ -13375,6 +13598,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3450:', None]
 
 
+    * - $(PREFIX):UND:34:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
     * - $(PREFIX):UND:34:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
@@ -13498,6 +13728,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:35:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
+    * - $(PREFIX):UND:35:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3550:', None]
 
@@ -13629,6 +13866,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3650:', None]
 
 
+    * - $(PREFIX):UND:36:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
     * - $(PREFIX):UND:36:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
@@ -13752,6 +13996,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:37:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
+    * - $(PREFIX):UND:37:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3750:', None]
 
@@ -13883,6 +14134,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '3850:', None]
 
 
+    * - $(PREFIX):UND:38:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
     * - $(PREFIX):UND:38:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
@@ -14006,6 +14264,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:39:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
+    * - $(PREFIX):UND:39:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3950:', None]
 
@@ -14137,6 +14402,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4050:', None]
 
 
+    * - $(PREFIX):UND:40:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
     * - $(PREFIX):UND:40:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
@@ -14260,6 +14532,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:41:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
+    * - $(PREFIX):UND:41:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4150:', None]
 
@@ -14391,6 +14670,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4250:', None]
 
 
+    * - $(PREFIX):UND:42:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
     * - $(PREFIX):UND:42:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
@@ -14514,6 +14800,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:43:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
+    * - $(PREFIX):UND:43:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4350:', None]
 
@@ -14645,6 +14938,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4450:', None]
 
 
+    * - $(PREFIX):UND:44:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
     * - $(PREFIX):UND:44:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
@@ -14772,6 +15072,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', '4550:', None]
 
 
+    * - $(PREFIX):UND:45:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
     * - $(PREFIX):UND:45:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
@@ -14895,6 +15202,13 @@ PMPS.FB_LPhotonEnergy
     * - $(PREFIX):UND:46:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX):UND:46:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4650:', None]
 
@@ -15080,6 +15394,13 @@ PMPS.FB_LPhotonEnergy
         | link: [None, 'USEG:UNDH:', None]
 
 
+    * - $(PREFIX):UND:TargetSeedUndulatorNumber_RBV
+      - longin
+      - Seed undulator number for target K; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
  
 PMPS.FB_LRateFromEPICS
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -15124,7 +15445,7 @@ PMPS.FB_LRateFromEPICS
         | link: [None, 'IOC:BSY0:MP01:BYKIK_RATE', '']
 
 
-   
+    
 PMPS.FB_PhotonEnergyWatcher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -15159,6 +15480,12 @@ PMPS.FB_UndulatorSegment
     * - $(PREFIX):Active_RBV
       - bi
       - Undulator is considered active
+      - | io: input
+
+
+    * - $(PREFIX):Active_RBV
+      - bi
+      - Target K would make und active
       - | io: input
 
 
@@ -15274,7 +15601,7 @@ PMPS.FB_UndulatorSegment
       - | io: input
 
 
-    
+     
 PMPS.ST_BeamParams
 ^^^^^^^^^^^^^^^^^^
 
@@ -15898,6 +16225,59 @@ Database Records
       - Type
       - Description
       - Pragma
+    * - $(PREFIX)0RateBeamCnst:Cohort_RBV
+      - longin
+      - Cohort inc on each arb cycle
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:PhotonEnergyRanges_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU eV
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:PulseEnergy_RBV
+      - ai
+      - This beam parameter is non-op for now.
+      - | archive: 1s monitor
+        | field: EGU mJ
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Rate_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU Hz
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:ST_RBV
+      - waveform
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Transmission_RBV
+      - longin
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | field: EGU %
+        | io: input
+
+
+    * - $(PREFIX)0RateBeamCnst:Valid_RBV
+      - bi
+      - 0-rate beam constant
+      - | archive: 1s monitor
+        | io: input
+
+
     * - $(PREFIX):L:Rate:EPICSLink
       - ao
       - Internal variable used to monitor EPICS PV in PLC; Linked to PV: [None, 'IOC:BSY0:MP01:BYKIK_RATE', '']
@@ -28948,6 +29328,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2450:', None]
 
 
+    * - $(PREFIX)PE:UND:24:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2450:', None]
+
+
     * - $(PREFIX)PE:UND:24:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '2450:', None]
@@ -29071,6 +29458,13 @@ Database Records
     * - $(PREFIX)PE:UND:25:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2550:', None]
+
+
+    * - $(PREFIX)PE:UND:25:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2550:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '2550:', None]
 
@@ -29202,6 +29596,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2650:', None]
 
 
+    * - $(PREFIX)PE:UND:26:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2650:', None]
+
+
     * - $(PREFIX)PE:UND:26:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '2650:', None]
@@ -29325,6 +29726,13 @@ Database Records
     * - $(PREFIX)PE:UND:27:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2750:', None]
+
+
+    * - $(PREFIX)PE:UND:27:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2750:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '2750:', None]
 
@@ -29456,6 +29864,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '2950:', None]
 
 
+    * - $(PREFIX)PE:UND:29:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '2950:', None]
+
+
     * - $(PREFIX)PE:UND:29:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '2950:', None]
@@ -29579,6 +29994,13 @@ Database Records
     * - $(PREFIX)PE:UND:30:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3050:', None]
+
+
+    * - $(PREFIX)PE:UND:30:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3050:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3050:', None]
 
@@ -29710,6 +30132,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3150:', None]
 
 
+    * - $(PREFIX)PE:UND:31:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3150:', None]
+
+
     * - $(PREFIX)PE:UND:31:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3150:', None]
@@ -29833,6 +30262,13 @@ Database Records
     * - $(PREFIX)PE:UND:32:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3250:', None]
+
+
+    * - $(PREFIX)PE:UND:32:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3250:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3250:', None]
 
@@ -29964,6 +30400,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3350:', None]
 
 
+    * - $(PREFIX)PE:UND:33:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3350:', None]
+
+
     * - $(PREFIX)PE:UND:33:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3350:', None]
@@ -30087,6 +30530,13 @@ Database Records
     * - $(PREFIX)PE:UND:34:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3450:', None]
+
+
+    * - $(PREFIX)PE:UND:34:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3450:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3450:', None]
 
@@ -30218,6 +30668,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3550:', None]
 
 
+    * - $(PREFIX)PE:UND:35:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3550:', None]
+
+
     * - $(PREFIX)PE:UND:35:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3550:', None]
@@ -30341,6 +30798,13 @@ Database Records
     * - $(PREFIX)PE:UND:36:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3650:', None]
+
+
+    * - $(PREFIX)PE:UND:36:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3650:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3650:', None]
 
@@ -30472,6 +30936,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3750:', None]
 
 
+    * - $(PREFIX)PE:UND:37:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3750:', None]
+
+
     * - $(PREFIX)PE:UND:37:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3750:', None]
@@ -30595,6 +31066,13 @@ Database Records
     * - $(PREFIX)PE:UND:38:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3850:', None]
+
+
+    * - $(PREFIX)PE:UND:38:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3850:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '3850:', None]
 
@@ -30726,6 +31204,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '3950:', None]
 
 
+    * - $(PREFIX)PE:UND:39:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '3950:', None]
+
+
     * - $(PREFIX)PE:UND:39:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '3950:', None]
@@ -30849,6 +31334,13 @@ Database Records
     * - $(PREFIX)PE:UND:40:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4050:', None]
+
+
+    * - $(PREFIX)PE:UND:40:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4050:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4050:', None]
 
@@ -30980,6 +31472,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4150:', None]
 
 
+    * - $(PREFIX)PE:UND:41:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4150:', None]
+
+
     * - $(PREFIX)PE:UND:41:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4150:', None]
@@ -31103,6 +31602,13 @@ Database Records
     * - $(PREFIX)PE:UND:42:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4250:', None]
+
+
+    * - $(PREFIX)PE:UND:42:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4250:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4250:', None]
 
@@ -31234,6 +31740,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4350:', None]
 
 
+    * - $(PREFIX)PE:UND:43:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4350:', None]
+
+
     * - $(PREFIX)PE:UND:43:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4350:', None]
@@ -31357,6 +31870,13 @@ Database Records
     * - $(PREFIX)PE:UND:44:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4450:', None]
+
+
+    * - $(PREFIX)PE:UND:44:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4450:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4450:', None]
 
@@ -31488,6 +32008,13 @@ Database Records
         | link: [None, 'USEG:UNDH:', '4550:', None]
 
 
+    * - $(PREFIX)PE:UND:45:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4550:', None]
+
+
     * - $(PREFIX)PE:UND:45:eVAct
       - ao
       - Calculated photon energy; Linked to PV: [None, 'USEG:UNDH:', '4550:', None]
@@ -31611,6 +32138,13 @@ Database Records
     * - $(PREFIX)PE:UND:46:Active_RBV
       - bi
       - Undulator is considered active; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
+      - | io: input
+        | link: [None, 'USEG:UNDH:', '4650:', None]
+
+
+    * - $(PREFIX)PE:UND:46:Active_RBV
+      - bi
+      - Target K would make und active; Linked to PV: [None, 'USEG:UNDH:', '4650:', None]
       - | io: input
         | link: [None, 'USEG:UNDH:', '4650:', None]
 
@@ -31793,6 +32327,13 @@ Database Records
       - | field: EGU eV
         | field: PREC 3
         | io: input
+        | link: [None, 'USEG:UNDH:', None]
+
+
+    * - $(PREFIX)PE:UND:TargetSeedUndulatorNumber_RBV
+      - longin
+      - Seed undulator number for target K; Linked to PV: [None, 'USEG:UNDH:', None]
+      - | io: input
         | link: [None, 'USEG:UNDH:', None]
 
 
