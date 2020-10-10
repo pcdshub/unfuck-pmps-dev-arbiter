@@ -167,9 +167,16 @@ CurrentBPUpdate
     	fbLPhotonEnergy : FB_LPhotonEnergy;
     	
     	{attribute 'pytmc' := '
+            pv: @(PREFIX)L:Rate
+            link: IOC:BSY0:MP01:BYKIK_RATE
+            field: EGU RateEnum
+        '}
+        fbBYKIK_Rate : FB_LREALFromEPICS;
+    	
+    	{attribute 'pytmc' := '
             pv: @(PREFIX)
         '}
-    	fbEPICSLRate : FB_LRateFromEPICS;
+    	fbEPICSLRate : FB_RateFromEPICS;
 
     	// Stoppers
 
@@ -182,12 +189,16 @@ CurrentBPUpdate
         st1l0Watcher : FB_LStopper(
             PMPS.L_Stopper.ST1L0,
             'ST1L0');
+
     END_VAR
     // Acquiring photon energy
     fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
 
+
+
     // Acquiring L-line rate
-    fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters);
+    fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);
+
 
     // Watching and relaying stopper statuses
     st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
@@ -276,11 +287,18 @@ MAIN
         fbLogHandler : FB_LogHandler;
         fbEcatDiag : FB_EcatDiagWrapper;
 
+    	idx: UINT;
     END_VAR
     //Arbiter PLC
 
     IF Initialize THEN
         Initialize := FALSE;
+    	
+    	// Setting apertures to zero for now
+    	FOR idx := 1 TO PMPS_GVL.MAX_APERTURES DO
+    		PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Height := 0;
+    		PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Width := 0;
+    	END_FOR
     END_IF
 
     // Ethercat Diagnostics

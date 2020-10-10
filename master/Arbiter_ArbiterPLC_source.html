@@ -331,9 +331,16 @@
     <span class="n">fbLPhotonEnergy</span> <span class="p">:</span> <span class="n">FB_LPhotonEnergy</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">L</span><span class="p">:</span><span class="n">Rate</span>
+        <span class="n">link</span><span class="p">:</span> <span class="n">IOC</span><span class="p">:</span><span class="n">BSY0</span><span class="p">:</span><span class="n">MP01</span><span class="p">:</span><span class="n">BYKIK_RATE</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">RateEnum</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbBYKIK_Rate</span> <span class="p">:</span> <span class="n">FB_LREALFromEPICS</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span>
     <span class="s1">&#39;}</span>
-    <span class="n">fbEPICSLRate</span> <span class="p">:</span> <span class="n">FB_LRateFromEPICS</span><span class="p">;</span>
+    <span class="n">fbEPICSLRate</span> <span class="p">:</span> <span class="n">FB_RateFromEPICS</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">Stoppers</span>
 
@@ -346,12 +353,16 @@
     <span class="n">st1l0Watcher</span> <span class="p">:</span> <span class="n">FB_LStopper</span><span class="p">(</span>
         <span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="o">.</span><span class="n">ST1L0</span><span class="p">,</span>
         <span class="s1">&#39;ST1L0&#39;</span><span class="p">);</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">Acquiring</span> <span class="n">photon</span> <span class="n">energy</span>
 <span class="n">fbLPhotonEnergy</span><span class="p">(</span><span class="n">BP</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
 
+
+
 <span class="o">//</span> <span class="n">Acquiring</span> <span class="n">L</span><span class="o">-</span><span class="n">line</span> <span class="n">rate</span>
-<span class="n">fbEPICSLRate</span><span class="p">(</span><span class="n">BP</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
+<span class="n">fbEPICSLRate</span><span class="p">(</span><span class="n">BP</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span> <span class="n">fbBYKIK_Rate</span><span class="o">:=</span><span class="n">fbBYKIK_Rate</span><span class="p">,</span> <span class="n">FFO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">);</span>
+
 
 <span class="o">//</span> <span class="n">Watching</span> <span class="ow">and</span> <span class="n">relaying</span> <span class="n">stopper</span> <span class="n">statuses</span>
 <span class="n">st1l0Watcher</span><span class="p">(</span><span class="n">stCurrentBP</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
@@ -432,11 +443,18 @@
     <span class="n">fbLogHandler</span> <span class="p">:</span> <span class="n">FB_LogHandler</span><span class="p">;</span>
     <span class="n">fbEcatDiag</span> <span class="p">:</span> <span class="n">FB_EcatDiagWrapper</span><span class="p">;</span>
 
+    <span class="n">idx</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">Arbiter</span> <span class="n">PLC</span>
 
 <span class="n">IF</span> <span class="n">Initialize</span> <span class="n">THEN</span>
     <span class="n">Initialize</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Setting</span> <span class="n">apertures</span> <span class="n">to</span> <span class="n">zero</span> <span class="k">for</span> <span class="n">now</span>
+    <span class="n">FOR</span> <span class="n">idx</span> <span class="o">:=</span> <span class="mi">1</span> <span class="n">TO</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">MAX_APERTURES</span> <span class="n">DO</span>
+            <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">astApertures</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">Height</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">astApertures</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">Width</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">END_FOR</span>
 <span class="n">END_IF</span>
 
 <span class="o">//</span> <span class="n">Ethercat</span> <span class="n">Diagnostics</span>
