@@ -123,7 +123,7 @@ GVL
         GVL.g_FastFaultOutput1.q_xFastFaultOut, BOOL, 16286856 (8)
         GVL.g_FastFaultOutput2, FB_HardwareFFOutput, 16752192 (465408)
         GVL.g_FastFaultOutput2.q_xFastFaultOut, BOOL, 16752264 (8)
-        GVL.g_fbArbiter1, FB_Arbiter, 15912704 (372864)
+        GVL.g_fbArbiter1, FB_Arbiter, 21027584 (372864)
         GVL.g_rTestingVelocity, LREAL, 17217600 (64)
         GVL.MAX_FAST_FAULTS, UINT, 15902880 (16)
         GVL.nLangId_OnlineMonitoring, DINT, 4389280 (32)
@@ -677,6 +677,7 @@ MachineSimulation
 
         MachineSimulation.fbeVSimulator, FB_eVSimulator, 15902912 (9088)
         MachineSimulation.fbMachine, FB_MachineSimulator, 15901056 (1824)
+        MachineSimulation.rTestPhotonEnergy, REAL, 15916288 (32)
 
 
 PMPS_Arbiter

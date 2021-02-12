@@ -969,12 +969,6 @@ PMPS.FB_Arbiter
       - Type
       - Description
       - Pragma
-    * - $(PREFIX):ActiveInArbitration_RBV
-      - bi
-      - True if this arbiter
-      - | io: input
-
-
     * - $(PREFIX):AP:Entry:001:Cohort_RBV
       - longin
       - Cohort inc on each arb cycle
@@ -16237,12 +16231,6 @@ Database Records
     * - $(PREFIX)AccumulatedFastFaults_RBV
       - longin
       - PMPS_GVL.AccumulatedFF
-      - | io: input
-
-
-    * - $(PREFIX)Arbiter:01:ActiveInArbitration_RBV
-      - bi
-      - True if this arbiter
       - | io: input
 
 

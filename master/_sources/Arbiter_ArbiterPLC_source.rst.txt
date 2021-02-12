@@ -171,7 +171,8 @@ CurrentBPUpdate
             link: IOC:BSY0:MP01:BYKIK_RATE
             field: EGU RateEnum
         '}
-        fbBYKIK_Rate : FB_LREALFromEPICS;
+        fbBYKIK_Rate : FB_LREALFromEPICS := (
+    		iMaximumValidSeverity := 2);
     	
     	{attribute 'pytmc' := '
             pv: @(PREFIX)
@@ -255,6 +256,7 @@ MachineSimulation
     VAR
         fbMachine	:	FB_MachineSimulator; //Simulates attenuator as well
         fbeVSimulator : FB_eVSimulator := (NoiseLevel := 1);
+    	rTestPhotonEnergy : REAL;
     END_VAR
     // reV Simulator
     fbeVSimulator();
@@ -269,7 +271,7 @@ MachineSimulation
     	xEnablePE := TRUE
         );
 
-    //PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(fbeVSimulator.eV, PMPS_GVL.stCurrentBeamParameters.neVRange);
+    //PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(rTestPhotonEnergy, PMPS_GVL.stCurrentBeamParameters.neVRange);
     //PMPS_GVL.stCurrentBeamParameters.neVRange := 0;
 
     END_PROGRAM
@@ -304,11 +306,7 @@ MAIN
     // Ethercat Diagnostics
     fbEcatDiag();
 
-
-
-    // PMPS Functionality
     CurrentBPUpdate();
-    PMPS_Arbiter();
 
     ///////////////////////////////////////////////////
     // This code should be disabled or removed in deployment
@@ -316,6 +314,12 @@ MAIN
     MachineSimulation();
     //Testing();
     ///////////////////////////////////////////////////
+
+    // PMPS Functionality
+
+    PMPS_Arbiter();
+
+
 
     fbLogHandler();
 
