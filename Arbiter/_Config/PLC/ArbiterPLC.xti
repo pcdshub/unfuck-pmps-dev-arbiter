@@ -103,18 +103,20 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Name>
+			<Name GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Name>
 			<BitSize>1216</BitSize>
 			<SubItem>
 				<Name>nTran</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
-				<Comment>
-					<![CDATA[  Requested pre-optic attenuation %  ]]>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment TxtId="">
+					<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 				</Comment>
-				<BitSize>16</BitSize>
+				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 				<Default>
-					<Value>100</Value>
+					<Min>0</Min>
+					<Max>1</Max>
+					<Value>1</Value>
 				</Default>
 				<Properties>
 					<Property>
@@ -133,7 +135,7 @@
 				<BitSize>32</BitSize>
 				<BitOffs>32</BitOffs>
 				<Default>
-					<Value>10</Value>
+					<Value>120</Value>
 				</Default>
 				<Properties>
 					<Property>
@@ -144,34 +146,15 @@
 				</Properties>
 			</SubItem>
 			<SubItem>
-				<Name>fPP_mJ</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Name>neVRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
 				<Comment>
-					<![CDATA[ Per pulse max energy (mJ) ]]>
+					<![CDATA[ Photon energy ranges ]]>
 				</Comment>
 				<BitSize>32</BitSize>
 				<BitOffs>64</BitOffs>
 				<Default>
-					<Value>20</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: PulseEnergy
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>neVRange</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
-				<Comment>
-					<![CDATA[ Photon energy ranges ]]>
-				</Comment>
-				<BitSize>16</BitSize>
-				<BitOffs>96</BitOffs>
-				<Default>
-					<Value>65535</Value>
+					<Value>4294967295</Value>
 				</Default>
 				<Properties>
 					<Property>
@@ -216,7 +199,7 @@
 				<BitOffs>640</BitOffs>
 			</SubItem>
 			<SubItem>
-				<Name>aStoppers</Name>
+				<Name>aVetoDevices</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
 				<ArrayInfo>
 					<LBound>1</LBound>
@@ -281,6 +264,12 @@
 				<Hide GUID="{729DFDAA-EB68-494E-B247-D86DA3C0AE5E}"/>
 				<Hide GUID="{41059C79-1015-4C2C-AFF4-697A824775D7}"/>
 				<Hide GUID="{80E871EC-0C36-49B0-AD5D-F1F0FB351299}"/>
+				<Hide GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}"/>
+				<Hide GUID="{C64C88BE-2BD8-4AC6-ACD6-2A08570B4923}"/>
+				<Hide GUID="{B472A77E-9430-445F-AD24-21E649F6ACD1}"/>
+				<Hide GUID="{559ADF00-CB27-4B7D-8DEA-9DBCF390B12B}"/>
+				<Hide GUID="{E1A510FA-6CE5-40B2-9617-7C29C5B7C692}"/>
+				<Hide GUID="{3F6D5E74-4433-4A11-8ADE-14BBEED361D6}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -377,23 +366,17 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -481,7 +464,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -538,23 +521,17 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -642,7 +619,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -699,23 +676,17 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -803,7 +774,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -860,23 +831,17 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -964,7 +929,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1021,23 +986,17 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1125,7 +1084,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1204,23 +1163,17 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1308,7 +1261,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1337,23 +1290,17 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1441,7 +1388,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1470,23 +1417,17 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1574,7 +1515,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1603,23 +1544,17 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1707,7 +1642,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1736,23 +1671,17 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+					<Type GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
-							<![CDATA[  Requested pre-optic attenuation %  ]]>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
 						<Name>nRate</Name>
 						<Comment>
 							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>fPP_mJ</Name>
-						<Comment>
-							<![CDATA[ Per pulse max energy (mJ) ]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1840,7 +1769,7 @@
 						</Comment>
 					</SubVar>
 					<SubVar>
-						<Name>aStoppers</Name>
+						<Name>aVetoDevices</Name>
 						<Comment>
 							<![CDATA[ Stopper statuses ]]>
 						</Comment>
@@ -1994,6 +1923,42 @@
 					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay">
 						<Link VarA="PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^ST1L0_RELAY_IN" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
 						<Link VarA="PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^ST1L0_RELAY_OUT" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2021-04-27T15:37:16">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs">
+						<Link VarA="PMPS_Arbiter.plc_xrt_homs_PMPS_IO.o_CurrentBP" InOutA="1" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Outputs^CurrentBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="676"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt">
+						<Link VarA="PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP" InOutA="1" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Outputs^CurrentBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="856"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion">
+						<Link VarA="PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP" InOutA="1" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Outputs^CurrentBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="496"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
+						<Link VarA="PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP" InOutA="1" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Outputs^CurrentBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="586"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-vacuum">
+						<Link VarA="PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP" InOutA="1" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Outputs^CurrentBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="766"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs">
+						<Link VarA="PMPS_Arbiter.plc_xrt_homs_PMPS_IO.i_RequestedBP" InOutA="0" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Inputs^RequestedBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="199"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt">
+						<Link VarA="PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP" InOutA="0" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Inputs^RequestedBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="387"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion">
+						<Link VarA="PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP" InOutA="0" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Inputs^RequestedBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="11"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
+						<Link VarA="PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP" InOutA="0" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Inputs^RequestedBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="105"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-vacuum">
+						<Link VarA="PMPS_Arbiter.plc_lfe_vac_PMPS_IO.i_RequestedBP" InOutA="0" GuidA="{5FC92061-002A-45B0-B954-CD8F28B5CE49}" VarB="IO Inputs^RequestedBP" AutoLink="true" RestoreInfo="TypeChanged" TypeA="ST_BeamParams_IO" IdA="293"/>
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
