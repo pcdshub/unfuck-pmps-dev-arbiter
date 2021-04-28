@@ -225,13 +225,13 @@
 <td><p>0016000422000100020000008000da050004001622010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>SyncMan</p></td>
-<td><p>001c98006400010003000000000000000000001c64010000</p></td>
+<td><p>001c00006400000003000000000000000000001c64010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>008e9b002000010004000000000000000200008e20010000</p></td>
+<td><p>008e03002000010004000000000000000200008e20010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fmmu</p></td>
-<td><p>0000000000000000001c00020100000001000000000000000000000000000000</p></td>
+<td><p>0000000000000000000000020000000001000000000000000000000000000000</p></td>
 </tr>
 <tr class="row-even"><td><p>Fmmu</p></td>
 <td><p>0000000000000000008e00010100000002000000000000000000000000000000</p></td>
@@ -558,10 +558,10 @@
 <td><p>0016000422000100020000008000da050004001622010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>SyncMan</p></td>
-<td><p>001c98006400010003000000000000000000001c64010000</p></td>
+<td><p>001cd4006400010003000000000000000000001c64010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>008e9a002000010004000000000000000200008e20010000</p></td>
+<td><p>008ed6002000010004000000000000000200008e20010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001c00020100000001000000000000000000000000000000</p></td>
@@ -597,31 +597,31 @@
 <tbody>
 <tr class="row-even"><td><p>None</p></td>
 <td></td>
-<td></td>
+<td><p>12</p></td>
 <td></td>
 <td><p>ARRAY [0..11] OF BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>TxPDO toggle</p></td>
 <td><p>Bit toggles when new data from other side received</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1801</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>TxPDO state</p></td>
 <td><p>0: Other side is in OP state &gt;0: Error</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1801</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>None</p></td>
 <td></td>
-<td></td>
+<td><p>1</p></td>
 <td></td>
 <td><p>ARRAY [0..0] OF BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>External device not connected</p></td>
 <td><p>0: External device connected 1: External device not connected</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT</p></td>
 </tr>
@@ -647,57 +647,57 @@
 <tbody>
 <tr class="row-even"><td><p>Sync Mode</p></td>
 <td><p>0: no Syncronisation 1: Secondary side is Sync Master 2: Primary side is Sync Master</p></td>
-<td></td>
+<td><p>2</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT2</p></td>
 </tr>
 <tr class="row-odd"><td><p>None</p></td>
 <td></td>
-<td></td>
+<td><p>10</p></td>
 <td></td>
 <td><p>ARRAY [0..9] OF BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>TxPDO toggle</p></td>
 <td><p>Bit toggles when new data from other side received</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1802</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>TxPDO state</p></td>
 <td><p>0: Other side is in OP state &gt;0: Error</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1802</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>Timestamp update toggle</p></td>
 <td><p>Bit toggles when new timestamp data available</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>External device not connected</p></td>
 <td><p>0: External device connected 1: External device not connected</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>Internal time stamp</p></td>
 <td></td>
-<td></td>
+<td><p>64</p></td>
 <td><p>#x10f4</p></td>
 <td><p>ULINT</p></td>
 </tr>
 <tr class="row-odd"><td><p>External time stamp</p></td>
 <td></td>
-<td></td>
+<td><p>64</p></td>
 <td><p>#x10f4</p></td>
 <td><p>ULINT</p></td>
 </tr>
 <tr class="row-even"><td><p>None</p></td>
 <td></td>
+<td><p>32</p></td>
 <td></td>
-<td></td>
-<td><p>UDINT</p></td>
+<td><p>ARRAY [0..3] OF BYTE</p></td>
 </tr>
 </tbody>
 </table>
@@ -721,57 +721,57 @@
 <tbody>
 <tr class="row-even"><td><p>Sync Mode</p></td>
 <td><p>0: no Syncronisation 1: Secondary side is Sync Master 2: Primary side is Sync Master</p></td>
-<td></td>
+<td><p>2</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT2</p></td>
 </tr>
 <tr class="row-odd"><td><p>None</p></td>
 <td></td>
-<td></td>
+<td><p>10</p></td>
 <td></td>
 <td><p>ARRAY [0..9] OF BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>TxPDO toggle</p></td>
 <td><p>Bit toggles when new data from other side received</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1803</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>TxPDO state</p></td>
 <td><p>0: Other side is in OP state &gt;0: Error</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x1803</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>Timestamp update toggle</p></td>
 <td><p>Bit toggles when new timestamp data available</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-odd"><td><p>External device not connected</p></td>
 <td><p>0: External device connected 1: External device not connected</p></td>
-<td></td>
+<td><p>1</p></td>
 <td><p>#x10f4</p></td>
 <td><p>BIT</p></td>
 </tr>
 <tr class="row-even"><td><p>Internal time stamp</p></td>
 <td></td>
-<td></td>
+<td><p>32</p></td>
 <td><p>#x10f4</p></td>
 <td><p>UDINT</p></td>
 </tr>
 <tr class="row-odd"><td><p>External time stamp</p></td>
 <td></td>
-<td></td>
+<td><p>32</p></td>
 <td><p>#x10f4</p></td>
 <td><p>UDINT</p></td>
 </tr>
 <tr class="row-even"><td><p>None</p></td>
 <td></td>
+<td><p>32</p></td>
 <td></td>
-<td></td>
-<td><p>UDINT</p></td>
+<td><p>ARRAY [0..3] OF BYTE</p></td>
 </tr>
 </tbody>
 </table>
@@ -795,7 +795,7 @@
 <tbody>
 <tr class="row-even"><td><p>Data Bytes Pending</p></td>
 <td></td>
-<td></td>
+<td><p>16</p></td>
 <td><p>#xf650</p></td>
 <td><p>UINT</p></td>
 </tr>
@@ -821,7 +821,7 @@
 <tbody>
 <tr class="row-even"><td><p>RequestedBP</p></td>
 <td></td>
-<td></td>
+<td><p>240</p></td>
 <td><p>#x6000</p></td>
 <td><p>ST_BeamParams_IO</p></td>
 </tr>
@@ -847,7 +847,7 @@
 <tbody>
 <tr class="row-even"><td><p>CurrentBP</p></td>
 <td></td>
-<td></td>
+<td><p>240</p></td>
 <td><p>#x7000</p></td>
 <td><p>ST_BeamParams_IO</p></td>
 </tr>
@@ -2292,10 +2292,10 @@
 <td><p>0016000422000100020000008000da050004001622010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>SyncMan</p></td>
-<td><p>001c98006400010003000000000000000000001c64010000</p></td>
+<td><p>001cd4006400010003000000000000000000001c64010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>008e9a002000010004000000000000000200008e20010000</p></td>
+<td><p>008ed6002000010004000000000000000200008e20010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001c00020100000001000000000000000000000000000000</p></td>
@@ -2616,10 +2616,10 @@
 <td><p>001400012200010002000000800000040001001422010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>001898002400010003000000000000000000001824000000</p></td>
+<td><p>0018d4002400010003000000000000000000001824000000</p></td>
 </tr>
 <tr class="row-odd"><td><p>SyncMan</p></td>
-<td><p>001e9a002000010004000000000000000200001e20010000</p></td>
+<td><p>001ed6002000010004000000000000000200001e20010000</p></td>
 </tr>
 <tr class="row-even"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001800020100000001000000000000000000000000000000</p></td>
@@ -2956,10 +2956,10 @@
 <td><p>001400012200010002000000800000040001001422010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>001898002400010003000000000000000000001824010000</p></td>
+<td><p>001800002400000003000000000000000000001824010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>SyncMan</p></td>
-<td><p>001e9a002000010004000000000000000200001e20010000</p></td>
+<td><p>001ed6002000010004000000000000000200001e20010000</p></td>
 </tr>
 <tr class="row-even"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001800020100000001000000000000000000000000000000</p></td>
