@@ -48,6 +48,7 @@
 			<Redundancy Mode="2" AdapterReference="true" PreviousPort="33554461"/>
 			<SyncUnit Name="alt" NoDeleteIfUnused="true"/>
 			<SyncUnit Name="lfe" NoDeleteIfUnused="true"/>
+			<SyncUnit Name="alt2" NoDeleteIfUnused="true"/>
 		</EtherCAT>
 	</Device>
 </TcSmItem>
