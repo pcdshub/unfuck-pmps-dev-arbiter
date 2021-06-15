@@ -9,6 +9,16 @@ VAR
     fbEcatDiag : FB_EcatDiagWrapper;
 
 	idx: UINT;
+	
+	//System Time
+	 {attribute 'pytmc' := '
+        pv: @(PREFIX)SystemDT
+        io: i
+     '}
+	SystemTime:DINT;
+	fbTime : FB_LocalSystemTime := ( bEnable := TRUE, dwCycle := 1 ); //Get current system time, used for override
+	fbTime_to_UTC: FB_TzSpecificLocalTimeToSystemTime;
+	fbGetTimeZone: FB_GetTimeZoneInformation;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -39,11 +49,23 @@ MachineSimulation();
 // PMPS Functionality
 
 PMPS_Arbiter();
-
+A_SystemTime();
 
 
 fbLogHandler();]]></ST>
     </Implementation>
+    <Action Name="A_SystemTime" Id="{a361e090-c874-45d8-82ab-48f0371b64c5}">
+      <Implementation>
+        <ST><![CDATA[//Get local System Time
+fbTime(sNetID:='');
+//Get Time Zone
+fbGetTimeZone(sNetID:='',bExecute:=TRUE,tTimeout:=T#10S);
+//change local time to UTC to be compatible with unix time epoch widget
+fbTime_to_UTC(in:= fbTime.systemTime , tzInfo:=fbGetTimeZone.tzInfo);
+
+SystemTime:= TO_DINT(TO_DT(SystemTime_TO_DT(fbTime_to_UTC.out)));]]></ST>
+      </Implementation>
+    </Action>
     <Action Name="Initialize" Id="{b0ee480a-3d4b-001d-04c4-43cdc47895c8}">
       <Implementation>
         <ST><![CDATA[]]></ST>
