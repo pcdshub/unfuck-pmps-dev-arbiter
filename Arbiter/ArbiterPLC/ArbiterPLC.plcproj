@@ -14,6 +14,11 @@
     <Implicit_Jitter_Distribution>{512873b5-8aa1-476a-8e5f-66c8a4e3c90c}</Implicit_Jitter_Distribution>
     <LibraryReferences>{6c491177-fb0d-47dc-b761-5e2d4b104dc6}</LibraryReferences>
     <CompilerDefines>L</CompilerDefines>
+    <CombineIds>false</CombineIds>
+    <Released>false</Released>
+    <ProjectVersion>0.0.0</ProjectVersion>
+    <Company>SLAC - LCLS</Company>
+    <Title>LFE-ARBITER</Title>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FFOTask.TcTTO">
