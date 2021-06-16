@@ -290,6 +290,16 @@ MAIN
         fbEcatDiag : FB_EcatDiagWrapper;
 
     	idx: UINT;
+    	
+    	//System Time
+    	 {attribute 'pytmc' := '
+            pv: @(PREFIX)SystemDT
+            io: i
+         '}
+    	SystemTime:DINT;
+    	fbTime : FB_LocalSystemTime := ( bEnable := TRUE, dwCycle := 1 ); //Get current system time, used for override
+    	fbTime_to_UTC: FB_TzSpecificLocalTimeToSystemTime;
+    	fbGetTimeZone: FB_GetTimeZoneInformation;
     END_VAR
     //Arbiter PLC
 
@@ -318,12 +328,22 @@ MAIN
     // PMPS Functionality
 
     PMPS_Arbiter();
-
+    A_SystemTime();
 
 
     fbLogHandler();
 
     END_PROGRAM
+    ACTION A_SystemTime:
+    //Get local System Time
+    fbTime(sNetID:='');
+    //Get Time Zone
+    fbGetTimeZone(sNetID:='',bExecute:=TRUE,tTimeout:=T#10S);
+    //change local time to UTC to be compatible with unix time epoch widget
+    fbTime_to_UTC(in:= fbTime.systemTime , tzInfo:=fbGetTimeZone.tzInfo);
+
+    SystemTime:= TO_DINT(TO_DT(SystemTime_TO_DT(fbTime_to_UTC.out)));
+    END_ACTION
     ACTION Initialize:
 
     END_ACTION

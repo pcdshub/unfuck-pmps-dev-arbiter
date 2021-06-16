@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -450,6 +453,16 @@
     <span class="n">fbEcatDiag</span> <span class="p">:</span> <span class="n">FB_EcatDiagWrapper</span><span class="p">;</span>
 
     <span class="n">idx</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">System</span> <span class="n">Time</span>
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">)</span><span class="n">SystemDT</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+     <span class="s1">&#39;}</span>
+    <span class="n">SystemTime</span><span class="p">:</span><span class="n">DINT</span><span class="p">;</span>
+    <span class="n">fbTime</span> <span class="p">:</span> <span class="n">FB_LocalSystemTime</span> <span class="o">:=</span> <span class="p">(</span> <span class="n">bEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">dwCycle</span> <span class="o">:=</span> <span class="mi">1</span> <span class="p">);</span> <span class="o">//</span><span class="n">Get</span> <span class="n">current</span> <span class="n">system</span> <span class="n">time</span><span class="p">,</span> <span class="n">used</span> <span class="k">for</span> <span class="n">override</span>
+    <span class="n">fbTime_to_UTC</span><span class="p">:</span> <span class="n">FB_TzSpecificLocalTimeToSystemTime</span><span class="p">;</span>
+    <span class="n">fbGetTimeZone</span><span class="p">:</span> <span class="n">FB_GetTimeZoneInformation</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">Arbiter</span> <span class="n">PLC</span>
 
@@ -478,12 +491,22 @@
 <span class="o">//</span> <span class="n">PMPS</span> <span class="n">Functionality</span>
 
 <span class="n">PMPS_Arbiter</span><span class="p">();</span>
-
+<span class="n">A_SystemTime</span><span class="p">();</span>
 
 
 <span class="n">fbLogHandler</span><span class="p">();</span>
 
 <span class="n">END_PROGRAM</span>
+<span class="n">ACTION</span> <span class="n">A_SystemTime</span><span class="p">:</span>
+<span class="o">//</span><span class="n">Get</span> <span class="n">local</span> <span class="n">System</span> <span class="n">Time</span>
+<span class="n">fbTime</span><span class="p">(</span><span class="n">sNetID</span><span class="o">:=</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="o">//</span><span class="n">Get</span> <span class="n">Time</span> <span class="n">Zone</span>
+<span class="n">fbGetTimeZone</span><span class="p">(</span><span class="n">sNetID</span><span class="o">:=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span><span class="n">tTimeout</span><span class="o">:=</span><span class="n">T</span><span class="c1">#10S);</span>
+<span class="o">//</span><span class="n">change</span> <span class="n">local</span> <span class="n">time</span> <span class="n">to</span> <span class="n">UTC</span> <span class="n">to</span> <span class="n">be</span> <span class="n">compatible</span> <span class="k">with</span> <span class="n">unix</span> <span class="n">time</span> <span class="n">epoch</span> <span class="n">widget</span>
+<span class="n">fbTime_to_UTC</span><span class="p">(</span><span class="ow">in</span><span class="o">:=</span> <span class="n">fbTime</span><span class="o">.</span><span class="n">systemTime</span> <span class="p">,</span> <span class="n">tzInfo</span><span class="o">:=</span><span class="n">fbGetTimeZone</span><span class="o">.</span><span class="n">tzInfo</span><span class="p">);</span>
+
+<span class="n">SystemTime</span><span class="o">:=</span> <span class="n">TO_DINT</span><span class="p">(</span><span class="n">TO_DT</span><span class="p">(</span><span class="n">SystemTime_TO_DT</span><span class="p">(</span><span class="n">fbTime_to_UTC</span><span class="o">.</span><span class="n">out</span><span class="p">)));</span>
+<span class="n">END_ACTION</span>
 <span class="n">ACTION</span> <span class="n">Initialize</span><span class="p">:</span>
 
 <span class="n">END_ACTION</span>
