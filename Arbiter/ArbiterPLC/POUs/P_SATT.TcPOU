@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="P_SATT" Id="{905bbaad-b3f0-420e-b1b5-0ee74487c823}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_SATT
+VAR
+	//All Sold attenuators requests are summerrized into this one output
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^SattArrayReq'}
+	q_nTranSattReq AT %Q* : ARRAY [1..16] OF ST_PMPS_Attenuator_IO; // Transmission request to ALL PLCs
+	//Per PLC current satt trans
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
+	i_nTranToStat_LFE AT %I* : ARRAY [1..16] OF ST_PMPS_Attenuator_IO; // Transmission request to KFE MOT PLC
+	
+	// plc-tmo-mot interface diagnostics
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
+	i_bWcStateOut_lfe_mot AT %I* : BOOL;
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateIn'}
+	i_bWcStateIn_lfe_mot AT %I* : BOOL;
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^InfoData^State'}
+	i_nState_lfe_mot AT %I* : UINT;
+	
+	//FFO Connection per PLC
+	ffLfeConnection : FB_FastFault := (
+		i_DevName := 'PMPS Arbiter',
+		i_Desc := 'EtherCAT interface watcher, for lfe-mot connection to systems for attenuation requests. Very rare. Make a note, and if it can be reset, go ahead.',
+		i_TypeCode := 16#5);
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Send request from this arbiter to all satts
+MEMCPY( ADR(q_nTranSattReq) , ADR(PMPS_GVL.stRequestedBeamParameters.astAttenuators) , PMPS_GVL.AUX_ATTENUATORS * SIZEOF(ST_PMPS_Attenuator_IO) );
+	
+//TMO motion PLC SATT current trans update
+IF i_bWcStateIn_lfe_mot = 0 AND i_bWcStateOut_lfe_mot = 0 AND i_nState_lfe_mot = 8 THEN
+	// 	Recieve current transmission of the satt
+	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_nTranToStat_LFE[PMPS.L_Attenuators.AT2L0].nTran;
+	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_nTranToStat_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;	
+	ffLfeConnection.i_xOK := TRUE;
+ELSE
+	// Fast fault
+	fflfeConnection.i_xOK := FALSE;
+END_IF
+ffLfeConnection(io_fbFFHWO := g_FastFaultOutput1);
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

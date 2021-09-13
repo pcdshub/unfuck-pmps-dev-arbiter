@@ -51,6 +51,7 @@ MachineSimulation();
 PMPS_Arbiter();
 A_SystemTime();
 
+P_SATT();
 
 fbLogHandler();]]></ST>
     </Implementation>

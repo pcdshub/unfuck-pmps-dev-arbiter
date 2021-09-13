@@ -285,6 +285,15 @@
 			</Hides>
 		</DataType>
 		<DataType>
+			<Name GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Name>
+			<BitSize>1024</BitSize>
+			<BaseType GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..8] OF BOOL</Name>
 			<BitSize>64</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
@@ -1148,9 +1157,38 @@
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
+				<Var>
+					<Name>P_SATT.i_nTranToStat_LFE</Name>
+					<Comment>
+						<![CDATA[ Transmission request to KFE MOT PLC]]>
+					</Comment>
+					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.i_bWcStateOut_lfe_mot</Name>
+					<Comment>
+						<![CDATA[ plc-tmo-mot interface diagnostics]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.i_bWcStateIn_lfe_mot</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.i_nState_lfe_mot</Name>
+					<Type>UINT</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>CurrentBPUpdate.q_rPhotonEnergy</Name>
+					<Comment>
+						<![CDATA[All Sold attenuators requests are summerrized into this one output]]>
+					</Comment>
+					<Type>REAL</Type>
+				</Var>
 				<Var>
 					<Name>CurrentBPUpdate.st1l0Watcher.q_StopperOUT_Relay</Name>
 					<Type>BOOL</Type>
@@ -1806,6 +1844,13 @@
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>P_SATT.q_nTranSattReq</Name>
+					<Comment>
+						<![CDATA[ Transmission request to ALL PLCs]]>
+					</Comment>
+					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
+				</Var>
+				<Var>
 					<Name>GVL.g_FastFaultOutput1.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1974,7 +2019,13 @@
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP" VarB="IO Inputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState" VarB="SYNC Inputs^TxPDO state" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState" VarB="WcState^WcStateIn" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateIn_lfe_mot" VarB="WcState^WcStateIn" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateOut_lfe_mot" VarB="WcState^WcStateOut" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^P_SATT.i_nState_lfe_mot" VarB="InfoData^State" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^P_SATT.i_nTranToStat_LFE" VarB="IO Inputs^SattArrayStatus" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^CurrentBPUpdate.q_rPhotonEnergy" VarB="IO Outputs^rPhotonEnergy" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP" VarB="IO Outputs^CurrentBP" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^P_SATT.q_nTranSattReq" VarB="IO Outputs^SattArrayReq" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected" VarB="SYNC Inputs^External device not connected" AutoLink="true"/>
