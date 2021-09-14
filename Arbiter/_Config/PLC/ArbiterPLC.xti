@@ -1158,13 +1158,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>P_SATT.i_nTranToStat_LFE</Name>
-					<Comment>
-						<![CDATA[ Transmission request to KFE MOT PLC]]>
-					</Comment>
-					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
-				</Var>
-				<Var>
 					<Name>P_SATT.i_bWcStateOut_lfe_mot</Name>
 					<Comment>
 						<![CDATA[ plc-tmo-mot interface diagnostics]]>
@@ -1178,6 +1171,13 @@
 				<Var>
 					<Name>P_SATT.i_nState_lfe_mot</Name>
 					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.i_SattArrStatus_LFE</Name>
+					<Comment>
+						<![CDATA[ Transmission request to KFE MOT PLC]]>
+					</Comment>
+					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
@@ -1844,19 +1844,19 @@
 					</SubVar>
 				</Var>
 				<Var>
-					<Name>P_SATT.q_nTranSattReq</Name>
-					<Comment>
-						<![CDATA[ Transmission request to ALL PLCs]]>
-					</Comment>
-					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
-				</Var>
-				<Var>
 					<Name>GVL.g_FastFaultOutput1.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL.g_FastFaultOutput2.q_xFastFaultOut</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.q_SattArrayReq</Name>
+					<Comment>
+						<![CDATA[ Transmission request to ALL PLCs]]>
+					</Comment>
+					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
@@ -1983,6 +1983,18 @@
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2021-09-13T18:44:14">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion">
+						<Link VarA="P_SATT.q_nTranSattReq" TypeA="ARRAY [1..16] OF ST_PMPS_Attenuator_IO" InOutA="1" GuidA="{6D319B26-4590-2152-3DE7-3BA9B629CA65}" VarB="IO Outputs^SattArrayReq" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion">
+						<Link VarA="P_SATT.i_nTranToStat_LFE" TypeA="ARRAY [1..16] OF ST_PMPS_Attenuator_IO" InOutA="0" GuidA="{6D319B26-4590-2152-3DE7-3BA9B629CA65}" VarB="IO Inputs^SattArrayStatus" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="2" OTCID="#x08502002"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
@@ -2019,13 +2031,13 @@
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP" VarB="IO Inputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_TxPDOState" VarB="SYNC Inputs^TxPDO state" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_WcState" VarB="WcState^WcStateIn" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^P_SATT.i_SattArrStatus_LFE" VarB="IO Inputs^SattArrayStatus" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateIn_lfe_mot" VarB="WcState^WcStateIn" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateOut_lfe_mot" VarB="WcState^WcStateOut" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^P_SATT.i_nState_lfe_mot" VarB="InfoData^State" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^P_SATT.i_nTranToStat_LFE" VarB="IO Inputs^SattArrayStatus" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^CurrentBPUpdate.q_rPhotonEnergy" VarB="IO Outputs^rPhotonEnergy" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP" VarB="IO Outputs^CurrentBP" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^P_SATT.q_nTranSattReq" VarB="IO Outputs^SattArrayReq" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^P_SATT.q_SattArrayReq" VarB="IO Outputs^SattArrayReq" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected" VarB="SYNC Inputs^External device not connected" AutoLink="true"/>
