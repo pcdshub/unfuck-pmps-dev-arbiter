@@ -10,7 +10,7 @@ VAR
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
 	i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission status from LFE MOT PLC
 	
-	// plc-tmo-mot interface diagnostics
+	// plc-lfe-motion interface diagnostics
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
 	i_bWcStateOut_lfe_mot AT %I* : BOOL;
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateIn'}
