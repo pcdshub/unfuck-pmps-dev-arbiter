@@ -21,6 +21,9 @@ VAR
     '}
 	fbEPICSLRate : FB_RateFromEPICS;
 
+	//All Sold attenuators requests are summerrized into this one output
+	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
+	q_rPhotonEnergy AT %Q* : REAL;
 	// Stoppers
 
     {attribute 'TcLinkTo' := '
@@ -39,7 +42,7 @@ END_VAR
       <ST><![CDATA[// Acquiring photon energy
 fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
 
-
+q_rPhotonEnergy := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
 
 // Acquiring L-line rate
 fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);

@@ -294,6 +294,15 @@
 				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
 			</Hides>
 		</DataType>
+		<DataType>
+			<Name GUID="{63B6CB02-1D33-B57D-1DC8-CC6DA3ED8E9B}" AutoDeleteType="true">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Name>
+			<BitSize>1024</BitSize>
+			<BaseType GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000120b0000120b0000100000001000000000000000000080000080000000808000800000008000800080800000c0c0c000808080000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00dddd88888888dddddddd77777778d9dddddd77888778d99ddddd778889999999dddd77888778d99dddd977777778d9ddddd997888778dddd999999888778ddddddd997888778ddddddd977777778dddddddd777a7778dddddddd777a7778dddddddd777a7778dddddddd77777778dddd</ImageData>
@@ -806,8 +815,8 @@
 		<EtherCAT SlaveType="3" AdsServerAddress="000000000219f403" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a273052" RevisionNo="#x00050002" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" CheckRevisionNoType="3" PortPhys="17" DcTimeLoopControlOnly="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6695 EtherCAT Bridge terminal (Secondary)" Desc="EL6695-0002">
 			<SyncMan>0010000426000100010000008000da050004001026010000</SyncMan>
 			<SyncMan>0016000422000100020000008000da050004001622010000</SyncMan>
-			<SyncMan>001cd4006400010003000000000000000000001c64010000</SyncMan>
-			<SyncMan>008ed6002000010004000000000000000200008e20010000</SyncMan>
+			<SyncMan>001c58016400010003000000000000000000001c64010000</SyncMan>
+			<SyncMan>008e56012000010004000000000000000200008e20010000</SyncMan>
 			<Fmmu>0000000000000000001c00020100000001000000000000000000000000000000</Fmmu>
 			<Fmmu>0000000000000000008e00010100000002000000000000000000000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -952,13 +961,22 @@
 				</Entry>
 			</Pdo>
 			<Pdo Name="IO Inputs" Index="#x1a08" Flags="#x0020" SyncMan="3">
-				<Entry Name="RequestedBP" BitLen="240" Index="#x6000" Sub="#x01">
+				<Entry Name="RequestedBP" Index="#x6000" Sub="#x01">
 					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+				</Entry>
+				<Entry Name="SattArrayStatus" Index="#x6000" Sub="#x02">
+					<Type GUID="{63B6CB02-1D33-B57D-1DC8-CC6DA3ED8E9B}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="IO Outputs" Index="#x1608" InOut="1" Flags="#x0020" SyncMan="2">
-				<Entry Name="CurrentBP" BitLen="240" Index="#x7000" Sub="#x01">
+				<Entry Name="CurrentBP" Index="#x7000" Sub="#x01">
 					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+				</Entry>
+				<Entry Name="SattArrayReq" Index="#x7000" Sub="#x02">
+					<Type GUID="{63B6CB02-1D33-B57D-1DC8-CC6DA3ED8E9B}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
+				</Entry>
+				<Entry Name="rPhotonEnergy" Index="#x7000" Sub="#x03">
+					<Type>REAL</Type>
 				</Entry>
 			</Pdo>
 			<CoeProfile ProfileNo="5001"/>
