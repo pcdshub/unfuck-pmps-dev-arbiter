@@ -8,7 +8,7 @@ VAR
 	q_SattArrayReq AT %Q* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission request to ALL PLCs
 	//Per PLC current satt trans
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
-	i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission request to KFE MOT PLC
+	i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission status from LFE MOT PLC
 	
 	// plc-tmo-mot interface diagnostics
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
