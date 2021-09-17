@@ -133,8 +133,8 @@ plc-lfe-motion
         BootStrapData, 0010140200141402
         SyncMan, 0010000426000100010000008000da050004001026010000
         SyncMan, 0016000422000100020000008000da050004001622010000
-        SyncMan, 001cd4006400010003000000000000000000001c64010000
-        SyncMan, 008ed6002000010004000000000000000200008e20010000
+        SyncMan, 001c58016400010003000000000000000000001c64010000
+        SyncMan, 008e56012000010004000000000000000200008e20010000
         Fmmu, 0000000000000000001c00020100000001000000000000000000000000000000
         Fmmu, 0000000000000000008e00010100000002000000000000000000000000000000
         Fmmu, 00000000000000000d0800010100000003000000000000000000000000000000
@@ -208,7 +208,8 @@ PDO IO Inputs (Index #x1a08, Flags #x0020, SyncMan 3)
     :header: Name, Comment, BitLen, Index, Type
     :align: center
 
-        "RequestedBP", "", 240, "#x6000", "ST_BeamParams_IO"
+        "RequestedBP", "", , "#x6000", "ST_BeamParams_IO"
+        "SattArrayStatus", "", , "#x6000", "ARRAY [1..16] OF ST_PMPS_Attenuator_IO"
 
 
 
@@ -218,7 +219,9 @@ PDO IO Outputs (Index #x1608, Flags #x0020, SyncMan 2)
     :header: Name, Comment, BitLen, Index, Type
     :align: center
 
-        "CurrentBP", "", 240, "#x7000", "ST_BeamParams_IO"
+        "CurrentBP", "", , "#x7000", "ST_BeamParams_IO"
+        "SattArrayReq", "", , "#x7000", "ARRAY [1..16] OF ST_PMPS_Attenuator_IO"
+        "rPhotonEnergy", "", , "#x7000", "REAL"
 
 
 .. raw:: html

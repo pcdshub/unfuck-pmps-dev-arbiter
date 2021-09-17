@@ -35,6 +35,11 @@ Links
         ArbiterPLC Instance, PlcTask Inputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.i_RequestedBP, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs, IO Inputs^RequestedBP
         ArbiterPLC Instance, PlcTask Inputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.i_TxPDOState, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs, SYNC Inputs^TxPDO state
         ArbiterPLC Instance, PlcTask Inputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.i_WcState, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs, WcState^WcStateIn
+        ArbiterPLC Instance, PlcTask Inputs^P_SATT.i_SattArrStatus_LFE, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Inputs^SattArrayStatus
+        ArbiterPLC Instance, PlcTask Inputs^P_SATT.i_bWcStateIn_lfe_mot, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, WcState^WcStateIn
+        ArbiterPLC Instance, PlcTask Inputs^P_SATT.i_bWcStateOut_lfe_mot, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, WcState^WcStateOut
+        ArbiterPLC Instance, PlcTask Inputs^P_SATT.i_nState_lfe_mot, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, InfoData^State
+        ArbiterPLC Instance, PlcTask Outputs^CurrentBPUpdate.q_rPhotonEnergy, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Outputs^rPhotonEnergy
         ArbiterPLC Instance, PlcTask Outputs^CurrentBPUpdate.st1l0Watcher.q_StopperIN_Relay, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay, Channel 2^ST1L0_RELAY_IN
         ArbiterPLC Instance, PlcTask Outputs^CurrentBPUpdate.st1l0Watcher.q_StopperOUT_Relay, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay, Channel 1^ST1L0_RELAY_OUT
         ArbiterPLC Instance, PlcTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^FFO, Channel 1^Output
@@ -55,6 +60,7 @@ Links
         ArbiterPLC Instance, PlcTask Outputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.o_CurrentBP, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics, IO Outputs^CurrentBP
         ArbiterPLC Instance, PlcTask Outputs^PMPS_Arbiter.plc_lfe_vac_PMPS_IO.o_CurrentBP, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-vacuum, IO Outputs^CurrentBP
         ArbiterPLC Instance, PlcTask Outputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.o_CurrentBP, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs, IO Outputs^CurrentBP
+        ArbiterPLC Instance, PlcTask Outputs^P_SATT.q_SattArrayReq, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Outputs^SattArrayReq
         InputDst, PMPS_Arbiter.fbSubSys1_Requestor.i_Connected, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1, SYNC Inputs^External device not connected
         InputDst, PMPS_Arbiter.fbSubSys1_Requestor.i_RequestedBP, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1, IO Inputs^RequestedBP
         InputDst, PMPS_Arbiter.fbSubSys1_Requestor.i_RequestedBP, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1, IO Inputs^RequestedBP
@@ -71,6 +77,7 @@ Links
         InputDst, PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, SYNC Inputs^TxPDO state
         InputDst, PMPS_Arbiter.st1l0Watcher.i_StopperInLS, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers, Channel 1^ST1L0_PPS_IN
         InputDst, PMPS_Arbiter.st1l0Watcher.i_StopperOutLS, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers, Channel 2^ST1L0_PPS_OUT
+        InputDst, P_SATT.i_nTranToStat_LFE, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Inputs^SattArrayStatus
         OutputSrc, MachineSimulation.q_SimCurrBP, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1 (EL6692), IO Outputs^CurrentBP
         OutputSrc, PMPS_Arbiter.fbMPSInterface.dumb, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_BC, Channel 1^Output
         OutputSrc, PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[10], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp, Channel 10^Output
@@ -88,3 +95,4 @@ Links
         OutputSrc, PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Outputs^CurrentBP
         OutputSrc, PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay, Channel 2^ST1L0_RELAY_IN
         OutputSrc, PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay, TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay, Channel 1^ST1L0_RELAY_OUT
+        OutputSrc, P_SATT.q_nTranSattReq, TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion, IO Outputs^SattArrayReq

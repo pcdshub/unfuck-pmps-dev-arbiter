@@ -45,6 +45,8 @@ GVL
     END_VAR
 
 
+
+
 GVL_CheckBounds
 ^^^^^^^^^^^^^^^
 
@@ -56,6 +58,8 @@ GVL_CheckBounds
         nTooHigh : UDINT;
         nDivByZero : UDINT;
     END_VAR
+
+
 
 
 POUs
@@ -106,6 +110,10 @@ CheckBounds
     END_FUNCTION
 
 
+Related:
+    * `GVL_CheckBounds`_
+
+
 CheckRangeSigned
 ^^^^^^^^^^^^^^^^
 
@@ -130,6 +138,8 @@ CheckRangeSigned
     END_FUNCTION
 
 
+
+
 CheckRangeUnsigned
 ^^^^^^^^^^^^^^^^^^
 
@@ -152,6 +162,8 @@ CheckRangeUnsigned
     {flow}
 
     END_FUNCTION
+
+
 
 
 CurrentBPUpdate
@@ -179,6 +191,9 @@ CurrentBPUpdate
         '}
     	fbEPICSLRate : FB_RateFromEPICS;
 
+    	//All Sold attenuators requests are summerrized into this one output
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
+    	q_rPhotonEnergy AT %Q* : REAL;
     	// Stoppers
 
         {attribute 'TcLinkTo' := '
@@ -195,7 +210,7 @@ CurrentBPUpdate
     // Acquiring photon energy
     fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
 
-
+    q_rPhotonEnergy := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
 
     // Acquiring L-line rate
     fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);
@@ -205,6 +220,10 @@ CurrentBPUpdate
     st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
 
     END_PROGRAM
+
+
+Related:
+    * `GVL`_
 
 
 CXDisplay
@@ -233,6 +252,8 @@ CXDisplay
     END_PROGRAM
 
 
+
+
 Fast_Faults_Evaluate
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -245,6 +266,8 @@ Fast_Faults_Evaluate
     //g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
 
     END_PROGRAM
+
+
 
 
 MachineSimulation
@@ -275,6 +298,10 @@ MachineSimulation
     //PMPS_GVL.stCurrentBeamParameters.neVRange := 0;
 
     END_PROGRAM
+
+
+Related:
+    * `GVL`_
 
 
 MAIN
@@ -330,6 +357,7 @@ MAIN
     PMPS_Arbiter();
     A_SystemTime();
 
+    P_SATT();
 
     fbLogHandler();
 
@@ -347,6 +375,63 @@ MAIN
     ACTION Initialize:
 
     END_ACTION
+
+
+Related:
+    * `CurrentBPUpdate`_
+    * `MachineSimulation`_
+    * `PMPS_Arbiter`_
+    * `P_SATT`_
+    * `Testing`_
+
+
+P_SATT
+^^^^^^
+
+::
+
+    PROGRAM P_SATT
+    VAR
+    	//All Solid attenuators requests are summarized into this one output
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^SattArrayReq'}
+    	q_SattArrayReq AT %Q* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission request to ALL PLCs
+    	//Per PLC current satt trans
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
+    	i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission status from LFE MOT PLC
+    	
+    	// plc-lfe-motion interface diagnostics
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
+    	i_bWcStateOut_lfe_mot AT %I* : BOOL;
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateIn'}
+    	i_bWcStateIn_lfe_mot AT %I* : BOOL;
+    	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^InfoData^State'}
+    	i_nState_lfe_mot AT %I* : UINT;
+    	
+    	//FFO Connection per PLC
+    	ffLfeConnection : FB_FastFault := (
+    		i_DevName := 'PMPS Arbiter',
+    		i_Desc := 'EtherCAT interface watcher, for lfe-mot connection to systems for attenuation requests. Very rare. Make a note, and if it can be reset, go ahead.',
+    		i_TypeCode := 16#5);
+    	
+    END_VAR
+    // Send request from this arbiter to all satts
+    MEMCPY( ADR(q_SattArrayReq) , ADR(PMPS_GVL.stRequestedBeamParameters.astAttenuators) , PMPS_GVL.AUX_ATTENUATORS * SIZEOF(ST_PMPS_Attenuator_IO) );
+    	
+    //TMO motion PLC SATT current trans update
+    IF i_bWcStateIn_lfe_mot = 0 AND i_bWcStateOut_lfe_mot = 0 AND i_nState_lfe_mot = 8 THEN
+    	// 	Recieve current transmission of the satt
+    	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].nTran;
+    	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;	
+    	ffLfeConnection.i_xOK := TRUE;
+    ELSE
+    	// Fast fault
+    	fflfeConnection.i_xOK := FALSE;
+    END_IF
+    ffLfeConnection(io_fbFFHWO := g_FastFaultOutput1);
+
+    END_PROGRAM
+
+
 
 
 PMPS_Arbiter
@@ -494,6 +579,10 @@ PMPS_Arbiter
     END_PROGRAM
 
 
+Related:
+    * `GVL`_
+
+
 Testing
 ^^^^^^^
 
@@ -518,4 +607,9 @@ Testing
     gAttemptReset(IN:=GVL.g_FastFaultOutput1.xOK, Q=>GVL.g_FastFaultOutput1.i_xReset);
 
     END_PROGRAM
+
+
+Related:
+    * `GVL`_
+    * `PMPS_Arbiter`_
 
