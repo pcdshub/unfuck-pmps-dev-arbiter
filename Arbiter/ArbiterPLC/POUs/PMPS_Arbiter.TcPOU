@@ -88,15 +88,7 @@ VAR
 
 	fbSetPE	:	PE_Ranges;
 	
-	// plc-xrt-homs Fast Fault Link
-	    {attribute 'TcLinkTo' := 'TIIB[plc-xrt-homs]^IO Inputs^FFO1'}
-	i_bFastFaultOutput_plc_xrt_homs AT %I* : BOOL;
 	
-	ffPLC_XRT_HOMS : FB_FastFault := (
-		i_DevName := 'plc-xrt-homs FFO1',
-		i_Desc := 'Fast fault output link',
-		i_TypeCode := 16#C,
-		i_xAutoReset := TRUE);
 
 END_VAR
 ]]></Declaration>
@@ -134,9 +126,7 @@ fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
                     io_fbFFHWO:= GVL.g_FastFaultOutput1,
                     i_xReset := GVL.AttemptReset);
 
-// FFO from plc-xrt-homs
-ffPLC_XRT_HOMS(i_xOK := i_bFastFaultOutput_plc_xrt_homs,
-	io_fbFFHWO := g_FastFaultOutput1);
+
 
 // FF
 g_FastFaultOutput1.Execute();
