@@ -35,8 +35,8 @@ MEMCPY( ADR(q_SattArrayReq) , ADR(PMPS_GVL.stRequestedBeamParameters.astAttenuat
 //TMO motion PLC SATT current trans update
 IF i_bWcStateIn_lfe_mot = 0 AND i_bWcStateOut_lfe_mot = 0 AND i_nState_lfe_mot = 8 THEN
 	// 	Recieve current transmission of the satt
-	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].nTran;
-	PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;	
+	//PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].nTran;
+	//PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;	
 	ffLfeConnection.i_xOK := TRUE;
 ELSE
 	// Fast fault
