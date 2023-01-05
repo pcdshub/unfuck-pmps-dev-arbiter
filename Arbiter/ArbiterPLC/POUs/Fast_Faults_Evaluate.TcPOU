@@ -7,7 +7,11 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//g_FastFaultOutput1.EvaluateOutput(bAutoReset:=TRUE);
-//g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);]]></ST>
+//g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
+
+// FF
+g_FastFaultOutput1.Execute();
+g_FastFaultOutput2.Execute();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -106,13 +106,13 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="LCLS General,2.4.2,SLAC">
+    <LibraryReference Include="LCLS General,2.6.0,SLAC">
       <Namespace>LCLS_General</Namespace>
     </LibraryReference>
   </ItemGroup>
   <ItemGroup>
     <PlaceholderResolution Include="PMPS">
-      <Resolution>PMPS, 2.1.0 (SLAC - LCLS)</Resolution>
+      <Resolution>PMPS, 3.0.0 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="SysDir">
       <Resolution>SysDir, 3.5.8.0 (System)</Resolution>

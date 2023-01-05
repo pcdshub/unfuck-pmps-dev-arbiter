@@ -43,6 +43,9 @@ END_VAR
 fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
 
 q_rPhotonEnergy := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
+//Update current photon energy
+PMPS_GVL.stCurrentBeamParameters.neV := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
+
 
 // Acquiring L-line rate
 fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);
