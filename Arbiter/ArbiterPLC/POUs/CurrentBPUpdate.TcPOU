@@ -21,6 +21,19 @@ VAR
     '}
 	fbEPICSLRate : FB_RateFromEPICS;
 
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)L:BC
+        link: SIOC:SYS0:MP03:SC_HXR_BC
+        field: EGU BCEnum
+    '}
+    fbMPS_BeamClass : FB_LREALFromEPICS := (
+		iMaximumValidSeverity := 2);
+	
+		{attribute 'pytmc' := '
+        pv: @(PREFIX)
+    '}
+	fbEPICSLBeamClass : FB_BeamClassFromEPICS;
+		
 	//All Sold attenuators requests are summerrized into this one output
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
 	q_rPhotonEnergy AT %Q* : REAL;
@@ -35,7 +48,8 @@ VAR
     st1l0Watcher : FB_LStopper(
         PMPS.L_Stopper.ST1L0,
         'ST1L0');
-
+	 idx : UINT := 1;
+	bcBitmask : WORD:=0;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -51,8 +65,24 @@ PMPS_GVL.stCurrentBeamParameters.neV := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fC
 fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);
 
 
+// Acquiring L-line BeamClass
+fbEPICSLBeamClass(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_BeamClass:=fbMPS_BeamClass, FFO:=GVL.g_FastFaultOutput1);
+
+
 // Watching and relaying stopper statuses
-st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);]]></ST>
+st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
+
+// Test update Current BC
+//Beam Class 
+//Should it be from Reeust or from the EPICS PV?!!!
+IF (PMPS_GVL.stRequestedBeamParameters.nBCRange = 0) THEN PMPS_GVL.stRequestedBeamParameters.nBeamClass := 0; END_IF
+FOR idx:=1 TO 15 BY 1 DO
+	IF (idx =1 ) THEN bcBitmask :=1; END_IF
+	IF (PMPS_GVL.stRequestedBeamParameters.nBCRange AND bcBitmask) = bcBitmask THEN 
+		PMPS_GVL.stCurrentBeamParameters.nBeamClass := TO_USINT(idx);
+	END_IF
+	bcBitmask := ROL(bcBitmask,1);
+END_FOR]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
