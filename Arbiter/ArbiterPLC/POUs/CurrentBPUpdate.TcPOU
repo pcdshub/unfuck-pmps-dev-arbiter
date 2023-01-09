@@ -72,17 +72,7 @@ fbEPICSLBeamClass(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_BeamClass:=fbMPS_B
 // Watching and relaying stopper statuses
 st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
 
-// Test update Current BC
-//Beam Class 
-//Should it be from Reeust or from the EPICS PV?!!!
-IF (PMPS_GVL.stRequestedBeamParameters.nBCRange = 0) THEN PMPS_GVL.stRequestedBeamParameters.nBeamClass := 0; END_IF
-FOR idx:=1 TO 15 BY 1 DO
-	IF (idx =1 ) THEN bcBitmask :=1; END_IF
-	IF (PMPS_GVL.stRequestedBeamParameters.nBCRange AND bcBitmask) = bcBitmask THEN 
-		PMPS_GVL.stCurrentBeamParameters.nBeamClass := TO_USINT(idx);
-	END_IF
-	bcBitmask := ROL(bcBitmask,1);
-END_FOR]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
