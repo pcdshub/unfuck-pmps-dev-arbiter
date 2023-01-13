@@ -10,8 +10,8 @@ END_VAR
 //g_FastFaultOutput2.EvaluateOutput(bAutoReset:=TRUE);
 
 // FF
-g_FastFaultOutput1.Execute();
-g_FastFaultOutput2.Execute();]]></ST>
+//g_FastFaultOutput1.Execute();
+//g_FastFaultOutput2.Execute();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
