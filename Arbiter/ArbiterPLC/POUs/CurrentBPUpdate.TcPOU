@@ -21,6 +21,19 @@ VAR
     '}
 	fbEPICSLRate : FB_RateFromEPICS;
 
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)L:BC
+        link: SIOC:SYS0:MP03:SC_HXR_BC
+        field: EGU BCEnum
+    '}
+    fbMPS_BeamClass : FB_LREALFromEPICS := (
+		iMaximumValidSeverity := 2);
+	
+		{attribute 'pytmc' := '
+        pv: @(PREFIX)
+    '}
+	fbEPICSLBeamClass : FB_BeamClassFromEPICS;
+		
 	//All Sold attenuators requests are summerrized into this one output
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
 	q_rPhotonEnergy AT %Q* : REAL;
@@ -35,7 +48,8 @@ VAR
     st1l0Watcher : FB_LStopper(
         PMPS.L_Stopper.ST1L0,
         'ST1L0');
-
+	 idx : UINT := 1;
+	bcBitmask : WORD:=0;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -43,13 +57,22 @@ END_VAR
 fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
 
 q_rPhotonEnergy := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
+//Update current photon energy
+PMPS_GVL.stCurrentBeamParameters.neV := LREAL_TO_REAL(fbLPhotonEnergy.fbHgvpu.fCurrentPhotonEnergy);
+
 
 // Acquiring L-line rate
 fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, FFO:=GVL.g_FastFaultOutput1);
 
 
+// Acquiring L-line BeamClass
+fbEPICSLBeamClass(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_BeamClass:=fbMPS_BeamClass, FFO:=GVL.g_FastFaultOutput1);
+
+
 // Watching and relaying stopper statuses
-st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);]]></ST>
+st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

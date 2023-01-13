@@ -18,7 +18,7 @@
 		<Box File="plc-lfe-vacuum.xti" Id="26">
 			<EtherCAT PortABoxInfo="#x01000002"/>
 		</Box>
-		<Box File="plc-lfe-gatt.xti" Id="27">
+		<Box File="plc-lfe-gem.xti" Id="34">
 			<EtherCAT PortABoxInfo="#x0100001a"/>
 		</Box>
 		<Box BoxType="9099" Id="28">
@@ -33,9 +33,6 @@
 			<Box File="plc-xrt-homs.xti" Id="1">
 				<EtherCAT PortABoxInfo="#x0100001d"/>
 			</Box>
-		</Box>
-		<Box File="Term 31 (EL9010).xti" Id="31">
-			<EtherCAT/>
 		</Box>
 	</Box>
 </TcSmItem>

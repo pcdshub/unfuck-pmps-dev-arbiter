@@ -53,7 +53,12 @@ A_SystemTime();
 
 P_SATT();
 
-fbLogHandler();]]></ST>
+fbLogHandler();
+
+
+//FF
+g_FastFaultOutput1.Execute();
+g_FastFaultOutput2.Execute();]]></ST>
     </Implementation>
     <Action Name="A_SystemTime" Id="{a361e090-c874-45d8-82ab-48f0371b64c5}">
       <Implementation>

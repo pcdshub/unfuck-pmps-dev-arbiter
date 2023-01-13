@@ -9,10 +9,14 @@ VAR
     pv: @(PREFIX)PhotonEnergyWatcher
     '}
     fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
+	{attribute 'pytmc' := '
+    pv: @(PREFIX)BeamClassWatcher
+    '}
+	fbBeamClassWatcher : FB_BeamClassWatcher;
     {attribute 'pytmc' := '
     pv: @(PREFIX)BeamClassOutputs
     '}
-    fbMPSInterface	:	FB_BeamClassOutputs;
+    fbMPSInterface	:	FB_BeamClassOutputs_BCD;
     {attribute 'pytmc' := '
     pv: @(PREFIX)CuRateOutputs
     '}
@@ -63,11 +67,11 @@ VAR
 								'}
     plc_lfe_vac_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF11);
 	
-		{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-gatt]^IO Inputs^RequestedBP;
-								.o_CurrentBP:=TIIB[plc-lfe-gatt]^IO Outputs^CurrentBP;
-								.i_Connected:=TIIB[plc-lfe-gatt]^SYNC Inputs^External device not connected;
-								.i_WcState:=TIIB[plc-lfe-gatt]^WcState^WcStateIn;
-								.i_TxPDOState:=TIIB[plc-lfe-gatt]^SYNC Inputs^TxPDO state;
+		{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-gem]^IO Inputs^RequestedBP;
+								.o_CurrentBP:=TIIB[plc-lfe-gem]^IO Outputs^CurrentBP;
+								.i_Connected:=TIIB[plc-lfe-gem]^SYNC Inputs^External device not connected;
+								.i_WcState:=TIIB[plc-lfe-gem]^WcState^WcStateIn;
+								.i_TxPDOState:=TIIB[plc-lfe-gem]^SYNC Inputs^TxPDO state;
 								'}
     plc_lfe_gatt_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF12);
 	
@@ -88,7 +92,6 @@ VAR
 
 	fbSetPE	:	PE_Ranges;
 	
-	
 
 END_VAR
 ]]></Declaration>
@@ -101,11 +104,11 @@ END_VAR
 fbBPControl(Arbiter:=g_fbArbiter1);
 
 // Updating arbiter with subsystem requests.
-plc_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
-plc_lfe_optics_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
-plc_lfe_vac_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
-plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
-plc_xrt_homs_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset);
+plc_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE MOTION');
+plc_lfe_optics_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset , sName:= 'LFE OPTICS');
+plc_lfe_vac_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE VACUUM');
+plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE GEMS');
+plc_xrt_homs_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'XRT OPTICS');
 
 //Overriding the preemptive requests from the optics systems until they are valid
 //GVL.g_fbArbiter1.RemoveRequest(nReqId:=plc_lfe_optics_PMPS_IO.RequestingSystemID);
@@ -119,6 +122,11 @@ fbMPSInterface(BP := PMPS_GVL.stRequestedBeamParameters);
 // Request Cu beam rate
 fbCuInterface(BP := PMPS_GVL.stRequestedBeamParameters);
 
+// Keep an eye on the beam class
+fbBeamClassWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
+                    i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
+                    io_fbFFHWO:= GVL.g_FastFaultOutput1,
+                    i_xReset := GVL.AttemptReset);
 
 // Keep an eye on the photon energy
 fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
@@ -128,9 +136,7 @@ fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
 
 
 
-// FF
-g_FastFaultOutput1.Execute();
-g_FastFaultOutput2.Execute();
+
 
 
 ]]></ST>

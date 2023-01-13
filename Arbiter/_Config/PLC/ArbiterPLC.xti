@@ -109,8 +109,8 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Name>
-			<BitSize>1696</BitSize>
+			<Name GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Name>
+			<BitSize>1760</BitSize>
 			<SubItem>
 				<Name>nTran</Name>
 				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
@@ -175,6 +175,36 @@
 				</Properties>
 			</SubItem>
 			<SubItem>
+				<Name>neV</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment TxtId="">
+					<![CDATA[Current Photon energy as calculated by the arbiter]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nBCRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>128</BitOffs>
+				<Default>
+					<Min>0</Min>
+					<Max>65535</Max>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nBeamClass</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>144</BitOffs>
+				<Default>
+					<Min>0</Min>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
 				<Name>astAttenuators</Name>
 				<Type GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Type>
 				<ArrayInfo>
@@ -185,7 +215,7 @@
 					<![CDATA[ Beamline attenuators ]]>
 				</Comment>
 				<BitSize>1024</BitSize>
-				<BitOffs>96</BitOffs>
+				<BitOffs>160</BitOffs>
 				<Properties>
 					<Property>
 						<Name>plcAttribute_pytmc</Name>
@@ -202,7 +232,7 @@
 					<Elements>4</Elements>
 				</ArrayInfo>
 				<BitSize>384</BitSize>
-				<BitOffs>1120</BitOffs>
+				<BitOffs>1184</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>aVetoDevices</Name>
@@ -215,7 +245,7 @@
 					<![CDATA[ Stopper statuses ]]>
 				</Comment>
 				<BitSize>128</BitSize>
-				<BitOffs>1504</BitOffs>
+				<BitOffs>1568</BitOffs>
 				<Properties>
 					<Property>
 						<Name>plcAttribute_pytmc</Name>
@@ -231,7 +261,7 @@
 					<![CDATA[ Toggle for watchdog]]>
 				</Comment>
 				<BitSize>8</BitSize>
-				<BitOffs>1632</BitOffs>
+				<BitOffs>1696</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>xValid</Name>
@@ -240,7 +270,7 @@
 					<![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]>
 				</Comment>
 				<BitSize>8</BitSize>
-				<BitOffs>1640</BitOffs>
+				<BitOffs>1704</BitOffs>
 				<Properties>
 					<Property>
 						<Name>plcAttribute_pytmc</Name>
@@ -256,7 +286,7 @@
 					<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
 				</Comment>
 				<BitSize>32</BitSize>
-				<BitOffs>1664</BitOffs>
+				<BitOffs>1728</BitOffs>
 				<Properties>
 					<Property>
 						<Name>plcAttribute_pytmc</Name>
@@ -282,6 +312,12 @@
 				<Hide GUID="{F4D82764-2299-4BB7-86C4-99ED0EBA5A76}"/>
 				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
 				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
+				<Hide GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}"/>
+				<Hide GUID="{7BACB0F9-4BD8-4ADE-B8B1-2D069E1D0190}"/>
+				<Hide GUID="{C338245C-50EC-4E6D-B363-9DA04BB5DFA5}"/>
+				<Hide GUID="{0E623A01-D6F4-41DD-A8F2-FBC77EE11035}"/>
+				<Hide GUID="{B8136069-15B2-4545-8E40-00504F2F580D}"/>
+				<Hide GUID="{4A38F9D3-765E-4C94-9AAB-7EB5DFA13820}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -297,12 +333,12 @@
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..8] OF BOOL</Name>
-			<BitSize>64</BitSize>
+			<Name GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..4] OF BOOL</Name>
+			<BitSize>32</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
 			<ArrayInfo>
 				<LBound>1</LBound>
-				<Elements>8</Elements>
+				<Elements>4</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -319,6 +355,17 @@
 		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="ArbiterPLC\ArbiterPLC.tmc">
 			<Name>ArbiterPLC Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="2">
+				<Name>FFOTask Outputs</Name>
+				<Var>
+					<Name>GVL.g_FastFaultOutput1.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.g_FastFaultOutput2.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+			</Vars>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
@@ -383,7 +430,7 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -400,6 +447,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -538,7 +591,7 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -555,6 +608,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -693,7 +752,7 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -710,6 +769,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -848,7 +913,7 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -865,6 +930,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1003,7 +1074,7 @@
 					<Comment>
 						<![CDATA[ Requested BP from subsystem]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1020,6 +1091,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1154,6 +1231,13 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>P_SATT.i_SattArrStatus_LFE</Name>
+					<Comment>
+						<![CDATA[ Transmission status from LFE MOT PLC]]>
+					</Comment>
+					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
+				</Var>
+				<Var>
 					<Name>P_SATT.i_bWcStateOut_lfe_mot</Name>
 					<Comment>
 						<![CDATA[ plc-lfe-motion interface diagnostics]]>
@@ -1167,13 +1251,6 @@
 				<Var>
 					<Name>P_SATT.i_nState_lfe_mot</Name>
 					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>P_SATT.i_SattArrStatus_LFE</Name>
-					<Comment>
-						<![CDATA[ Transmission status from LFE MOT PLC]]>
-					</Comment>
-					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
@@ -1195,10 +1272,7 @@
 				</Var>
 				<Var>
 					<Name>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES</Name>
-					<Comment>
-						<![CDATA[ 8 - Full beam]]>
-					</Comment>
-					<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
+					<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES</Name>
@@ -1209,7 +1283,7 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1226,6 +1300,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1336,7 +1416,7 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1353,6 +1433,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1463,7 +1549,7 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1480,6 +1566,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1590,7 +1682,7 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1607,6 +1699,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1717,7 +1815,7 @@
 					<Comment>
 						<![CDATA[ Current BP set]]>
 					</Comment>
-					<Type GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}">ST_BeamParams_IO</Type>
+					<Type GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}">ST_BeamParams_IO</Type>
 					<SubVar>
 						<Name>nTran</Name>
 						<Comment>
@@ -1734,6 +1832,12 @@
 						<Name>neVRange</Name>
 						<Comment>
 							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
 						</Comment>
 					</SubVar>
 					<SubVar>
@@ -1840,14 +1944,6 @@
 					</SubVar>
 				</Var>
 				<Var>
-					<Name>GVL.g_FastFaultOutput1.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL.g_FastFaultOutput2.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>P_SATT.q_SattArrayReq</Name>
 					<Comment>
 						<![CDATA[ Transmission request to ALL PLCs]]>
@@ -1871,6 +1967,11 @@
 						<![CDATA[ Any time a FF occurs]]>
 					</Comment>
 					<Type>UDINT</Type>
+					<InOut>7</InOut>
+				</Var>
+				<Var>
+					<Name>PMPS_GVL.BP_jsonDoc</Name>
+					<Type>SJsonValue</Type>
 					<InOut>7</InOut>
 				</Var>
 			</Vars>
@@ -1998,6 +2099,24 @@
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2023-01-04T16:00:06">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt">
+						<Link VarA="PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP" TypeA="ST_BeamParams_IO" InOutA="1" GuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" VarB="IO Outputs^CurrentBP" AutoLink="true" OldTypeA="ST_BeamParams_IO" OldGuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" NewTypeA="ST_BeamParams_IO" NewGuidA="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}" RestoreInfo="BNotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp">
+						<Link VarA="PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 5^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 6^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 7^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 8^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt">
+						<Link VarA="PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP" TypeA="ST_BeamParams_IO" InOutA="0" GuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" VarB="IO Inputs^RequestedBP" AutoLink="true" OldTypeA="ST_BeamParams_IO" OldGuidA="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}" NewTypeA="ST_BeamParams_IO" NewGuidA="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}" RestoreInfo="BNotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="2" OTCID="#x08502002"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
@@ -2021,7 +2140,7 @@
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.i_WcState" VarB="WcState^WcStateIn" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.plc_xrt_homs_PMPS_IO.o_CurrentBP" VarB="IO Outputs^CurrentBP" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gem">
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_Connected" VarB="SYNC Inputs^External device not connected" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP" VarB="IO Inputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_TxPDOState" VarB="SYNC Inputs^TxPDO state" AutoLink="true"/>
@@ -2037,7 +2156,6 @@
 				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateIn_lfe_mot" VarB="WcState^WcStateIn" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^P_SATT.i_bWcStateOut_lfe_mot" VarB="WcState^WcStateOut" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^P_SATT.i_nState_lfe_mot" VarB="InfoData^State" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^CurrentBPUpdate.q_rPhotonEnergy" VarB="IO Outputs^rPhotonEnergy" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.plc_lfe_motion_PMPS_IO.o_CurrentBP" VarB="IO Outputs^CurrentBP" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^P_SATT.q_SattArrayReq" VarB="IO Outputs^SattArrayReq" AutoLink="true"/>
 			</OwnerB>
@@ -2064,8 +2182,8 @@
 				<Link VarA="PlcTask Inputs^CurrentBPUpdate.st1l0Watcher.i_StopperOutLS" VarB="Channel 2^ST1L0_PPS_OUT" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^FFO">
-				<Link VarA="PlcTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut" VarB="Channel 1^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^GVL.g_FastFaultOutput2.q_xFastFaultOut" VarB="Channel 2^Output" AutoLink="true"/>
+				<Link VarA="FFOTask Outputs^GVL.g_FastFaultOutput1.q_xFastFaultOut" VarB="Channel 1^Output" AutoLink="true"/>
+				<Link VarA="FFOTask Outputs^GVL.g_FastFaultOutput2.q_xFastFaultOut" VarB="Channel 2^Output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp">
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbCuInterface.q_CLTS_ASSERTION_LINES[1]" VarB="Channel 9^Output" AutoLink="true"/>
@@ -2075,10 +2193,6 @@
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[2]" VarB="Channel 2^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[3]" VarB="Channel 3^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[4]" VarB="Channel 4^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]" VarB="Channel 5^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]" VarB="Channel 6^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]" VarB="Channel 7^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]" VarB="Channel 8^Output" AutoLink="true"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
