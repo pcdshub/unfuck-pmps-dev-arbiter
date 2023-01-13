@@ -33,6 +33,19 @@ VAR
         pv: @(PREFIX)
     '}
 	fbEPICSLBeamClass : FB_BeamClassFromEPICS;
+	
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)L:Mode
+        link: link: SIOC:FEEH:MP01:LCLSMODE_RBV
+    '}
+    fbHXR_MachineMode : FB_LREALFromEPICS := (
+		iMaximumValidSeverity := 2);
+		
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)
+    '}
+	fbEPICSLMachineMode : FB_MachineModeFromEPICS;
+	
 		
 	//All Sold attenuators requests are summerrized into this one output
 	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
@@ -67,6 +80,10 @@ fbEPICSLRate(BP:=PMPS_GVL.stCurrentBeamParameters, fbBYKIK_Rate:=fbBYKIK_Rate, F
 
 // Acquiring L-line BeamClass
 fbEPICSLBeamClass(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_BeamClass:=fbMPS_BeamClass, FFO:=GVL.g_FastFaultOutput1);
+
+// Acquiring L-line Machine Mode
+fbEPICSLMachineMode(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_MachineMode:=fbHXR_MachineMode, FFO:=GVL.g_FastFaultOutput1);
+
 
 
 // Watching and relaying stopper statuses

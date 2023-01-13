@@ -112,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <PlaceholderResolution Include="PMPS">
-      <Resolution>PMPS, 3.0.1 (SLAC - LCLS)</Resolution>
+      <Resolution>PMPS, 3.0.2 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="SysDir">
       <Resolution>SysDir, 3.5.8.0 (System)</Resolution>
