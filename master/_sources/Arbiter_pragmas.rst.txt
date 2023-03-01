@@ -6,7 +6,7 @@ Pragmas
     :header: PLC Name, Total Pragmas, Errors
     :align: center
 
-    :ref:`ArbiterPLC <ArbiterPLC_overview_pragmas>`, 30, 0
+    :ref:`ArbiterPLC <ArbiterPLC_overview_pragmas>`, 34, 0
 
 
 .. _ArbiterPLC_overview_pragmas:
@@ -15,7 +15,7 @@ Pragmas
 ArbiterPLC
 ^^^^^^^^^^
 
-Total pragmas found: 30
+Total pragmas found: 34
 Total linter errors: 0
 
 

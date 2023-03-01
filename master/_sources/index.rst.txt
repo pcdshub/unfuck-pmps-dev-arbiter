@@ -7,6 +7,7 @@ lcls-plc-lfe-arbiter
 
     Arbiter_pragmas
     Arbiter_nc
+    Arbiter_ethercat
     Arbiter_boxes
     Arbiter_links
 
