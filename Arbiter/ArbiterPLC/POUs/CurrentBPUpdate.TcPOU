@@ -36,7 +36,7 @@ VAR
 	
 	{attribute 'pytmc' := '
         pv: @(PREFIX)L:Mode
-        link: link: SIOC:FEEH:MP01:LCLSMODE_RBV
+        link: SIOC:FEEH:MP01:LCLSMODE_RBV
     '}
     fbHXR_MachineMode : FB_LREALFromEPICS := (
 		iMaximumValidSeverity := 2);

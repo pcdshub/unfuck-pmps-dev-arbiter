@@ -111,6 +111,9 @@
     </LibraryReference>
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderResolution Include="LCLS General">
+      <Resolution>LCLS General, 2.6.0 (SLAC)</Resolution>
+    </PlaceholderResolution>
     <PlaceholderResolution Include="PMPS">
       <Resolution>PMPS, 3.0.2 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
