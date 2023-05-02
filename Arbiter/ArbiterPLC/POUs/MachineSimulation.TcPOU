@@ -5,7 +5,7 @@
 VAR
     fbMachine	:	FB_MachineSimulator; //Simulates attenuator as well
     fbeVSimulator : FB_eVSimulator := (NoiseLevel := 1);
-	rTestPhotonEnergy : REAL;
+    rTestPhotonEnergy : REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -17,9 +17,9 @@ fbMachine(
     i_stAssertedParams := PMPS_GVL.stRequestedBeamParameters,
     iq_stMachineParams := PMPS_GVL.stCurrentBeamParameters,
     i_xFault	:= NOT GVL.g_FastFaultOutput1.q_xFastFaultOut,
-	xEnableAtt := TRUE,
-	xEnableRate := FALSE,
-	xEnablePE := TRUE
+    xEnableAtt := TRUE,
+    xEnableRate := FALSE,
+    xEnablePE := TRUE
     );
 
 //PMPS_GVL.stCurrentBeamParameters.neVRange := F_eVRangeCalculator(rTestPhotonEnergy, PMPS_GVL.stCurrentBeamParameters.neVRange);

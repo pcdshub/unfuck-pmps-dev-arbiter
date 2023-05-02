@@ -3,27 +3,27 @@
   <POU Name="P_SATT" Id="{905bbaad-b3f0-420e-b1b5-0ee74487c823}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM P_SATT
 VAR
-	//All Solid attenuators requests are summarized into this one output
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^SattArrayReq'}
-	q_SattArrayReq AT %Q* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission request to ALL PLCs
-	//Per PLC current satt trans
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
-	i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission status from LFE MOT PLC
-	
-	// plc-lfe-motion interface diagnostics
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
-	i_bWcStateOut_lfe_mot AT %I* : BOOL;
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateIn'}
-	i_bWcStateIn_lfe_mot AT %I* : BOOL;
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^InfoData^State'}
-	i_nState_lfe_mot AT %I* : UINT;
-	
-	//FFO Connection per PLC
-	ffLfeConnection : FB_FastFault := (
-		i_DevName := 'PMPS Arbiter',
-		i_Desc := 'EtherCAT interface watcher, for lfe-mot connection to systems for attenuation requests. Very rare. Make a note, and if it can be reset, go ahead.',
-		i_TypeCode := 16#5);
-	
+    //All Solid attenuators requests are summarized into this one output
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^SattArrayReq'}
+    q_SattArrayReq AT %Q* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission request to ALL PLCs
+    //Per PLC current satt trans
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus'}
+    i_SattArrStatus_LFE AT %I* : ARRAY [1..PMPS_GVL.AUX_ATTENUATORS] OF ST_PMPS_Attenuator_IO; // Transmission status from LFE MOT PLC
+
+    // plc-lfe-motion interface diagnostics
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateOut'}
+    i_bWcStateOut_lfe_mot AT %I* : BOOL;
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^WcState^WcStateIn'}
+    i_bWcStateIn_lfe_mot AT %I* : BOOL;
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^InfoData^State'}
+    i_nState_lfe_mot AT %I* : UINT;
+
+    //FFO Connection per PLC
+    ffLfeConnection : FB_FastFault := (
+        i_DevName := 'PMPS Arbiter',
+        i_Desc := 'EtherCAT interface watcher, for lfe-mot connection to systems for attenuation requests. Very rare. Make a note, and if it can be reset, go ahead.',
+        i_TypeCode := 16#5);
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -31,16 +31,16 @@ END_VAR
 
 // Send request from this arbiter to all satts
 MEMCPY( ADR(q_SattArrayReq) , ADR(PMPS_GVL.stRequestedBeamParameters.astAttenuators) , PMPS_GVL.AUX_ATTENUATORS * SIZEOF(ST_PMPS_Attenuator_IO) );
-	
+
 //TMO motion PLC SATT current trans update
 IF i_bWcStateIn_lfe_mot = 0 AND i_bWcStateOut_lfe_mot = 0 AND i_nState_lfe_mot = 8 THEN
-	// 	Recieve current transmission of the satt
-	//PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].nTran;
-	//PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;	
-	ffLfeConnection.i_xOK := TRUE;
+    // 	Recieve current transmission of the satt
+    //PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].nTran :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].nTran;
+    //PMPS_GVL.stCurrentBeamParameters.astAttenuators[PMPS.L_Attenuators.AT2L0].xAttOK :=  i_SattArrStatus_LFE[PMPS.L_Attenuators.AT2L0].xAttOK;
+    ffLfeConnection.i_xOK := TRUE;
 ELSE
-	// Fast fault
-	fflfeConnection.i_xOK := FALSE;
+    // Fast fault
+    fflfeConnection.i_xOK := FALSE;
 END_IF
 ffLfeConnection(io_fbFFHWO := g_FastFaultOutput1);
 

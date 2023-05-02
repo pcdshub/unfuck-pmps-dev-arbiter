@@ -6,63 +6,63 @@ VAR
     {attribute 'pytmc' := '
         pv: @(PREFIX)PE
     '}
-	fbLPhotonEnergy : FB_LPhotonEnergy;
-	
-	{attribute 'pytmc' := '
+    fbLPhotonEnergy : FB_LPhotonEnergy;
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)L:Rate
         link: IOC:BSY0:MP01:BYKIK_RATE
         field: EGU RateEnum
     '}
     fbBYKIK_Rate : FB_LREALFromEPICS := (
-		iMaximumValidSeverity := 2);
-	
-	{attribute 'pytmc' := '
+        iMaximumValidSeverity := 2);
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)
     '}
-	fbEPICSLRate : FB_RateFromEPICS;
+    fbEPICSLRate : FB_RateFromEPICS;
 
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: @(PREFIX)L:BC
         link: SIOC:SYS0:MP03:SC_HXR_BC
         field: EGU BCEnum
     '}
     fbMPS_BeamClass : FB_LREALFromEPICS := (
-		iMaximumValidSeverity := 2);
-	
-		{attribute 'pytmc' := '
+        iMaximumValidSeverity := 2);
+
+        {attribute 'pytmc' := '
         pv: @(PREFIX)
     '}
-	fbEPICSLBeamClass : FB_BeamClassFromEPICS;
-	
-	{attribute 'pytmc' := '
+    fbEPICSLBeamClass : FB_BeamClassFromEPICS;
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)L:Mode
         link: SIOC:FEEH:MP01:LCLSMODE_RBV
     '}
     fbHXR_MachineMode : FB_LREALFromEPICS := (
-		iMaximumValidSeverity := 2);
-		
-	{attribute 'pytmc' := '
+        iMaximumValidSeverity := 2);
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)
     '}
-	fbEPICSLMachineMode : FB_MachineModeFromEPICS;
-	
-		
-	//All Sold attenuators requests are summerrized into this one output
-	{attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
-	q_rPhotonEnergy AT %Q* : REAL;
-	// Stoppers
+    fbEPICSLMachineMode : FB_MachineModeFromEPICS;
+
+
+    //All Sold attenuators requests are summerrized into this one output
+    {attribute 'TcLinkTo' := 'TIIB[plc-lfe-motion]^IO Outputs^rPhotonEnergy'}
+    q_rPhotonEnergy AT %Q* : REAL;
+    // Stoppers
 
     {attribute 'TcLinkTo' := '
                 .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 1^ST1L0_PPS_IN;
                 .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 2^ST1L0_PPS_OUT;
                 .q_StopperOUT_Relay:=TIIB[MPS_Relay]^Channel 1^ST1L0_RELAY_OUT;
                 .q_StopperIN_Relay:=TIIB[MPS_Relay]^Channel 2^ST1L0_RELAY_IN;
-	'}
+    '}
     st1l0Watcher : FB_LStopper(
         PMPS.L_Stopper.ST1L0,
         'ST1L0');
-	 idx : UINT := 1;
-	bcBitmask : WORD:=0;
+     idx : UINT := 1;
+    bcBitmask : WORD:=0;
 END_VAR
 ]]></Declaration>
     <Implementation>

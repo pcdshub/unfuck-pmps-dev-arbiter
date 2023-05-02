@@ -9,10 +9,10 @@ VAR
     pv: @(PREFIX)PhotonEnergyWatcher
     '}
     fbPhotonEnergyWatcher	:	FB_PhotonEnergyWatcher;
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
     pv: @(PREFIX)BeamClassWatcher
     '}
-	fbBeamClassWatcher : FB_BeamClassWatcher;
+    fbBeamClassWatcher : FB_BeamClassWatcher;
     {attribute 'pytmc' := '
     pv: @(PREFIX)BeamClassOutputs
     '}
@@ -22,8 +22,8 @@ VAR
     '}
     fbCuInterface	:	FB_CTLS_Outputs;
 
-	{attribute 'pytmc' := '
-    	pv: @(PREFIX)BeamParamCntl
+    {attribute 'pytmc' := '
+        pv: @(PREFIX)BeamParamCntl
     '}
     fbBPControl : FB_BPControlDevice(nID:=10);
 
@@ -41,8 +41,8 @@ VAR
                                 .i_TxPDOState:=TIIB[plc-lfe-motion]^SYNC Inputs^TxPDO state;
                                 '}
     plc_lfe_motion_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF0F);
-	
-	    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-optics]^IO Inputs^RequestedBP;
+
+        {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-optics]^IO Inputs^RequestedBP;
                                 .o_CurrentBP:=TIIB[plc-lfe-optics]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[plc-lfe-optics]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[plc-lfe-optics]^WcState^WcStateIn;
@@ -50,7 +50,7 @@ VAR
                                 '}
     plc_lfe_optics_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
 
-	    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-xrt-homs]^IO Inputs^RequestedBP;
+        {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-xrt-homs]^IO Inputs^RequestedBP;
                                 .o_CurrentBP:=TIIB[plc-xrt-homs]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[plc-xrt-homs]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[plc-xrt-homs]^WcState^WcStateIn;
@@ -58,23 +58,23 @@ VAR
                                 '}
     plc_xrt_homs_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF13);
 
-	
-	{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-vacuum]^IO Inputs^RequestedBP;
-								.o_CurrentBP:=TIIB[plc-lfe-vacuum]^IO Outputs^CurrentBP;
-								.i_Connected:=TIIB[plc-lfe-vacuum]^SYNC Inputs^External device not connected;
-								.i_WcState:=TIIB[plc-lfe-vacuum]^WcState^WcStateIn;
-								.i_TxPDOState:=TIIB[plc-lfe-vacuum]^SYNC Inputs^TxPDO state;
-								'}
+
+    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-vacuum]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-lfe-vacuum]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-lfe-vacuum]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-lfe-vacuum]^WcState^WcStateIn;
+                                .i_TxPDOState:=TIIB[plc-lfe-vacuum]^SYNC Inputs^TxPDO state;
+                                '}
     plc_lfe_vac_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF11);
-	
-		{attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-gem]^IO Inputs^RequestedBP;
-								.o_CurrentBP:=TIIB[plc-lfe-gem]^IO Outputs^CurrentBP;
-								.i_Connected:=TIIB[plc-lfe-gem]^SYNC Inputs^External device not connected;
-								.i_WcState:=TIIB[plc-lfe-gem]^WcState^WcStateIn;
-								.i_TxPDOState:=TIIB[plc-lfe-gem]^SYNC Inputs^TxPDO state;
-								'}
+
+        {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-lfe-gem]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-lfe-gem]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-lfe-gem]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-lfe-gem]^WcState^WcStateIn;
+                                .i_TxPDOState:=TIIB[plc-lfe-gem]^SYNC Inputs^TxPDO state;
+                                '}
     plc_lfe_gatt_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF12);
-	
+
     (*{attribute 'pytmc' := '
     pv: @(PREFIX)SubSysIO:PLC2
     '}*)
@@ -90,8 +90,8 @@ VAR
 
 
 
-	fbSetPE	:	PE_Ranges;
-	
+    fbSetPE	:	PE_Ranges;
+
 
 END_VAR
 ]]></Declaration>

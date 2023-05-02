@@ -8,17 +8,17 @@ VAR
     fbLogHandler : FB_LogHandler;
     fbEcatDiag : FB_EcatDiagWrapper;
 
-	idx: UINT;
-	
-	//System Time
-	 {attribute 'pytmc' := '
+    idx: UINT;
+
+    //System Time
+     {attribute 'pytmc' := '
         pv: @(PREFIX)SystemDT
         io: i
      '}
-	SystemTime:DINT;
-	fbTime : FB_LocalSystemTime := ( bEnable := TRUE, dwCycle := 1 ); //Get current system time, used for override
-	fbTime_to_UTC: FB_TzSpecificLocalTimeToSystemTime;
-	fbGetTimeZone: FB_GetTimeZoneInformation;
+    SystemTime:DINT;
+    fbTime : FB_LocalSystemTime := ( bEnable := TRUE, dwCycle := 1 ); //Get current system time, used for override
+    fbTime_to_UTC: FB_TzSpecificLocalTimeToSystemTime;
+    fbGetTimeZone: FB_GetTimeZoneInformation;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -26,12 +26,12 @@ END_VAR
 
 IF Initialize THEN
     Initialize := FALSE;
-	
-	// Setting apertures to zero for now
-	FOR idx := 1 TO PMPS_GVL.MAX_APERTURES DO
-		PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Height := 0;
-		PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Width := 0;
-	END_FOR
+
+    // Setting apertures to zero for now
+    FOR idx := 1 TO PMPS_GVL.MAX_APERTURES DO
+        PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Height := 0;
+        PMPS_GVL.stCurrentBeamParameters.astApertures[idx].Width := 0;
+    END_FOR
 END_IF
 
 // Ethercat Diagnostics
