@@ -44,7 +44,7 @@
 		<Box File="Box 23 (CU1128).xti" Id="23">
 			<EtherCAT PortABoxInfo="#x01000016"/>
 		</Box>
-		<Box File="Box 40 (EL6695-0002).xti" Id="40">
+		<Box File="plc-txi-lfe-motion.xti" Id="40">
 			<EtherCAT PortABoxInfo="#x0200001d"/>
 		</Box>
 		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="9" MaxSwitchFrames="260">
@@ -52,6 +52,7 @@
 			<SyncUnit Name="alt" NoDeleteIfUnused="true"/>
 			<SyncUnit Name="lfe" NoDeleteIfUnused="true"/>
 			<SyncUnit Name="alt2" NoDeleteIfUnused="true"/>
+			<SyncUnit Name="txi" NoDeleteIfUnused="true"/>
 		</EtherCAT>
 	</Device>
 </TcSmItem>
