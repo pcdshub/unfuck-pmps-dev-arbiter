@@ -25,11 +25,17 @@
 			<Name>Term 28 (CU1128-B)</Name>
 			<ImageId>1001</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04685432" RevisionNo="#x00010001" PortPhys="4883" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="CU1128 6x EtherCAT junction - Dev A" Desc="CU1128-B" PortABoxInfo="#x02000017"/>
+			<Box File="Box 36 (EL6695-0002).xti" Id="36">
+				<EtherCAT PortABoxInfo="#x0100001c"/>
+			</Box>
 		</Box>
 		<Box BoxType="9099" Id="29">
 			<Name>Term 29 (CU1128-C)</Name>
 			<ImageId>1002</ImageId>
 			<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x04685432" RevisionNo="#x00010002" PortPhys="4371" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="CU1128 6x EtherCAT junction - Dev B" Desc="CU1128-C" PortABoxInfo="#x0200001c"/>
+			<Box File="Box 38 (EL6692).xti" Id="38">
+				<EtherCAT PortABoxInfo="#x0300001d"/>
+			</Box>
 			<Box File="plc-xrt-homs.xti" Id="1">
 				<EtherCAT PortABoxInfo="#x0100001d"/>
 			</Box>
