@@ -206,7 +206,7 @@ CurrentBPUpdate
 
         {attribute 'pytmc' := '
             pv: @(PREFIX)L:Mode
-            link: SIOC:FEEH:MP01:LCLSMODE_RBV
+            link: SIOC:FEEH:MP01:FACMODE_RBV
         '}
         fbHXR_MachineMode : FB_LREALFromEPICS := (
             iMaximumValidSeverity := 2);

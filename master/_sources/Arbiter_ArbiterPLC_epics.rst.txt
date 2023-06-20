@@ -22101,30 +22101,30 @@ Database Records
 
     * - $(PREFIX)L:Mode:EPICSLink_RBV
       - ai
-      - Internal variable used to monitor EPICS PV in PLC; Linked to PV: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '']
+      - Internal variable used to monitor EPICS PV in PLC; Linked to PV: ['SIOC:FEEH:MP01:FACMODE_RBV', '']
       - | io: output
-        | link: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '']
+        | link: ['SIOC:FEEH:MP01:FACMODE_RBV', '']
 
 
     * - $(PREFIX)L:Mode:EPICSLink
       - ao
-      - Internal variable used to monitor EPICS PV in PLC; Linked to PV: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '']
+      - Internal variable used to monitor EPICS PV in PLC; Linked to PV: ['SIOC:FEEH:MP01:FACMODE_RBV', '']
       - | io: output
-        | link: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '']
+        | link: ['SIOC:FEEH:MP01:FACMODE_RBV', '']
 
 
     * - $(PREFIX)L:Mode:EPICSLink:LinkSeverity_RBV
       - longin
-      - Internal variable used to monitor EPICS PV severity in PLC; Linked to PV: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '*EPICSLink.SEVR']
+      - Internal variable used to monitor EPICS PV severity in PLC; Linked to PV: ['SIOC:FEEH:MP01:FACMODE_RBV', '*EPICSLink.SEVR']
       - | io: output
-        | link: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '*EPICSLink.SEVR']
+        | link: ['SIOC:FEEH:MP01:FACMODE_RBV', '*EPICSLink.SEVR']
 
 
     * - $(PREFIX)L:Mode:EPICSLink:LinkSeverity
       - longout
-      - Internal variable used to monitor EPICS PV severity in PLC; Linked to PV: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '*EPICSLink.SEVR']
+      - Internal variable used to monitor EPICS PV severity in PLC; Linked to PV: ['SIOC:FEEH:MP01:FACMODE_RBV', '*EPICSLink.SEVR']
       - | io: output
-        | link: ['SIOC:FEEH:MP01:LCLSMODE_RBV', '*EPICSLink.SEVR']
+        | link: ['SIOC:FEEH:MP01:FACMODE_RBV', '*EPICSLink.SEVR']
 
 
     * - $(PREFIX)PE:EEnergyValid_RBV
