@@ -61,6 +61,14 @@ VAR
     st1l0Watcher : FB_LStopper(
         PMPS.L_Stopper.ST1L0,
         'ST1L0');
+	  {attribute 'TcLinkTo' := '
+                .i_StopperInLS:=TIIB[PPS_Stoppers]^Channel 3^ST1L1_PPS_IN;
+                .i_StopperOutLS:=TIIB[PPS_Stoppers]^Channel 4^ST1L1_PPS_OUT;
+                .q_StopperIN_Relay:=TIIB[PMPS_Premp]^Channel 6^Output;
+    '}
+    st1l1Watcher : FB_LStopper(
+        PMPS.L_Stopper.ST1L1,
+        'ST1L1');
      idx : UINT := 1;
     bcBitmask : WORD:=0;
 END_VAR
@@ -88,6 +96,7 @@ fbEPICSLMachineMode(BP:=PMPS_GVL.stCurrentBeamParameters, fbMPS_MachineMode:=fbH
 
 // Watching and relaying stopper statuses
 st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
+st1l1Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
 
 ]]></ST>
     </Implementation>
