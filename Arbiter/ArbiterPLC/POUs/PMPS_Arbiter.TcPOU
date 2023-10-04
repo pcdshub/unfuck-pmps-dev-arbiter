@@ -75,23 +75,33 @@ VAR
                                 '}
     plc_lfe_gatt_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF12);
 
-    (*{attribute 'pytmc' := '
-    pv: @(PREFIX)SubSysIO:PLC2
-    '}*)
-    {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[SubSysPLC2]^IO Inputs^RequestedBP;
-                                .i_xNewRequest:=TIIB[SubSysPLC2]^IO Inputs^xNewRequest;
-                                .o_CurrentBP:=TIIB[SubSysPLC2]^IO Outputs^CurrentBP;
-                                .i_Connected:=TIIB[SubSysPLC2]^SYNC Inputs^External device not connected;
-                                .i_WcState:=TIIB[SubSysPLC2]^WcState^WcState;
-                                .i_TxPDOState:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO state;
-                                .i_TxPDOToggle:=TIIB[SubSysPLC2]^SYNC Inputs^TxPDO toggle;
+
+
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-vacuum]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-txi-lfe-vacuum]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-txi-lfe-vacuum]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-txi-lfe-vacuum]^WcState^WcStateIn;
+                                .i_TxPDOState:=TIIB[plc-txi-lfe-vacuum]^SYNC Inputs^TxPDO state;
                                 '}
-    //fbSubSys2_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF10);
+    plc_txi_lfe_vacuum_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF14);
 
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-motion]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-txi-lfe-motion]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-txi-lfe-motion]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-txi-lfe-motion]^WcState^WcStateIn;
+                                .i_TxPDOState:=TIIB[plc-txi-lfe-motion]^SYNC Inputs^TxPDO state;
+                                '}
+    plc_txi_lfe_motion_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF15);
 
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-optics]^IO Inputs^RequestedBP;
+                                .o_CurrentBP:=TIIB[plc-txi-lfe-optics]^IO Outputs^CurrentBP;
+                                .i_Connected:=TIIB[plc-txi-lfe-optics]^SYNC Inputs^External device not connected;
+                                .i_WcState:=TIIB[plc-txi-lfe-optics]^WcState^WcStateIn;
+                                .i_TxPDOState:=TIIB[plc-txi-lfe-motion]^SYNC Inputs^TxPDO state;
+                                '}
+    plc_txi_lfe_optics_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF16);
 
     fbSetPE	:	PE_Ranges;
-
 
 END_VAR
 ]]></Declaration>
@@ -104,10 +114,16 @@ END_VAR
 fbBPControl(Arbiter:=g_fbArbiter1);
 
 // Updating arbiter with subsystem requests.
+// FEE LFE
 plc_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE MOTION');
 plc_lfe_optics_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset , sName:= 'LFE OPTICS');
 plc_lfe_vac_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE VACUUM');
 plc_lfe_gatt_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'LFE GEMS');
+// TXI LFE
+plc_txi_lfe_vacuum_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'TXI LFE VACUUM');
+plc_txi_lfe_motion_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'TXI LFE MOTION');
+plc_txi_lfe_optics_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'TXI LFE OPTICS');
+//XRT
 plc_xrt_homs_PMPS_IO(Arbiter:=GVL.g_fbArbiter1, fbFFHWO:=GVL.g_FastFaultOutput1, Reset:=GVL.AttemptReset, sName:= 'XRT OPTICS');
 
 //Overriding the preemptive requests from the optics systems until they are valid
