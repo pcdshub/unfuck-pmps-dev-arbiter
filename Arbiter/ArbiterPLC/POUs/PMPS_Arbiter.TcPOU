@@ -77,23 +77,23 @@ VAR
 
 
 
-	 {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-vacuum]^IO Inputs^RequestedBP;
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-vacuum]^IO Inputs^RequestedBP;
                                 .o_CurrentBP:=TIIB[plc-txi-lfe-vacuum]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[plc-txi-lfe-vacuum]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[plc-txi-lfe-vacuum]^WcState^WcStateIn;
                                 .i_TxPDOState:=TIIB[plc-txi-lfe-vacuum]^SYNC Inputs^TxPDO state;
                                 '}
     plc_txi_lfe_vacuum_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF14);
-	
-	 {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-motion]^IO Inputs^RequestedBP;
+
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-motion]^IO Inputs^RequestedBP;
                                 .o_CurrentBP:=TIIB[plc-txi-lfe-motion]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[plc-txi-lfe-motion]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[plc-txi-lfe-motion]^WcState^WcStateIn;
                                 .i_TxPDOState:=TIIB[plc-txi-lfe-motion]^SYNC Inputs^TxPDO state;
                                 '}
     plc_txi_lfe_motion_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF15);
-	
-	 {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-optics]^IO Inputs^RequestedBP;
+
+     {attribute 'TcLinkTo' := '.i_RequestedBP:=TIIB[plc-txi-lfe-optics]^IO Inputs^RequestedBP;
                                 .o_CurrentBP:=TIIB[plc-txi-lfe-optics]^IO Outputs^CurrentBP;
                                 .i_Connected:=TIIB[plc-txi-lfe-optics]^SYNC Inputs^External device not connected;
                                 .i_WcState:=TIIB[plc-txi-lfe-optics]^WcState^WcStateIn;
@@ -102,7 +102,7 @@ VAR
     plc_txi_lfe_optics_PMPS_IO : FB_ArbiterToSubSys_IO := (RequestingSystemID := 16#FF16);
 
     fbSetPE	:	PE_Ranges;
-	
+
 END_VAR
 ]]></Declaration>
     <Implementation>
