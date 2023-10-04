@@ -94,8 +94,8 @@ Box Hierarchy
     #. Term 29 (CU1128-C) [ID: 29]
             CU1128 6x EtherCAT junction - Dev B
 
-        #. **plc-txi-lfe-vacuum [ID: 38]**
-                  ( **SyncUnit=txi** )    EL6692 EtherCAT Bridge terminal (Secondary)
+        #. **plc-txi-lfe-vacuum [ID: 41]**
+                EL6695 EtherCAT Bridge terminal (Secondary)
 
 
 
