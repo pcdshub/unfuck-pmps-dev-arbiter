@@ -1,0 +1,21 @@
+
+Pragmas
+-------
+
+.. csv-table::
+    :header: PLC Name, Total Pragmas, Errors
+    :align: center
+
+    :ref:`ArbiterPLC <ArbiterPLC_overview_pragmas>`, 39, 0
+
+
+.. _ArbiterPLC_overview_pragmas:
+
+
+ArbiterPLC
+^^^^^^^^^^
+
+Total pragmas found: 39
+Total linter errors: 0
+
+

@@ -1,0 +1,110 @@
+Box Hierarchy
+-------------
+
+
+#. **Term 12 (EK1200) [ID: 5]**
+        EK1200-5000 EtherCAT Power supply (2A E-Bus)
+
+    #. FFO [ID: 8]
+            EL2202 2Ch. Dig. Output 24V, 0.5A
+
+
+
+    #. PMPS_Premp [ID: 9]
+            EL2809 16Ch. Dig. Output 24V, 0.5A
+
+
+
+    #. E3 (EK1122) [ID: 12]
+            EK1122 2 port EtherCAT junction
+
+        #. **950-101W-R4-MPS-1 [ID: 13]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. PPS_Stoppers [ID: 14]
+                    EL1008 8Ch. Dig. Input 24V, 3ms
+
+
+
+            #. Term 15 (EL1008) [ID: 15]
+                    EL1008 8Ch. Dig. Input 24V, 3ms
+
+
+
+            #. MPS_Relay [ID: 16]
+                    EL2004 4Ch. Dig. Output 24V, 0.5A
+
+
+
+            #. Term 17 (EL2004) [ID: 17]
+                    EL2004 4Ch. Dig. Output 24V, 0.5A
+
+
+
+            #. Term 30 (EL9011) [ID: 30]
+                    EL9011 End Terminal
+
+
+
+
+
+
+
+    #. Term 22 (EK1110) [ID: 22]
+            EK1110 EtherCAT extension
+
+
+
+
+
+
+#. **Box 23 (CU1128) [ID: 23]**
+        CU1128 6x EtherCAT junction
+
+    #. plc-lfe-optics [ID: 24]
+              ( **SyncUnit=lfe** )    EL6695 EtherCAT Bridge terminal (Secondary)
+
+
+
+    #. plc-lfe-motion [ID: 2]
+              ( **SyncUnit=lfe** )    EL6695 EtherCAT Bridge terminal (Secondary)
+
+
+
+    #. plc-lfe-vacuum [ID: 26]
+              ( **SyncUnit=lfe** )    EL6692 EtherCAT Bridge terminal (Secondary)
+
+
+
+    #. plc-lfe-gem [ID: 34]
+            EL6692 EtherCAT Bridge terminal (Secondary)
+
+
+
+    #. Term 28 (CU1128-B) [ID: 28]
+            CU1128 6x EtherCAT junction - Dev A
+
+        #. **plc-txi-lfe-optics [ID: 36]**
+                  ( **SyncUnit=txi** )    EL6695 EtherCAT Bridge terminal (Secondary)
+
+
+
+
+
+    #. Term 29 (CU1128-C) [ID: 29]
+            CU1128 6x EtherCAT junction - Dev B
+
+        #. **plc-txi-lfe-vacuum [ID: 41]**
+                EL6695 EtherCAT Bridge terminal (Secondary)
+
+
+
+        #. **plc-xrt-homs [ID: 1]**
+                  ( **SyncUnit=alt** )    EL6695 EtherCAT Bridge terminal (Secondary)
+
+
+
+
+
+
+
