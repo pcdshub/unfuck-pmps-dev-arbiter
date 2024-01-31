@@ -366,13 +366,6 @@
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
-					<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
-					<Comment>
-						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
-					</Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
 					<Name>MAIN.fbEcatDiag.wFrmXWcState</Name>
 					<Comment>
 						<![CDATA[ link to task related ethercat frame state (Frm1WcState)]]>
@@ -415,17 +408,6 @@
 					<Type>UINT</Type>
 				</Var>
 				<Var>
-					<Name>P_SATT.i_bWcStateOut_lfe_mot</Name>
-					<Comment>
-						<![CDATA[ plc-lfe-motion interface diagnostics]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>P_SATT.i_bWcStateIn_lfe_mot</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>CurrentBPUpdate.st1l0Watcher.i_StopperOutLS</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -440,6 +422,20 @@
 				<Var>
 					<Name>CurrentBPUpdate.st1l1Watcher.i_StopperInLS</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>CurrentBPUpdate.i_MR1L0_ENC</Name>
+					<Comment>
+						<![CDATA[/////////////////////]]>
+					</Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>CurrentBPUpdate.i_MR1L1_ENC</Name>
+					<Comment>
+						<![CDATA[/////////////////////]]>
+					</Comment>
+					<Type>UDINT</Type>
 				</Var>
 				<Var>
 					<Name>PMPS_Arbiter.plc_lfe_motion_PMPS_IO.i_RequestedBP</Name>
@@ -1737,6 +1733,17 @@
 					<Type GUID="{6D319B26-4590-2152-3DE7-3BA9B629CA65}">ARRAY [1..16] OF ST_PMPS_Attenuator_IO</Type>
 				</Var>
 				<Var>
+					<Name>P_SATT.i_bWcStateOut_lfe_mot</Name>
+					<Comment>
+						<![CDATA[ plc-lfe-motion interface diagnostics]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>P_SATT.i_bWcStateIn_lfe_mot</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>P_SATT.i_nState_lfe_mot</Name>
 					<Type>UINT</Type>
 				</Var>
@@ -1749,6 +1756,20 @@
 						<![CDATA[All Sold attenuators requests are summerrized into this one output]]>
 					</Comment>
 					<Type>REAL</Type>
+				</Var>
+				<Var>
+					<Name>CurrentBPUpdate.q_MR1L0_TXI</Name>
+					<Comment>
+						<![CDATA[ Signal to accel. MPS that MR1L0 is TXI]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>CurrentBPUpdate.q_MR1L1_VETO</Name>
+					<Comment>
+						<![CDATA[ Signal to accel. MPS that MR1L1 is in ]]>
+					</Comment>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>CurrentBPUpdate.st1l0Watcher.q_StopperOUT_Relay</Name>
@@ -3035,6 +3056,13 @@
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2024-01-30T16:00:33">
+				<OwnerA Name="InputDst" Prefix="TIPC^ArbiterPLC^ArbiterPLC Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
+						<Link VarA="CurrentBPUpdate.i_MR1LO_ENC" TypeA="UDINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000008}" VarB="IO Inputs^MR1L0_Pitch_ENC" AutoLink="true" Size="32" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="2" OTCID="#x08502002"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
@@ -3052,6 +3080,7 @@
 				<Link VarA="PlcTask Inputs^MAIN.fbEcatDiag.wFrmXWcState" VarB="Inputs^Frm1WcState" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 28 (CU1128-B)^plc-txi-lfe-optics">
+				<Link VarA="PlcTask Inputs^CurrentBPUpdate.i_MR1L1_ENC" VarB="IO Inputs^MR1L1_Y_ENC" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_txi_lfe_optics_PMPS_IO.i_Connected" VarB="SYNC Inputs^External device not connected" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_txi_lfe_optics_PMPS_IO.i_RequestedBP" VarB="IO Inputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_txi_lfe_optics_PMPS_IO.i_WcState" VarB="WcState^WcStateIn" AutoLink="true"/>
@@ -3091,6 +3120,7 @@
 				<Link VarA="PlcTask Outputs^P_SATT.q_SattArrayReq" VarB="IO Outputs^SattArrayReq" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics">
+				<Link VarA="PlcTask Inputs^CurrentBPUpdate.i_MR1L0_ENC" VarB="IO Inputs^MR1L0_Pitch_ENC" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_Connected" VarB="SYNC Inputs^External device not connected" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_RequestedBP" VarB="IO Inputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PMPS_Arbiter.plc_lfe_optics_PMPS_IO.i_TxPDOState" VarB="SYNC Inputs^TxPDO state" AutoLink="true"/>

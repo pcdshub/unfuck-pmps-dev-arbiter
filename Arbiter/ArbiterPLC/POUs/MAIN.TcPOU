@@ -55,6 +55,7 @@ P_SATT();
 
 fbLogHandler();
 
+P_OpticsProtection();
 
 //FF
 g_FastFaultOutput1.Execute();
