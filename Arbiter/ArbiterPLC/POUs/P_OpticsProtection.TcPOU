@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="P_OpticsProtection" Id="{8fbf9512-943e-4c01-b540-1fc3ec1adbe5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_OpticsProtection
+VAR
+
+    fbFF    :    FB_FastFault :=(
+        i_DevName := 'LFE OPTICS',
+        i_Desc := 'Fault occurs when MR1L0 is in L0 State and MR1L1 in IN.',
+        i_TypeCode := 16#404 );
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+fbFF(i_xOK := NOT(PMPS.PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.L_Stopper.MR1L0_L0]
+                    AND PMPS.PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.L_Stopper.MR1L1_IN]),
+        io_fbFFHWO :=GVL.g_FastFaultOutput1 , i_xAutoReset := );]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

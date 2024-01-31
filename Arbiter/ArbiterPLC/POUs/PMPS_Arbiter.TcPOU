@@ -142,7 +142,7 @@ fbCuInterface(BP := PMPS_GVL.stRequestedBeamParameters);
 fbBeamClassWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
                     i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
                     io_fbFFHWO:= GVL.g_FastFaultOutput1,
-                    i_xReset := GVL.AttemptReset);
+                    i_xAutoReset := GVL.AttemptReset);
 
 // Keep an eye on the photon energy
 fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,

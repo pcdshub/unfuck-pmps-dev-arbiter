@@ -61,6 +61,9 @@
     <Compile Include="POUs\PMPS_Arbiter.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\P_OpticsProtection.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\P_SATT.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -106,16 +109,13 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="LCLS General,2.6.0,SLAC">
+    <LibraryReference Include="LCLS General,2.10.0,SLAC">
       <Namespace>LCLS_General</Namespace>
     </LibraryReference>
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderResolution Include="LCLS General">
-      <Resolution>LCLS General, 2.6.0 (SLAC)</Resolution>
-    </PlaceholderResolution>
     <PlaceholderResolution Include="PMPS">
-      <Resolution>PMPS, 3.0.14 (SLAC - LCLS)</Resolution>
+      <Resolution>PMPS, 3.2.0 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="SysDir">
       <Resolution>SysDir, 3.5.8.0 (System)</Resolution>
