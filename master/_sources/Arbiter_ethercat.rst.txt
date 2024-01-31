@@ -1,110 +1,499 @@
-Box Hierarchy
--------------
 
-
-#. **Term 12 (EK1200) [ID: 5]**
-        EK1200-5000 EtherCAT Power supply (2A E-Bus)
-
-    #. FFO [ID: 8]
-            EL2202 2Ch. Dig. Output 24V, 0.5A
-
-
-
-    #. PMPS_Premp [ID: 9]
-            EL2809 16Ch. Dig. Output 24V, 0.5A
-
-
-
-    #. E3 (EK1122) [ID: 12]
-            EK1122 2 port EtherCAT junction
-
-        #. **950-101W-R4-MPS-1 [ID: 13]**
-                EK1100 EtherCAT Coupler (2A E-Bus)
-
-            #. PPS_Stoppers [ID: 14]
-                    EL1008 8Ch. Dig. Input 24V, 3ms
-
-
-
-            #. Term 15 (EL1008) [ID: 15]
-                    EL1008 8Ch. Dig. Input 24V, 3ms
-
-
-
-            #. MPS_Relay [ID: 16]
-                    EL2004 4Ch. Dig. Output 24V, 0.5A
-
-
-
-            #. Term 17 (EL2004) [ID: 17]
-                    EL2004 4Ch. Dig. Output 24V, 0.5A
-
-
-
-            #. Term 30 (EL9011) [ID: 30]
-                    EL9011 End Terminal
-
-
-
-
-
-
-
-    #. Term 22 (EK1110) [ID: 22]
-            EK1110 EtherCAT extension
-
-
-
-
-
-
-#. **Box 23 (CU1128) [ID: 23]**
-        CU1128 6x EtherCAT junction
-
-    #. plc-lfe-optics [ID: 24]
-              ( **SyncUnit=lfe** )    EL6695 EtherCAT Bridge terminal (Secondary)
-
-
-
-    #. plc-lfe-motion [ID: 2]
-              ( **SyncUnit=lfe** )    EL6695 EtherCAT Bridge terminal (Secondary)
-
-
-
-    #. plc-lfe-vacuum [ID: 26]
-              ( **SyncUnit=lfe** )    EL6692 EtherCAT Bridge terminal (Secondary)
-
-
-
-    #. plc-lfe-gem [ID: 34]
-            EL6692 EtherCAT Bridge terminal (Secondary)
-
-
-
-    #. Term 28 (CU1128-B) [ID: 28]
-            CU1128 6x EtherCAT junction - Dev A
-
-        #. **plc-txi-lfe-optics [ID: 36]**
-                  ( **SyncUnit=txi** )    EL6695 EtherCAT Bridge terminal (Secondary)
-
-
-
-
-
-    #. Term 29 (CU1128-C) [ID: 29]
-            CU1128 6x EtherCAT junction - Dev B
-
-        #. **plc-txi-lfe-vacuum [ID: 41]**
-                EL6695 EtherCAT Bridge terminal (Secondary)
-
-
-
-        #. **plc-xrt-homs [ID: 1]**
-                  ( **SyncUnit=alt** )    EL6695 EtherCAT Bridge terminal (Secondary)
-
-
-
-
-
-
-
+EtherCAT Terminals
+------------------
+
+.. raw:: html
+
+    <ul class="tree">
+
+
+
+      <li>
+    <details open>
+      <summary>
+            <table width="100%">
+      <tr>
+        <td width="10%">
+          ID=5:
+        </td>
+        <td width="75%">Term 12 (EK1200)
+        </td>
+        <td>        </td>
+      </tr>
+      <tr>
+        <td>
+                  </td>
+        <td colspan="2">
+          EK1200-5000 EtherCAT Power supply (2A E-Bus)
+        </td>
+      </tr>
+    </table>
+      </summary>
+      <ul>
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=8:
+                  </td>
+                  <td width="75%">FFO
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL2202 2Ch. Dig. Output 24V, 0.5A
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=9:
+                  </td>
+                  <td width="75%">PMPS_Premp
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL2809 16Ch. Dig. Output 24V, 0.5A
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+              <details open>
+                <summary>
+                      <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=12:
+                  </td>
+                  <td width="75%">E3 (EK1122)
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EK1122 2 port EtherCAT junction
+                  </td>
+                </tr>
+              </table>
+                </summary>
+                <ul>
+
+                      <li>
+                        <details open>
+                          <summary>
+                                <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=13:
+                            </td>
+                            <td width="75%">950-101W-R4-MPS-1
+                            </td>
+                            <td>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EK1100 EtherCAT Coupler (2A E-Bus)
+                            </td>
+                          </tr>
+                        </table>
+                          </summary>
+                          <ul>
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=14:
+                                      </td>
+                                      <td width="75%">PPS_Stoppers
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL1008 8Ch. Dig. Input 24V, 3ms
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=15:
+                                      </td>
+                                      <td width="75%">Term 15 (EL1008)
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL1008 8Ch. Dig. Input 24V, 3ms
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=16:
+                                      </td>
+                                      <td width="75%">MPS_Relay
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL2004 4Ch. Dig. Output 24V, 0.5A
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=17:
+                                      </td>
+                                      <td width="75%">Term 17 (EL2004)
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL2004 4Ch. Dig. Output 24V, 0.5A
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+
+                                <li>
+                                      <table width="100%">
+                                    <tr>
+                                      <td width="10%">
+                                        ID=30:
+                                      </td>
+                                      <td width="75%">Term 30 (EL9011)
+                                      </td>
+                                      <td>        </td>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                                </td>
+                                      <td colspan="2">
+                                        EL9011 End Terminal
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </li>
+
+                          </ul>
+                        </details>
+                      </li>
+
+                </ul>
+              </details>
+            </li>
+
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=22:
+                  </td>
+                  <td width="75%">Term 22 (EK1110)
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EK1110 EtherCAT extension
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+      </ul>
+    </details>
+  </li>
+
+
+
+      <li>
+    <details open>
+      <summary>
+            <table width="100%">
+      <tr>
+        <td width="10%">
+          ID=23:
+        </td>
+        <td width="75%">Box 23 (CU1128)
+        </td>
+        <td>        </td>
+      </tr>
+      <tr>
+        <td>
+                  </td>
+        <td colspan="2">
+          CU1128 6x EtherCAT junction
+        </td>
+      </tr>
+    </table>
+      </summary>
+      <ul>
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=24:
+                  </td>
+                  <td width="75%">plc-lfe-optics
+                  </td>
+                  <td>            <b>
+                        SyncUnit lfe
+                      </b>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL6695 EtherCAT Bridge terminal (Secondary)
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=2:
+                  </td>
+                  <td width="75%">plc-lfe-motion
+                  </td>
+                  <td>            <b>
+                        SyncUnit lfe
+                      </b>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL6695 EtherCAT Bridge terminal (Secondary)
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=26:
+                  </td>
+                  <td width="75%">plc-lfe-vacuum
+                  </td>
+                  <td>            <b>
+                        SyncUnit lfe
+                      </b>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL6692 EtherCAT Bridge terminal (Secondary)
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+                  <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=34:
+                  </td>
+                  <td width="75%">plc-lfe-gem
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    EL6692 EtherCAT Bridge terminal (Secondary)
+                  </td>
+                </tr>
+              </table>
+            </li>
+
+
+            <li>
+              <details open>
+                <summary>
+                      <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=28:
+                  </td>
+                  <td width="75%">Term 28 (CU1128-B)
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    CU1128 6x EtherCAT junction - Dev A
+                  </td>
+                </tr>
+              </table>
+                </summary>
+                <ul>
+
+                      <li>
+                            <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=36:
+                            </td>
+                            <td width="75%">plc-txi-lfe-optics
+                            </td>
+                            <td>            <b>
+                                  SyncUnit txi
+                                </b>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EL6695 EtherCAT Bridge terminal (Secondary)
+                            </td>
+                          </tr>
+                        </table>
+                      </li>
+
+                </ul>
+              </details>
+            </li>
+
+
+            <li>
+              <details open>
+                <summary>
+                      <table width="100%">
+                <tr>
+                  <td width="10%">
+                    ID=29:
+                  </td>
+                  <td width="75%">Term 29 (CU1128-C)
+                  </td>
+                  <td>        </td>
+                </tr>
+                <tr>
+                  <td>
+                            </td>
+                  <td colspan="2">
+                    CU1128 6x EtherCAT junction - Dev B
+                  </td>
+                </tr>
+              </table>
+                </summary>
+                <ul>
+
+                      <li>
+                            <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=41:
+                            </td>
+                            <td width="75%">plc-txi-lfe-vacuum
+                            </td>
+                            <td>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EL6695 EtherCAT Bridge terminal (Secondary)
+                            </td>
+                          </tr>
+                        </table>
+                      </li>
+
+
+                      <li>
+                            <table width="100%">
+                          <tr>
+                            <td width="10%">
+                              ID=1:
+                            </td>
+                            <td width="75%">plc-xrt-homs
+                            </td>
+                            <td>            <b>
+                                  SyncUnit alt
+                                </b>        </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                      </td>
+                            <td colspan="2">
+                              EL6695 EtherCAT Bridge terminal (Secondary)
+                            </td>
+                          </tr>
+                        </table>
+                      </li>
+
+                </ul>
+              </details>
+            </li>
+
+      </ul>
+    </details>
+  </li>
+
+
+    </ul>

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Links &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_boxes.html">Boxes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Links</a></li>
 </ul>
@@ -99,6 +103,16 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^CurrentBPUpdate.i_MR1L0_ENC</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics</p></td>
+<td><p>IO Inputs^MR1L0_Pitch_ENC</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArbiterPLC Instance</p></td>
+<td><p>PlcTask Inputs^CurrentBPUpdate.i_MR1L1_ENC</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 28 (CU1128-B)^plc-txi-lfe-optics</p></td>
+<td><p>IO Inputs^MR1L1_Y_ENC</p></td>
+</tr>
 <tr class="row-even"><td><p>ArbiterPLC Instance</p></td>
 <td><p>PlcTask Inputs^CurrentBPUpdate.st1l0Watcher.i_StopperInLS</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers</p></td>
@@ -435,203 +449,203 @@
 <td><p>IO Outputs^SattArrayReq</p></td>
 </tr>
 <tr class="row-odd"><td><p>InputDst</p></td>
+<td><p>CurrentBPUpdate.i_MR1LO_ENC</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-optics</p></td>
+<td><p>IO Inputs^MR1L0_Pitch_ENC</p></td>
+</tr>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_Connected</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>SYNC Inputs^External device not connected</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
-<td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_RequestedBP</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
-<td><p>IO Inputs^RequestedBP</p></td>
-</tr>
 <tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_RequestedBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>IO Inputs^RequestedBP</p></td>
 </tr>
 <tr class="row-even"><td><p>InputDst</p></td>
+<td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_RequestedBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
+<td><p>IO Inputs^RequestedBP</p></td>
+</tr>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_TxPDOState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>SYNC Inputs^TxPDO state</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.i_WcState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>WcState^WcState</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys2_PMPS_IO.i_xNewRequest</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
 <td><p>IO Inputs^xNewRequest</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_Connected</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
 <td><p>SYNC Inputs^External device not connected</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
-<td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_RequestedBP</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
-<td><p>IO Inputs^RequestedBP</p></td>
-</tr>
 <tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_RequestedBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
 <td><p>IO Inputs^RequestedBP</p></td>
 </tr>
 <tr class="row-even"><td><p>InputDst</p></td>
+<td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_RequestedBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
+<td><p>IO Inputs^RequestedBP</p></td>
+</tr>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_TxPDOState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
 <td><p>SYNC Inputs^TxPDO state</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.fbSubSys2_Requestor.i_WcState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
 <td><p>WcState^WcState</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.i_bFastFaultOutput_plc_xrt_homs</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^Term 29 (CU1128-C)^plc-xrt-homs</p></td>
 <td><p>IO Inputs^FFO1</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.lfe_PMPS_IO.i_Connected</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>SYNC Inputs^External device not connected</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.lfe_PMPS_IO.i_RequestedBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>IO Inputs^RequestedBP</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.lfe_PMPS_IO.i_TxPDOState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>SYNC Inputs^TxPDO state</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.motion.i_Connected</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^plc-txi-lfe-motion</p></td>
 <td><p>SYNC Inputs^External device not connected</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.motion.i_RequestedBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^plc-txi-lfe-motion</p></td>
 <td><p>IO Inputs^RequestedBP</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.motion.i_TxPDOState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^plc-txi-lfe-motion</p></td>
 <td><p>SYNC Inputs^TxPDO state</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.motion.i_WcState</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^plc-txi-lfe-motion</p></td>
 <td><p>WcState^WcStateIn</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.i_RequestedBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt</p></td>
 <td><p>IO Inputs^RequestedBP</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.st1l0Watcher.i_StopperInLS</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers</p></td>
 <td><p>Channel 1^ST1L0_PPS_IN</p></td>
 </tr>
-<tr class="row-even"><td><p>InputDst</p></td>
+<tr class="row-odd"><td><p>InputDst</p></td>
 <td><p>PMPS_Arbiter.st1l0Watcher.i_StopperOutLS</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^PPS_Stoppers</p></td>
 <td><p>Channel 2^ST1L0_PPS_OUT</p></td>
 </tr>
-<tr class="row-odd"><td><p>InputDst</p></td>
+<tr class="row-even"><td><p>InputDst</p></td>
 <td><p>P_SATT.i_nTranToStat_LFE</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>IO Inputs^SattArrayStatus</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>MachineSimulation.q_SimCurrBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1 (EL6692)</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.dumb</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_BC</p></td>
 <td><p>Channel 1^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[10]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 10^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[11]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 11^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[12]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 12^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[13]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 13^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[14]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 14^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[15]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 15^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[16]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 16^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[5]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 5^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[6]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 6^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[7]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 7^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[8]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 8^Output</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbMPSInterface.q_BC_ASSERTION_LINES[9]</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_Premp</p></td>
 <td><p>Channel 9^Output</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
-<td><p>PMPS_Arbiter.fbSubSys1_Requestor.o_CurrentBP</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
-<td><p>IO Outputs^CurrentBP</p></td>
-</tr>
 <tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.fbSubSys1_Requestor.o_CurrentBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
 <tr class="row-even"><td><p>OutputSrc</p></td>
-<td><p>PMPS_Arbiter.fbSubSys2_Requestor.o_CurrentBP</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
+<td><p>PMPS_Arbiter.fbSubSys1_Requestor.o_CurrentBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC1</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
 <tr class="row-odd"><td><p>OutputSrc</p></td>
@@ -640,31 +654,36 @@
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
 <tr class="row-even"><td><p>OutputSrc</p></td>
+<td><p>PMPS_Arbiter.fbSubSys2_Requestor.o_CurrentBP</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EK1122)^SubSysPLC2</p></td>
+<td><p>IO Outputs^CurrentBP</p></td>
+</tr>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.lfe_PMPS_IO.o_CurrentBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.motion.o_CurrentBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^plc-txi-lfe-motion</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.plc_lfe_gatt_PMPS_IO.o_CurrentBP</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-gatt</p></td>
 <td><p>IO Outputs^CurrentBP</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.st1l0Watcher.q_StopperIN_Relay</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay</p></td>
 <td><p>Channel 2^ST1L0_RELAY_IN</p></td>
 </tr>
-<tr class="row-even"><td><p>OutputSrc</p></td>
+<tr class="row-odd"><td><p>OutputSrc</p></td>
 <td><p>PMPS_Arbiter.st1l0Watcher.q_StopperOUT_Relay</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 12 (EK1200)^E3 (EK1122)^950-101W-R4-MPS-1^MPS_Relay</p></td>
 <td><p>Channel 1^ST1L0_RELAY_OUT</p></td>
 </tr>
-<tr class="row-odd"><td><p>OutputSrc</p></td>
+<tr class="row-even"><td><p>OutputSrc</p></td>
 <td><p>P_SATT.q_nTranSattReq</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Box 23 (CU1128)^plc-lfe-motion</p></td>
 <td><p>IO Outputs^SattArrayReq</p></td>
@@ -684,7 +703,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

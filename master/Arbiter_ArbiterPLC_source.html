@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DUTs &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,7 +50,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_boxes.html">Boxes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_links.html">Links</a></li>
 </ul>
@@ -73,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#fast-faults-evaluate">Fast_Faults_Evaluate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#machinesimulation">MachineSimulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main">MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#p-opticsprotection">P_OpticsProtection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#p-satt">P_SATT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pmps-arbiter">PMPS_Arbiter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
@@ -322,6 +327,33 @@
         <span class="s1">&#39;ST1L1&#39;</span><span class="p">);</span>
      <span class="n">idx</span> <span class="p">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="n">bcBitmask</span> <span class="p">:</span> <span class="n">WORD</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span>
+     <span class="o">//</span> <span class="n">MR1L0</span> <span class="n">Veto</span>
+    <span class="o">////////////////////////</span>
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-lfe-optics]^IO Inputs^MR1L0_Pitch_ENC&#39;</span><span class="p">}</span>
+      <span class="n">i_MR1L0_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L0</span> <span class="n">encoder</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
+         <span class="n">cMR1L0_TXI_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">11116030</span><span class="o">+</span><span class="mi">500000</span><span class="p">;</span>
+        <span class="n">cMR1L0_TXI_LowerLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">11116000</span><span class="o">-</span><span class="mi">500000</span><span class="p">;</span>
+        <span class="n">cMR1L0_L0_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">8602330</span><span class="o">+</span><span class="mi">100000</span><span class="p">;</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[PMPS_Premp]^Channel 7^MR1L0 TXI&#39;</span><span class="p">}</span>
+        <span class="n">q_MR1L0_TXI</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span> <span class="o">//</span> <span class="n">Signal</span> <span class="n">to</span> <span class="n">accel</span><span class="o">.</span> <span class="n">MPS</span> <span class="n">that</span> <span class="n">MR1L0</span> <span class="ow">is</span> <span class="n">TXI</span>
+        <span class="n">fbMR1L0VetoDevice</span> <span class="p">:</span> <span class="n">FB_LVetoDevice</span><span class="p">(</span>
+            <span class="n">eVetoDeviceIN</span> <span class="o">:=</span> <span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L0_TXI</span><span class="p">,</span>
+            <span class="n">eVetoDeviceOUT</span> <span class="o">:=</span> <span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L0_L0</span><span class="p">,</span>
+            <span class="n">sVetoDeviceName</span> <span class="o">:=</span> <span class="s1">&#39;MR1L0&#39;</span><span class="p">);</span>
+
+     <span class="o">//</span> <span class="n">MR1L1</span> <span class="n">Veto</span>
+    <span class="o">////////////////////////</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-txi-lfe-optics]^IO Inputs^MR1L1_Y_ENC&#39;</span><span class="p">}</span>
+        <span class="n">i_MR1L1_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L1</span> <span class="n">encoder</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
+        <span class="n">cMR1L1_IN_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">108500000</span><span class="p">;</span>
+        <span class="n">cMR1L1_IN_LowerLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">108600000</span><span class="p">;</span>
+        <span class="n">cMR1L1_OUT_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">9100000</span><span class="p">;</span><span class="o">//</span> <span class="n">estimated</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[PMPS_Premp]^Channel 8^MR1L1 IN&#39;</span><span class="p">}</span>
+        <span class="n">q_MR1L1_VETO</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span> <span class="o">//</span> <span class="n">Signal</span> <span class="n">to</span> <span class="n">accel</span><span class="o">.</span> <span class="n">MPS</span> <span class="n">that</span> <span class="n">MR1L1</span> <span class="ow">is</span> <span class="ow">in</span>
+        <span class="n">fbMR1L1VetoDevice</span> <span class="p">:</span> <span class="n">FB_LVetoDevice</span><span class="p">(</span>
+            <span class="n">eVetoDeviceIN</span> <span class="o">:=</span> <span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L1_IN</span><span class="p">,</span>
+            <span class="n">eVetoDeviceOUT</span> <span class="o">:=</span> <span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L1_OUT</span><span class="p">,</span>
+            <span class="n">sVetoDeviceName</span> <span class="o">:=</span> <span class="s1">&#39;MR1L1&#39;</span><span class="p">);</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">Acquiring</span> <span class="n">photon</span> <span class="n">energy</span>
 <span class="n">fbLPhotonEnergy</span><span class="p">(</span><span class="n">BP</span><span class="o">:=</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
@@ -346,6 +378,23 @@
 <span class="o">//</span> <span class="n">Watching</span> <span class="ow">and</span> <span class="n">relaying</span> <span class="n">stopper</span> <span class="n">statuses</span>
 <span class="n">st1l0Watcher</span><span class="p">(</span><span class="n">stCurrentBP</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
 <span class="n">st1l1Watcher</span><span class="p">(</span><span class="n">stCurrentBP</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">MR1L0</span> <span class="n">Veto</span>
+<span class="o">////////////////////////</span>
+   <span class="n">fbMR1L0VetoDevice</span><span class="p">(</span>
+        <span class="n">i_bIn</span> <span class="o">:=</span> <span class="n">cMR1L0_TXI_LowerLimit</span> <span class="o">&lt;</span> <span class="n">i_MR1L0_ENC</span>        <span class="n">AND</span> <span class="n">i_MR1L0_ENC</span> <span class="o">&lt;</span> <span class="n">cMR1L0_TXI_UpperLimit</span><span class="p">,</span>
+        <span class="n">i_bOut</span> <span class="o">:=</span> <span class="n">i_MR1L0_ENC</span> <span class="o">&lt;</span> <span class="n">cMR1L0_L0_UpperLimit</span><span class="p">,</span>
+        <span class="n">q_bIN</span> <span class="o">=&gt;</span> <span class="n">q_MR1L0_TXI</span><span class="p">,</span>
+        <span class="n">stCurrentBP</span><span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
+
+
+<span class="o">//</span> <span class="n">MR1L1</span> <span class="n">Veto</span>
+<span class="o">////////////////////////</span>
+   <span class="n">fbMR1L1VetoDevice</span><span class="p">(</span>
+        <span class="n">i_bIn</span> <span class="o">:=</span> <span class="n">cMR1L1_IN_LowerLimit</span> <span class="o">&lt;</span> <span class="n">i_MR1L1_ENC</span> <span class="n">AND</span> <span class="n">i_MR1L1_ENC</span> <span class="o">&lt;</span> <span class="n">cMR1L1_IN_UpperLimit</span><span class="p">,</span>
+        <span class="n">i_bOut</span> <span class="o">:=</span> <span class="n">i_MR1L1_ENC</span> <span class="o">&lt;</span> <span class="n">cMR1L1_OUT_UpperLimit</span><span class="p">,</span>
+        <span class="n">q_bIN</span> <span class="o">=&gt;</span> <span class="n">q_MR1L1_VETO</span><span class="p">,</span>
+        <span class="n">stCurrentBP</span><span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -485,6 +534,7 @@
 
 <span class="n">fbLogHandler</span><span class="p">();</span>
 
+<span class="n">P_OpticsProtection</span><span class="p">();</span>
 
 <span class="o">//</span><span class="n">FF</span>
 <span class="n">g_FastFaultOutput1</span><span class="o">.</span><span class="n">Execute</span><span class="p">();</span>
@@ -513,8 +563,33 @@
 <li><p><a class="reference internal" href="#currentbpupdate">CurrentBPUpdate</a></p></li>
 <li><p><a class="reference internal" href="#machinesimulation">MachineSimulation</a></p></li>
 <li><p><a class="reference internal" href="#pmps-arbiter">PMPS_Arbiter</a></p></li>
+<li><p><a class="reference internal" href="#p-opticsprotection">P_OpticsProtection</a></p></li>
 <li><p><a class="reference internal" href="#p-satt">P_SATT</a></p></li>
 <li><p><a class="reference internal" href="#testing">Testing</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="p-opticsprotection">
+<h2>P_OpticsProtection<a class="headerlink" href="#p-opticsprotection" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">P_OpticsProtection</span>
+<span class="n">VAR</span>
+
+    <span class="n">fbFF</span>    <span class="p">:</span>    <span class="n">FB_FastFault</span> <span class="o">:=</span><span class="p">(</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;LFE OPTICS&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Fault occurs when MR1L0 is in L0 State and MR1L1 in IN.&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#404 );</span>
+<span class="n">END_VAR</span>
+<span class="n">fbFF</span><span class="p">(</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="n">NOT</span><span class="p">(</span><span class="n">PMPS</span><span class="o">.</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">aVetoDevices</span><span class="p">[</span><span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L0_L0</span><span class="p">]</span>
+                    <span class="n">AND</span> <span class="n">PMPS</span><span class="o">.</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">aVetoDevices</span><span class="p">[</span><span class="n">PMPS</span><span class="o">.</span><span class="n">L_Stopper</span><span class="o">.</span><span class="n">MR1L1_IN</span><span class="p">]),</span>
+        <span class="n">io_fbFFHWO</span> <span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span> <span class="p">,</span> <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#gvl">GVL</a></p></li>
 </ul>
 </dd>
 </dl>
@@ -703,7 +778,7 @@
 <span class="nc">fbBeamClassWatcher</span><span class="p">(</span><span class="n">i_stCurrentBeamParams</span>    <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
                     <span class="n">i_stRequestedBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span><span class="p">,</span>
                     <span class="n">io_fbFFHWO</span><span class="o">:=</span> <span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span>
-                    <span class="n">i_xReset</span> <span class="o">:=</span> <span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
+                    <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">Keep</span> <span class="n">an</span> <span class="n">eye</span> <span class="n">on</span> <span class="n">the</span> <span class="n">photon</span> <span class="n">energy</span>
 <span class="n">fbPhotonEnergyWatcher</span><span class="p">(</span><span class="n">i_stCurrentBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="p">,</span>
@@ -764,7 +839,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

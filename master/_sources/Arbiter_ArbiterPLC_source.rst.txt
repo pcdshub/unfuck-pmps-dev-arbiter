@@ -241,6 +241,33 @@ CurrentBPUpdate
             'ST1L1');
          idx : UINT := 1;
         bcBitmask : WORD:=0;
+         // MR1L0 Veto
+        ////////////////////////
+         {attribute 'TcLinkTo' := 'TIIB[plc-lfe-optics]^IO Inputs^MR1L0_Pitch_ENC'}
+          i_MR1L0_ENC AT %I* : UDINT; // MR1L0 encoder from the rix optics system
+             cMR1L0_TXI_UpperLimit : UDINT := 11116030+500000;
+            cMR1L0_TXI_LowerLimit : UDINT := 11116000-500000;
+            cMR1L0_L0_UpperLimit : UDINT := 8602330+100000;
+            {attribute 'TcLinkTo' := 'TIIB[PMPS_Premp]^Channel 7^MR1L0 TXI'}
+            q_MR1L0_TXI AT %Q* : BOOL; // Signal to accel. MPS that MR1L0 is TXI
+            fbMR1L0VetoDevice : FB_LVetoDevice(
+                eVetoDeviceIN := L_Stopper.MR1L0_TXI,
+                eVetoDeviceOUT := L_Stopper.MR1L0_L0,
+                sVetoDeviceName := 'MR1L0');
+
+         // MR1L1 Veto
+        ////////////////////////
+            {attribute 'TcLinkTo' := 'TIIB[plc-txi-lfe-optics]^IO Inputs^MR1L1_Y_ENC'}
+            i_MR1L1_ENC AT %I* : UDINT; // MR1L1 encoder from the rix optics system
+            cMR1L1_IN_UpperLimit : UDINT := 108500000;
+            cMR1L1_IN_LowerLimit : UDINT := 108600000;
+            cMR1L1_OUT_UpperLimit : UDINT := 9100000;// estimated
+            {attribute 'TcLinkTo' := 'TIIB[PMPS_Premp]^Channel 8^MR1L1 IN'}
+            q_MR1L1_VETO AT %Q* : BOOL; // Signal to accel. MPS that MR1L1 is in
+            fbMR1L1VetoDevice : FB_LVetoDevice(
+                eVetoDeviceIN := L_Stopper.MR1L1_IN,
+                eVetoDeviceOUT := L_Stopper.MR1L1_OUT,
+                sVetoDeviceName := 'MR1L1');
     END_VAR
     // Acquiring photon energy
     fbLPhotonEnergy(BP:=PMPS_GVL.stCurrentBeamParameters);
@@ -265,6 +292,23 @@ CurrentBPUpdate
     // Watching and relaying stopper statuses
     st1l0Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
     st1l1Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
+
+    // MR1L0 Veto
+    ////////////////////////
+       fbMR1L0VetoDevice(
+            i_bIn := cMR1L0_TXI_LowerLimit < i_MR1L0_ENC	AND i_MR1L0_ENC < cMR1L0_TXI_UpperLimit,
+            i_bOut := i_MR1L0_ENC < cMR1L0_L0_UpperLimit,
+            q_bIN => q_MR1L0_TXI,
+            stCurrentBP:= PMPS_GVL.stCurrentBeamParameters);
+
+
+    // MR1L1 Veto
+    ////////////////////////
+       fbMR1L1VetoDevice(
+            i_bIn := cMR1L1_IN_LowerLimit < i_MR1L1_ENC	AND i_MR1L1_ENC < cMR1L1_IN_UpperLimit,
+            i_bOut := i_MR1L1_ENC < cMR1L1_OUT_UpperLimit,
+            q_bIN => q_MR1L1_VETO,
+            stCurrentBP:= PMPS_GVL.stCurrentBeamParameters);
 
     END_PROGRAM
 
@@ -412,6 +456,7 @@ MAIN
 
     fbLogHandler();
 
+    P_OpticsProtection();
 
     //FF
     g_FastFaultOutput1.Execute();
@@ -439,8 +484,33 @@ Related:
     * `CurrentBPUpdate`_
     * `MachineSimulation`_
     * `PMPS_Arbiter`_
+    * `P_OpticsProtection`_
     * `P_SATT`_
     * `Testing`_
+
+
+P_OpticsProtection
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM P_OpticsProtection
+    VAR
+
+        fbFF    :    FB_FastFault :=(
+            i_DevName := 'LFE OPTICS',
+            i_Desc := 'Fault occurs when MR1L0 is in L0 State and MR1L1 in IN.',
+            i_TypeCode := 16#404 );
+    END_VAR
+    fbFF(i_xOK := NOT(PMPS.PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.L_Stopper.MR1L0_L0]
+                        AND PMPS.PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.L_Stopper.MR1L1_IN]),
+            io_fbFFHWO :=GVL.g_FastFaultOutput1 , i_xAutoReset := );
+
+    END_PROGRAM
+
+
+Related:
+    * `GVL`_
 
 
 P_SATT
@@ -634,7 +704,7 @@ PMPS_Arbiter
     fbBeamClassWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,
                         i_stRequestedBeamParams := PMPS_GVL.stRequestedBeamParameters,
                         io_fbFFHWO:= GVL.g_FastFaultOutput1,
-                        i_xReset := GVL.AttemptReset);
+                        i_xAutoReset := GVL.AttemptReset);
 
     // Keep an eye on the photon energy
     fbPhotonEnergyWatcher(i_stCurrentBeamParams	:= PMPS_GVL.stCurrentBeamParameters,

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>lcls-plc-lfe-arbiter &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,7 +50,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_boxes.html">Boxes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_links.html">Links</a></li>
 </ul>
@@ -97,7 +101,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_boxes.html">Boxes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_boxes.html#plc-xrt-homs">plc-xrt-homs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_boxes.html#plc-lfe-motion">plc-lfe-motion</a></li>
@@ -136,6 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#constants">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#currentbpupdate">CurrentBPUpdate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#defaultglobals">DefaultGlobals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#generalconstants">GeneralConstants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#global-constants">Global_Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#global-variables">Global_Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#global-variables-ethercat">Global_Variables_EtherCAT</a></li>
@@ -146,9 +151,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#gvl-logger">GVL_Logger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#gvl-param-tcunit">GVL_Param_TcUnit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#gvl-tcunit">GVL_TcUnit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#lcls-general">LCLS_General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#machinesimulation">MachineSimulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#main">MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#p-opticsprotection">P_OpticsProtection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#p-satt">P_SATT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#parameterlist">ParameterList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_summary.html#pmps-arbiter">PMPS_Arbiter</a></li>
@@ -207,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#fast-faults-evaluate">Fast_Faults_Evaluate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#machinesimulation">MachineSimulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#main">MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#p-opticsprotection">P_OpticsProtection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#p-satt">P_SATT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#pmps-arbiter">PMPS_Arbiter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Arbiter_ArbiterPLC_source.html#testing">Testing</a></li>
@@ -234,7 +240,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

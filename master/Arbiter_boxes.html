@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boxes &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -21,7 +25,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Links" href="Arbiter_links.html" />
-    <link rel="prev" title="Box Hierarchy" href="Arbiter_ethercat.html" /> 
+    <link rel="prev" title="EtherCAT Terminals" href="Arbiter_ethercat.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Arbiter_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Arbiter_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Boxes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#plc-xrt-homs">plc-xrt-homs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plc-lfe-motion">plc-lfe-motion</a></li>
@@ -1787,7 +1791,7 @@
 <td><p>001cdc006400010003000000000000000000001c64010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>008ede002000010004000000000000000200008e20010000</p></td>
+<td><p>008ee6002000010004000000000000000200008e20010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001c00020100000001000000000000000000000000000000</p></td>
@@ -2015,6 +2019,12 @@
 <td></td>
 <td><p>#x6000</p></td>
 <td><p>ST_BeamParams_IO</p></td>
+</tr>
+<tr class="row-odd"><td><p>MR1L0_Pitch_ENC</p></td>
+<td></td>
+<td></td>
+<td><p>#x6000</p></td>
+<td><p>ULINT</p></td>
 </tr>
 </tbody>
 </table>
@@ -2730,7 +2740,7 @@
 <td><p>001cdc006400010003000000000000000000001c64010000</p></td>
 </tr>
 <tr class="row-even"><td><p>SyncMan</p></td>
-<td><p>008ee2002000010004000000000000000200008e20010000</p></td>
+<td><p>008ee6002000010004000000000000000200008e20010000</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fmmu</p></td>
 <td><p>0000000000000000001c00020100000001000000000000000000000000000000</p></td>
@@ -2963,7 +2973,7 @@
 <td></td>
 <td></td>
 <td><p>#x6000</p></td>
-<td><p>UDINT</p></td>
+<td><p>ULINT</p></td>
 </tr>
 </tbody>
 </table>
@@ -3567,14 +3577,14 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Arbiter_ethercat.html" class="btn btn-neutral float-left" title="Box Hierarchy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Arbiter_ethercat.html" class="btn btn-neutral float-left" title="EtherCAT Terminals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="Arbiter_links.html" class="btn btn-neutral float-right" title="Links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
