@@ -71,11 +71,11 @@ VAR
         'ST1L1');
      idx : UINT := 1;
     bcBitmask : WORD:=0;
-	 // MR1L0 Veto
+     // MR1L0 Veto
     ////////////////////////
      {attribute 'TcLinkTo' := 'TIIB[plc-lfe-optics]^IO Inputs^MR1L0_Pitch_ENC'}
       i_MR1L0_ENC AT %I* : UDINT; // MR1L0 encoder from the rix optics system
-	 	cMR1L0_TXI_UpperLimit : UDINT := 11116030+500000;
+         cMR1L0_TXI_UpperLimit : UDINT := 11116030+500000;
         cMR1L0_TXI_LowerLimit : UDINT := 11116000-500000;
         cMR1L0_L0_UpperLimit : UDINT := 8602330+100000;
         {attribute 'TcLinkTo' := 'TIIB[PMPS_Premp]^Channel 7^MR1L0 TXI'}
@@ -84,8 +84,8 @@ VAR
             eVetoDeviceIN := L_Stopper.MR1L0_TXI,
             eVetoDeviceOUT := L_Stopper.MR1L0_L0,
             sVetoDeviceName := 'MR1L0');
-	
-	 // MR1L1 Veto
+
+     // MR1L1 Veto
     ////////////////////////
         {attribute 'TcLinkTo' := 'TIIB[plc-txi-lfe-optics]^IO Inputs^MR1L1_Y_ENC'}
         i_MR1L1_ENC AT %I* : UDINT; // MR1L1 encoder from the rix optics system
@@ -93,7 +93,7 @@ VAR
         cMR1L1_IN_LowerLimit : UDINT := 108600000;
         cMR1L1_OUT_UpperLimit : UDINT := 9100000;// estimated
         {attribute 'TcLinkTo' := 'TIIB[PMPS_Premp]^Channel 8^MR1L1 IN'}
-        q_MR1L1_VETO AT %Q* : BOOL; // Signal to accel. MPS that MR1L1 is in 
+        q_MR1L1_VETO AT %Q* : BOOL; // Signal to accel. MPS that MR1L1 is in
         fbMR1L1VetoDevice : FB_LVetoDevice(
             eVetoDeviceIN := L_Stopper.MR1L1_IN,
             eVetoDeviceOUT := L_Stopper.MR1L1_OUT,
@@ -141,7 +141,7 @@ st1l1Watcher(stCurrentBP := PMPS_GVL.stCurrentBeamParameters);
         i_bOut := i_MR1L1_ENC < cMR1L1_OUT_UpperLimit,
         q_bIN => q_MR1L1_VETO,
         stCurrentBP:= PMPS_GVL.stCurrentBeamParameters);
- 
+
 ]]></ST>
     </Implementation>
   </POU>
