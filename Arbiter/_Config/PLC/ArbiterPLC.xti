@@ -1767,7 +1767,7 @@
 				<Var>
 					<Name>CurrentBPUpdate.q_MR1L1_VETO</Name>
 					<Comment>
-						<![CDATA[ Signal to accel. MPS that MR1L1 is in ]]>
+						<![CDATA[ Signal to accel. MPS that MR1L1 is in]]>
 					</Comment>
 					<Type>BOOL</Type>
 				</Var>
