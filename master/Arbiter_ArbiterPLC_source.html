@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,22 +7,18 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DUTs &mdash; pcdshub/lcls-plc-lfe-arbiter  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
       <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -330,7 +328,7 @@
      <span class="o">//</span> <span class="n">MR1L0</span> <span class="n">Veto</span>
     <span class="o">////////////////////////</span>
      <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-lfe-optics]^IO Inputs^MR1L0_Pitch_ENC&#39;</span><span class="p">}</span>
-      <span class="n">i_MR1L0_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L0</span> <span class="n">encoder</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
+      <span class="n">i_MR1L0_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L0</span> <span class="n">encoder</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
          <span class="n">cMR1L0_TXI_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">11116030</span><span class="o">+</span><span class="mi">500000</span><span class="p">;</span>
         <span class="n">cMR1L0_TXI_LowerLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">11116000</span><span class="o">-</span><span class="mi">500000</span><span class="p">;</span>
         <span class="n">cMR1L0_L0_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">8602330</span><span class="o">+</span><span class="mi">100000</span><span class="p">;</span>
@@ -344,7 +342,7 @@
      <span class="o">//</span> <span class="n">MR1L1</span> <span class="n">Veto</span>
     <span class="o">////////////////////////</span>
         <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-txi-lfe-optics]^IO Inputs^MR1L1_Y_ENC&#39;</span><span class="p">}</span>
-        <span class="n">i_MR1L1_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L1</span> <span class="n">encoder</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
+        <span class="n">i_MR1L1_ENC</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span> <span class="o">//</span> <span class="n">MR1L1</span> <span class="n">encoder</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">rix</span> <span class="n">optics</span> <span class="n">system</span>
         <span class="n">cMR1L1_IN_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">108500000</span><span class="p">;</span>
         <span class="n">cMR1L1_IN_LowerLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">108600000</span><span class="p">;</span>
         <span class="n">cMR1L1_OUT_UpperLimit</span> <span class="p">:</span> <span class="n">UDINT</span> <span class="o">:=</span> <span class="mi">9100000</span><span class="p">;</span><span class="o">//</span> <span class="n">estimated</span>
@@ -603,7 +601,7 @@
     <span class="n">q_SattArrayReq</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">ARRAY</span> <span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AUX_ATTENUATORS</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PMPS_Attenuator_IO</span><span class="p">;</span> <span class="o">//</span> <span class="n">Transmission</span> <span class="n">request</span> <span class="n">to</span> <span class="n">ALL</span> <span class="n">PLCs</span>
     <span class="o">//</span><span class="n">Per</span> <span class="n">PLC</span> <span class="n">current</span> <span class="n">satt</span> <span class="n">trans</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-lfe-motion]^IO Inputs^SattArrayStatus&#39;</span><span class="p">}</span>
-    <span class="n">i_SattArrStatus_LFE</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">ARRAY</span> <span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AUX_ATTENUATORS</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PMPS_Attenuator_IO</span><span class="p">;</span> <span class="o">//</span> <span class="n">Transmission</span> <span class="n">status</span> <span class="kn">from</span> <span class="nn">LFE</span> <span class="n">MOT</span> <span class="n">PLC</span>
+    <span class="n">i_SattArrStatus_LFE</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">ARRAY</span> <span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AUX_ATTENUATORS</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PMPS_Attenuator_IO</span><span class="p">;</span> <span class="o">//</span> <span class="n">Transmission</span> <span class="n">status</span> <span class="kn">from</span><span class="w"> </span><span class="nn">LFE</span> <span class="n">MOT</span> <span class="n">PLC</span>
 
     <span class="o">//</span> <span class="n">plc</span><span class="o">-</span><span class="n">lfe</span><span class="o">-</span><span class="n">motion</span> <span class="n">interface</span> <span class="n">diagnostics</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[plc-lfe-motion]^WcState^WcStateOut&#39;</span><span class="p">}</span>
@@ -620,7 +618,7 @@
         <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#5);</span>
 
 <span class="n">END_VAR</span>
-<span class="o">//</span> <span class="n">Send</span> <span class="n">request</span> <span class="kn">from</span> <span class="nn">this</span> <span class="n">arbiter</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">satts</span>
+<span class="o">//</span> <span class="n">Send</span> <span class="n">request</span> <span class="kn">from</span><span class="w"> </span><span class="nn">this</span> <span class="n">arbiter</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">satts</span>
 <span class="n">MEMCPY</span><span class="p">(</span> <span class="n">ADR</span><span class="p">(</span><span class="n">q_SattArrayReq</span><span class="p">)</span> <span class="p">,</span> <span class="n">ADR</span><span class="p">(</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stRequestedBeamParameters</span><span class="o">.</span><span class="n">astAttenuators</span><span class="p">)</span> <span class="p">,</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">AUX_ATTENUATORS</span> <span class="o">*</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">ST_PMPS_Attenuator_IO</span><span class="p">)</span> <span class="p">);</span>
 
 <span class="o">//</span><span class="n">TMO</span> <span class="n">motion</span> <span class="n">PLC</span> <span class="n">SATT</span> <span class="n">current</span> <span class="n">trans</span> <span class="n">update</span>
@@ -669,7 +667,7 @@
 
     <span class="p">(</span><span class="o">*</span> <span class="n">Subsystem</span> <span class="n">requests</span> <span class="n">use</span> <span class="n">this</span> <span class="n">FB</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">pragma</span> <span class="n">link</span> <span class="n">to</span> <span class="k">pass</span> <span class="n">their</span> <span class="n">requests</span> <span class="n">to</span> <span class="n">the</span> <span class="n">arbiter</span><span class="o">.</span>
     <span class="n">The</span> <span class="n">fb</span> <span class="ow">is</span> <span class="n">called</span> <span class="n">on</span> <span class="n">each</span> <span class="n">cycle</span> <span class="ow">and</span> <span class="n">updates</span> <span class="n">the</span> <span class="n">arbiter</span> <span class="k">with</span> <span class="n">the</span> <span class="n">current</span> <span class="n">BP</span> <span class="nb">set</span> <span class="n">requested</span>
-    <span class="kn">from</span> <span class="nn">the</span> <span class="n">subsystem</span> <span class="n">PLC</span><span class="o">.*</span><span class="p">)</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">subsystem</span> <span class="n">PLC</span><span class="o">.*</span><span class="p">)</span>
     <span class="o">//&lt;</span><span class="n">TODO</span><span class="o">&gt;</span> <span class="n">make</span> <span class="n">this</span> <span class="n">so</span> <span class="n">it</span> <span class="n">does</span> <span class="nb">input</span> <span class="ow">and</span> <span class="n">output</span> <span class="n">to</span> <span class="n">the</span> <span class="n">IF</span>
     <span class="p">(</span><span class="o">*</span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
     <span class="n">pv</span><span class="p">:</span> <span class="o">@</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">):</span><span class="n">PLC1</span>
@@ -762,7 +760,7 @@
 <span class="o">//</span><span class="n">XRT</span>
 <span class="n">plc_xrt_homs_PMPS_IO</span><span class="p">(</span><span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="p">,</span> <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_FastFaultOutput1</span><span class="p">,</span> <span class="n">Reset</span><span class="o">:=</span><span class="n">GVL</span><span class="o">.</span><span class="n">AttemptReset</span><span class="p">,</span> <span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;XRT OPTICS&#39;</span><span class="p">);</span>
 
-<span class="o">//</span><span class="n">Overriding</span> <span class="n">the</span> <span class="n">preemptive</span> <span class="n">requests</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">optics</span> <span class="n">systems</span> <span class="n">until</span> <span class="n">they</span> <span class="n">are</span> <span class="n">valid</span>
+<span class="o">//</span><span class="n">Overriding</span> <span class="n">the</span> <span class="n">preemptive</span> <span class="n">requests</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">optics</span> <span class="n">systems</span> <span class="n">until</span> <span class="n">they</span> <span class="n">are</span> <span class="n">valid</span>
 <span class="o">//</span><span class="n">GVL</span><span class="o">.</span><span class="n">g_fbArbiter1</span><span class="o">.</span><span class="n">RemoveRequest</span><span class="p">(</span><span class="n">nReqId</span><span class="o">:=</span><span class="n">plc_lfe_optics_PMPS_IO</span><span class="o">.</span><span class="n">RequestingSystemID</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">Beam</span> <span class="n">parameter</span> <span class="n">requestor</span>
@@ -839,7 +837,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

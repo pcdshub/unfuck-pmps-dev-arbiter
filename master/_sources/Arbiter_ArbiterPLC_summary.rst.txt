@@ -36,6 +36,7 @@ Libraries
     :header: Library, Vendor, Default, Version
     :align: center
 
+        LCLS General, SLAC, , 2.10.0
         PMPS, SLAC - LCLS, Unset, 3.2.0
         SysDir, System, , 3.5.8.0
         SysFile, System, , 3.5.9.0
